@@ -23,8 +23,38 @@ const stepFiles = [
   "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1155/output.txt",
   "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1159/output.txt",
   "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1163/output.txt",
-  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1167/output.txt"
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1167/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1414/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1422/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1426/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1430/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1434/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1438/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1442/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1446/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1450/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1458/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1462/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1466/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1470/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1474/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1478/output.txt",
+  "C:/Users/admin/.gemini/antigravity-cli/brain/b3c05281-ee1e-47e6-adff-a526d512e061/.system_generated/steps/1482/output.txt"
 ];
+
+function unpack(val: any): any {
+  if (Array.isArray(val)) {
+    if (val.length > 0 && Array.isArray(val[0]) && typeof val[0][0] === "string") {
+      const obj: any = {};
+      for (const [k, v] of val) {
+        obj[k] = unpack(v && v.value !== undefined ? v.value : v);
+      }
+      return obj;
+    }
+    return val.map(v => unpack(v && v.value !== undefined ? v.value : v));
+  }
+  return val;
+}
 
 let addedCount = 0;
 
@@ -32,29 +62,26 @@ for (const file of stepFiles) {
   if (!fs.existsSync(file)) continue;
   try {
     const raw = JSON.parse(fs.readFileSync(file, "utf-8"));
-    const items = raw.result || [];
-    for (const item of items) {
-      // item.value is an array of [key, {type, value}]
-      const obj: any = {};
-      if (Array.isArray(item.value)) {
-        for (const [k, v] of item.value) {
-          obj[k] = v.value;
-        }
-      } else if (item.url) {
-        Object.assign(obj, item);
-      }
-
+    const data = unpack(raw.result) || [];
+    const items = Array.isArray(data) ? data : (data.items || []);
+    
+    for (const obj of items) {
       if (obj.url && !existingUrls.has(obj.url)) {
         existingUrls.add(obj.url);
         const durationSec = parseDurationText(obj.durationText || "3m");
+        const slug = obj.url.split("/").pop();
+        let cleanTitle = (obj.title || "").replace(/^Solution:\s*/i, "Solution: ").replace(/^\(Locked\)\s*/i, "").trim();
+        if (!cleanTitle || cleanTitle.toLowerCase().includes("locked") || cleanTitle === "LinkedIn Learning") {
+          cleanTitle = slug.replace(/-/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase());
+        }
         existingLessons.push({
-          title: obj.title.replace(/^Solution:\s*/i, "Solution: ").replace(/^\(Locked\)\s*/i, "").trim(),
+          title: cleanTitle,
           url: obj.url,
           durationText: formatDurationText(durationSec),
           durationSeconds: durationSec,
-          courseTitle: obj.courseTitle,
-          courseUrl: obj.courseUrl,
-          category: obj.category
+          courseTitle: obj.courseTitle || data.courseTitle || "LinkedIn Learning Course",
+          courseUrl: obj.courseUrl || data.courseUrl || "",
+          category: obj.category || "react"
         });
         addedCount++;
       }

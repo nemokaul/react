@@ -438,6 +438,8 @@ const SCRAPED_LESSONS: any[] = JSON.parse(
   fs.readFileSync(path.join(__dirname, "scripts", "all_scraped_lessons.json"), "utf-8")
 );
 
+const usedVideoUrls = new Set<string>();
+
 function getActualVideo(secSlug: string, chapTitle: string, vIdx: number, chapNumber: number, keyConcepts: string[] = []) {
   const t = chapTitle.toLowerCase();
   const searchWords = [
@@ -445,57 +447,78 @@ function getActualVideo(secSlug: string, chapTitle: string, vIdx: number, chapNu
     ...keyConcepts.flatMap(k => k.toLowerCase().split(/\s+/).filter(w => w.length > 3))
   ];
 
-  // Preferred categories per section
-  const preferredCategories: Record<string, string[]> = {
-    "00-setup": ["build-modern-web-apps-with-react-hooks-state-management-and-apis-using-vite-or-next-js", "react-essential-training", "react-foundations-by-pearson"],
-    "01-fundamentals": ["rendering-data-in-react", "react-foundations-by-pearson", "react-essential-training", "react-design-patterns-25656257", "building-modern-projects-with-react-24955170"],
-    "02-hooks": ["build-modern-web-apps-with-react-hooks-state-management-and-apis-using-vite-or-next-js", "react-essential-training", "react-best-practices-by-pearson", "react-foundations-by-pearson"],
-    "03-state-and-effects": ["react-state-management-22688323", "build-modern-web-apps-with-react-hooks-state-management-and-apis-using-vite-or-next-js", "building-modern-projects-with-react-24955170"],
-    "04-forms": ["build-modern-web-apps-with-react-hooks-state-management-and-apis-using-vite-or-next-js", "rendering-data-in-react", "react-creating-and-hosting-a-full-stack-site-24928483", "react-design-patterns-25656257"],
-    "05-styling": ["tailwind-css-4-essential-training", "building-modern-projects-with-react-24955170"],
-    "06-data-fetching": ["rendering-data-in-react", "react-creating-and-hosting-a-full-stack-site-24928483", "build-modern-web-apps-with-react-hooks-state-management-and-apis-using-vite-or-next-js", "building-modern-projects-with-react-24955170"]
+  // Specific course keyword bonuses per section
+  const sectionTopicKeywords: Record<string, string[]> = {
+    "00-setup": ["vite", "environment", "setup", "tooling", "typescript", "npm", "node", "bundl", "lint", "project"],
+    "01-fundamentals": ["component", "prop", "jsx", "render", "element", "tree", "hierarchy", "list", "key", "pure"],
+    "02-hooks": ["hook", "usestate", "useeffect", "context", "reducer", "memo", "callback", "ref", "transition", "action"],
+    "03-state-and-effects": ["state", "store", "zustand", "effect", "global", "redux", "slice", "lifecycle", "atomic"],
+    "04-forms": ["form", "input", "validation", "zod", "rhf", "hook-form", "submit", "action", "control"],
+    "05-styling": ["css", "style", "tailwind", "responsive", "material", "mui", "layout", "flex", "grid", "theme"],
+    "06-data-fetching": ["fetch", "api", "query", "axios", "cache", "async", "tanstack", "mutation", "network", "client"]
   };
 
-  const allowedCats = preferredCategories[secSlug] || [];
+  const topicWords = sectionTopicKeywords[secSlug] || [];
 
-  // Filter candidate pool
-  let candidates = SCRAPED_LESSONS.filter(l => allowedCats.includes(l.category));
-  if (candidates.length < 5) candidates = SCRAPED_LESSONS;
-
-  // Score candidates
-  const scored = candidates.map(lesson => {
+  // Score all 1733 scraped lessons
+  const scored = SCRAPED_LESSONS.map(lesson => {
     let score = 0;
     const lTitle = lesson.title.toLowerCase();
     const lUrl = lesson.url.toLowerCase();
+    const cTitle = (lesson.courseTitle || "").toLowerCase();
 
+    // Check title and url matches against chapter keywords
     for (const w of searchWords) {
-      if (lTitle.includes(w)) score += 10;
-      if (lUrl.includes(w)) score += 8;
+      if (lTitle.includes(w)) score += 15;
+      if (lUrl.includes(w)) score += 10;
+      if (cTitle.includes(w)) score += 8;
     }
 
-    // Specific topic boosts
-    if (t.includes("vite") && (lTitle.includes("vite") || lUrl.includes("vite"))) score += 30;
-    if (t.includes("zustand") && (lTitle.includes("zustand") || lUrl.includes("zustand"))) score += 40;
-    if ((t.includes("form") || t.includes("rhf")) && (lTitle.includes("form") || lUrl.includes("form"))) score += 30;
-    if (t.includes("zod") && (lTitle.includes("zod") || lUrl.includes("zod") || lTitle.includes("validation"))) score += 35;
-    if ((t.includes("query") || t.includes("tanstack")) && (lTitle.includes("query") || lUrl.includes("query") || lUrl.includes("tanstack"))) score += 35;
-    if (t.includes("tailwind") && lesson.category.includes("tailwind")) score += 25;
-    if (t.includes("effect") && (lTitle.includes("effect") || lUrl.includes("effect"))) score += 30;
-    if (t.includes("reducer") && (lTitle.includes("reducer") || lUrl.includes("reducer"))) score += 30;
-    if (t.includes("context") && (lTitle.includes("context") || lUrl.includes("context"))) score += 30;
-    if (t.includes("prop") && (lTitle.includes("prop") || lUrl.includes("prop"))) score += 20;
+    // Check section topic words
+    for (const tw of topicWords) {
+      if (lTitle.includes(tw)) score += 12;
+      if (lUrl.includes(tw)) score += 8;
+      if (cTitle.includes(tw)) score += 10;
+    }
+
+    // Specific exact matches
+    if (t.includes("vite") && (lTitle.includes("vite") || lUrl.includes("vite"))) score += 40;
+    if (t.includes("zustand") && (lTitle.includes("zustand") || lUrl.includes("zustand") || cTitle.includes("state"))) score += 40;
+    if ((t.includes("form") || t.includes("rhf")) && (lTitle.includes("form") || lUrl.includes("form"))) score += 35;
+    if (t.includes("zod") && (lTitle.includes("zod") || lUrl.includes("validation") || lTitle.includes("validation"))) score += 35;
+    if ((t.includes("query") || t.includes("tanstack")) && (lTitle.includes("query") || lUrl.includes("query") || lTitle.includes("api"))) score += 35;
+    if (t.includes("tailwind") && (cTitle.includes("tailwind") || lUrl.includes("tailwind") || lTitle.includes("tailwind"))) score += 35;
+    if (t.includes("material") || t.includes("mui")) {
+      if (lTitle.includes("component") || cTitle.includes("storybook") || cTitle.includes("ui")) score += 30;
+    }
+    if (t.includes("effect") && (lTitle.includes("effect") || lUrl.includes("effect"))) score += 35;
+    if (t.includes("reducer") && (lTitle.includes("reducer") || lUrl.includes("reducer"))) score += 35;
+    if (t.includes("context") && (lTitle.includes("context") || lUrl.includes("context"))) score += 35;
+    if (t.includes("prop") && (lTitle.includes("prop") || lUrl.includes("prop"))) score += 25;
+    if (t.includes("custom hook") && (lTitle.includes("custom hook") || lUrl.includes("custom-hook"))) score += 40;
+    if (t.includes("axios") && (lTitle.includes("api") || lUrl.includes("api") || lTitle.includes("fetch"))) score += 30;
+
+    // Heavily penalize already-used URLs to encourage diversity
+    if (usedVideoUrls.has(lesson.url)) {
+      score -= 50;
+    }
 
     return { lesson, score };
   });
 
-  // Sort by score descending
+  // Sort descending by score
   scored.sort((a, b) => b.score - a.score);
 
-  // Pick candidate based on vIdx (1 or 2)
-  const chosenIndex = vIdx === 1 ? 0 : 1;
-  const picked = scored[chosenIndex] && scored[chosenIndex].score > 0 
-    ? scored[chosenIndex].lesson 
-    : candidates[(chapNumber * 2 + vIdx) % candidates.length];
+  // Pick top candidate that isn't already used if possible
+  let picked = scored[0].lesson;
+  for (const item of scored) {
+    if (!usedVideoUrls.has(item.lesson.url)) {
+      picked = item.lesson;
+      break;
+    }
+  }
+
+  usedVideoUrls.add(picked.url);
 
   return {
     title: picked.title,
@@ -604,8 +627,8 @@ for (const sec of SECTIONS) {
     if (!codeExample) {
       codeExample = `// React 19 Enterprise Implementation\nimport React from "react";\n\nexport function Component() {\n  return <div>Production Component</div>;\n}`;
     }
-    // Truncate only if very long
-    if (codeExample.length > 800) codeExample = codeExample.slice(0, 800);
+    // Preserve complete code example (up to 2500 chars)
+    if (codeExample.length > 2500) codeExample = codeExample.slice(0, 2500);
 
     // 4. PITFALLS — find mistakes / common-mistakes / pitfall / gotcha section
     let pitfalls = "";
@@ -614,7 +637,7 @@ for (const sec of SECTIONS) {
       if (/common mistake|mistake|pitfall|gotcha|warning|trap|don.t|avoid/i.test(h)) {
         // Get full sentences from this section
         const ps = sectionParas(sec).filter(p => p.length > 20);
-        if (ps.length) { pitfalls = ps.slice(0, 4).join("  "); break; }
+        if (ps.length) { pitfalls = ps.slice(0, 5).join("  "); break; }
       }
     }
     if (!pitfalls) {
@@ -622,13 +645,13 @@ for (const sec of SECTIONS) {
       const boldPitfalls = Array.from(content.matchAll(/\*\*([^*]+\.(?: [A-Z][^.]+\.){0,3})\*\*/g))
         .map(m => m[1].trim())
         .filter(p => p.length > 20)
-        .slice(0, 3);
+        .slice(0, 4);
       pitfalls = boldPitfalls.join("  ");
     }
     if (!pitfalls || pitfalls.length < 30) {
       pitfalls = `Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree.`;
     }
-    if (pitfalls.length > 800) pitfalls = pitfalls.slice(0, 800);
+    if (pitfalls.length > 2000) pitfalls = pitfalls.slice(0, 2000);
 
     // Map videos
     const videos: VideoItem[] = [];

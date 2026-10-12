@@ -13,7 +13,7 @@ build_search_index = false
 [extra]
 github_repo = "https://github.com/nemokaul/react"
 total_videos = 260
-total_duration = "20h 20m"
-total_duration_seconds = 73240
+total_duration = "25h 6m"
+total_duration_seconds = 90381
 total_sections = 7
 total_chapters = 130
