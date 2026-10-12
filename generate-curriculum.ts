@@ -384,8 +384,8 @@ function getActualOfficialReferences(title: string, secSlug: string): VideoRef[]
 
   if (secSlug === "03-state-and-effects") {
     return [
-      { label: "Zustand Official Documentation", url: "https://zustand.docs.pmnd.rs/getting-started/introduction", description: "Lightweight, un-opinionated state management with React hooks." },
-      { label: "Zustand: Slices Pattern & TypeScript", url: "https://zustand.docs.pmnd.rs/guides/slices-pattern", description: "Modular store slice architecture and typed middleware." }
+      { label: "Zustand Official Documentation: Getting Started", url: "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html", description: "Lightweight, un-opinionated state management with React hooks." },
+      { label: "Zustand: Slices Pattern & TypeScript", url: "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html", description: "Modular store slice architecture and typed middleware." }
     ];
   }
 

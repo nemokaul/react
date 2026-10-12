@@ -2839,13 +2839,13 @@ window.COURSE_DATA = {
             "category_tag": "Master React 19 and Next.js 16 with Hands-On Projects and Real-World Applications",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -2867,13 +2867,13 @@ window.COURSE_DATA = {
             "category_tag": "Build Modern Web Apps with React, Hooks, State Management, and APIs Using Vite or Next.js",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -2918,13 +2918,13 @@ window.COURSE_DATA = {
             "category_tag": "Master React 19 and Next.js 16 with Hands-On Projects and Real-World Applications",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -2946,13 +2946,13 @@ window.COURSE_DATA = {
             "category_tag": "Build Modern Web Apps with React, Hooks, State Management, and APIs Using Vite or Next.js",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -2997,13 +2997,13 @@ window.COURSE_DATA = {
             "category_tag": "Build Modern Web Apps with React, Hooks, State Management, and APIs Using Vite or Next.js",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -3025,13 +3025,13 @@ window.COURSE_DATA = {
             "category_tag": "Build Modern Web Apps with React, Hooks, State Management, and APIs Using Vite or Next.js",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -3076,13 +3076,13 @@ window.COURSE_DATA = {
             "category_tag": "Building Modern Projects with React",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -3104,13 +3104,13 @@ window.COURSE_DATA = {
             "category_tag": "Build Modern Web Apps with React, Hooks, State Management, and APIs Using Vite or Next.js",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -3155,13 +3155,13 @@ window.COURSE_DATA = {
             "category_tag": "Build Modern Web Apps with React, Hooks, State Management, and APIs Using Vite or Next.js",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -3183,13 +3183,13 @@ window.COURSE_DATA = {
             "category_tag": "Build Modern Web Apps with React, Hooks, State Management, and APIs Using Vite or Next.js",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -3234,13 +3234,13 @@ window.COURSE_DATA = {
             "category_tag": "Build Modern Web Apps with React, Hooks, State Management, and APIs Using Vite or Next.js",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -3262,13 +3262,13 @@ window.COURSE_DATA = {
             "category_tag": "Building UI Components with Storybook: Master React Components and UI Design with Storybook for Better Efficiency",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -3313,13 +3313,13 @@ window.COURSE_DATA = {
             "category_tag": "Build Modern Web Apps with React, Hooks, State Management, and APIs Using Vite or Next.js",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],
@@ -3341,13 +3341,13 @@ window.COURSE_DATA = {
             "category_tag": "Build Modern Web Apps with React, Hooks, State Management, and APIs Using Vite or Next.js",
             "references": [
               {
-                "label": "Zustand Official Documentation",
-                "url": "https://zustand.docs.pmnd.rs/getting-started/introduction",
+                "label": "Zustand Official Documentation: Getting Started",
+                "url": "https://zustand.docs.pmnd.rs/learn/getting-started/introduction.html",
                 "description": "Lightweight, un-opinionated state management with React hooks."
               },
               {
                 "label": "Zustand: Slices Pattern & TypeScript",
-                "url": "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+                "url": "https://zustand.docs.pmnd.rs/learn/guides/slices-pattern.html",
                 "description": "Modular store slice architecture and typed middleware."
               }
             ],

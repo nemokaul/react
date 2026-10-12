@@ -95,6 +95,81 @@
       .replace(/'/g, "&#039;");
   }
 
+  function renderMarkdown(str) {
+    if (!str) return "";
+    let s = String(str).trim();
+
+    // 1. Extract fenced code blocks
+    const codeBlocks = [];
+    s = s.replace(/```(?:tsx|ts|jsx|js|html|css|bash|json)?\n?([\s\S]*?)```/g, (_, code) => {
+      const idx = codeBlocks.length;
+      codeBlocks.push(`<pre class="my-2 p-3 rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa] dark:bg-[#0d1117] font-mono text-xs overflow-x-auto text-[#1f2328] dark:text-[#f0f6fc]"><code>${escapeHtml(code.trim())}</code></pre>`);
+      return `__CODE_BLOCK_${idx}__`;
+    });
+
+    // 2. Escape HTML for text portions
+    let html = escapeHtml(s);
+
+    // 3. Inline code `code`
+    html = html.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded text-[11px] font-mono bg-[#eaeef2] dark:bg-[#21262d] text-[#0969da] dark:text-[#58a6ff] border border-[#d0d7de] dark:border-[#30363d]">$1</code>');
+
+    // 4. Bold **text**
+    html = html.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-bold text-[#1f2328] dark:text-[#f0f6fc]">$1</strong>');
+
+    // 5. Italic *text*
+    html = html.replace(/\*([^*]+)\*/g, '<em class="italic">$1</em>');
+
+    // 6. Links [label](url)
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-[#0969da] dark:text-[#58a6ff] hover:underline font-semibold">$1</a>');
+
+    // 7. Paragraphs & Lists
+    const paras = html.split(/(?:\r?\n){2,}/);
+    let output = paras.map(p => {
+      p = p.trim();
+      if (!p) return "";
+      if (p.includes("__CODE_BLOCK_")) return p;
+
+      // Handle lists
+      if (p.startsWith("- ") || p.includes("\n- ") || p.startsWith("* ") || p.includes("\n* ")) {
+        const lines = p.split(/\r?\n/);
+        const listItems = [];
+        let inList = false;
+        let nonListText = [];
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
+            listItems.push(`<li class="leading-relaxed">${trimmed.slice(2)}</li>`);
+            inList = true;
+          } else {
+            if (inList) {
+              listItems.push(`<li class="leading-relaxed">${trimmed}</li>`);
+            } else {
+              nonListText.push(line);
+            }
+          }
+        }
+        let res = "";
+        if (nonListText.length) {
+          res += `<p class="leading-relaxed mb-2">${nonListText.join("<br/>")}</p>`;
+        }
+        if (listItems.length) {
+          res += `<ul class="list-disc list-inside space-y-1 my-1.5 ml-1 text-xs text-[#1f2328] dark:text-[#f0f6fc]">${listItems.join("")}</ul>`;
+        }
+        return res;
+      }
+
+      return `<p class="leading-relaxed my-1.5">${p.replace(/\r?\n/g, "<br/>")}</p>`;
+    }).join("");
+
+    // 8. Reinsert code blocks
+    codeBlocks.forEach((block, idx) => {
+      output = output.replace(`__CODE_BLOCK_${idx}__`, block);
+    });
+
+    return output;
+  }
+
   // ---------------------------------------------------------------------------
   // Calculations
   // ---------------------------------------------------------------------------
@@ -997,9 +1072,9 @@
             </svg>
             <span>Core Architectural Definition</span>
           </div>
-          <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-            ${escapeHtml(notes.definition || "Comprehensive modern React component architecture and state management.")}
-          </p>
+          <div class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
+            ${renderMarkdown(notes.definition || "Comprehensive modern React component architecture and state management.")}
+          </div>
         </div>
 
         <!-- 2. Mental Model -->
@@ -1008,9 +1083,9 @@
             <span class="text-sm">🧠</span>
             <span>Under-The-Hood Mental Model</span>
           </div>
-          <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
-            ${escapeHtml(notes.mental_model || "Components describe state transformations; React Fiber schedules declarative reconciliations against host nodes.")}
-          </p>
+          <div class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
+            ${renderMarkdown(notes.mental_model || "Components describe state transformations; React Fiber schedules declarative reconciliations against host nodes.")}
+          </div>
         </div>
 
         <!-- 3. Key Code / CLI Implementation -->
@@ -1032,9 +1107,9 @@
             <span>⚠️</span>
             <span>Common Pitfall & Production Gotchas</span>
           </div>
-          <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
-            ${escapeHtml(notes.pitfalls || "Direct DOM mutation or impure side effects during render cause hydration mismatches, duplicate executions in Strict Mode, and stale closures.")}
-          </p>
+          <div class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
+            ${renderMarkdown(notes.pitfalls || "Direct DOM mutation or impure side effects during render cause hydration mismatches, duplicate executions in Strict Mode, and stale closures.")}
+          </div>
         </div>
 
         <!-- 5. Associated LinkedIn Video Lessons -->
