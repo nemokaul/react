@@ -1,9 +1,274 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block body %}
-<div class="container mx-auto">
-    <div class="markdown">
-        {{ section.content | safe }}
+{% block content %}
+<div class="max-w-5xl mx-auto space-y-10">
+
+  <!-- Hero Section -->
+  <section class="border-b border-[#d0d7de] dark:border-[#30363d] pb-8 pt-2">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#0969da]/10 text-[#0969da] dark:text-[#58a6ff]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#0969da] dark:bg-[#58a6ff]"></span>
+        Full Curriculum Tracker
+      </span>
+      <span class="text-xs text-[#656d76] dark:text-[#8b949e]">React 19 • TypeScript Strict • Vite • Tailwind CSS • TanStack Query • Zustand • RHF & Zod</span>
     </div>
+
+    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">
+      React & Modern Web Mastery Track
+    </h1>
+    <p class="text-sm sm:text-base text-[#656d76] dark:text-[#8b949e] max-w-3xl leading-relaxed">
+      A comprehensive production curriculum mapping core concepts to <strong>260 curated LinkedIn Learning videos</strong> and <strong>verified official React 19 & TypeScript documentation references</strong> across 7 structured modules with <strong>130 chapters</strong>.
+    </p>
+
+    <!-- Quick CTAs -->
+    <div class="flex flex-wrap items-center gap-3 mt-6">
+      <a href="{{ get_url(path="sections/00-setup") }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0969da] hover:bg-[#085ec4] text-white text-xs font-semibold shadow-xs transition-colors">
+        <span>Start Learning §00 (Vite & Setup)</span>
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+
+      <button type="button" onclick="document.getElementById('search-trigger-btn').click()" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa] dark:bg-[#161b22] hover:bg-[#eaeef2] dark:hover:bg-[#21262d] text-xs font-semibold text-[#1f2328] dark:text-[#f0f6fc] transition-colors cursor-pointer">
+        <svg class="w-3.5 h-3.5 text-[#656d76] dark:text-[#8b949e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <span>Search Video Lessons (Ctrl+K)</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Bento Grid Course Progress Dashboard -->
+  <section class="space-y-4">
+    <div class="flex items-center justify-between">
+      <h2 class="text-sm font-bold uppercase tracking-wider text-[#656d76] dark:text-[#8b949e]">
+        Overall Course Analytics
+      </h2>
+      <span class="text-xs text-[#656d76] dark:text-[#8b949e]">Updated in real-time</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <!-- Metric 1: Completed Videos Count -->
+      <div class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#161b22]/60">
+        <div class="flex items-center justify-between text-xs text-[#656d76] dark:text-[#8b949e] mb-1">
+          <span class="font-medium">Completed Videos</span>
+          <span class="text-emerald-600 dark:text-emerald-400 font-bold">Count</span>
+        </div>
+        <div class="text-2xl font-extrabold tracking-tight">
+          <span id="dash-completed-videos" class="text-[#238636] dark:text-[#3fb950]">0</span>
+          <span class="text-sm font-normal text-[#656d76] dark:text-[#8b949e]">/ {{ config.extra.total_videos }}</span>
+        </div>
+        <p class="text-[11px] text-[#656d76] dark:text-[#8b949e] mt-1.5">
+          Marked complete across 7 modules
+        </p>
+      </div>
+
+      <!-- Metric 2: Completed Runtime (Time) -->
+      <div class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#161b22]/60">
+        <div class="flex items-center justify-between text-xs text-[#656d76] dark:text-[#8b949e] mb-1">
+          <span class="font-medium">Completed Time</span>
+          <span class="text-emerald-600 dark:text-emerald-400 font-bold">Runtime</span>
+        </div>
+        <div class="text-2xl font-extrabold tracking-tight font-mono">
+          <span id="dash-completed-time" class="text-[#238636] dark:text-[#3fb950]">0m</span>
+          <span class="text-sm font-normal font-sans text-[#656d76] dark:text-[#8b949e]">/ {{ config.extra.total_duration }}</span>
+        </div>
+        <p class="text-[11px] text-[#656d76] dark:text-[#8b949e] mt-1.5">
+          Aggregated video lesson duration
+        </p>
+      </div>
+
+      <!-- Metric 3: In Progress (Count & Time) -->
+      <div class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#161b22]/60">
+        <div class="flex items-center justify-between text-xs text-[#656d76] dark:text-[#8b949e] mb-1">
+          <span class="font-medium">In Progress</span>
+          <span class="text-amber-600 dark:text-amber-400 font-bold">Active</span>
+        </div>
+        <div class="text-2xl font-extrabold tracking-tight">
+          <span id="dash-inprogress-videos" class="text-[#9a6700] dark:text-[#e3b341]">0</span>
+          <span class="text-sm font-normal text-[#656d76] dark:text-[#8b949e]">videos</span>
+        </div>
+        <p class="text-[11px] text-[#9a6700] dark:text-[#e3b341] font-mono mt-1.5">
+          <span id="dash-inprogress-time">0m</span> active study time
+        </p>
+      </div>
+
+      <!-- Metric 4: Progress Percentage -->
+      <div class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#161b22]/60">
+        <div class="flex items-center justify-between text-xs text-[#656d76] dark:text-[#8b949e] mb-1">
+          <span class="font-medium">Curriculum Completion</span>
+          <span class="text-[#0969da] dark:text-[#58a6ff] font-bold">Total</span>
+        </div>
+        <div class="text-2xl font-extrabold tracking-tight font-mono">
+          <span id="dash-completed-pct" class="text-[#238636] dark:text-[#3fb950]">0%</span>
+        </div>
+        <div class="w-full h-1.5 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden mt-2 border border-[#d0d7de]/50 dark:border-[#30363d]/50">
+          <div id="dash-progress-bar" class="h-full bg-[#238636] transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Module Cards by Part -->
+  {% set sections_data = get_section(path="sections/_index.md") %}
+
+  <!-- Part 1: React & Tooling Foundations -->
+  <section class="space-y-4">
+    <div class="border-b border-[#d0d7de] dark:border-[#30363d] pb-2">
+      <h2 class="text-base font-bold text-[#1f2328] dark:text-[#f0f6fc] flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#0969da]/10 text-[#0969da] dark:text-[#58a6ff]">Part 1</span>
+        <span>React & Tooling Foundations</span>
+      </h2>
+      <p class="text-xs text-[#656d76] dark:text-[#8b949e] mt-0.5">
+        Vite setup, modern web bundling, TypeScript strict configurations, Components, Props, and JSX rendering mechanics.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {% for s in sections_data.pages %}
+        {% if s.extra.part == 1 %}
+          <div class="p-5 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] hover:border-[#0969da]/60 dark:hover:border-[#58a6ff]/60 transition-all flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#0969da]/10 text-[#0969da] dark:text-[#58a6ff]">
+                  §{{ s.extra.section_number }}
+                </span>
+                <span class="text-xs font-mono text-[#656d76] dark:text-[#8b949e]">
+                  {{ s.extra.chapters | length }} Chapters • {{ s.extra.total_videos }} Videos
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-[#1f2328] dark:text-[#f0f6fc] mb-1.5">
+                <a href="{{ s.permalink }}" class="hover:text-[#0969da] dark:hover:text-[#58a6ff] transition-colors">
+                  {{ s.title }}
+                </a>
+              </h3>
+              <p class="text-xs text-[#656d76] dark:text-[#8b949e] line-clamp-2 leading-relaxed">
+                Comprehensive video curriculum and official references covering all key concepts with interactive Pop-up Summary Notes and Ask AI.
+              </p>
+            </div>
+
+            <div class="pt-4 mt-4 border-t border-[#d0d7de]/50 dark:border-[#30363d]/50 flex items-center justify-between text-xs">
+              <span class="font-mono text-[#656d76] dark:text-[#8b949e]" data-section-stats-id="{{ s.extra.section_id }}" data-stats-mode="count">
+                0/{{ s.extra.total_videos }} completed
+              </span>
+              <a href="{{ s.permalink }}" class="font-semibold text-[#0969da] dark:text-[#58a6ff] hover:underline flex items-center gap-1">
+                <span>View Section</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Part 2: Reactive State, Hooks & Forms -->
+  <section class="space-y-4">
+    <div class="border-b border-[#d0d7de] dark:border-[#30363d] pb-2">
+      <h2 class="text-base font-bold text-[#1f2328] dark:text-[#f0f6fc] flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#0969da]/10 text-[#0969da] dark:text-[#58a6ff]">Part 2</span>
+        <span>Reactive State, Hooks & Forms</span>
+      </h2>
+      <p class="text-xs text-[#656d76] dark:text-[#8b949e] mt-0.5">
+        Core React hooks, component re-renders, Zustand global state management, React Hook Form, and Zod type-safe schema validation.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {% for s in sections_data.pages %}
+        {% if s.extra.part == 2 %}
+          <div class="p-5 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] hover:border-[#0969da]/60 dark:hover:border-[#58a6ff]/60 transition-all flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#0969da]/10 text-[#0969da] dark:text-[#58a6ff]">
+                  §{{ s.extra.section_number }}
+                </span>
+                <span class="text-xs font-mono text-[#656d76] dark:text-[#8b949e]">
+                  {{ s.extra.chapters | length }} Chapters • {{ s.extra.total_videos }} Videos
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-[#1f2328] dark:text-[#f0f6fc] mb-1.5">
+                <a href="{{ s.permalink }}" class="hover:text-[#0969da] dark:hover:text-[#58a6ff] transition-colors">
+                  {{ s.title }}
+                </a>
+              </h3>
+              <p class="text-xs text-[#656d76] dark:text-[#8b949e] line-clamp-2 leading-relaxed">
+                In-depth interactive video lessons and verified official documentation references with Pop-up Summary Notes and Ask AI.
+              </p>
+            </div>
+
+            <div class="pt-4 mt-4 border-t border-[#d0d7de]/50 dark:border-[#30363d]/50 flex items-center justify-between text-xs">
+              <span class="font-mono text-[#656d76] dark:text-[#8b949e]" data-section-stats-id="{{ s.extra.section_id }}" data-stats-mode="count">
+                0/{{ s.extra.total_videos }} completed
+              </span>
+              <a href="{{ s.permalink }}" class="font-semibold text-[#0969da] dark:text-[#58a6ff] hover:underline flex items-center gap-1">
+                <span>View Section</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Part 3: UI Systems & Server Communication -->
+  <section class="space-y-4">
+    <div class="border-b border-[#d0d7de] dark:border-[#30363d] pb-2">
+      <h2 class="text-base font-bold text-[#1f2328] dark:text-[#f0f6fc] flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#0969da]/10 text-[#0969da] dark:text-[#58a6ff]">Part 3</span>
+        <span>UI Systems & Server Communication</span>
+      </h2>
+      <p class="text-xs text-[#656d76] dark:text-[#8b949e] mt-0.5">
+        Tailwind CSS v3/v4 utility catalog, Material UI component library & themes, Axios HTTP client, and TanStack React Query server state.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {% for s in sections_data.pages %}
+        {% if s.extra.part == 3 %}
+          <div class="p-5 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] hover:border-[#0969da]/60 dark:hover:border-[#58a6ff]/60 transition-all flex flex-col justify-between shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#0969da]/10 text-[#0969da] dark:text-[#58a6ff]">
+                  §{{ s.extra.section_number }}
+                </span>
+                <span class="text-xs font-mono text-[#656d76] dark:text-[#8b949e]">
+                  {{ s.extra.chapters | length }} Chapters • {{ s.extra.total_videos }} Videos
+                </span>
+              </div>
+              <h3 class="text-base font-bold text-[#1f2328] dark:text-[#f0f6fc] mb-1.5">
+                <a href="{{ s.permalink }}" class="hover:text-[#0969da] dark:hover:text-[#58a6ff] transition-colors">
+                  {{ s.title }}
+                </a>
+              </h3>
+              <p class="text-xs text-[#656d76] dark:text-[#8b949e] line-clamp-2 leading-relaxed">
+                Full module walkthrough featuring official documentation links, interactive checkboxes, Pop-up Summary Notes, and Ask AI deep-dives.
+              </p>
+            </div>
+
+            <div class="pt-4 mt-4 border-t border-[#d0d7de]/50 dark:border-[#30363d]/50 flex items-center justify-between text-xs">
+              <span class="font-mono text-[#656d76] dark:text-[#8b949e]" data-section-stats-id="{{ s.extra.section_id }}" data-stats-mode="count">
+                0/{{ s.extra.total_videos }} completed
+              </span>
+              <a href="{{ s.permalink }}" class="font-semibold text-[#0969da] dark:text-[#58a6ff] hover:underline flex items-center gap-1">
+                <span>View Section</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
 </div>
-{% endblock body %}
+{% endblock content %}

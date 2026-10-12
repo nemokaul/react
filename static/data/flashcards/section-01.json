@@ -1,0 +1,3574 @@
+{
+  "deckId": "section-01",
+  "title": "Module §1: Components, Props & JSX Architecture - Complete Review Deck",
+  "chapterId": "all",
+  "sectionId": "section-01",
+  "description": "Comprehensive review deck covering all chapters of Components, Props & JSX Architecture (108 questions).",
+  "totalCards": 108,
+  "cards": [
+    {
+      "id": "mcq-01-001-01",
+      "concept": "A page built from function calls, not from bricklaying",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Components and Props?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Components and Props adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "<body>\n  <div id=\"root\"></div>\n  <script type=\"module\" src=\"/src/main.tsx\"></script>\n</body>",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-001 / react.dev"
+    },
+    {
+      "id": "mcq-01-001-02",
+      "concept": "Function components",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Components and Props, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "<body>\n  <div id=\"root\"></div>\n  <script type=\"module\" src=\"/src/main.tsx\"></script>\n</body>",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-001-03",
+      "concept": "Props: the read-only input to a function component",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Components and Props?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ComponentsandPropsProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-001-04",
+      "concept": "Component nesting and the component tree",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Components and Props?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-002-01",
+      "concept": "Given",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Implement From Scratch: `StatusBadge`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Implement From Scratch: `StatusBadge` adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "<StatusBadge status={null} />",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-002 / react.dev"
+    },
+    {
+      "id": "mcq-01-002-02",
+      "concept": "Spec",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Implement From Scratch: `StatusBadge`, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "<StatusBadge status={null} />",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-002-03",
+      "concept": "Expected output",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Implement From Scratch: `StatusBadge`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ImplementFromScratchStatusBadgeProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-002-04",
+      "concept": "What must compile",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Implement From Scratch: `StatusBadge`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-003-01",
+      "concept": "Given",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Real World: Refactor `ProfilePage` Into a Proper Component Tree?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Real World: Refactor `ProfilePage` Into a Proper Component Tree adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "// React 19 TypeScript Implementation\nimport React from \"react\";\n\nexport function Component() {\n  return <div>Real World: Refactor `ProfilePage` Into a Proper Component Tree</div>;\n}",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-003 / react.dev"
+    },
+    {
+      "id": "mcq-01-003-02",
+      "concept": "Task",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Real World: Refactor `ProfilePage` Into a Proper Component Tree, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "// React 19 TypeScript Implementation\nimport React from \"react\";\n\nexport function Component() {\n  return <div>Real World: Refactor `ProfilePage` Into a Proper Component Tree</div>;\n}",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-003-03",
+      "concept": "Expected output",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Real World: Refactor `ProfilePage` Into a Proper Component Tree?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface RealWorldRefactorProfilePageIntoaProperComponentTreeProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-003-04",
+      "concept": "What must compile",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Real World: Refactor `ProfilePage` Into a Proper Component Tree?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-004-01",
+      "concept": "1. Hook: a UI recipe",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing JSX and Rendering?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "JSX and Rendering adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "flowchart LR\n  A[props or state] --> B[call function component]\n  B --> C[JSX element tree]\n  C --> D[React updates DOM]",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-004 / react.dev"
+    },
+    {
+      "id": "mcq-01-004-02",
+      "concept": "2. The concept",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with JSX and Rendering, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "flowchart LR\n  A[props or state] --> B[call function component]\n  B --> C[JSX element tree]\n  C --> D[React updates DOM]",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-004-03",
+      "concept": "3. Minimal example",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing JSX and Rendering?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface JSXandRenderingProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-004-04",
+      "concept": "4. Predict the render",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with JSX and Rendering?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-005-01",
+      "concept": "Real World: Book Review Spotlight Card Architecture",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Real World: Book Review Spotlight Card?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Real World: Book Review Spotlight Card adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "type BookReview = { id: string; title: string; author: string; rating: number; isRead: boolean };",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-005 / react.dev"
+    },
+    {
+      "id": "mcq-01-005-02",
+      "concept": "Real World: Book Review Spotlight Card Invariants",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Real World: Book Review Spotlight Card, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "type BookReview = { id: string; title: string; author: string; rating: number; isRead: boolean };",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-005-03",
+      "concept": "Real World: Book Review Spotlight Card Execution",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Real World: Book Review Spotlight Card?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface RealWorldBookReviewSpotlightCardProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-005-04",
+      "concept": "Real World: Book Review Spotlight Card Edge Cases",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Real World: Book Review Spotlight Card?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-006-01",
+      "concept": "Now With TypeScript: Reusable `ReadToggle` Architecture",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Now With TypeScript: Reusable `ReadToggle`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Now With TypeScript: Reusable `ReadToggle` adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "// React 19 TypeScript Implementation\nimport React from \"react\";\n\nexport function Component() {\n  return <div>Now With TypeScript: Reusable `ReadToggle`</div>;\n}",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-006 / react.dev"
+    },
+    {
+      "id": "mcq-01-006-02",
+      "concept": "Now With TypeScript: Reusable `ReadToggle` Invariants",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Now With TypeScript: Reusable `ReadToggle`, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "// React 19 TypeScript Implementation\nimport React from \"react\";\n\nexport function Component() {\n  return <div>Now With TypeScript: Reusable `ReadToggle`</div>;\n}",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-006-03",
+      "concept": "Now With TypeScript: Reusable `ReadToggle` Execution",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Now With TypeScript: Reusable `ReadToggle`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface NowWithTypeScriptReusableReadToggleProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-006-04",
+      "concept": "Now With TypeScript: Reusable `ReadToggle` Edge Cases",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Now With TypeScript: Reusable `ReadToggle`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-007-01",
+      "concept": "A menu, not the whole cookbook",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Pagination Query Parameters?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Pagination Query Parameters adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "type PaginationMeta = {\n  page: number;\n  limit: number;\n  total: number;\n  totalPages: number;\n  hasNext: boolean;\n  hasPrev: boolean;\n};\n\nfunction buildPaginationMeta(total: number, page: number, limit: number): PaginationMeta {\n  const clampedLimit = Math.min(Math.max(limit, 1), 100);\n  const totalPages = Math.ceil(total / clampedLimit);\n  return {\n    page,\n    limit: clampedLimit,\n    total,\n    totalPages,\n    hasNext: page < totalPages,\n    hasPrev: page > 1,\n  };\n}",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-007 / react.dev"
+    },
+    {
+      "id": "mcq-01-007-02",
+      "concept": "The concept: page, limit, and the metadata a client needs back",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Pagination Query Parameters, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "type PaginationMeta = {\n  page: number;\n  limit: number;\n  total: number;\n  totalPages: number;\n  hasNext: boolean;\n  hasPrev: boolean;\n};\n\nfunction buildPaginationMeta(total: number, page: number, limit: number): PaginationMeta {\n  const clampedLimit = Math.min(Math.max(limit, 1), 100);\n  const totalPages = Math.ceil(total / clampedLimit);\n  return {\n    page,\n    limit: clampedLimit,\n    total,\n    totalPages,\n    hasNext: page < totalPages,\n    hasPrev: page > 1,\n  };\n}",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-007-03",
+      "concept": "Minimal example: rendering one page",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Pagination Query Parameters?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface PaginationQueryParametersProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-007-04",
+      "concept": "Predict the render",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Pagination Query Parameters?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-008-01",
+      "concept": "Given",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Now With TypeScript: Typing `buildPaginationMeta` and `PaginatedList`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Now With TypeScript: Typing `buildPaginationMeta` and `PaginatedList` adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "// React 19 TypeScript Implementation\nimport React from \"react\";\n\nexport function Component() {\n  return <div>Now With TypeScript: Typing `buildPaginationMeta` and `PaginatedList`</div>;\n}",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-008 / react.dev"
+    },
+    {
+      "id": "mcq-01-008-02",
+      "concept": "Requirements",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Now With TypeScript: Typing `buildPaginationMeta` and `PaginatedList`, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "// React 19 TypeScript Implementation\nimport React from \"react\";\n\nexport function Component() {\n  return <div>Now With TypeScript: Typing `buildPaginationMeta` and `PaginatedList`</div>;\n}",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-008-03",
+      "concept": "Expected output / test cases",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Now With TypeScript: Typing `buildPaginationMeta` and `PaginatedList`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface NowWithTypeScriptTypingbuildPaginationMetaandPaginatedListProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-008-04",
+      "concept": "What must compile",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Now With TypeScript: Typing `buildPaginationMeta` and `PaginatedList`?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-009-01",
+      "concept": "Task A: `MetaRow`",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Warm-Up: Two Small Components, Four Quick Facts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Warm-Up: Two Small Components, Four Quick Facts adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "<dt>Author</dt>\n<dd>Ursula K. Le Guin</dd>",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-009 / react.dev"
+    },
+    {
+      "id": "mcq-01-009-02",
+      "concept": "Task B: `MetaList`",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Warm-Up: Two Small Components, Four Quick Facts, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "<dt>Author</dt>\n<dd>Ursula K. Le Guin</dd>",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-009-03",
+      "concept": "Task C: quick facts (no code, one sentence each)",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Warm-Up: Two Small Components, Four Quick Facts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface WarmUpTwoSmallComponentsFourQuickFactsProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-009-04",
+      "concept": "Warm-Up: Two Small Components, Four Quick Facts Edge Cases",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Warm-Up: Two Small Components, Four Quick Facts?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-010-01",
+      "concept": "A kitchen that gets renovated twice a decade, not every Tuesday",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing React Major Version Policy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "React Major Version Policy adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "flowchart LR\n    v15[\"React 15\\n(April 2016)\"] --> v16[\"React 16\\n(September 2017)\"]\n    v16 --> v17[\"React 17\\n(October 2020)\"]\n    v17 --> v18[\"React 18\\n(March 2022)\"]\n    v18 --> v19[\"React 19\\n(December 2024)\"]\n    v19 --> v192[\"React 19.2\\nthis course\"]",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-010 / react.dev"
+    },
+    {
+      "id": "mcq-01-010-02",
+      "concept": "The concept: a major version bump is the only place breaking changes are allowed to live",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with React Major Version Policy, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "flowchart LR\n    v15[\"React 15\\n(April 2016)\"] --> v16[\"React 16\\n(September 2017)\"]\n    v16 --> v17[\"React 17\\n(October 2020)\"]\n    v17 --> v18[\"React 18\\n(March 2022)\"]\n    v18 --> v19[\"React 19\\n(December 2024)\"]\n    v19 --> v192[\"React 19.2\\nthis course\"]",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-010-03",
+      "concept": "Minimal example: reading a version range in `package.json`",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing React Major Version Policy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ReactMajorVersionPolicyProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-010-04",
+      "concept": "Predict the upgrade",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with React Major Version Policy?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-011-01",
+      "concept": "Task A: `parseSemVer` and `isMajorBump`",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Warm-Up: Version Facts, State Facts, One Small Component?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Warm-Up: Version Facts, State Facts, One Small Component adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "export interface SemVer {\n  major: number;\n  minor: number;\n  patch: number;\n}\n\nexport function parseSemVer(version: string): SemVer;\n\nexport function isMajorBump(from: string, to: string): boolean;",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-011 / react.dev"
+    },
+    {
+      "id": "mcq-01-011-02",
+      "concept": "Task B: React ecosystem reference data",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Warm-Up: Version Facts, State Facts, One Small Component, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "export interface SemVer {\n  major: number;\n  minor: number;\n  patch: number;\n}\n\nexport function parseSemVer(version: string): SemVer;\n\nexport function isMajorBump(from: string, to: string): boolean;",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-011-03",
+      "concept": "Task C: `classifyState`",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Warm-Up: Version Facts, State Facts, One Small Component?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface WarmUpVersionFactsStateFactsOneSmallComponentProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-011-04",
+      "concept": "Task D: `InfoCard`",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Warm-Up: Version Facts, State Facts, One Small Component?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-012-01",
+      "concept": "Predict, then check your answers",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Prediction: A Root Component That Does Everything?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Prediction: A Root Component That Does Everything adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "// package.json (excerpt)\n{\n  \"dependencies\": {\n    \"react\": \"^18.2.0\",\n    \"react-dom\": \"^18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  }\n}",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-012 / react.dev"
+    },
+    {
+      "id": "mcq-01-012-02",
+      "concept": "Prediction: A Root Component That Does Everything Invariants",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Prediction: A Root Component That Does Everything, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "// package.json (excerpt)\n{\n  \"dependencies\": {\n    \"react\": \"^18.2.0\",\n    \"react-dom\": \"^18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  }\n}",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-012-03",
+      "concept": "Prediction: A Root Component That Does Everything Execution",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Prediction: A Root Component That Does Everything?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface PredictionARootComponentThatDoesEverythingProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-012-04",
+      "concept": "Prediction: A Root Component That Does Everything Edge Cases",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Prediction: A Root Component That Does Everything?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-013-01",
+      "concept": "A doorbell, not a script",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing React Event Handlers?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "React Event Handlers adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "function Greeting() {\n  function handleClick() {\n    console.log(\"button clicked\");\n  }\n\n  return <button onClick={handleClick}>Say hi</button>;\n}",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-013 / react.dev"
+    },
+    {
+      "id": "mcq-01-013-02",
+      "concept": "The concept: functions wired through props, invoked later",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with React Event Handlers, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "function Greeting() {\n  function handleClick() {\n    console.log(\"button clicked\");\n  }\n\n  return <button onClick={handleClick}>Say hi</button>;\n}",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-013-03",
+      "concept": "Why function components sidestep the `this` problem",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing React Event Handlers?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ReactEventHandlersProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-013-04",
+      "concept": "Typed synthetic events",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with React Event Handlers?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-014-01",
+      "concept": "Problem 005.1: Predict Event Timing Architecture",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Problem 005.1: Predict Event Timing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Problem 005.1: Predict Event Timing adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "import type { MouseEvent } from 'react';\n\nexport default function DownloadPanel() {\n  function handleDownload(event: MouseEvent<HTMLButtonElement>) {\n    window.alert(`${event.currentTarget.name}: started`);\n  }\n\n  function handleCancel() {\n    window.alert('cancelled');\n  }\n\n  return (\n    <section>\n      <h2>Report</h2>\n      <button name=\"quarterly-report\" onClick={handleDownload}>\n        Download\n      </button>\n      <button onClick={() => handleCancel()}>Cancel</button>\n    </section>\n  );\n}",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-014 / react.dev"
+    },
+    {
+      "id": "mcq-01-014-02",
+      "concept": "Problem 005.1: Predict Event Timing Invariants",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Problem 005.1: Predict Event Timing, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "import type { MouseEvent } from 'react';\n\nexport default function DownloadPanel() {\n  function handleDownload(event: MouseEvent<HTMLButtonElement>) {\n    window.alert(`${event.currentTarget.name}: started`);\n  }\n\n  function handleCancel() {\n    window.alert('cancelled');\n  }\n\n  return (\n    <section>\n      <h2>Report</h2>\n      <button name=\"quarterly-report\" onClick={handleDownload}>\n        Download\n      </button>\n      <button onClick={() => handleCancel()}>Cancel</button>\n    </section>\n  );\n}",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-014-03",
+      "concept": "Problem 005.1: Predict Event Timing Execution",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Problem 005.1: Predict Event Timing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ProblemPredictEventTimingProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-014-04",
+      "concept": "Problem 005.1: Predict Event Timing Edge Cases",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Problem 005.1: Predict Event Timing?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-015-01",
+      "concept": "API",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Problem 005.2: Build an Intent-Based Action Panel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Problem 005.2: Build an Intent-Based Action Panel adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "type ActionPanelProps = {\n  title: string;\n  onPublish: () => void;\n  onSaveDraft: () => void;\n};",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-015 / react.dev"
+    },
+    {
+      "id": "mcq-01-015-02",
+      "concept": "Problem 005.2: Build an Intent-Based Action Panel Invariants",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Problem 005.2: Build an Intent-Based Action Panel, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "type ActionPanelProps = {\n  title: string;\n  onPublish: () => void;\n  onSaveDraft: () => void;\n};",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-015-03",
+      "concept": "Problem 005.2: Build an Intent-Based Action Panel Execution",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Problem 005.2: Build an Intent-Based Action Panel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ProblemBuildanIntentBasedActionPanelProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-015-04",
+      "concept": "Problem 005.2: Build an Intent-Based Action Panel Edge Cases",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Problem 005.2: Build an Intent-Based Action Panel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-016-01",
+      "concept": "Draw the blueprint before you frame the house",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Domain-first data model planning?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Domain-first data model planning adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "type ID = string;\n\ninterface User {\n  id: ID;\n  name: string;\n  email: string;\n  avatarUrl: string | null;\n}\n\ninterface Idea {\n  id: ID;\n  title: string;\n  summary: string;\n  authorId: ID; // -> User.id\n  tags: string[];\n  reviewIds: ID[]; // -> Review.id\n}\n\ninterface Review {\n  id: ID;\n  ideaId: ID; // -> Idea.id\n  reviewerId: ID; // -> User.id\n  rating: 1 | 2 | 3 | 4 | 5;\n  comment: string;\n}",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-016 / react.dev"
+    },
+    {
+      "id": "mcq-01-016-02",
+      "concept": "The concept: model the entities, then everything else",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Domain-first data model planning, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "type ID = string;\n\ninterface User {\n  id: ID;\n  name: string;\n  email: string;\n  avatarUrl: string | null;\n}\n\ninterface Idea {\n  id: ID;\n  title: string;\n  summary: string;\n  authorId: ID; // -> User.id\n  tags: string[];\n  reviewIds: ID[]; // -> Review.id\n}\n\ninterface Review {\n  id: ID;\n  ideaId: ID; // -> Idea.id\n  reviewerId: ID; // -> User.id\n  rating: 1 | 2 | 3 | 4 | 5;\n  comment: string;\n}",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-016-03",
+      "concept": "From model to component tree",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Domain-first data model planning?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface DomainfirstdatamodelplanningProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-016-04",
+      "concept": "Composition: extract units, wrap what you don't own",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Domain-first data model planning?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-017-01",
+      "concept": "Given",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Implement From Scratch: model the ideas board, then render it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Implement From Scratch: model the ideas board, then render it adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "export type ID = string;\nexport type Optional<T> = T | null;\n\nexport interface User {\n  id: ID;\n  name: string;\n  email: string;\n  avatarUrl: Optional<string>;\n}\n\nexport interface Idea {\n  id: ID;\n  title: string;\n  summary: string;\n  authorId: ID; // references User.id\n  tags: string[];\n  reviewIds: ID[]; // references Review.id\n}\n\nexport interface Review {\n  id: ID;\n  ideaId: ID; // references Idea.id\n  reviewerId: ID; // references User.id\n  rating: 1 | 2 | 3 | 4 | 5;\n  comment: string;\n}",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-017 / react.dev"
+    },
+    {
+      "id": "mcq-01-017-02",
+      "concept": "Spec",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Implement From Scratch: model the ideas board, then render it, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "export type ID = string;\nexport type Optional<T> = T | null;\n\nexport interface User {\n  id: ID;\n  name: string;\n  email: string;\n  avatarUrl: Optional<string>;\n}\n\nexport interface Idea {\n  id: ID;\n  title: string;\n  summary: string;\n  authorId: ID; // references User.id\n  tags: string[];\n  reviewIds: ID[]; // references Review.id\n}\n\nexport interface Review {\n  id: ID;\n  ideaId: ID; // references Idea.id\n  reviewerId: ID; // references User.id\n  rating: 1 | 2 | 3 | 4 | 5;\n  comment: string;\n}",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-017-03",
+      "concept": "What must compile, and what must not",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Implement From Scratch: model the ideas board, then render it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ImplementFromScratchmodeltheideasboardthenrenderitProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-017-04",
+      "concept": "Acceptance behaviour",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Implement From Scratch: model the ideas board, then render it?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-018-01",
+      "concept": "Given",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Real-World: plan a feature slice around the model?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Real-World: plan a feature slice around the model adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "export function indexById<T extends { id: string }>(items: readonly T[]): Record<string, T>;",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-018 / react.dev"
+    },
+    {
+      "id": "mcq-01-018-02",
+      "concept": "Part A — Generic lookup with a constraint",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Real-World: plan a feature slice around the model, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "export function indexById<T extends { id: string }>(items: readonly T[]): Record<string, T>;",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-018-03",
+      "concept": "Part B — Per-entity cache policy (legacy Next.js fetch options)",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Real-World: plan a feature slice around the model?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface RealWorldplanafeatureslicearoundthemodelProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-018-04",
+      "concept": "Part C — The feature module boundary",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Real-World: plan a feature slice around the model?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-019-01",
+      "concept": "Before you start",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Headless UI: behavior without a forced visual design?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Headless UI: behavior without a forced visual design adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "flowchart LR\n  U[Keyboard, pointer, screen reader] --> B[Headless behavior]\n  B --> A[Focus and ARIA state]\n  B --> S[Open, active, selected state]\n  A --> M[Rendered DOM]\n  S --> M\n  C[Your classes and layout] --> M",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-019 / react.dev"
+    },
+    {
+      "id": "mcq-01-019-02",
+      "concept": "1. Hook: borrow the kitchen, choose the furniture",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Headless UI: behavior without a forced visual design, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "flowchart LR\n  U[Keyboard, pointer, screen reader] --> B[Headless behavior]\n  B --> A[Focus and ARIA state]\n  B --> S[Open, active, selected state]\n  A --> M[Rendered DOM]\n  S --> M\n  C[Your classes and layout] --> M",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-019-03",
+      "concept": "2. The concept",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Headless UI: behavior without a forced visual design?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface HeadlessUIbehaviorwithoutaforcedvisualdesignProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-019-04",
+      "concept": "3. Minimal example: a headless-style disclosure",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Headless UI: behavior without a forced visual design?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-020-01",
+      "concept": "Scenario",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Problem 007.1: Build a headless-style product action menu?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Problem 007.1: Build a headless-style product action menu adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "const actions = [\n  { id: \"edit\", label: \"Edit product\" },\n  { id: \"duplicate\", label: \"Duplicate product\" },\n  { id: \"archive\", label: \"Archive product\", disabled: true },\n] as const;",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-020 / react.dev"
+    },
+    {
+      "id": "mcq-01-020-02",
+      "concept": "Inputs",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Problem 007.1: Build a headless-style product action menu, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "const actions = [\n  { id: \"edit\", label: \"Edit product\" },\n  { id: \"duplicate\", label: \"Duplicate product\" },\n  { id: \"archive\", label: \"Archive product\", disabled: true },\n] as const;",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-020-03",
+      "concept": "Required behavior",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Problem 007.1: Build a headless-style product action menu?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ProblemBuildaheadlessstyleproductactionmenuProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-020-04",
+      "concept": "Expected rendered output",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Problem 007.1: Build a headless-style product action menu?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-021-01",
+      "concept": "Scenario",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Problem 007.2: A strictly typed headless transcript disclosure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Problem 007.2: A strictly typed headless transcript disclosure adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "WEBVTT\n\n00:00:00.000 --> 00:00:03.500\n<v Alice>Welcome to the episode.</v>\n\n00:00:03.500 --> 00:00:07.000\n<v Bob>Glad to be here.</v>\n\n00:00:07.000 --> 00:00:11.200\n<v Alice>Today we cover headless components.</v>",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-021 / react.dev"
+    },
+    {
+      "id": "mcq-01-021-02",
+      "concept": "Inputs",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Problem 007.2: A strictly typed headless transcript disclosure, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "WEBVTT\n\n00:00:00.000 --> 00:00:03.500\n<v Alice>Welcome to the episode.</v>\n\n00:00:03.500 --> 00:00:07.000\n<v Bob>Glad to be here.</v>\n\n00:00:07.000 --> 00:00:11.200\n<v Alice>Today we cover headless components.</v>",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-021-03",
+      "concept": "Required types and components",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Problem 007.2: A strictly typed headless transcript disclosure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ProblemAstrictlytypedheadlesstranscriptdisclosureProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-021-04",
+      "concept": "Required behavior",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Problem 007.2: A strictly typed headless transcript disclosure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-022-01",
+      "concept": "Three release rings, one product",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing React Canary Release Channel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "React Canary Release Channel adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "flowchart TD\n    main[\"main branch\\n(React source repo)\"] --> canary[\"Canary channel\\ntag: canary\\nrelease candidates\"]\n    main --> exp[\"Experimental channel\\ntag: experimental\\nextra feature flags on\"]\n    canary --> latest[\"Latest / Stable channel\\ntag: latest\\nsemver, production\"]\n    latest -.->|\"bun add react\"| app[\"Your app\"]",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-022 / react.dev"
+    },
+    {
+      "id": "mcq-01-022-02",
+      "concept": "The concept: only Latest promises no surprises",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with React Canary Release Channel, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "flowchart TD\n    main[\"main branch\\n(React source repo)\"] --> canary[\"Canary channel\\ntag: canary\\nrelease candidates\"]\n    main --> exp[\"Experimental channel\\ntag: experimental\\nextra feature flags on\"]\n    canary --> latest[\"Latest / Stable channel\\ntag: latest\\nsemver, production\"]\n    latest -.->|\"bun add react\"| app[\"Your app\"]",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-022-03",
+      "concept": "Canary: release candidates you can actually ship, if you pin them",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing React Canary Release Channel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ReactCanaryReleaseChannelProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-022-04",
+      "concept": "Experimental: the nightly ring",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with React Canary Release Channel?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-023-01",
+      "concept": "Task A: `Channel` and `classifyChannel`",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Now With TypeScript: A Release-Channel Field Guide, Strictly Typed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Now With TypeScript: A Release-Channel Field Guide, Strictly Typed adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "export type Channel = \"latest\" | \"canary\" | \"experimental\";\n\nexport interface ChannelInfo {\n  channel: Channel;\n  /** true only for Latest, the one channel a caret range can safely track */\n  caretSafe: boolean;\n}\n\nexport function classifyChannel(version: string): ChannelInfo;",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-023 / react.dev"
+    },
+    {
+      "id": "mcq-01-023-02",
+      "concept": "Task B: `NPM_TAG` as an exhaustive `Record`",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Now With TypeScript: A Release-Channel Field Guide, Strictly Typed, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "export type Channel = \"latest\" | \"canary\" | \"experimental\";\n\nexport interface ChannelInfo {\n  channel: Channel;\n  /** true only for Latest, the one channel a caret range can safely track */\n  caretSafe: boolean;\n}\n\nexport function classifyChannel(version: string): ChannelInfo;",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-023-03",
+      "concept": "Task C: `describeUsage`",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Now With TypeScript: A Release-Channel Field Guide, Strictly Typed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface NowWithTypeScriptAReleaseChannelFieldGuideStrictlyTypedProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-023-04",
+      "concept": "Task D: `ThemeProvider` and `ThemedBadge` (Context)",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Now With TypeScript: A Release-Channel Field Guide, Strictly Typed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-024-01",
+      "concept": "Task A: `CURRENCY_SYMBOL` with `Record`",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Warm-Up: Lists, Lookups, Clean Props, and Well-Formed Components?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Warm-Up: Lists, Lookups, Clean Props, and Well-Formed Components adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "export type Currency = \"USD\" | \"EUR\" | \"JPY\" | \"GBP\";\n\nexport const CURRENCY_SYMBOL: Record<Currency, string>;\n// { USD: \"$\", EUR: \"€\", JPY: \"¥\", GBP: \"£\" }\n\nexport function formatPrice(amount: number, currency: Currency): string;",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-024 / react.dev"
+    },
+    {
+      "id": "mcq-01-024-02",
+      "concept": "Task B: `TagList` with correct keys",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Warm-Up: Lists, Lookups, Clean Props, and Well-Formed Components, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "export type Currency = \"USD\" | \"EUR\" | \"JPY\" | \"GBP\";\n\nexport const CURRENCY_SYMBOL: Record<Currency, string>;\n// { USD: \"$\", EUR: \"€\", JPY: \"¥\", GBP: \"£\" }\n\nexport function formatPrice(amount: number, currency: Currency): string;",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-024-03",
+      "concept": "Task C: Fix the ill-formed component",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Warm-Up: Lists, Lookups, Clean Props, and Well-Formed Components?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface WarmUpListsLookupsCleanPropsandWellFormedComponentsProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-024-04",
+      "concept": "Task D: `IconButton` with destructuring and selective spread",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Warm-Up: Lists, Lookups, Clean Props, and Well-Formed Components?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-025-01",
+      "concept": "The Plan for React 18, in one paragraph",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing The Plan for React 18?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "The Plan for React 18 adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "flowchart TD\n    render17[\"React 17<br/>ReactDOM.render<br/>synchronous\"]\n    createRoot18[\"React 18 with createRoot<br/>concurrent features available\"]\n    optin[\"opt-in to new APIs<br/>startTransition, useDeferredValue,<br/>automatic batching, Suspense\"]\n    stable[\"React 18.0 stable<br/>same ReactDOM.render still works\"]\n    render17 -.legacy API still works.-> stable\n    stable --> createRoot18\n    createRoot18 --> optin",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-025 / react.dev"
+    },
+    {
+      "id": "mcq-01-025-02",
+      "concept": "React Conf 2021: the surface area gets named",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with The Plan for React 18, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "flowchart TD\n    render17[\"React 17<br/>ReactDOM.render<br/>synchronous\"]\n    createRoot18[\"React 18 with createRoot<br/>concurrent features available\"]\n    optin[\"opt-in to new APIs<br/>startTransition, useDeferredValue,<br/>automatic batching, Suspense\"]\n    stable[\"React 18.0 stable<br/>same ReactDOM.render still works\"]\n    render17 -.legacy API still works.-> stable\n    stable --> createRoot18\n    createRoot18 --> optin",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-025-03",
+      "concept": "Quick reference: short notes on the rest of this chapter's concepts",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing The Plan for React 18?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface ThePlanforReactProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-025-04",
+      "concept": "Why this matters",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with The Plan for React 18?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-026-01",
+      "concept": "Task A: `ConcurFeature` and `describeFeature`",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Now With TypeScript: Encoding the React 18 Plan, Strictly Typed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Now With TypeScript: Encoding the React 18 Plan, Strictly Typed adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "export type ConcurFeature = \"automaticBatching\" | \"startTransition\" | \"streamingSSR\";\n\nexport interface FeatureInfo {\n  feature: ConcurFeature;\n  /** true only for features that activate automatically once createRoot is used */\n  auto: boolean;\n  /** the API a user touches to turn the feature on */\n  api: string;\n}\n\nexport function describeFeature(feature: ConcurFeature): FeatureInfo;",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-026 / react.dev"
+    },
+    {
+      "id": "mcq-01-026-02",
+      "concept": "Task B: `FEATURE_TABLE` as an exhaustive `Record`",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Now With TypeScript: Encoding the React 18 Plan, Strictly Typed, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "export type ConcurFeature = \"automaticBatching\" | \"startTransition\" | \"streamingSSR\";\n\nexport interface FeatureInfo {\n  feature: ConcurFeature;\n  /** true only for features that activate automatically once createRoot is used */\n  auto: boolean;\n  /** the API a user touches to turn the feature on */\n  api: string;\n}\n\nexport function describeFeature(feature: ConcurFeature): FeatureInfo;",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-026-03",
+      "concept": "Task C: `describeAvailability` with an exhaustive `switch`",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Now With TypeScript: Encoding the React 18 Plan, Strictly Typed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface NowWithTypeScriptEncodingtheReactPlanStrictlyTypedProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-026-04",
+      "concept": "Task D: `FeatureFlag` component (typed `children` + `PropsWithChildren`)",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Now With TypeScript: Encoding the React 18 Plan, Strictly Typed?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    },
+    {
+      "id": "mcq-01-027-01",
+      "concept": "Task: `Flash` and `FlashAction`",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing Warm-Up: A Portal-Mounted Flash With a Discriminated Action?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "Warm-Up: A Portal-Mounted Flash With a Discriminated Action adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "export type FlashKind = \"info\" | \"warning\" | \"error\";\n\nexport type FlashAction =\n  | { type: \"show\"; kind: FlashKind; message: string }\n  | { type: \"dismiss\" };",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §01-027 / react.dev"
+    },
+    {
+      "id": "mcq-01-027-02",
+      "concept": "The render tree",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with Warm-Up: A Portal-Mounted Flash With a Discriminated Action, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "export type FlashKind = \"info\" | \"warning\" | \"error\";\n\nexport type FlashAction =\n  | { type: \"show\"; kind: FlashKind; message: string }\n  | { type: \"dismiss\" };",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-01-027-03",
+      "concept": "Warm-Up: A Portal-Mounted Flash With a Discriminated Action Execution",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing Warm-Up: A Portal-Mounted Flash With a Discriminated Action?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface WarmUpAPortalMountedFlashWithaDiscriminatedActionProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-01-027-04",
+      "concept": "Warm-Up: A Portal-Mounted Flash With a Discriminated Action Edge Cases",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with Warm-Up: A Portal-Mounted Flash With a Discriminated Action?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    }
+  ]
+}

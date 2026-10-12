@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto space-y-8">
+  <div class="border-b border-[#d0d7de] dark:border-[#30363d] pb-6">
+    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-2">
+      All Curriculum Modules
+    </h1>
+    <p class="text-sm text-[#656d76] dark:text-[#8b949e]">
+      Select any module below to track individual videos, review official documentation anchor references, and update completion progress.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {% for s in section.pages %}
+      <a href="{{ s.permalink }}" class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] hover:border-[#0969da] dark:hover:border-[#58a6ff] hover:shadow-sm transition-all group">
+        <div class="flex items-center justify-between text-xs mb-2">
+          <span class="font-bold font-mono text-[#0969da] dark:text-[#58a6ff]">§{{ s.extra.section_number  }}</span>
+          <span class="font-mono text-[#656d76] dark:text-[#8b949e]" data-section-stats-id="{{ s.extra.section_id }}">
+            0/{{ s.extra.total_videos }}
+          </span>
+        </div>
+        <h3 class="text-sm font-bold text-[#1f2328] dark:text-[#f0f6fc] group-hover:text-[#0969da] dark:group-hover:text-[#58a6ff] transition-colors mb-2">
+          {{ s.title }}
+        </h3>
+        <p class="text-[11px] text-[#656d76] dark:text-[#8b949e] mb-3">
+          {{ s.extra.part_title }}
+        </p>
+        <div class="w-full h-1.5 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
+          <div class="h-full bg-emerald-500 transition-all duration-300" data-section-progress-bar="{{ s.extra.section_id }}" style="width: 0%"></div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

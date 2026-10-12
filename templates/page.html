@@ -1,9 +1,439 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block body %}
-<div class="container mx-auto">
-    <div class="markdown">
-        {{ page.content | safe }}
+{% block content %}
+<div class="max-w-4xl mx-auto space-y-8">
+
+  <!-- Breadcrumbs -->
+  <nav class="flex items-center gap-1.5 text-xs text-[#656d76] dark:text-[#8b949e]">
+    <a href="{{ config.base_url }}/" class="hover:text-[#0969da] dark:hover:text-[#58a6ff]">Home</a>
+    <span>/</span>
+    <span>{{ page.extra.part_title }}</span>
+    <span>/</span>
+    <span class="text-[#1f2328] dark:text-[#f0f6fc] font-semibold truncate">{{ page.title }}</span>
+  </nav>
+
+  <!-- Section Header -->
+  <header class="border-b border-[#d0d7de] dark:border-[#30363d] pb-6 space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div>
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="px-2 py-0.5 rounded text-xs font-bold font-mono bg-[#0969da]/10 text-[#0969da] dark:text-[#58a6ff]">
+            §{{ page.extra.section_number }}
+          </span>
+          <span class="text-xs text-[#656d76] dark:text-[#8b949e]">{{ page.extra.part_title }}</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+          {{ page.title }}
+        </h1>
+      </div>
+
+      <!-- Section Action Buttons -->
+      <div class="flex items-center gap-2 shrink-0 flex-wrap">
+        <button id="flashcards-{{ page.extra.section_id }}" type="button" data-open-flashcards="{{ page.extra.section_id }}" class="btn-flashcard-trigger inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] hover:bg-[#eaeef2] dark:hover:bg-[#21262d] text-[#1f2328] dark:text-[#f0f6fc] transition-colors shadow-2xs cursor-pointer scroll-mt-24" title="Practice interactive flashcards for this entire section">
+          <span>⚡</span>
+          <span>Module Flashcards</span>
+          <span class="fc-badge-pill" data-deck-badge="{{ page.extra.section_id }}" data-deck-total="{% if page.extra.section_id == 'section-05' %}236{% elif page.extra.section_id == 'section-06' %}84{% else %}48{% endif %}">
+            0/{% if page.extra.section_id == 'section-05' %}236{% elif page.extra.section_id == 'section-06' %}84{% else %}48{% endif %}
+          </span>
+        </button>
+
+        <button type="button" data-action="complete-section" data-section-id="{{ page.extra.section_id }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#238636] hover:bg-[#2ea043] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span>Complete All</span>
+        </button>
+
+        <button type="button" data-action="reset-section" data-section-id="{{ page.extra.section_id }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa] dark:bg-[#161b22] hover:bg-[#eaeef2] dark:hover:bg-[#21262d] text-xs font-semibold text-[#656d76] dark:text-[#8b949e] transition-colors cursor-pointer" title="Reset Section Progress">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+          <span>Reset</span>
+        </button>
+      </div>
     </div>
+
+    <!-- Section Progress Bar & Stats -->
+    <div class="p-4 rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa]/60 dark:bg-[#161b22]/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
+      <div class="flex flex-col gap-1.5">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="font-bold text-[#1f2328] dark:text-[#f0f6fc]">Section Progress:</span>
+          <span class="font-mono text-[#0969da] dark:text-[#58a6ff] font-bold" data-section-stats-id="{{ page.extra.section_id }}" data-stats-mode="count">
+            0/{{ page.extra.total_videos }} videos
+          </span>
+          <span class="font-mono font-bold text-[#238636] dark:text-[#3fb950]" data-section-pct-display-id="{{ page.extra.section_id }}">
+            (0%)
+          </span>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] text-[#656d76] dark:text-[#8b949e] flex-wrap">
+          <span class="font-semibold text-[#1f2328] dark:text-[#f0f6fc]">Total Time:</span>
+          <span class="font-mono font-bold text-[#0969da] dark:text-[#58a6ff]" data-section-time-id="{{ page.extra.section_id }}">00m00s / 00m00s</span>
+          <span data-section-inprogress-container class="hidden items-center gap-1 text-[#9a6700] dark:text-[#e3b341]">
+            <span>• In Progress:</span>
+            <span class="font-mono font-semibold" data-section-inprogress-id="{{ page.extra.section_id }}">00m00s</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 w-full sm:w-64">
+        <div class="flex-1 h-2.5 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden border border-[#d0d7de]/50 dark:border-[#30363d]/50">
+          <div class="h-full bg-[#238636] transition-all duration-300" data-section-progress-bar="{{ page.extra.section_id }}" style="width: 0%"></div>
+        </div>
+        <span class="font-mono font-bold text-xs text-[#238636] dark:text-[#3fb950] shrink-0" data-section-pct-id="{{ page.extra.section_id }}">0%</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Overarching Recommended Courses (Collapsed by default) -->
+  {% if page.extra.recommended_courses %}
+  <details class="group rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] overflow-hidden transition-all shadow-xs">
+    <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-[#f6f8fa] dark:hover:bg-[#1c2128] transition-colors select-none">
+      <div class="flex items-center gap-2.5">
+        <span class="text-base">🎓</span>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#1f2328] dark:text-[#f0f6fc]">
+            Overarching Recommended LinkedIn Learning Courses
+          </span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#f6f8fa] dark:bg-[#0d1117] border border-[#d0d7de] dark:border-[#30363d] text-[#656d76] dark:text-[#8b949e]">
+            {{ page.extra.recommended_courses | length }} Courses
+          </span>
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 text-xs text-[#656d76] dark:text-[#8b949e]">
+        <span class="text-[11px] group-open:hidden">Show courses</span>
+        <span class="text-[11px] hidden group-open:inline">Hide courses</span>
+        <svg class="w-4 h-4 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </div>
+    </summary>
+
+    <div class="p-4 pt-1 border-t border-[#d0d7de]/60 dark:border-[#30363d]/60 bg-[#f6f8fa]/40 dark:bg-[#0d1117]/40">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+        {% for rc in page.extra.recommended_courses %}
+          <div class="p-3.5 rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] flex flex-col justify-between hover:border-[#0969da]/60 dark:hover:border-[#58a6ff]/60 transition-colors shadow-2xs">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-1.5">
+                <a href="{{ rc.url }}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#0969da] dark:text-[#58a6ff] hover:underline flex items-center gap-1 leading-snug">
+                  <span>{{ rc.title }}</span>
+                  <svg class="w-3 h-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                </a>
+                {% if rc.duration %}
+                  <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#f6f8fa] dark:bg-[#0d1117] border border-[#d0d7de] dark:border-[#30363d] shrink-0 text-[#656d76] dark:text-[#8b949e]">
+                    {{ rc.duration }}
+                  </span>
+                {% endif %}
+              </div>
+              {% if rc.author %}
+                <div class="text-[11px] text-[#656d76] dark:text-[#8b949e] mb-1">
+                  Instructor: <span class="font-medium text-[#1f2328] dark:text-[#f0f6fc]">{{ rc.author }}</span>
+                </div>
+              {% endif %}
+              {% if rc.scope %}
+                <p class="text-[11px] text-[#656d76] dark:text-[#8b949e] leading-relaxed">
+                  {{ rc.scope }}
+                </p>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </details>
+  {% endif %}
+
+  <!-- Chapter-by-Chapter Video Lesson Mapping -->
+  <section class="space-y-6">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <h2 class="text-sm font-bold uppercase tracking-wider text-[#656d76] dark:text-[#8b949e]">
+        Chapter-by-Chapter Video Lessons & Official References
+      </h2>
+      <div class="flex items-center gap-2 text-xs font-mono text-[#656d76] dark:text-[#8b949e]">
+        <span>{{ page.extra.chapters | length }} Chapters • {{ page.extra.total_videos }} Videos</span>
+        <span>•</span>
+        <span class="font-semibold text-[#0969da] dark:text-[#58a6ff]" data-section-time-summary-id="{{ page.extra.section_id }}">00m00s / 00m00s</span>
+      </div>
+    </div>
+
+    <div class="space-y-6">
+      {% for ch in page.extra.chapters %}
+        <details class="chapter-card-details group/chapcard rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] overflow-hidden shadow-xs" open id="chapter-{{ ch.id }}" data-chapter-id="{{ ch.id }}">
+          
+          <!-- Chapter Header -->
+          <summary class="p-4 bg-[#f6f8fa]/80 dark:bg-[#0d1117]/80 border-b border-[#d0d7de] dark:border-[#30363d] cursor-pointer hover:bg-[#eaeef2] dark:hover:bg-[#161b22] transition-colors select-none list-none [&::-webkit-details-marker]:hidden">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-[#656d76] dark:text-[#8b949e] shrink-0 transition-transform duration-200 group-open/chapcard:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                </svg>
+                <h3 class="text-sm sm:text-base font-bold text-[#1f2328] dark:text-[#f0f6fc] flex items-center gap-2">
+                  <span class="font-mono text-[#0969da] dark:text-[#58a6ff]">§{{ ch.id }}</span>
+                  <span>{{ ch.title }}</span>
+                </h3>
+              </div>
+              <div class="flex items-center gap-2 shrink-0 flex-wrap">
+                <!-- Chapter Flashcards Trigger -->
+                <button id="flashcards-ch-{{ ch.id }}" type="button" data-open-flashcards="ch-{{ ch.id }}" class="btn-flashcard-trigger inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-md border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] hover:bg-[#eaeef2] dark:hover:bg-[#21262d] text-[#1f2328] dark:text-[#f0f6fc] transition-colors cursor-pointer scroll-mt-24 shadow-2xs" title="Practice interactive flashcards for this chapter">
+                  <span>🗂️</span>
+                  <span>Flashcards</span>
+                  <span class="fc-badge-pill" data-deck-badge="ch-{{ ch.id }}" data-deck-total="4">
+                    0/4
+                  </span>
+                </button>
+
+                <!-- POP-UP SUMMARY NOTES TRIGGER WITH ASK AI -->
+                <button type="button" data-open-chapter-summary="{{ ch.id }}" class="btn-summary-trigger inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-md border border-[#0969da]/35 bg-[#0969da]/10 text-[#0969da] dark:text-[#58a6ff] hover:bg-[#0969da]/20 transition-all cursor-pointer shadow-2xs" title="Open Chapter Summary Notes & Ask AI">
+                  <span>📝</span>
+                  <span>Summary Notes</span>
+                  <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">✨ Ask AI</span>
+                </button>
+
+                <span class="text-xs font-mono text-[#656d76] dark:text-[#8b949e]">
+                  {{ ch.videos | length }} Lessons
+                </span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-white dark:bg-[#0d1117] border border-[#d0d7de] dark:border-[#30363d] text-[#656d76] dark:text-[#8b949e] font-semibold" data-chapter-time-id="{{ ch.id }}">
+                  00m00s / 00m00s
+                </span>
+              </div>
+            </div>
+
+            <!-- Key Concepts Tags -->
+            {% if ch.key_concepts %}
+              <div class="flex flex-wrap items-center gap-1.5 mt-2.5">
+                {% for kc in ch.key_concepts %}
+                  <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-[#f6f8fa] dark:bg-[#161b22] text-[#656d76] dark:text-[#8b949e] border border-[#d0d7de] dark:border-[#30363d]">
+                    {{ kc }}
+                  </span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </summary>
+
+          <!-- Video Lessons in Chapter -->
+          <div class="divide-y divide-[#d0d7de]/50 dark:divide-[#30363d]/50 p-2 sm:p-3 space-y-2">
+            {% for v in ch.videos %}
+              <div id="video-{{ v.id }}" class="video-card p-3.5 rounded-lg border border-[#d0d7de]/70 dark:border-[#30363d]/70 bg-white dark:bg-[#161b22] hover:border-[#0969da]/60 dark:hover:border-[#58a6ff]/60 transition-all scroll-mt-20" data-video-key="{{ v.id }}" data-duration="{{ v.duration_seconds }}">
+                
+                <div class="flex items-start gap-3">
+                  <!-- 3-State LinkedIn Learning Checkbox -->
+                  <div class="pt-0.5 shrink-0">
+                    <button type="button" class="ll-checkbox" data-video-key="{{ v.id }}" data-state="not_started" title="Click to toggle: Not Started -> In Progress -> Completed">
+                      <span class="icon-dot"></span>
+                      <svg class="icon-check w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </button>
+                  </div>
+
+                  <!-- Video Information & References -->
+                  <div class="flex-1 min-w-0 space-y-2">
+                    
+                    <!-- Video Title Row -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <div class="flex items-center gap-2 flex-wrap min-w-0">
+                        {% if v.category_tag %}
+                          <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300">
+                            {{ v.category_tag }}
+                          </span>
+                        {% endif %}
+                        <a href="{{ v.url }}" target="_blank" rel="noopener noreferrer" data-video-link data-video-key="{{ v.id }}" class="text-xs sm:text-sm font-bold text-[#0969da] dark:text-[#58a6ff] hover:underline flex items-center gap-1.5 leading-snug">
+                          <span>{{ v.title }}</span>
+                          <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                          </svg>
+                        </a>
+                      </div>
+
+                      <!-- Duration Pill -->
+                      <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#f6f8fa] dark:bg-[#0d1117] border border-[#d0d7de] dark:border-[#30363d] text-[#656d76] dark:text-[#8b949e] shrink-0 self-start sm:self-auto">
+                        {{ v.duration_text }}
+                      </span>
+                    </div>
+
+                    <!-- Video Description -->
+                    {% if v.description %}
+                      <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
+                        {{ v.description }}
+                      </p>
+                    {% endif %}
+
+                    <!-- Official Documentation References -->
+                    {% if v.references %}
+                      <div class="pt-2 mt-2 border-t border-[#d0d7de]/40 dark:border-[#30363d]/40 space-y-1.5">
+                        <div class="text-[10px] font-bold uppercase tracking-wider text-[#656d76] dark:text-[#8b949e] flex items-center gap-1">
+                          <svg class="w-3 h-3 text-[#0969da] dark:text-[#58a6ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                          </svg>
+                          <span>Official Documentation References</span>
+                        </div>
+
+                        <div class="space-y-1 pl-4 border-l-2 border-[#0969da]/30 dark:border-[#58a6ff]/30">
+                          {% for ref in v.references %}
+                            <div class="text-xs leading-relaxed">
+                              <a href="{{ ref.url }}" target="_blank" rel="noopener noreferrer" class="font-medium text-[#0969da] dark:text-[#58a6ff] hover:underline inline-flex items-center gap-1">
+                                <span>{{ ref.label }}</span>
+                                <svg class="w-2.5 h-2.5 shrink-0 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                </svg>
+                              </a>
+                              {% if ref.description %}
+                                <span class="text-[#656d76] dark:text-[#8b949e]"> — {{ ref.description }}</span>
+                              {% endif %}
+                            </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    {% endif %}
+
+                    <!-- Comprehensive Study Notes Accordion (Video Level) -->
+                    {% if v.notes %}
+                    <details class="video-notes-details group/notes mt-3 rounded-lg border border-[#d0d7de]/70 dark:border-[#30363d]/70 bg-[#f6f8fa]/50 dark:bg-[#0d1117]/50 overflow-hidden text-xs">
+                      <summary class="flex items-center justify-between px-3 py-2 cursor-pointer hover:bg-[#eaeef2] dark:hover:bg-[#161b22] select-none transition-colors">
+                        <div class="flex items-center gap-2">
+                          <span class="text-sm">📝</span>
+                          <span class="font-bold text-[#1f2328] dark:text-[#f0f6fc]">Comprehensive Study Notes & Mental Model</span>
+                          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white dark:bg-[#161b22] border border-[#d0d7de] dark:border-[#30363d] text-[#656d76] dark:text-[#8b949e]">Quick Review</span>
+                        </div>
+                        <div class="flex items-center gap-1 text-[11px] text-[#656d76] dark:text-[#8b949e]">
+                          <span class="group-open/notes:hidden">Expand Notes</span>
+                          <span class="hidden group-open/notes:inline">Collapse</span>
+                          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-open/notes:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                          </svg>
+                        </div>
+                      </summary>
+
+                      <div class="p-3.5 space-y-3 border-t border-[#d0d7de]/60 dark:border-[#30363d]/60 bg-white dark:bg-[#161b22]">
+                        <!-- 1. Formal Definition -->
+                        {% if v.notes.definition %}
+                        <div>
+                          <div class="text-[10px] font-bold uppercase tracking-wider text-[#0969da] dark:text-[#58a6ff] mb-1 flex items-center gap-1.5">
+                            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Core Definition & Architectural Role</span>
+                          </div>
+                          <p class="text-xs text-[#1f2328] dark:text-[#f0f6fc] leading-relaxed">
+                            {{ v.notes.definition }}
+                          </p>
+                        </div>
+                        {% endif %}
+
+                        <!-- 2. Under-the-hood Mental Model -->
+                        {% if v.notes.mental_model %}
+                        <div class="p-2.5 rounded-md bg-[#f6f8fa] dark:bg-[#0d1117] border border-[#d0d7de]/60 dark:border-[#30363d]/60">
+                          <div class="text-[10px] font-bold uppercase tracking-wider text-[#1f2328] dark:text-[#f0f6fc] mb-1 flex items-center gap-1.5">
+                            <span class="text-xs">🧠</span>
+                            <span>Under-The-Hood Mental Model</span>
+                          </div>
+                          <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
+                            {{ v.notes.mental_model }}
+                          </p>
+                        </div>
+                        {% endif %}
+
+                        <!-- 3. Minimal Runnable Code Example -->
+                        {% if v.notes.code_example %}
+                        <div>
+                          <div class="text-[10px] font-bold uppercase tracking-wider text-[#238636] dark:text-[#3fb950] mb-1 flex items-center gap-1.5">
+                            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                            </svg>
+                            <span>Key Code / CLI Example</span>
+                          </div>
+                          <pre class="code-snippet-box overflow-x-auto p-2.5 rounded-md text-xs font-mono"><code>{{ v.notes.code_example }}</code></pre>
+                        </div>
+                        {% endif %}
+
+                        <!-- 4. Common Gotchas & Pitfalls -->
+                        {% if v.notes.pitfalls %}
+                        <div class="notes-callout-warning text-xs space-y-1">
+                          <div class="font-bold text-[#9a6700] dark:text-[#d29922] flex items-center gap-1.5 text-[11px]">
+                            <span>⚠️</span>
+                            <span>Common Pitfall & Production Gotcha</span>
+                          </div>
+                          <p class="text-[#656d76] dark:text-[#8b949e] leading-relaxed">
+                            {{ v.notes.pitfalls }}
+                          </p>
+                        </div>
+                        {% endif %}
+
+                        <!-- 5. Ask AI Study Assistant -->
+                        <div class="ask-ai-toolbar pt-2.5 mt-2 border-t border-[#d0d7de]/50 dark:border-[#30363d]/50 flex flex-wrap items-center justify-between gap-2">
+                          <div class="flex items-center gap-1.5 text-[11px] text-[#656d76] dark:text-[#8b949e]">
+                            <svg class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            <span class="font-medium">Deep-dive with AI:</span>
+                          </div>
+                          {% include "partials/ask-ai-buttons.html" %}
+                        </div>
+                      </div>
+                    </details>
+                    {% endif %}
+
+                    <!-- Card Footer Actions -->
+                    <div class="pt-2 flex items-center justify-between gap-3 text-xs">
+                      <div class="flex items-center gap-2">
+                        <button type="button" class="btn-mark-complete inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-neutral-100 hover:bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 transition-colors cursor-pointer">
+                          <svg class="w-3.5 h-3.5 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                          </svg>
+                          <span>Mark as Complete</span>
+                        </button>
+
+                        <button type="button" class="btn-mark-and-next inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#0969da] dark:text-[#58a6ff] hover:bg-[#0969da]/10 dark:hover:bg-[#58a6ff]/10 border border-transparent hover:border-[#0969da]/20 transition-colors cursor-pointer" title="Complete this lesson and advance to next lesson">
+                          <span>Mark & Next</span>
+                          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                          </svg>
+                        </button>
+                      </div>
+
+                      <a href="{{ v.url }}" target="_blank" rel="noopener noreferrer" data-video-link data-video-key="{{ v.id }}" class="text-[11px] font-semibold text-[#0969da] dark:text-[#58a6ff] hover:underline inline-flex items-center gap-1">
+                        <span>Watch on LinkedIn</span>
+                        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            {% endfor %}
+          </div>
+
+        </details>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Pager Navigation Footer -->
+  <footer class="pt-6 border-t border-[#d0d7de] dark:border-[#30363d] flex items-center justify-between gap-4">
+    {% if page.lower %}
+      <a href="{{ page.lower.permalink }}" class="flex items-center gap-2 px-4 py-2 rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] hover:bg-[#f6f8fa] dark:hover:bg-[#21262d] text-xs font-semibold transition-colors">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        <span class="truncate max-w-[200px]">Previous: {{ page.lower.title }}</span>
+      </a>
+    {% else %}
+      <div></div>
+    {% endif %}
+
+    {% if page.higher %}
+      <a href="{{ page.higher.permalink }}" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0969da] hover:bg-[#085ec4] text-white text-xs font-semibold transition-colors">
+        <span class="truncate max-w-[200px]">Next: {{ page.higher.title }}</span>
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </a>
+    {% endif %}
+  </footer>
+
 </div>
-{% endblock body %}
+{% endblock content %}

@@ -1,17 +1,19 @@
-# The URL the site will be built for
-base_url = "https://coastalwhite.github.io/zola-tailwind"
+# Zola Configuration for React & Modern Web Mastery Tracker
+base_url = "https://nemokaul.github.io/react"
 
-title = "Example Website"
-description = "Lipsum Ipsum"
+title = "React & Modern Web Mastery"
+description = "LinkedIn Learning Course Mapping & Modern React Official Documentation Reference Tracker"
 
 default_language = "en"
-
 compile_sass = false
 build_search_index = false
 
 [markdown]
-highlight_code = false
 
 [extra]
-keywords = ["put", "your", "pagewide", "keywords", "here"]
-author = "John Doe"
+github_repo = "https://github.com/nemokaul/react"
+total_videos = 260
+total_duration = "20h 20m"
+total_duration_seconds = 73240
+total_sections = 7
+total_chapters = 130

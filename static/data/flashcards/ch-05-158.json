@@ -1,0 +1,142 @@
+{
+  "deckId": "ch-05-158",
+  "title": "§05-158: 053.1: Masonry feature gallery with a settings Drawer",
+  "chapterId": "05-158",
+  "sectionId": "section-05",
+  "description": "Active recall flashcards for §05-158: 053.1: Masonry feature gallery with a settings Drawer.",
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "mcq-05-158-01",
+      "concept": "Brief",
+      "category": "Architecture & Primitives",
+      "difficulty": "Beginner",
+      "question": "In modern React 19 applications, what is the core architectural principle governing 053.1: Masonry feature gallery with a settings Drawer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Declarative component functions return virtual tree descriptions that React Fiber reconciles against host DOM nodes.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Components imperatively manipulate the browser DOM directly via querySelector and innerHTML mutations.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "State changes bypass the reconciliation phase to trigger synchronous full-page document reloads.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "All component functions must run in the global window scope as unbundled script tags.",
+          "correct": false
+        }
+      ],
+      "explanation": "053.1: Masonry feature gallery with a settings Drawer adheres to React's declarative mental model: components express UI state transformations as pure projections of props and state. React Fiber schedules reconciliation and dispatches minimal batched DOM mutations.",
+      "codeSnippet": "// React 19 TypeScript Implementation\nimport React from \"react\";\n\nexport function Component() {\n  return <div>053.1: Masonry feature gallery with a settings Drawer</div>;\n}",
+      "pitfall": "Never reach outside the declarative model to mutate DOM nodes directly during render, as this breaks reconciliation consistency and causes hydration mismatches.",
+      "citation": "React 19 Official Documentation §05-158 / react.dev"
+    },
+    {
+      "id": "mcq-05-158-02",
+      "concept": "Inputs / outputs",
+      "category": "Reactivity & Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "When dealing with 053.1: Masonry feature gallery with a settings Drawer, what behavior occurs during the render phase?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Side effects like network calls or manual event listeners should be triggered directly within the function body.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The render phase must remain pure and free of side effects; state and prop changes trigger scheduled reconciliation passes.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Re-renders always destroy and recreate the underlying DOM subtree regardless of keys or virtual diffing.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "React executes child components before calling the parent component's render function.",
+          "correct": false
+        }
+      ],
+      "explanation": "React's render phase is strictly synchronous and pure. React may invoke render functions multiple times (e.g. in Strict Mode) to detect side effects before committing changes to the host environment.",
+      "codeSnippet": "// React 19 TypeScript Implementation\nimport React from \"react\";\n\nexport function Component() {\n  return <div>053.1: Masonry feature gallery with a settings Drawer</div>;\n}",
+      "pitfall": "Calling dispatchers or running asynchronous promises directly in the component body produces infinite render loops or memory leaks.",
+      "citation": "React 19 Learn: Describing the UI & Keeping Components Pure"
+    },
+    {
+      "id": "mcq-05-158-03",
+      "concept": "Cards",
+      "category": "TypeScript & Typing Contracts",
+      "difficulty": "Intermediate",
+      "question": "How should TypeScript interfaces be structured when implementing 053.1: Masonry feature gallery with a settings Drawer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Use 'any' for all props to bypass strict checking and facilitate rapid prototyping.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Define explicit, read-only interfaces/types with discrimination where applicable to guarantee compile-time verification.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Attach arbitrary properties directly to the window object to share data across modules.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Disable strictNullChecks in tsconfig.json so undefined properties are silently coerced to null.",
+          "correct": false
+        }
+      ],
+      "explanation": "Strict TypeScript types ensure that components and state hooks adhere to explicit compile-time contracts. Read-only properties reflect the immutable nature of React props.",
+      "codeSnippet": "interface MasonryfeaturegallerywithasettingsDrawerProps {\n  readonly id: string;\n  readonly isActive?: boolean;\n  readonly onSelect: (id: string) => void;\n}",
+      "pitfall": "Mutating incoming props directly violates component purity and causes silent desynchronization bugs.",
+      "citation": "TypeScript Handbook: Interfaces and Readonly Properties"
+    },
+    {
+      "id": "mcq-05-158-04",
+      "concept": "Acceptance",
+      "category": "Production Gotchas & Performance",
+      "difficulty": "Advanced",
+      "question": "What is the most common production pitfall encountered when working with 053.1: Masonry feature gallery with a settings Drawer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stale closures, omission of exhaustive dependencies, or impure mutations causing cache inconsistencies.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using functional components instead of legacy class components with componentDidMount.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Compiling TypeScript with Vite rather than webpack 4.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Writing components in separate .tsx files rather than a single monolithic script.",
+          "correct": false
+        }
+      ],
+      "explanation": "In modern React, stale closures and omitting dependencies from hook dependency arrays or store selectors lead to stale data bugs. Always use the exhaustive-deps lint rule and maintain pure updater functions.",
+      "codeSnippet": "// Correct immutable update pattern\nsetItems(prevItems => prevItems.map(item => \n  item.id === targetId ? { ...item, status: 'updated' } : item\n));",
+      "pitfall": "Direct in-place array or object mutation (e.g. array.push()) fails shallow equality checks and prevents components from re-rendering.",
+      "citation": "React 19 Official Documentation: Avoiding Direct State Mutation"
+    }
+  ]
+}

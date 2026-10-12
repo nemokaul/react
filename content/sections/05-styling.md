@@ -1,0 +1,2379 @@
++++
+title = "Modern Styling: Tailwind CSS & Material UI"
+weight = 6
+[extra]
+section_number = 5
+section_id = "section-05"
+part = 3
+part_title = "Part 3: UI Systems & Server Communication"
+total_videos = 118
+total_duration_seconds = 35041
+recommended_courses = [
+  { title = "Tailwind CSS 4 Essential Training", url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training", author = "LinkedIn Learning", duration = "4h 15m", scope = "Utility-first architecture, typography, color palettes, responsive modifiers, flexbox/grid layouts, arbitrary values, and dark mode." },
+  { title = "Build Modern Web Apps with React: Hooks, State Management, and APIs Using Vite or Next.js", url = "https://www.linkedin.com/learning/build-modern-web-apps-with-react-hooks-state-management-and-apis-using-vite-or-next-js", author = "LinkedIn Learning", duration = "5h 45m", scope = "Styling in React: Tailwind CSS Vite setup, CSS Modules, Styled Components, Material UI design systems, and component theming." },
+]
+chapters = [
+  {
+    id = "05-001",
+    number = 1,
+    title = "'What's new in Tailwind CSS?' on YouTube",
+    local_chapter_file = "001-whats-new-in-tailwind-css-on-youtube.md",
+    key_concepts = ["The mental model", "The \"What's new in Tailwind CSS?\" YouTube series", "`@tailwindcss/typography` and the `prose` plugin", "Backdrop filters: tinting the world behind an element", "`backface-visibility`: hiding the back of a 3D-rotated element", "Background colour and position"],
+    total_duration_seconds = 817,
+    videos = [
+      {
+        id = "UzU6QzE6VjE6MDAxLXdo",
+        raw_key = "S5:C1:V1",
+        title = "Applying background colors and gradients",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/applying-background-colors-and-gradients",
+        duration_text = "07m21s",
+        duration_seconds = 441,
+        description = "In-depth walkthrough of 'What's new in Tailwind CSS?' on YouTube, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "Tailwind ships with a giant catalogue of utility classes, but most of them map to one CSS declaration. Once you learn to read a class name as the declaration it stands for, the catalogue becomes a list of labelled dials: turn `float-right` and the element pins right; turn `backface-hidden` and the back face of a 3D-rotated element disappears; turn `bg-cover` and the background image fills the box. The rest of this chapter is a reference for a cluster of those dials, plus the tooling that makes writing them bearable.  The first concept, the \"What's new in Tailwind CSS?\" YouTube series, is a 12-video walkthrough Tailwind published alongside early v1.x releases. It covers Grid, Transitions, Transforms, Space-between, Divide utilities, Color opacity, PurgeCSS, Animations, Reduced motion, Gradients, and `@apply` with complex classes. Treat the playlist as a video companion to the docs: watch the episode for the feature you need, then come back to the text reference here for the exact class names.", mental_model = "A Tailwind utility is a CSS declaration wearing a name tag. `bg-blue-500` is `background-color: rgb(59 130 246);`. `basis-1/2` is `flex-basis: 50%;`. `flex-col` is `flex-direction: column;`. You compose a design by stacking name tags on an element, and the browser applies the declarations they stand for.  Five dials, five declarations. The container is a flex row with a `1rem` gutter on a slate background. Each child takes half the main axis at minimum and grows to fill whatever space is left.", code_example = "<div className=\"flex flex-row gap-4 bg-slate-100 p-4\">\n  <span className=\"basis-1/2 grow\">Left</span>\n  <span className=\"basis-1/2 grow\">Right</span>\n</div>", pitfalls = "React warns in the console: `Warning: Invalid DOM property 'class'. Did you mean the className?` and ignores the class. The text never goes red. Every Tailwind snippet in the docs uses `class`; rename it to `className` in JSX.  `backdrop-hue-rotate-*` and `backdrop-invert-*` only do something visible when there is something *behind* the element. A `backdrop-invert` card on a plain white page inverts nothing because there is nothing to invert. The element needs a translucent background (`bg-white/30`) over an image, gradient, or coloured sibling, otherwise the effect is invisible.  `backface-hidden` is a no-op on its own. The 3D rotation has to be on a parent with a `perspective-*` utility (or arbitrary `perspective: ...px`) for the browser to draw the back face at all. Without perspective " }
+      },
+      {
+        id = "UzU6QzE6VjI6MDAxLXdo",
+        raw_key = "S5:C1:V2",
+        title = "Style elements on hover and focus",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/style-elements-on-hover-and-focus",
+        duration_text = "06m16s",
+        duration_seconds = 376,
+        description = "In-depth walkthrough of 'What's new in Tailwind CSS?' on YouTube, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "Tailwind ships with a giant catalogue of utility classes, but most of them map to one CSS declaration. Once you learn to read a class name as the declaration it stands for, the catalogue becomes a list of labelled dials: turn `float-right` and the element pins right; turn `backface-hidden` and the back face of a 3D-rotated element disappears; turn `bg-cover` and the background image fills the box. The rest of this chapter is a reference for a cluster of those dials, plus the tooling that makes writing them bearable.  The first concept, the \"What's new in Tailwind CSS?\" YouTube series, is a 12-video walkthrough Tailwind published alongside early v1.x releases. It covers Grid, Transitions, Transforms, Space-between, Divide utilities, Color opacity, PurgeCSS, Animations, Reduced motion, Gradients, and `@apply` with complex classes. Treat the playlist as a video companion to the docs: watch the episode for the feature you need, then come back to the text reference here for the exact class names.", mental_model = "A Tailwind utility is a CSS declaration wearing a name tag. `bg-blue-500` is `background-color: rgb(59 130 246);`. `basis-1/2` is `flex-basis: 50%;`. `flex-col` is `flex-direction: column;`. You compose a design by stacking name tags on an element, and the browser applies the declarations they stand for.  Five dials, five declarations. The container is a flex row with a `1rem` gutter on a slate background. Each child takes half the main axis at minimum and grows to fill whatever space is left.", code_example = "<div className=\"flex flex-row gap-4 bg-slate-100 p-4\">\n  <span className=\"basis-1/2 grow\">Left</span>\n  <span className=\"basis-1/2 grow\">Right</span>\n</div>", pitfalls = "React warns in the console: `Warning: Invalid DOM property 'class'. Did you mean the className?` and ignores the class. The text never goes red. Every Tailwind snippet in the docs uses `class`; rename it to `className` in JSX.  `backdrop-hue-rotate-*` and `backdrop-invert-*` only do something visible when there is something *behind* the element. A `backdrop-invert` card on a plain white page inverts nothing because there is nothing to invert. The element needs a translucent background (`bg-white/30`) over an image, gradient, or coloured sibling, otherwise the effect is invisible.  `backface-hidden` is a no-op on its own. The 3D rotation has to be on a parent with a `perspective-*` utility (or arbitrary `perspective: ...px`) for the browser to draw the back face at all. Without perspective " }
+      },
+    ]
+  },
+  {
+    id = "05-002",
+    number = 2,
+    title = "float",
+    local_chapter_file = "002-float.md",
+    key_concepts = ["The mental model", "`float`: wrapping text around an element", "Typography: three small dials", "Grid gutters and tracks", "Predict the render", "Common mistakes"],
+    total_duration_seconds = 871,
+    videos = [
+      {
+        id = "UzU6QzI6VjE6MDAyLWZs",
+        raw_key = "S5:C2:V1",
+        title = "Applying text and font styles",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/applying-text-and-font-styles",
+        duration_text = "06m20s",
+        duration_seconds = 380,
+        description = "In-depth walkthrough of float, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A Tailwind utility is a class name that maps to exactly one CSS declaration. `float-left` sets `float: left`. `font-bold` sets `font-weight: 700`. `gap-4` sets a gutter. You do not write CSS; you compose class names on the element, and the browser applies the declarations they stand for.  This chapter is a working reference for a cluster of layout and typography utilities you reach for constantly: `float`, the four font utilities (`font-smoothing`, `font-style`, `font-weight`), and the grid gutter and placement utilities (`gap`, `grid-auto-columns`, `grid-auto-rows`, `grid-template-rows`, `grid-column`, `grid-row`). It closes with the install recipes for five non-Vite frameworks, so you can drop Tailwind into whatever project shows up next.", mental_model = "Think of a Tailwind class as a labelled dial. Turning the `float-right` dial pushes an element to the right edge of its container and lets the following text wrap around it. Turning the `font-bold` dial cranks the weight to 700. Each dial does one thing. You get a layout by turning several dials at once, all through the element's class list.  In HTML you would write `class=\"float-right\"`. In React you write `className=\"float-right\"`, because `class` is a reserved word in JavaScript and JSX renames the attribute. That single rename is the only translation you need: every Tailwind class name is identical between the docs and your JSX.", code_example = "// HTML from the Tailwind docs:      <p class=\"font-bold\">\n// The same thing in a React component:\n<p className=\"font-bold\">The quick brown fox.</p>", pitfalls = "React warns in the console: `Warning: Invalid DOM property 'class'. Did you mean 'className'?` The bold never applies. Every Tailwind snippet you copy from the docs uses `class`; rename it to `className` in JSX.  `col-span-2`, `row-span-2`, `auto-cols-max`, and friends only take effect when the parent has `display: grid`. Add `grid grid-cols-3` (or `flex` for `gap`) to the parent. Nothing errors; the layout just silently ignores the placement classes.  `gap` needs a flex or grid container. On a plain block container the children stack with no gutter and `gap-4` is inert. Add `flex` or `grid` to the parent first.  `grid-cols-3` defines three explicit columns; `auto-cols-max` sizes the *implicit* ones that appear when content overflows. If you set `auto-cols-max` but every item fits inside y" }
+      },
+      {
+        id = "UzU6QzI6VjI6MDAyLWZs",
+        raw_key = "S5:C2:V2",
+        title = "Creating grid layouts",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/creating-grid-layouts",
+        duration_text = "08m11s",
+        duration_seconds = 491,
+        description = "In-depth walkthrough of float, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A Tailwind utility is a class name that maps to exactly one CSS declaration. `float-left` sets `float: left`. `font-bold` sets `font-weight: 700`. `gap-4` sets a gutter. You do not write CSS; you compose class names on the element, and the browser applies the declarations they stand for.  This chapter is a working reference for a cluster of layout and typography utilities you reach for constantly: `float`, the four font utilities (`font-smoothing`, `font-style`, `font-weight`), and the grid gutter and placement utilities (`gap`, `grid-auto-columns`, `grid-auto-rows`, `grid-template-rows`, `grid-column`, `grid-row`). It closes with the install recipes for five non-Vite frameworks, so you can drop Tailwind into whatever project shows up next.", mental_model = "Think of a Tailwind class as a labelled dial. Turning the `float-right` dial pushes an element to the right edge of its container and lets the following text wrap around it. Turning the `font-bold` dial cranks the weight to 700. Each dial does one thing. You get a layout by turning several dials at once, all through the element's class list.  In HTML you would write `class=\"float-right\"`. In React you write `className=\"float-right\"`, because `class` is a reserved word in JavaScript and JSX renames the attribute. That single rename is the only translation you need: every Tailwind class name is identical between the docs and your JSX.", code_example = "// HTML from the Tailwind docs:      <p class=\"font-bold\">\n// The same thing in a React component:\n<p className=\"font-bold\">The quick brown fox.</p>", pitfalls = "React warns in the console: `Warning: Invalid DOM property 'class'. Did you mean 'className'?` The bold never applies. Every Tailwind snippet you copy from the docs uses `class`; rename it to `className` in JSX.  `col-span-2`, `row-span-2`, `auto-cols-max`, and friends only take effect when the parent has `display: grid`. Add `grid grid-cols-3` (or `flex` for `gap`) to the parent. Nothing errors; the layout just silently ignores the placement classes.  `gap` needs a flex or grid container. On a plain block container the children stack with no gutter and `gap-4` is inert. Add `flex` or `grid` to the parent first.  `grid-cols-3` defines three explicit columns; `auto-cols-max` sizes the *implicit* ones that appear when content overflows. If you set `auto-cols-max` but every item fits inside y" }
+      },
+    ]
+  },
+  {
+    id = "05-003",
+    number = 3,
+    title = "Install Tailwind CSS in Meteor (PostCSS plugin)",
+    local_chapter_file = "003-install-tailwind-css-in-meteor-postcss-plugin.md",
+    key_concepts = ["The mental model", "Install Tailwind in Meteor", "Install Tailwind in Next.js", "Predict the render", "Utility reference", "Common mistakes"],
+    total_duration_seconds = 281,
+    videos = [
+      {
+        id = "UzU6QzM6VjE6MDAzLWlu",
+        raw_key = "S5:C3:V1",
+        title = "Meet Tailwind CSS",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/meet-tailwind-css",
+        duration_text = "00m44s",
+        duration_seconds = 44,
+        description = "In-depth walkthrough of Install Tailwind CSS in Meteor (PostCSS plugin), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "Tailwind drops into a Meteor project the same way it drops into any PostCSS-based stack: install the package, register the plugin, import the CSS, start the server. There is no Meteor-specific wrapper. The recipe, plus a worked example installing the same plugin in a Next.js project, is the first half of this chapter. The second half is a working reference for a cluster of utility classes you reach for constantly: `line-clamp`, `max-w-*`, `min-h-*`, `min-w-*`, `object-fit`, `opacity`, `outline-color`, `outline-style`, `overflow`, `padding`, `position`, and `resize`.", mental_model = "A PostCSS plugin transforms a CSS file before the browser sees it. `@tailwindcss/postcss` is a transformer that takes a single `@import \"tailwindcss\";` line and emits the full preflight reset plus every utility class that the build can reach from your source files. Meteor's build pipeline already runs PostCSS on your CSS assets, so registering the plugin turns the CSS entry into a Tailwind entry with no extra tooling.  In React, every utility class is identical between the HTML docs and your JSX. The only translation is the attribute name: `class` in HTML becomes `className` in JSX because `class` is reserved.", code_example = "// HTML from the Tailwind docs:     <h1 class=\"text-3xl font-bold underline\">\n// The same thing in a React component:\n<h1 className=\"text-3xl font-bold underline\">Hello world!</h1>", pitfalls = "React warns in the console: `Warning: Invalid DOM property 'class'. Did you mean 'className'?`. The underline never applies. Every Tailwind snippet you copy from the docs uses `class`; rename it to `className` in JSX.  If the import is not in a file the build pulls in, none of the utility classes are emitted. The plugin has no source to scan. Symptom: every `className=` value is rendered, but the element looks unstyled. Fix: add the import to the entry CSS file the framework already loads.  Meteor and Next.js both look for the PostCSS config at the project root. A config inside `src/` or `app/` is ignored. The plugin registers, but PostCSS uses its default empty plugin list. Symptom: `tailwindcss` is installed but the build pipeline does not run it. Fix: move `postcss.config.mjs` to the ro" }
+      },
+      {
+        id = "UzU6QzM6VjI6MDAzLWlu",
+        raw_key = "S5:C3:V2",
+        title = "Understanding the utility-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-utility-first-approach",
+        duration_text = "03m57s",
+        duration_seconds = 237,
+        description = "In-depth walkthrough of Install Tailwind CSS in Meteor (PostCSS plugin), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "Tailwind drops into a Meteor project the same way it drops into any PostCSS-based stack: install the package, register the plugin, import the CSS, start the server. There is no Meteor-specific wrapper. The recipe, plus a worked example installing the same plugin in a Next.js project, is the first half of this chapter. The second half is a working reference for a cluster of utility classes you reach for constantly: `line-clamp`, `max-w-*`, `min-h-*`, `min-w-*`, `object-fit`, `opacity`, `outline-color`, `outline-style`, `overflow`, `padding`, `position`, and `resize`.", mental_model = "A PostCSS plugin transforms a CSS file before the browser sees it. `@tailwindcss/postcss` is a transformer that takes a single `@import \"tailwindcss\";` line and emits the full preflight reset plus every utility class that the build can reach from your source files. Meteor's build pipeline already runs PostCSS on your CSS assets, so registering the plugin turns the CSS entry into a Tailwind entry with no extra tooling.  In React, every utility class is identical between the HTML docs and your JSX. The only translation is the attribute name: `class` in HTML becomes `className` in JSX because `class` is reserved.", code_example = "// HTML from the Tailwind docs:     <h1 class=\"text-3xl font-bold underline\">\n// The same thing in a React component:\n<h1 className=\"text-3xl font-bold underline\">Hello world!</h1>", pitfalls = "React warns in the console: `Warning: Invalid DOM property 'class'. Did you mean 'className'?`. The underline never applies. Every Tailwind snippet you copy from the docs uses `class`; rename it to `className` in JSX.  If the import is not in a file the build pulls in, none of the utility classes are emitted. The plugin has no source to scan. Symptom: every `className=` value is rendered, but the element looks unstyled. Fix: add the import to the entry CSS file the framework already loads.  Meteor and Next.js both look for the PostCSS config at the project root. A config inside `src/` or `app/` is ignored. The plugin registers, but PostCSS uses its default empty plugin list. Symptom: `tailwindcss` is installed but the build pipeline does not run it. Fix: move `postcss.config.mjs` to the ro" }
+      },
+    ]
+  },
+  {
+    id = "05-004",
+    number = 4,
+    title = "scale utilities",
+    local_chapter_file = "004-scale-utilities.md",
+    key_concepts = ["`scale`: growing and shrinking", "`scroll-behavior`: instant or animated programmatic scrolling", "`skew`: slanting an element", "`stroke`: SVG outline colour", "Tailwind v4 browser targets", "Installing Tailwind in non-Vite stacks"],
+    total_duration_seconds = 488,
+    videos = [
+      {
+        id = "UzU6QzQ6VjE6MDA0LXNj",
+        raw_key = "S5:C4:V1",
+        title = "Meet Tailwind CSS",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/meet-tailwind-css",
+        duration_text = "00m44s",
+        duration_seconds = 44,
+        description = "In-depth walkthrough of scale utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A Tailwind utility is a class name that maps to exactly one CSS declaration. `scale-110` sets `transform: scale(1.10)`. `skew-y-3` sets `transform: skewY(3deg)`. `scroll-smooth` sets `scroll-behavior: smooth`. You do not write the CSS by hand; you compose class names on the element and the browser applies the declarations they stand for.  This chapter is a working reference for four transform-flavoured utilities you reach for when building interactive UI (`scale`, `scroll-behavior`, `skew`, `stroke`), plus the tooling that ships alongside them: Tailwind v4's browser targets, the install recipes for non-Vite stacks, the VS Code IntelliSense extension, the major version feature history (v1.9, v2, v3, v4), and the \"From Zero to Production\" screencast series.", mental_model = "These four utilities are the cheap-interactive-UI toolkit. A button that pops on hover is `hover:scale-110 transition-transform`. An anchor that animates instead of jumping is `scroll-smooth` on the container. An SVG icon that inherits the button's text colour is `stroke-current`. A \"next\" arrow that mirrors a previous one is `-scale-x-100`. Compose them on the same element and you get an interactive component without writing a single line of CSS.  The rest of the chapter (browser targets, install paths, IntelliSense, release history) is the meta layer that keeps the toolkit healthy. v4's modern-browser target is the reason these utilities feel fast: no autoprefixer lag, no legacy fallbacks, no polyfills. The IntelliSense extension is the reason the utilities feel fast to write: autocomplete, lint, and quick-fixes right inside the editor.", code_example = "// HTML from the Tailwind docs:      <button class=\"scale-105 hover:scale-110\">\n// The same thing in a React component:\n<button className=\"scale-105 hover:scale-110 transition-transform\">\n  Save\n</button>", pitfalls = "`hover:scale-110` writes `transform: scale(1.10)` on hover, with no transition. Add `transition` or `transition-transform` to animate it. The default transition duration is 150 ms and the default property list is the seven common transform / colour properties; `transition-transform` is the right shorthand for a transform-only animation.  `scale-z-150` only affects rendering when the element is in a 3D context (it has a parent with `transform-style: preserve-3d`, or its own `perspective-*` plus a 3D transform). On a flat element, `scale-z-150` produces no visible change. Pair it with `scale-3d` and a `perspective-*` utility on an ancestor if you want a real 3D effect.  `skew-y-6` pivots around the element's centre by default. If you wanted the parallelogram to lean on its bottom edge, add `" }
+      },
+      {
+        id = "UzU6QzQ6VjI6MDA0LXNj",
+        raw_key = "S5:C4:V2",
+        title = "Using display, position, and z-index utilities",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-display-position-and-z-index-utilities",
+        duration_text = "07m24s",
+        duration_seconds = 444,
+        description = "In-depth walkthrough of scale utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A Tailwind utility is a class name that maps to exactly one CSS declaration. `scale-110` sets `transform: scale(1.10)`. `skew-y-3` sets `transform: skewY(3deg)`. `scroll-smooth` sets `scroll-behavior: smooth`. You do not write the CSS by hand; you compose class names on the element and the browser applies the declarations they stand for.  This chapter is a working reference for four transform-flavoured utilities you reach for when building interactive UI (`scale`, `scroll-behavior`, `skew`, `stroke`), plus the tooling that ships alongside them: Tailwind v4's browser targets, the install recipes for non-Vite stacks, the VS Code IntelliSense extension, the major version feature history (v1.9, v2, v3, v4), and the \"From Zero to Production\" screencast series.", mental_model = "These four utilities are the cheap-interactive-UI toolkit. A button that pops on hover is `hover:scale-110 transition-transform`. An anchor that animates instead of jumping is `scroll-smooth` on the container. An SVG icon that inherits the button's text colour is `stroke-current`. A \"next\" arrow that mirrors a previous one is `-scale-x-100`. Compose them on the same element and you get an interactive component without writing a single line of CSS.  The rest of the chapter (browser targets, install paths, IntelliSense, release history) is the meta layer that keeps the toolkit healthy. v4's modern-browser target is the reason these utilities feel fast: no autoprefixer lag, no legacy fallbacks, no polyfills. The IntelliSense extension is the reason the utilities feel fast to write: autocomplete, lint, and quick-fixes right inside the editor.", code_example = "// HTML from the Tailwind docs:      <button class=\"scale-105 hover:scale-110\">\n// The same thing in a React component:\n<button className=\"scale-105 hover:scale-110 transition-transform\">\n  Save\n</button>", pitfalls = "`hover:scale-110` writes `transform: scale(1.10)` on hover, with no transition. Add `transition` or `transition-transform` to animate it. The default transition duration is 150 ms and the default property list is the seven common transform / colour properties; `transition-transform` is the right shorthand for a transform-only animation.  `scale-z-150` only affects rendering when the element is in a 3D context (it has a parent with `transform-style: preserve-3d`, or its own `perspective-*` plus a 3D transform). On a flat element, `scale-z-150` produces no visible change. Pair it with `scale-3d` and a `perspective-*` utility on an ancestor if you want a real 3D effect.  `skew-y-6` pivots around the element's centre by default. If you wanted the parallelogram to lean on its bottom edge, add `" }
+      },
+    ]
+  },
+  {
+    id = "05-005",
+    number = 5,
+    title = "Tailwind height (h-*) and size-* utilities",
+    local_chapter_file = "005-tailwind-height-h-and-size-utilities.md",
+    key_concepts = ["The mental model: a token-driven sizing scale", "`h-*`: height from the spacing scale", "`size-*`: shorthand for width and height", "`inline-*`: logical, direction-aware sizing", "`min-h-*` / `max-h-*` / `min-w-*` / `max-w-*`", "`leading-*`: line-height"],
+    total_duration_seconds = 847,
+    videos = [
+      {
+        id = "UzU6QzU6VjE6MDA1LXRh",
+        raw_key = "S5:C5:V1",
+        title = "Setting width and height",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/setting-width-and-height",
+        duration_text = "07m36s",
+        duration_seconds = 456,
+        description = "In-depth walkthrough of Tailwind height (h-*) and size-* utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A Tailwind utility is a class name that maps to one CSS declaration. `h-12` sets `height: calc(var(--spacing) * 12)`. `size-6` sets both `width` and `height` to the same value. `leading-6` sets `line-height: calc(var(--spacing) * 6)`. You compose class names on the element and the browser applies the declarations they stand for.  This chapter is a reference for the height and size family (`h-*`, `size-*`, `inline-*`, `min-h-*`, `max-h-*`), the line-height utility, the `list-inside` and `list-outside` utilities, the isolation utility, and the four mask utilities (`mask-clip-*`, `mask-composite-*`, `mask-mode-*`, `mask-origin-*`). It closes with the Tailwind tooling roundup: the in-browser playground at `play.tailwindcss.com`, the Play CDN, the insiders build, the standalone CLI, and the Tailwind UI → Tailwind Plus rebrand.", mental_model = "Tailwind v4 derives every numeric utility from a single CSS variable: `--spacing`. The default value is `0.25rem`, so `h-1` is `0.25rem`, `h-4` is `1rem`, `h-96` is `24rem`. This is the \"spacing scale\" you already meet in `p-4`, `m-2`, `gap-6`, `w-12`. The `h-*`, `size-*`, `min-*`, and `max-*` families are the same dial in a different domain: vertical (or both-axes for `size-*`) sizing.  `size-<n>` is the shorthand for \"both width and height at the same value\". Most square UI elements (avatars, icon buttons, badges, the X icon on a modal) want both axes equal. `size-6` writes both `width: 1.5rem` and `height: 1.5rem` on the element. When the two axes need different values, fall back to `w-*` and `h-*` independently.", code_example = "// HTML from the Tailwind docs:     <div class=\"h-32 size-6\">\n// The same thing in a React component:\n<div className=\"h-32 size-6\">...</div>", pitfalls = "`h-screen` is `100vh`, the largest viewport height. On mobile the URL bar shrinks the visible viewport, so a `h-screen` element overflows when the bar is visible. Use `h-dvh` (dynamic) on mobile-first layouts. The browser engine adjusts the value as the chrome slides.  A modal with `z-50` does not stack above a dropdown with `z-50` if both share a stacking context with the same parent. The dropdown's `z-50` resolves first in the document order. Add `isolate` to the modal's overlay wrapper to force a new stacking context, and the modal becomes the unambiguous top of its sub-tree.  `size-12` sets both axes to `3rem`. If the avatar is a `size-12` circle, fine. If the layout wants a `w-12 h-24` rectangle, fall back to `w-*` and `h-*` independently. `size-*` is the symmetric shortcut, not a con" }
+      },
+      {
+        id = "UzU6QzU6VjI6MDA1LXRh",
+        raw_key = "S5:C5:V2",
+        title = "Sizing flex items and nesting",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/sizing-flex-items-and-nesting",
+        duration_text = "06m31s",
+        duration_seconds = 391,
+        description = "In-depth walkthrough of Tailwind height (h-*) and size-* utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A Tailwind utility is a class name that maps to one CSS declaration. `h-12` sets `height: calc(var(--spacing) * 12)`. `size-6` sets both `width` and `height` to the same value. `leading-6` sets `line-height: calc(var(--spacing) * 6)`. You compose class names on the element and the browser applies the declarations they stand for.  This chapter is a reference for the height and size family (`h-*`, `size-*`, `inline-*`, `min-h-*`, `max-h-*`), the line-height utility, the `list-inside` and `list-outside` utilities, the isolation utility, and the four mask utilities (`mask-clip-*`, `mask-composite-*`, `mask-mode-*`, `mask-origin-*`). It closes with the Tailwind tooling roundup: the in-browser playground at `play.tailwindcss.com`, the Play CDN, the insiders build, the standalone CLI, and the Tailwind UI → Tailwind Plus rebrand.", mental_model = "Tailwind v4 derives every numeric utility from a single CSS variable: `--spacing`. The default value is `0.25rem`, so `h-1` is `0.25rem`, `h-4` is `1rem`, `h-96` is `24rem`. This is the \"spacing scale\" you already meet in `p-4`, `m-2`, `gap-6`, `w-12`. The `h-*`, `size-*`, `min-*`, and `max-*` families are the same dial in a different domain: vertical (or both-axes for `size-*`) sizing.  `size-<n>` is the shorthand for \"both width and height at the same value\". Most square UI elements (avatars, icon buttons, badges, the X icon on a modal) want both axes equal. `size-6` writes both `width: 1.5rem` and `height: 1.5rem` on the element. When the two axes need different values, fall back to `w-*` and `h-*` independently.", code_example = "// HTML from the Tailwind docs:     <div class=\"h-32 size-6\">\n// The same thing in a React component:\n<div className=\"h-32 size-6\">...</div>", pitfalls = "`h-screen` is `100vh`, the largest viewport height. On mobile the URL bar shrinks the visible viewport, so a `h-screen` element overflows when the bar is visible. Use `h-dvh` (dynamic) on mobile-first layouts. The browser engine adjusts the value as the chrome slides.  A modal with `z-50` does not stack above a dropdown with `z-50` if both share a stacking context with the same parent. The dropdown's `z-50` resolves first in the document order. Add `isolate` to the modal's overlay wrapper to force a new stacking context, and the modal becomes the unambiguous top of its sub-tree.  `size-12` sets both axes to `3rem`. If the avatar is a `size-12` circle, fine. If the layout wants a `w-12 h-24` rectangle, fall back to `w-*` and `h-*` independently. `size-*` is the symmetric shortcut, not a con" }
+      },
+    ]
+  },
+  {
+    id = "05-006",
+    number = 6,
+    title = "Tailwind UI Ecommerce Kit, and the Utility-First Model Behind It",
+    local_chapter_file = "006-tailwind-ui-ecommerce-kit.md",
+    key_concepts = ["Hook: a class per decision", "The concept: utility-first styling", "What Tailwind sells on top of the model", "Typography utilities you will use constantly", "Predict-the-render", "Common mistakes"],
+    total_duration_seconds = 423,
+    videos = [
+      {
+        id = "UzU6QzY6VjE6MDA2LXRh",
+        raw_key = "S5:C6:V1",
+        title = "Understanding the utility-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-utility-first-approach",
+        duration_text = "03m57s",
+        duration_seconds = 237,
+        description = "In-depth walkthrough of Tailwind UI Ecommerce Kit, and the Utility-First Model Behind It, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** none (you can read this any time after you can write a JSX component)  You have been writing components. Now you need them to look like something. This chapter is about Tailwind CSS: the styling approach where you build a component's look by stacking small, single-purpose class names right in the `className`, instead of writing a separate stylesheet. We start from the model, then look at the pre-built pieces Tailwind sells on top of it (the Ecommerce component kit and the Next.js site templates), and finish with the typography utilities you will reach for constantly.", mental_model = "Utility-first styling is the default in a large share of modern React and Next.js codebases, including the Reddit-recommended toolchain this course follows. Once you can read a class string fluently, you can read almost any Tailwind component, drop in a pre-built kit component and understand it, and adjust a template without fighting a stylesheet you did not write. The typography utilities in particular show up in nearly every component you will build for the rest of the course.", code_example = "/* pure CSS, in a separate file */\n.card-title {\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: black;\n}", pitfalls = "1. **Building class names at runtime.** `` className={`text-${size}`} `` can produce a class    Tailwind's scanner never saw at build time, so the CSS for it is never generated and the    style silently does nothing. Branch between complete strings instead:    `className={size === \"lg\" ? \"text-lg\" : \"text-sm\"}`. 2. **Expecting `capitalize` to normalize an all-caps string.** `capitalize` uppercases the    first letter of each word; it will not turn `\"SALE\"` into `\"Sale\"`. Fix the source text or    use `lowercase` first. 3. **Assuming utility order in the string sets priority.** The order of classes in    `className` does not decide which wins. When two utilities set the same property (say two    background colors), the winner is decided by the generated CSS, not by which you typed    last. " }
+      },
+      {
+        id = "UzU6QzY6VjI6MDA2LXRh",
+        raw_key = "S5:C6:V2",
+        title = "Understanding the mobile-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-mobile-first-approach",
+        duration_text = "03m06s",
+        duration_seconds = 186,
+        description = "In-depth walkthrough of Tailwind UI Ecommerce Kit, and the Utility-First Model Behind It, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** none (you can read this any time after you can write a JSX component)  You have been writing components. Now you need them to look like something. This chapter is about Tailwind CSS: the styling approach where you build a component's look by stacking small, single-purpose class names right in the `className`, instead of writing a separate stylesheet. We start from the model, then look at the pre-built pieces Tailwind sells on top of it (the Ecommerce component kit and the Next.js site templates), and finish with the typography utilities you will reach for constantly.", mental_model = "Utility-first styling is the default in a large share of modern React and Next.js codebases, including the Reddit-recommended toolchain this course follows. Once you can read a class string fluently, you can read almost any Tailwind component, drop in a pre-built kit component and understand it, and adjust a template without fighting a stylesheet you did not write. The typography utilities in particular show up in nearly every component you will build for the rest of the course.", code_example = "/* pure CSS, in a separate file */\n.card-title {\n  font-size: 1.25rem;\n  font-weight: 500;\n  color: black;\n}", pitfalls = "1. **Building class names at runtime.** `` className={`text-${size}`} `` can produce a class    Tailwind's scanner never saw at build time, so the CSS for it is never generated and the    style silently does nothing. Branch between complete strings instead:    `className={size === \"lg\" ? \"text-lg\" : \"text-sm\"}`. 2. **Expecting `capitalize` to normalize an all-caps string.** `capitalize` uppercases the    first letter of each word; it will not turn `\"SALE\"` into `\"Sale\"`. Fix the source text or    use `lowercase` first. 3. **Assuming utility order in the string sets priority.** The order of classes in    `className` does not decide which wins. When two utilities set the same property (say two    background colors), the winner is decided by the generated CSS, not by which you typed    last. " }
+      },
+    ]
+  },
+  {
+    id = "05-007",
+    number = 7,
+    title = "Tailwind CSS: Utility-First Styling",
+    local_chapter_file = "007-tailwind-utility-first.md",
+    key_concepts = ["Hook: composing decisions in the className", "The model: utility classes, build-time generation, and variants", "Text decoration: line, style, thickness, color, offset", "The Tailwind CLI: build and watch without a framework plugin", "Display, visibility, and `sr-only`", "`box-border` and `box-content`"],
+    total_duration_seconds = 281,
+    videos = [
+      {
+        id = "UzU6Qzc6VjE6MDA3LXRh",
+        raw_key = "S5:C7:V1",
+        title = "Understanding the utility-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-utility-first-approach",
+        duration_text = "03m57s",
+        duration_seconds = 237,
+        description = "In-depth walkthrough of Tailwind CSS: Utility-First Styling, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Tailwind UI Ecommerce kit  The previous chapter framed Tailwind CSS as the styling layer for the rest of the course and showed a product card assembled from utility classes. This chapter turns that framing into a working vocabulary. You should be able to read a Tailwind `className` and know roughly what it renders, and reach for the right utility when a layout problem shows up.", mental_model = "The utility families in this chapter are the 30% of Tailwind you reach for 90% of the time. Layout (`flex`, `grid`, `block`, `hidden`, `sr-only`), spacing (`p-*`, `m-*`, `gap-*`, `space-*`), sizing (`h-*`, `w-*`, `size-*`, `h-dvh`), text decoration (`underline`, `decoration-*`, `underline-offset-*`), animation (`animate-*`), form-control resets (`appearance-none`), and the table family (`border-collapse`, `border-separate`, `caption-*`). The rest of the styling chapters in this section (typography, color, shadows, transforms) layer on top of the same model.  The Tailwind CLI is the bridge for non-JS stacks. If you ever build a server-rendered HTML app or a static site with a non-Node tool, the CLI is the build step. Inside the React + Vite projects in this course, the Vite plugin is the equivalent; the CLI is the same scanner and engine, just driven from a script.", code_example = "<article className=\"rounded-xl border p-6\">\n  <p className=\"text-sm uppercase tracking-widest\">3 in stock</p>\n  <h2 className=\"mt-2 text-2xl font-semibold underline decoration-wavy decoration-2 underline-offset-4\">\n    Nomad Tote\n  </h2>\n  <span className=\"mt-4 inline-flex size-12 animate-pulse rounded-full bg-emerald-500\" />\n  <table className=\"mt-6 w-full border-separate border border-gray-300 caption-top\">\n    <caption>Sizes</caption>\n    <thead>\n      <tr><th>S</th><th>M</th><th>L</th></tr>\n    </thead>\n  </table>\n</article>", pitfalls = "`` `text-${color}-500` `` produces a string Tailwind's scanner never saw, so the CSS is never generated and the style silently does nothing. Branch between complete strings instead:  // right className={color === \"red\" ? \"text-red-500\" : \"text-blue-500\"} ```  The same goes for `decoration-*`, `border-*`, `bg-*`, and any other family. If the full class name does not appear literally in a scanned file, the CSS is not in the output.  The order of utilities in `className` is irrelevant. The order in the *generated CSS file* is what matters, and that order is fixed by the build, not by what you typed. If two utilities set the same CSS property, the one that comes later in the generated CSS wins, not the one you wrote later. Do not stack `flex` and `grid` on the same element and expect the order" }
+      },
+      {
+        id = "UzU6Qzc6VjI6MDA3LXRh",
+        raw_key = "S5:C7:V2",
+        title = "Meet Tailwind CSS",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/meet-tailwind-css",
+        duration_text = "00m44s",
+        duration_seconds = 44,
+        description = "In-depth walkthrough of Tailwind CSS: Utility-First Styling, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Tailwind UI Ecommerce kit  The previous chapter framed Tailwind CSS as the styling layer for the rest of the course and showed a product card assembled from utility classes. This chapter turns that framing into a working vocabulary. You should be able to read a Tailwind `className` and know roughly what it renders, and reach for the right utility when a layout problem shows up.", mental_model = "The utility families in this chapter are the 30% of Tailwind you reach for 90% of the time. Layout (`flex`, `grid`, `block`, `hidden`, `sr-only`), spacing (`p-*`, `m-*`, `gap-*`, `space-*`), sizing (`h-*`, `w-*`, `size-*`, `h-dvh`), text decoration (`underline`, `decoration-*`, `underline-offset-*`), animation (`animate-*`), form-control resets (`appearance-none`), and the table family (`border-collapse`, `border-separate`, `caption-*`). The rest of the styling chapters in this section (typography, color, shadows, transforms) layer on top of the same model.  The Tailwind CLI is the bridge for non-JS stacks. If you ever build a server-rendered HTML app or a static site with a non-Node tool, the CLI is the build step. Inside the React + Vite projects in this course, the Vite plugin is the equivalent; the CLI is the same scanner and engine, just driven from a script.", code_example = "<article className=\"rounded-xl border p-6\">\n  <p className=\"text-sm uppercase tracking-widest\">3 in stock</p>\n  <h2 className=\"mt-2 text-2xl font-semibold underline decoration-wavy decoration-2 underline-offset-4\">\n    Nomad Tote\n  </h2>\n  <span className=\"mt-4 inline-flex size-12 animate-pulse rounded-full bg-emerald-500\" />\n  <table className=\"mt-6 w-full border-separate border border-gray-300 caption-top\">\n    <caption>Sizes</caption>\n    <thead>\n      <tr><th>S</th><th>M</th><th>L</th></tr>\n    </thead>\n  </table>\n</article>", pitfalls = "`` `text-${color}-500` `` produces a string Tailwind's scanner never saw, so the CSS is never generated and the style silently does nothing. Branch between complete strings instead:  // right className={color === \"red\" ? \"text-red-500\" : \"text-blue-500\"} ```  The same goes for `decoration-*`, `border-*`, `bg-*`, and any other family. If the full class name does not appear literally in a scanned file, the CSS is not in the output.  The order of utilities in `className` is irrelevant. The order in the *generated CSS file* is what matters, and that order is fixed by the build, not by what you typed. If two utilities set the same CSS property, the one that comes later in the generated CSS wins, not the one you wrote later. Do not stack `flex` and `grid` on the same element and expect the order" }
+      },
+    ]
+  },
+  {
+    id = "05-008",
+    number = 8,
+    title = "Tailwind color palette",
+    local_chapter_file = "008-tailwind-color-palette.md",
+    key_concepts = ["The mental model: a name, a step, and a variable", "One palette, many properties", "Opacity: the slash modifier", "Dark mode: the `dark:` variant", "Referencing colors in CSS", "Customizing the palette with `@theme`"],
+    total_duration_seconds = 717,
+    videos = [
+      {
+        id = "UzU6Qzg6VjE6MDA4LXRh",
+        raw_key = "S5:C8:V1",
+        title = "Using colors",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-colors",
+        duration_text = "04m36s",
+        duration_seconds = 276,
+        description = "In-depth walkthrough of Tailwind color palette, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A color utility in Tailwind is a class name that resolves to one CSS variable. `bg-sky-500` sets `background-color: var(--color-sky-500)`. `text-gray-950` sets `color: var(--color-gray-950)`. `border-pink-300` sets `border-color: var(--color-pink-300)`. You never write a hex value on the element. You pick a color name and a step, and the class resolves to a design-token variable the framework already defined.  This chapter is the color layer of Tailwind plus a small group of interactivity and layout utilities that come up in the same components: the multi-step palette and its opacity, CSS variable, and dark-mode features; the `cursor-*`, `pointer-events-*`, and `resize-*` interactivity utilities; the `display` utilities; and two pieces of Tailwind ecosystem context (the IntelliSense editor extension and the Tailwind UI → Tailwind Plus rebrand).", mental_model = "Every color in the default palette has a name (`red`, `sky`, `slate`, `emerald`, …) and **11 steps**: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`. Step `50` is the lightest, `950` is the darkest, and `500` sits in the middle as the \"base\" of the ramp. A color utility is the name and the step glued together behind a property prefix:  The steps are defined in the OKLCH color space, not RGB or HSL. OKLCH is perceptually uniform: stepping from `400` to `500` looks like the same jump in lightness whether the hue is yellow or blue, which is why the ramps look even across every color. You do not need to write OKLCH yourself. You pick the step; the framework holds the value.", code_example = "// HTML in the Tailwind docs:  <div class=\"bg-sky-500 text-white\">\n// The same thing in React:\n<div className=\"bg-sky-500 text-white\">...</div>", pitfalls = "Tailwind generates CSS by scanning your source for complete class strings. `\"bg-\" + color + \"-500\"` is never a complete string in the file, so `bg-sky-500` is never generated and the element renders unstyled. The fix is to write whole class names and switch between them, or to constrain the dynamic part to a small typed union and interpolate that (`bg-${tone}-500` where `tone` is `\"sky\" | \"rose\"`) so every possible result is spelled out somewhere the scanner can reach. When in doubt, map the input to a lookup of literal class strings.  `opacity-50` makes the whole element (background *and* its text and children) 50% transparent. The slash modifier `bg-sky-500/50` changes only the background color's alpha and leaves the text fully opaque. For a translucent card or scrim with readable conten" }
+      },
+      {
+        id = "UzU6Qzg6VjI6MDA4LXRh",
+        raw_key = "S5:C8:V2",
+        title = "Applying background colors and gradients",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/applying-background-colors-and-gradients",
+        duration_text = "07m21s",
+        duration_seconds = 441,
+        description = "In-depth walkthrough of Tailwind color palette, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A color utility in Tailwind is a class name that resolves to one CSS variable. `bg-sky-500` sets `background-color: var(--color-sky-500)`. `text-gray-950` sets `color: var(--color-gray-950)`. `border-pink-300` sets `border-color: var(--color-pink-300)`. You never write a hex value on the element. You pick a color name and a step, and the class resolves to a design-token variable the framework already defined.  This chapter is the color layer of Tailwind plus a small group of interactivity and layout utilities that come up in the same components: the multi-step palette and its opacity, CSS variable, and dark-mode features; the `cursor-*`, `pointer-events-*`, and `resize-*` interactivity utilities; the `display` utilities; and two pieces of Tailwind ecosystem context (the IntelliSense editor extension and the Tailwind UI → Tailwind Plus rebrand).", mental_model = "Every color in the default palette has a name (`red`, `sky`, `slate`, `emerald`, …) and **11 steps**: `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`. Step `50` is the lightest, `950` is the darkest, and `500` sits in the middle as the \"base\" of the ramp. A color utility is the name and the step glued together behind a property prefix:  The steps are defined in the OKLCH color space, not RGB or HSL. OKLCH is perceptually uniform: stepping from `400` to `500` looks like the same jump in lightness whether the hue is yellow or blue, which is why the ramps look even across every color. You do not need to write OKLCH yourself. You pick the step; the framework holds the value.", code_example = "// HTML in the Tailwind docs:  <div class=\"bg-sky-500 text-white\">\n// The same thing in React:\n<div className=\"bg-sky-500 text-white\">...</div>", pitfalls = "Tailwind generates CSS by scanning your source for complete class strings. `\"bg-\" + color + \"-500\"` is never a complete string in the file, so `bg-sky-500` is never generated and the element renders unstyled. The fix is to write whole class names and switch between them, or to constrain the dynamic part to a small typed union and interpolate that (`bg-${tone}-500` where `tone` is `\"sky\" | \"rose\"`) so every possible result is spelled out somewhere the scanner can reach. When in doubt, map the input to a lookup of literal class strings.  `opacity-50` makes the whole element (background *and* its text and children) 50% transparent. The slash modifier `bg-sky-500/50` changes only the background color's alpha and leaves the text fully opaque. For a translucent card or scrim with readable conten" }
+      },
+    ]
+  },
+  {
+    id = "05-009",
+    number = 9,
+    title = "Width and height utilities",
+    local_chapter_file = "009-width-and-height-utilities.md",
+    key_concepts = ["The mental model: a spacing scale, plus a few kernel-level utilities", "`w-*`: width from the spacing scale", "`h-*`: height from the spacing scale", "`size-*`: shorthand for width and height", "`min-w-*`, `max-w-*`, `min-h-*`, `max-h-*`: bounding the box", "Automatic class detection and static class names"],
+    total_duration_seconds = 900,
+    videos = [
+      {
+        id = "UzU6Qzk6VjE6MDA5LXdp",
+        raw_key = "S5:C9:V1",
+        title = "Setting width and height",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/setting-width-and-height",
+        duration_text = "07m36s",
+        duration_seconds = 456,
+        description = "In-depth walkthrough of Width and height utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A Tailwind utility is a class name that maps to one CSS declaration. `w-12` sets `width: calc(var(--spacing) * 12)`. `h-screen` sets `height: 100vh`. `size-6` sets both axes to the same value. You compose class names on the element and the browser applies the declarations they stand for.  This chapter is a reference roundup. The top of the chapter covers the width and height family (`w-*`, `min-w-*`, `max-w-*`, `h-*`, `min-h-*`, `max-h-*`, `size-*`). The middle covers three utility groups that often show up next to sizing: `break-before-*` / `break-inside-*` for print and columns, `clear-*` for float wrapping, and Tailwind's static-class detection rule that decides whether a runtime-built class name will appear in the generated CSS. The tail covers a small set of one-off utilities (font features, font stretch, grid auto flow, direction-aware text alignment, composable gradients) and a few Tailwind UI product primers (the single-page changelog template, framework install guides for non-React stacks, the design-engineering job description).", mental_model = "Tailwind v4 derives every numeric sizing utility from a single CSS variable: `--spacing`. The default value is `0.25rem`, so `w-1` is `0.25rem`, `w-4` is `1rem`, `w-96` is `24rem`. The `h-*`, `min-*`, `max-*`, and `size-*` families are the same dial in different domains: horizontal, vertical, bounded, and symmetric sizing.  The other utilities in this chapter are independent kernels: `break-*` is CSS paged-media, `clear-*` is float layout, `font-stretch` and `font-feature-settings` are OpenType selection, `grid-flow-*` is grid auto-placement, `text-start` / `text-end` are logical alignment, `bg-gradient-to-*` plus `from-*` / `via-*` / `to-*` plus `bg-clip-text` are layered backgrounds. Each is a small, complete API you can read independently.", code_example = "// HTML from the Tailwind docs:     <div class=\"w-32 h-12\">\n// The same thing in a React component:\n<div className=\"w-32 h-12\">...</div>", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6Qzk6VjI6MDA5LXdp",
+        raw_key = "S5:C9:V2",
+        title = "Using display, position, and z-index utilities",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-display-position-and-z-index-utilities",
+        duration_text = "07m24s",
+        duration_seconds = 444,
+        description = "In-depth walkthrough of Width and height utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A Tailwind utility is a class name that maps to one CSS declaration. `w-12` sets `width: calc(var(--spacing) * 12)`. `h-screen` sets `height: 100vh`. `size-6` sets both axes to the same value. You compose class names on the element and the browser applies the declarations they stand for.  This chapter is a reference roundup. The top of the chapter covers the width and height family (`w-*`, `min-w-*`, `max-w-*`, `h-*`, `min-h-*`, `max-h-*`, `size-*`). The middle covers three utility groups that often show up next to sizing: `break-before-*` / `break-inside-*` for print and columns, `clear-*` for float wrapping, and Tailwind's static-class detection rule that decides whether a runtime-built class name will appear in the generated CSS. The tail covers a small set of one-off utilities (font features, font stretch, grid auto flow, direction-aware text alignment, composable gradients) and a few Tailwind UI product primers (the single-page changelog template, framework install guides for non-React stacks, the design-engineering job description).", mental_model = "Tailwind v4 derives every numeric sizing utility from a single CSS variable: `--spacing`. The default value is `0.25rem`, so `w-1` is `0.25rem`, `w-4` is `1rem`, `w-96` is `24rem`. The `h-*`, `min-*`, `max-*`, and `size-*` families are the same dial in different domains: horizontal, vertical, bounded, and symmetric sizing.  The other utilities in this chapter are independent kernels: `break-*` is CSS paged-media, `clear-*` is float layout, `font-stretch` and `font-feature-settings` are OpenType selection, `grid-flow-*` is grid auto-placement, `text-start` / `text-end` are logical alignment, `bg-gradient-to-*` plus `from-*` / `via-*` / `to-*` plus `bg-clip-text` are layered backgrounds. Each is a small, complete API you can read independently.", code_example = "// HTML from the Tailwind docs:     <div class=\"w-32 h-12\">\n// The same thing in a React component:\n<div className=\"w-32 h-12\">...</div>", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-010",
+    number = 10,
+    title = "Install Tailwind with Qwik",
+    local_chapter_file = "010-install-tailwind-with-qwik.md",
+    key_concepts = ["The mental model: three integration shapes", "The Vite-plugin frameworks", "The PostCSS-plugin frameworks", "Ruby on Rails: the generator does the wiring", "Utility reference", "Predict the render"],
+    total_duration_seconds = 333,
+    videos = [
+      {
+        id = "UzU6QzEwOlYxOjAxMC1p",
+        raw_key = "S5:C10:V1",
+        title = "Understanding the utility-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-utility-first-approach",
+        duration_text = "03m57s",
+        duration_seconds = 237,
+        description = "In-depth walkthrough of Install Tailwind with Qwik, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "Tailwind v4 has exactly three integration shapes, and every framework in this chapter is one of them. Once you can name which shape a framework uses, the install is four moves: install the package, wire it into the build, import the CSS once, run the dev server. Qwik is the headline, but the same recipe covers SolidJS, SvelteKit, TanStack Start, AdonisJS, Astro, Rspack, Symfony, Angular, and Ruby on Rails.  The second half of the chapter is a working reference for five utilities that pair naturally with layout work: the two logical sizing utilities (`min-block-*` and `min-inline-*`), the blend-mode utilities (`mix-blend-*`), the flex/grid `order-*` utilities, and the `overflow-wrap` word-breaking utilities.", mental_model = "Every Tailwind v4 install is one of these:  The one constant across all three: a single CSS entry file contains the line", code_example = "@import \"tailwindcss\";", pitfalls = "Astro nests the plugin under a `vite` key; SvelteKit, SolidJS, Qwik, TanStack Start, and AdonisJS put it at the top-level `plugins` array of their own config. A `tailwindcss()` added to the top level of `astro.config.mjs` (outside `vite`) is silently ignored, and no utilities are emitted. Match the framework's config shape.  Rspack, Symfony, and Angular do not run Vite, so `@tailwindcss/vite` has nothing to hook into. They need `@tailwindcss/postcss` plus a PostCSS config. Installing the Vite plugin on an Angular project produces no error and no styles. Pick the package that matches the integration shape in the table at the top of the chapter.  SvelteKit, Astro, and AdonisJS all require you to *import* the CSS entry from a layout or page. The `@import \"tailwindcss\";` line does nothing if t" }
+      },
+      {
+        id = "UzU6QzEwOlYyOjAxMC1p",
+        raw_key = "S5:C10:V2",
+        title = "Challenge: Info card with image",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/challenge-info-card-with-image",
+        duration_text = "01m36s",
+        duration_seconds = 96,
+        description = "In-depth walkthrough of Install Tailwind with Qwik, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "Tailwind v4 has exactly three integration shapes, and every framework in this chapter is one of them. Once you can name which shape a framework uses, the install is four moves: install the package, wire it into the build, import the CSS once, run the dev server. Qwik is the headline, but the same recipe covers SolidJS, SvelteKit, TanStack Start, AdonisJS, Astro, Rspack, Symfony, Angular, and Ruby on Rails.  The second half of the chapter is a working reference for five utilities that pair naturally with layout work: the two logical sizing utilities (`min-block-*` and `min-inline-*`), the blend-mode utilities (`mix-blend-*`), the flex/grid `order-*` utilities, and the `overflow-wrap` word-breaking utilities.", mental_model = "Every Tailwind v4 install is one of these:  The one constant across all three: a single CSS entry file contains the line", code_example = "@import \"tailwindcss\";", pitfalls = "Astro nests the plugin under a `vite` key; SvelteKit, SolidJS, Qwik, TanStack Start, and AdonisJS put it at the top-level `plugins` array of their own config. A `tailwindcss()` added to the top level of `astro.config.mjs` (outside `vite`) is silently ignored, and no utilities are emitted. Match the framework's config shape.  Rspack, Symfony, and Angular do not run Vite, so `@tailwindcss/vite` has nothing to hook into. They need `@tailwindcss/postcss` plus a PostCSS config. Installing the Vite plugin on an Angular project produces no error and no styles. Pick the package that matches the integration shape in the table at the top of the chapter.  SvelteKit, Astro, and AdonisJS all require you to *import* the CSS entry from a layout or page. The `@import \"tailwindcss\";` line does nothing if t" }
+      },
+    ]
+  },
+  {
+    id = "05-011",
+    number = 11,
+    title = "Overscroll-behavior utilities",
+    local_chapter_file = "011-overscroll-behavior-utilities.md",
+    key_concepts = ["Mental model: what reaching the edge means", "`overscroll-*` and `overscroll-x-*` / `overscroll-y-*`", "`pointer-events-*`: block or pass through pointer input", "Positioning: `static`, `relative`, `absolute`, `fixed`, `sticky`", "`scrollbar-*`: thickness and visibility", "The `@tailwindcss/typography` plugin and `prose`"],
+    total_duration_seconds = 500,
+    videos = [
+      {
+        id = "UzU6QzExOlYxOjAxMS1v",
+        raw_key = "S5:C11:V1",
+        title = "What you should know",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/what-you-should-know",
+        duration_text = "00m56s",
+        duration_seconds = 56,
+        description = "In-depth walkthrough of Overscroll-behavior utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "When a scrollable element reaches its edge, three things can happen: it chains the scroll up to a parent container, it bounces within its own bounds (the iOS-style rubber-band effect), or it does nothing at all. Tailwind v4 exposes those three behaviours as `overscroll-auto`, `overscroll-contain`, and `overscroll-none`. The same property has axis variants (`overscroll-x-*`, `overscroll-y-*`) for the rare case where horizontal and vertical scrolling need different rules. Once you can name what each value does, a long-standing source of scroll bugs in modals, sidebars, and nested carousels turns into a one-line class.  The chapter is a reference roundup. The top half is the overscroll family and its neighbours that you reach for on the same scroll panel: `pointer-events-*`, the Tailwind positioning utilities (`static`, `relative`, `absolute`, `fixed`, `sticky`), and the `scrollbar-*` utilities (`auto`, `thin`, `none`). The second half covers three more groups that share the scroll / viewport mental model: the `@tailwindcss/typography` plugin's `prose` classes for long-form content, the scroll-snap family (`snap-*`, `snap-stop-*`, `scroll-m-*`, `scroll-p-*`), the `rotate-*` transform utilities, and the React-level rule for encapsulating repeated Tailwind combinations. The tail lists two Tailwind UI templates (Protocol, Radiant) as starting points rather than utilities, with a note that they are paid products and out of scope for a course on writing classes.", mental_model = "The browser's `overscroll-behavior` controls three independent choices at the boundary of a scrollable element:  The reason the same property fixes several common UX bugs:", code_example = "<div className=\"overscroll-contain h-64 overflow-y-auto\">…</div>", pitfalls = "`scroll-snap-align` on a child is a no-op without `scroll-snap-type` on a scrollable parent. The common symptom is \"I added `snap-start` to my images and the scroll does not snap.\" The fix: add `snap-x-mandatory` (or `snap-x-proximity`) on the scroll container.  `scroll-m-*` lives on the *child*; `scroll-p-*` lives on the *container*. Putting `scroll-m-4` on the container and `scroll-p-4` on the child reverses which axis offsets the snap. Pick by which element's geometry should be inset.  `overscroll-behavior` has no effect unless the element actually overflows. Wrap the contents with `overflow-y-auto` (or `overflow-x-auto` for horizontal) for the property to bite. The CSS is ignored otherwise.  `position: sticky` does not work when the nearest scrolling ancestor is also an `overflow: hidd" }
+      },
+      {
+        id = "UzU6QzExOlYyOjAxMS1v",
+        raw_key = "S5:C11:V2",
+        title = "Using display, position, and z-index utilities",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-display-position-and-z-index-utilities",
+        duration_text = "07m24s",
+        duration_seconds = 444,
+        description = "In-depth walkthrough of Overscroll-behavior utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "When a scrollable element reaches its edge, three things can happen: it chains the scroll up to a parent container, it bounces within its own bounds (the iOS-style rubber-band effect), or it does nothing at all. Tailwind v4 exposes those three behaviours as `overscroll-auto`, `overscroll-contain`, and `overscroll-none`. The same property has axis variants (`overscroll-x-*`, `overscroll-y-*`) for the rare case where horizontal and vertical scrolling need different rules. Once you can name what each value does, a long-standing source of scroll bugs in modals, sidebars, and nested carousels turns into a one-line class.  The chapter is a reference roundup. The top half is the overscroll family and its neighbours that you reach for on the same scroll panel: `pointer-events-*`, the Tailwind positioning utilities (`static`, `relative`, `absolute`, `fixed`, `sticky`), and the `scrollbar-*` utilities (`auto`, `thin`, `none`). The second half covers three more groups that share the scroll / viewport mental model: the `@tailwindcss/typography` plugin's `prose` classes for long-form content, the scroll-snap family (`snap-*`, `snap-stop-*`, `scroll-m-*`, `scroll-p-*`), the `rotate-*` transform utilities, and the React-level rule for encapsulating repeated Tailwind combinations. The tail lists two Tailwind UI templates (Protocol, Radiant) as starting points rather than utilities, with a note that they are paid products and out of scope for a course on writing classes.", mental_model = "The browser's `overscroll-behavior` controls three independent choices at the boundary of a scrollable element:  The reason the same property fixes several common UX bugs:", code_example = "<div className=\"overscroll-contain h-64 overflow-y-auto\">…</div>", pitfalls = "`scroll-snap-align` on a child is a no-op without `scroll-snap-type` on a scrollable parent. The common symptom is \"I added `snap-start` to my images and the scroll does not snap.\" The fix: add `snap-x-mandatory` (or `snap-x-proximity`) on the scroll container.  `scroll-m-*` lives on the *child*; `scroll-p-*` lives on the *container*. Putting `scroll-m-4` on the container and `scroll-p-4` on the child reverses which axis offsets the snap. Pick by which element's geometry should be inset.  `overscroll-behavior` has no effect unless the element actually overflows. Wrap the contents with `overflow-y-auto` (or `overflow-x-auto` for horizontal) for the property to bite. The CSS is ignored otherwise.  `position: sticky` does not work when the nearest scrolling ancestor is also an `overflow: hidd" }
+      },
+    ]
+  },
+  {
+    id = "05-012",
+    number = 12,
+    title = "Scrollbar-color utilities",
+    local_chapter_file = "012-scrollbar-color-utilities.md",
+    key_concepts = ["Mental model: two colours, one width, one gutter", "`scrollbar-width`: how wide the bar is", "`scrollbar-color`: thumb and track", "`scrollbar-gutter`: reserve the space", "State and selector variants", "Table layout utilities"],
+    total_duration_seconds = 701,
+    videos = [
+      {
+        id = "UzU6QzEyOlYxOjAxMi1z",
+        raw_key = "S5:C12:V1",
+        title = "Using display, position, and z-index utilities",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-display-position-and-z-index-utilities",
+        duration_text = "07m24s",
+        duration_seconds = 444,
+        description = "In-depth walkthrough of Scrollbar-color utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A scrollbar has two paintable parts: the **thumb** you drag and the **track** it slides along. Tailwind exposes both as colour utilities, `scrollbar-thumb-<color>` and `scrollbar-track-<color>`, alongside a width family (`scrollbar-auto`, `scrollbar-thin`, `scrollbar-none`) and a gutter family (`scrollbar-gutter-auto`, `scrollbar-gutter-stable`, `scrollbar-gutter-both`). Once you can name what each one sets, the custom scrollbar on a chat panel or a code block stops being a hand-written block of `::-webkit-scrollbar` CSS and becomes three classes on the scroll container.  This chapter is a reference roundup. The core is the `scrollbar-*` family. Around it sit utilities you reach for on the same scroll panel or in the same design pass: state and selector variants (`hover:`, `md:`, and friends), the table layout utilities, `content-*` for aligning rows in a wrapped flex or grid, the border utilities (`rounded-*`, `border-*`, `divide-*`, `border-spacing-*`, `border-<style>`), and the composable filter utilities (`blur-*`, `grayscale`, `backdrop-blur`). The tail notes Tailwind's Studio template as a starting point rather than a utility, and where Tailwind sits as a CSS build tool.", mental_model = "A styled scrollbar is four independent decisions:  - **Width** picks a keyword: the browser default (`auto`), a slimmer bar   (`thin`), or no visible bar at all (`none`, still scrollable). - **Thumb and track colour** are the two values of the single CSS   `scrollbar-color` property. Tailwind splits them into two classes and   recombines them through CSS variables. - **Gutter** decides whether the browser reserves space for the bar even   when the content is not overflowing, which is how you stop layout from   shifting the moment a scrollbar appears.", code_example = "<div className=\"scrollbar-thin scrollbar-thumb-sky-500 scrollbar-track-slate-200 h-64 overflow-y-auto\">\n  …\n</div>", pitfalls = "1. **Expecting a visible bar to change with no scroll.** Colour and width    utilities only show up where a scrollbar actually renders. If the    content does not overflow, there is nothing to paint. Give the    container a fixed height and `overflow-y-auto`, or reserve space with    `scrollbar-gutter-stable`, before you judge the colours. 2. **Setting a thumb colour and expecting a visible track.** Set only    `scrollbar-thumb-*` and the track is `transparent`, not the browser    default grey. Add `scrollbar-track-*` when you want a painted track. 3. **Reaching for a pixel width.** `scrollbar-width` accepts only `auto`,    `thin`, and `none`. There is no arbitrary width; Tailwind cannot invent    one the CSS property does not support. 4. **`content-*` on a single row.** `align-content` ne" }
+      },
+      {
+        id = "UzU6QzEyOlYyOjAxMi1z",
+        raw_key = "S5:C12:V2",
+        title = "Creating custom utilities",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/creating-custom-utilities",
+        duration_text = "04m17s",
+        duration_seconds = 257,
+        description = "In-depth walkthrough of Scrollbar-color utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A scrollbar has two paintable parts: the **thumb** you drag and the **track** it slides along. Tailwind exposes both as colour utilities, `scrollbar-thumb-<color>` and `scrollbar-track-<color>`, alongside a width family (`scrollbar-auto`, `scrollbar-thin`, `scrollbar-none`) and a gutter family (`scrollbar-gutter-auto`, `scrollbar-gutter-stable`, `scrollbar-gutter-both`). Once you can name what each one sets, the custom scrollbar on a chat panel or a code block stops being a hand-written block of `::-webkit-scrollbar` CSS and becomes three classes on the scroll container.  This chapter is a reference roundup. The core is the `scrollbar-*` family. Around it sit utilities you reach for on the same scroll panel or in the same design pass: state and selector variants (`hover:`, `md:`, and friends), the table layout utilities, `content-*` for aligning rows in a wrapped flex or grid, the border utilities (`rounded-*`, `border-*`, `divide-*`, `border-spacing-*`, `border-<style>`), and the composable filter utilities (`blur-*`, `grayscale`, `backdrop-blur`). The tail notes Tailwind's Studio template as a starting point rather than a utility, and where Tailwind sits as a CSS build tool.", mental_model = "A styled scrollbar is four independent decisions:  - **Width** picks a keyword: the browser default (`auto`), a slimmer bar   (`thin`), or no visible bar at all (`none`, still scrollable). - **Thumb and track colour** are the two values of the single CSS   `scrollbar-color` property. Tailwind splits them into two classes and   recombines them through CSS variables. - **Gutter** decides whether the browser reserves space for the bar even   when the content is not overflowing, which is how you stop layout from   shifting the moment a scrollbar appears.", code_example = "<div className=\"scrollbar-thin scrollbar-thumb-sky-500 scrollbar-track-slate-200 h-64 overflow-y-auto\">\n  …\n</div>", pitfalls = "1. **Expecting a visible bar to change with no scroll.** Colour and width    utilities only show up where a scrollbar actually renders. If the    content does not overflow, there is nothing to paint. Give the    container a fixed height and `overflow-y-auto`, or reserve space with    `scrollbar-gutter-stable`, before you judge the colours. 2. **Setting a thumb colour and expecting a visible track.** Set only    `scrollbar-thumb-*` and the track is `transparent`, not the browser    default grey. Add `scrollbar-track-*` when you want a painted track. 3. **Reaching for a pixel width.** `scrollbar-width` accepts only `auto`,    `thin`, and `none`. There is no arbitrary width; Tailwind cannot invent    one the CSS property does not support. 4. **`content-*` on a single row.** `align-content` ne" }
+      },
+    ]
+  },
+  {
+    id = "05-013",
+    number = 13,
+    title = "Tailwind CSS Just-In-Time engine",
+    local_chapter_file = "013-tailwind-css-just-in-time-engine.md",
+    key_concepts = ["Hook: build only what you used", "Scroll-snap: lock scrolling to discrete positions", "`scroll-snap-align` on the children", "`scroll-margin`: push the snap target inward", "`scroll-padding`: shrink the scroll port", "The release timeline: v2.0 to v4.3"],
+    total_duration_seconds = 100,
+    videos = [
+      {
+        id = "UzU6QzEzOlYxOjAxMy10",
+        raw_key = "S5:C13:V1",
+        title = "Meet Tailwind CSS",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/meet-tailwind-css",
+        duration_text = "00m44s",
+        duration_seconds = 44,
+        description = "In-depth walkthrough of Tailwind CSS Just-In-Time engine, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Tailwind UI Ecommerce kit, Tailwind CSS: Utility-First Styling  Tailwind CSS has gone through two engines. The first was the AOT (\"ahead-of-time\") engine that came with Tailwind v1 and v2: it scanned your source, generated every utility it could possibly need into a multi-megabyte CSS file, and let PurgeCSS trim the unused ones at the end of the build. The second is the JIT (\"just-in-time\") engine that landed as an opt-in preview in v2.1, became the default in v3.0, and now drives v4 in a Rust rewrite. The JIT engine flipped the workflow: instead of generating everything then purging, it generates only the classes the scanner actually finds, parses your source files into a token stream, and emits a small CSS file on every save. Sub-second rebuilds, every variant enabled by default, arbitrary values everywhere, and identical CSS in dev and prod.", mental_model = "The JIT engine is the engine; everything in this chapter is what the engine exposes. In real codebases you meet the families everywhere: a `snap-mandatory` carousel in the product gallery, a `scroll-pl-4` padding on the scroll port so the first card lands inside the gutter, a `:has(:checked)` toggle that swaps the gallery between detail and thumbnail modes, an `@theme` block that defines brand colors once and exposes them as `bg-brand-500`, `text-brand-700`, `border-brand-500/40`, `accent-brand-500`, `shadow-brand-700/20`, `ring-brand-500/30`. Each one is a single utility class with no custom CSS file.  The release timeline matters because the version on a project dictates which utilities are available. v3.0 utilities (`snap-*`, `aspect-*`, `accent-*`) work on any project since v3.0. v4-only utilities (`@theme`, `not-*`, `bg-linear-*`, `starting:`, `mask-*`) work only on v4. The v3.4 `has-[:checked]:` works on v3.4+ *and* on v4 (the same variant, same engine). When you copy a class from a Stack Overflow answer, check which Tailwind version it landed in before pasting it into your project.", code_example = "<button className=\"bg-rose-500 hover:bg-rose-700 px-4 py-2 rounded-md\">\n  Subscribe\n</button>", pitfalls = "`accent-brand-500` from the snippet above works only if the project has `--color-brand-500` in its `@theme` block. In a v3 project without the token, Tailwind's scanner does not see a literal `accent-brand-500` anywhere, so the CSS for it is never generated and the styling silently does nothing. The check is: does the utility name appear as a literal in a scanned source file? If not, the build does not know about it.  In v3.0, `snap-x` alone meant `scroll-snap-type: x mandatory`. In v4 the default for `snap-x` shifted to `scroll-snap-type: x var(--tw-scroll-snap-type)`; without a second utility or a custom property, the container falls back to `proximity`. To force strict snapping, write the pair explicitly: `snap-x snap-mandatory`. Otherwise the user can stop between snap targets and the " }
+      },
+      {
+        id = "UzU6QzEzOlYyOjAxMy10",
+        raw_key = "S5:C13:V2",
+        title = "What you should know",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/what-you-should-know",
+        duration_text = "00m56s",
+        duration_seconds = 56,
+        description = "In-depth walkthrough of Tailwind CSS Just-In-Time engine, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Tailwind UI Ecommerce kit, Tailwind CSS: Utility-First Styling  Tailwind CSS has gone through two engines. The first was the AOT (\"ahead-of-time\") engine that came with Tailwind v1 and v2: it scanned your source, generated every utility it could possibly need into a multi-megabyte CSS file, and let PurgeCSS trim the unused ones at the end of the build. The second is the JIT (\"just-in-time\") engine that landed as an opt-in preview in v2.1, became the default in v3.0, and now drives v4 in a Rust rewrite. The JIT engine flipped the workflow: instead of generating everything then purging, it generates only the classes the scanner actually finds, parses your source files into a token stream, and emits a small CSS file on every save. Sub-second rebuilds, every variant enabled by default, arbitrary values everywhere, and identical CSS in dev and prod.", mental_model = "The JIT engine is the engine; everything in this chapter is what the engine exposes. In real codebases you meet the families everywhere: a `snap-mandatory` carousel in the product gallery, a `scroll-pl-4` padding on the scroll port so the first card lands inside the gutter, a `:has(:checked)` toggle that swaps the gallery between detail and thumbnail modes, an `@theme` block that defines brand colors once and exposes them as `bg-brand-500`, `text-brand-700`, `border-brand-500/40`, `accent-brand-500`, `shadow-brand-700/20`, `ring-brand-500/30`. Each one is a single utility class with no custom CSS file.  The release timeline matters because the version on a project dictates which utilities are available. v3.0 utilities (`snap-*`, `aspect-*`, `accent-*`) work on any project since v3.0. v4-only utilities (`@theme`, `not-*`, `bg-linear-*`, `starting:`, `mask-*`) work only on v4. The v3.4 `has-[:checked]:` works on v3.4+ *and* on v4 (the same variant, same engine). When you copy a class from a Stack Overflow answer, check which Tailwind version it landed in before pasting it into your project.", code_example = "<button className=\"bg-rose-500 hover:bg-rose-700 px-4 py-2 rounded-md\">\n  Subscribe\n</button>", pitfalls = "`accent-brand-500` from the snippet above works only if the project has `--color-brand-500` in its `@theme` block. In a v3 project without the token, Tailwind's scanner does not see a literal `accent-brand-500` anywhere, so the CSS for it is never generated and the styling silently does nothing. The check is: does the utility name appear as a literal in a scanned source file? If not, the build does not know about it.  In v3.0, `snap-x` alone meant `scroll-snap-type: x mandatory`. In v4 the default for `snap-x` shifted to `scroll-snap-type: x var(--tw-scroll-snap-type)`; without a second utility or a custom property, the container falls back to `proximity`. To force strict snapping, write the pair explicitly: `snap-x snap-mandatory`. Otherwise the user can stop between snap targets and the " }
+      },
+    ]
+  },
+  {
+    id = "05-014",
+    number = 14,
+    title = "Tailwind focus indicator and outline utilities",
+    local_chapter_file = "014-tailwind-focus-indicator-and-outline-utilities.md",
+    key_concepts = ["Hook: `outline-none` does not mean \"no outline\"", "Color-agnostic focus rings: `outline-white` and `outline-black`", "`focus` vs `focus-visible`: only ring the keyboard user", "Positioning: `static`, `relative`, `absolute`, `fixed`, `sticky`", "Offsets: `inset-*` and `top` / `right` / `bottom` / `left`", "Stacking: `z-*`"],
+    total_duration_seconds = 642,
+    videos = [
+      {
+        id = "UzU6QzE0OlYxOjAxNC10",
+        raw_key = "S5:C14:V1",
+        title = "Style elements on hover and focus",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/style-elements-on-hover-and-focus",
+        duration_text = "06m16s",
+        duration_seconds = 376,
+        description = "In-depth walkthrough of Tailwind focus indicator and outline utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1–2 · **Prerequisites:** Tailwind UI Ecommerce kit, Tailwind CSS: Utility-First Styling  A focus ring is the box a browser draws around the control you can act on right now. Tab through a form and watch it hop from field to field: that outline is how a keyboard user knows where they are. When a component removes it to look tidy, the keyboard user is left blind. This chapter is about drawing that ring on purpose, in a way that survives Windows high-contrast mode, adapts to text direction, and respects a user who has asked the system to cut down on motion.", mental_model = "Focus and outline utilities are the difference between a component a keyboard user can operate and one they can't. In real component libraries every interactive element has an `outline-none focus-visible:outline-*` (or `focus-visible:ring-*`) pattern for exactly the reasons above: keep mouse clicks clean, keep keyboard focus visible, and survive forced-colors mode. Skip it and you ship a control that is invisible to a whole class of users.  The positioning, stacking, and isolation utilities are the substrate every overlay sits on: a dropdown (`absolute z-10`), a modal backdrop (`fixed inset-0`), a sticky header (`sticky top-0 z-30`), a badge (`absolute inset-e-2`). Getting the `relative`-parent and stacking-context rules right is what stops the \"my menu renders behind the next section\" bug. The build-side concepts (Preflight, source detection, Oxide) explain the two things that surprise newcomers most: why unstyled elements look flat (Preflight reset) and why a dynamically built class name produces no CSS (the scanner never saw the token). And the accessibility-minded utilities (logical offsets for RTL, `motion-safe` for reduced motion, `tabular-nums` for readable data) are the small touches that separate a component that works for one user from one that works for everyone.", code_example = "<button className=\"focus:shadow-outline focus:outline-none\">Subscribe</button>", pitfalls = "`outline-none` in Tailwind is `outline: 2px solid transparent`, not `outline: none`. That is intentional (forced-colors safety). If you genuinely need zero outline, that is almost always the wrong call for accessibility; pair `outline-none` with a `focus-visible:` ring instead so the keyboard user keeps an indicator.  `focus:outline-black` shows the ring even when a mouse user clicks the control, which many designers dislike and then \"fix\" by removing the outline entirely (mistake #1). Use `focus-visible:` so the ring appears for keyboard focus but not mouse clicks.  `z-index` is ignored on `static` elements. `<div className=\"z-50\">` does nothing on its own. Add `relative` (or another positioning utility) first, then the `z-50` takes effect.  If `z-[9999]` refuses to sit above something, a" }
+      },
+      {
+        id = "UzU6QzE0OlYyOjAxNC10",
+        raw_key = "S5:C14:V2",
+        title = "Sizing and reordering grid items",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/sizing-and-reordering-grid-items",
+        duration_text = "04m26s",
+        duration_seconds = 266,
+        description = "In-depth walkthrough of Tailwind focus indicator and outline utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1–2 · **Prerequisites:** Tailwind UI Ecommerce kit, Tailwind CSS: Utility-First Styling  A focus ring is the box a browser draws around the control you can act on right now. Tab through a form and watch it hop from field to field: that outline is how a keyboard user knows where they are. When a component removes it to look tidy, the keyboard user is left blind. This chapter is about drawing that ring on purpose, in a way that survives Windows high-contrast mode, adapts to text direction, and respects a user who has asked the system to cut down on motion.", mental_model = "Focus and outline utilities are the difference between a component a keyboard user can operate and one they can't. In real component libraries every interactive element has an `outline-none focus-visible:outline-*` (or `focus-visible:ring-*`) pattern for exactly the reasons above: keep mouse clicks clean, keep keyboard focus visible, and survive forced-colors mode. Skip it and you ship a control that is invisible to a whole class of users.  The positioning, stacking, and isolation utilities are the substrate every overlay sits on: a dropdown (`absolute z-10`), a modal backdrop (`fixed inset-0`), a sticky header (`sticky top-0 z-30`), a badge (`absolute inset-e-2`). Getting the `relative`-parent and stacking-context rules right is what stops the \"my menu renders behind the next section\" bug. The build-side concepts (Preflight, source detection, Oxide) explain the two things that surprise newcomers most: why unstyled elements look flat (Preflight reset) and why a dynamically built class name produces no CSS (the scanner never saw the token). And the accessibility-minded utilities (logical offsets for RTL, `motion-safe` for reduced motion, `tabular-nums` for readable data) are the small touches that separate a component that works for one user from one that works for everyone.", code_example = "<button className=\"focus:shadow-outline focus:outline-none\">Subscribe</button>", pitfalls = "`outline-none` in Tailwind is `outline: 2px solid transparent`, not `outline: none`. That is intentional (forced-colors safety). If you genuinely need zero outline, that is almost always the wrong call for accessibility; pair `outline-none` with a `focus-visible:` ring instead so the keyboard user keeps an indicator.  `focus:outline-black` shows the ring even when a mouse user clicks the control, which many designers dislike and then \"fix\" by removing the outline entirely (mistake #1). Use `focus-visible:` so the ring appears for keyboard focus but not mouse clicks.  `z-index` is ignored on `static` elements. `<div className=\"z-50\">` does nothing on its own. Add `relative` (or another positioning utility) first, then the `z-50` takes effect.  If `z-[9999]` refuses to sit above something, a" }
+      },
+    ]
+  },
+  {
+    id = "05-015",
+    number = 15,
+    title = "Tailwind theme variables",
+    local_chapter_file = "015-tailwind-theme-variables.md",
+    key_concepts = ["The `@theme` contract", "Theme variables are real CSS custom properties", "`@theme` vs `@theme inline`", "The v1.9 `presets` story (legacy)", "The v2.1 JIT engine promotion", "The v2.2 surface: pseudo-elements, typography, and slash opacity"],
+    total_duration_seconds = 831,
+    videos = [
+      {
+        id = "UzU6QzE1OlYxOjAxNS10",
+        raw_key = "S5:C15:V1",
+        title = "Changing the theme",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/changing-the-theme",
+        duration_text = "09m34s",
+        duration_seconds = 574,
+        description = "In-depth walkthrough of Tailwind theme variables, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Tailwind CSS: Utility-First Styling, Tailwind UI Ecommerce kit  Theme variables are the design-token layer of Tailwind v4. A `@theme` block declares CSS custom properties such as `--color-mint-500`, `--font-display`, or `--breakpoint-3xl`. Each one does two jobs at once: it becomes a real CSS custom property on `:root` that any stylesheet can read with `var(...)`, and it tells the JIT engine which utilities and variants to generate. The takeaway is that there is no separate \"config\" step: declare the token, get the utilities.", mental_model = "Theme variables are the bridge between \"Tailwind as a utility catalogue\" and \"Tailwind as a design-system platform\". Once a team codifies its colours, fonts, spacings, and breakpoints in a shared `@theme` block (or publishes a package that exports one), every utility becomes a token reference. The class name names the design decision, and the design decision lives in one place.  You will meet the surrounding tooling everywhere in real codebases: the `@tailwindcss/vite` plugin in a fresh Vite app, the `@tailwindcss/postcss` plugin in a Webpack migration, the React framework guide pinning Tailwind to a particular bundler, the v2.2 `before:` / `selection:` / `/<opacity>` families surviving into v4 because they are load-bearing for any UI with quotes, bullets, or translucent overlays, the v1.9 `presets` key in a config from the v2 era that someone forgot to migrate. The release history is the reason a snippet you copy from a 2022 blog post still works on a 2026 codebase: the class names survived even when the engine underneath changed twice.", code_example = "@import \"tailwindcss\";\n\n@theme {\n  --color-mint-500: oklch(0.72 0.15 165);\n  --font-display: \"Inter\", \"system-ui\", \"sans-serif\";\n  --breakpoint-3xl: 1920px;\n}", pitfalls = "In v4 the source of truth is the `@theme` block. Grepping the config file for `--color-brand-500` returns nothing even when the brand colours render correctly. If a colour is unexplained, look at the CSS first.  Without the reset, Tailwind ships the full default palette (`slate`, `gray`, `red`, ...). Drop `--color-*: initial;` at the top of your `@theme` block to wipe the defaults and only emit the tokens you actually declare. Useful for strict design-system gates that forbid untokenised colours.  The `before:` and `after:` variants are designed for purely decorative glyphs (quote marks, icons, list markers). Writing a `<span>` for the same effect adds a DOM node a screen reader can reach, a `key`-collision source, and an extra element you must keep styling. Reach for `before:` first.  The" }
+      },
+      {
+        id = "UzU6QzE1OlYyOjAxNS10",
+        raw_key = "S5:C15:V2",
+        title = "Creating custom utilities",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/creating-custom-utilities",
+        duration_text = "04m17s",
+        duration_seconds = 257,
+        description = "In-depth walkthrough of Tailwind theme variables, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Tailwind CSS: Utility-First Styling, Tailwind UI Ecommerce kit  Theme variables are the design-token layer of Tailwind v4. A `@theme` block declares CSS custom properties such as `--color-mint-500`, `--font-display`, or `--breakpoint-3xl`. Each one does two jobs at once: it becomes a real CSS custom property on `:root` that any stylesheet can read with `var(...)`, and it tells the JIT engine which utilities and variants to generate. The takeaway is that there is no separate \"config\" step: declare the token, get the utilities.", mental_model = "Theme variables are the bridge between \"Tailwind as a utility catalogue\" and \"Tailwind as a design-system platform\". Once a team codifies its colours, fonts, spacings, and breakpoints in a shared `@theme` block (or publishes a package that exports one), every utility becomes a token reference. The class name names the design decision, and the design decision lives in one place.  You will meet the surrounding tooling everywhere in real codebases: the `@tailwindcss/vite` plugin in a fresh Vite app, the `@tailwindcss/postcss` plugin in a Webpack migration, the React framework guide pinning Tailwind to a particular bundler, the v2.2 `before:` / `selection:` / `/<opacity>` families surviving into v4 because they are load-bearing for any UI with quotes, bullets, or translucent overlays, the v1.9 `presets` key in a config from the v2 era that someone forgot to migrate. The release history is the reason a snippet you copy from a 2022 blog post still works on a 2026 codebase: the class names survived even when the engine underneath changed twice.", code_example = "@import \"tailwindcss\";\n\n@theme {\n  --color-mint-500: oklch(0.72 0.15 165);\n  --font-display: \"Inter\", \"system-ui\", \"sans-serif\";\n  --breakpoint-3xl: 1920px;\n}", pitfalls = "In v4 the source of truth is the `@theme` block. Grepping the config file for `--color-brand-500` returns nothing even when the brand colours render correctly. If a colour is unexplained, look at the CSS first.  Without the reset, Tailwind ships the full default palette (`slate`, `gray`, `red`, ...). Drop `--color-*: initial;` at the top of your `@theme` block to wipe the defaults and only emit the tokens you actually declare. Useful for strict design-system gates that forbid untokenised colours.  The `before:` and `after:` variants are designed for purely decorative glyphs (quote marks, icons, list markers). Writing a `<span>` for the same effect adds a DOM node a screen reader can reach, a `key`-collision source, and an extra element you must keep styling. Reach for `before:` first.  The" }
+      },
+    ]
+  },
+  {
+    id = "05-016",
+    number = 16,
+    title = "Custom color tokens",
+    local_chapter_file = "016-custom-color-tokens.md",
+    key_concepts = ["Hook: declaring a colour once, naming it everywhere", "The `@theme` block, restated for colours", "The default palette at a glance", "Slash opacity: tune alpha without leaving the className", "Border utilities: width, style, colour, radius, sides", "Divider utilities: borders between children, not around the parent"],
+    total_duration_seconds = 721,
+    videos = [
+      {
+        id = "UzU6QzE2OlYxOjAxNi1j",
+        raw_key = "S5:C16:V1",
+        title = "Adding borders and shadows",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/adding-borders-and-shadows",
+        duration_text = "07m25s",
+        duration_seconds = 445,
+        description = "In-depth walkthrough of Custom color tokens, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1–2 · **Prerequisites:** Tailwind theme variables, Tailwind CSS: Utility-First Styling, Tailwind UI Ecommerce kit  The previous chapter introduced `@theme` as a CSS-first config that emits CSS custom properties and the matching utility families in one declaration. This chapter zooms in on the most-used namespace, `--color-*`, and the family of utility classes it plumbs into. The vocabulary you build here is the one you will actually reach for on every styled component.", mental_model = "The `--color-*` namespace is the connective tissue between a Tailwind project and its brand. Every UI control that takes a colour (backgrounds, text, borders, rings, outlines, SVG fill and stroke, form-control accents, insertion cursors, text-decoration lines, shadow colour, scrollbar colour, dividers between children, gradient stops) reads from the same namespace. Designing a colour once, then letting that single declaration plumb through fourteen utility families, is the design-system guarantee the rest of the styling chapter builds on.  You will meet the surrounding utilities in every styled component from here on: text-decoration utilities paint brand underlines on links, the slash-opacity form appears in half the design-token rules, the `divide-*` family gives list views their visual rhythm, SVG utilities paint icon-colour-through-text-colour through the `fill-current` pair. The internalisation of \"the prefix names the property; the namespace names the family\" is what makes reading a Tailwind class list feel like reading CSS.", code_example = "@theme {\n  --color-brand-500: oklch(0.62 0.16 256);\n}", pitfalls = "`text-brand-500` paints `color`. `bg-brand-500` paints `background-color`. `border-brand-500` paints `border-color`. Forgetting which prefix you need is the single most common slip when a custom token lands. The rule: the prefix names the property you want to paint.  Without the reset, the default palette ships 22 families and the bundle keeps every utility, even the ones the design system forbids. `--color-*: initial;` at the top of `@theme` wipes the default and only emits the tokens you redeclare. The escape hatch for a one-off neutral is to redeclare `--color-white`, `--color-black`, or `--color-slate-*` explicitly.  CSS-in-JS muscle memory. The `text-brand-500` utility compiles to `color: var(--color-brand-500)` and gets the slash-opacity form (`/40`), the dark-mode variant (`dark:tex" }
+      },
+      {
+        id = "UzU6QzE2OlYyOjAxNi1j",
+        raw_key = "S5:C16:V2",
+        title = "Using colors",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-colors",
+        duration_text = "04m36s",
+        duration_seconds = 276,
+        description = "In-depth walkthrough of Custom color tokens, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1–2 · **Prerequisites:** Tailwind theme variables, Tailwind CSS: Utility-First Styling, Tailwind UI Ecommerce kit  The previous chapter introduced `@theme` as a CSS-first config that emits CSS custom properties and the matching utility families in one declaration. This chapter zooms in on the most-used namespace, `--color-*`, and the family of utility classes it plumbs into. The vocabulary you build here is the one you will actually reach for on every styled component.", mental_model = "The `--color-*` namespace is the connective tissue between a Tailwind project and its brand. Every UI control that takes a colour (backgrounds, text, borders, rings, outlines, SVG fill and stroke, form-control accents, insertion cursors, text-decoration lines, shadow colour, scrollbar colour, dividers between children, gradient stops) reads from the same namespace. Designing a colour once, then letting that single declaration plumb through fourteen utility families, is the design-system guarantee the rest of the styling chapter builds on.  You will meet the surrounding utilities in every styled component from here on: text-decoration utilities paint brand underlines on links, the slash-opacity form appears in half the design-token rules, the `divide-*` family gives list views their visual rhythm, SVG utilities paint icon-colour-through-text-colour through the `fill-current` pair. The internalisation of \"the prefix names the property; the namespace names the family\" is what makes reading a Tailwind class list feel like reading CSS.", code_example = "@theme {\n  --color-brand-500: oklch(0.62 0.16 256);\n}", pitfalls = "`text-brand-500` paints `color`. `bg-brand-500` paints `background-color`. `border-brand-500` paints `border-color`. Forgetting which prefix you need is the single most common slip when a custom token lands. The rule: the prefix names the property you want to paint.  Without the reset, the default palette ships 22 families and the bundle keeps every utility, even the ones the design system forbids. `--color-*: initial;` at the top of `@theme` wipes the default and only emits the tokens you redeclare. The escape hatch for a one-off neutral is to redeclare `--color-white`, `--color-black`, or `--color-slate-*` explicitly.  CSS-in-JS muscle memory. The `text-brand-500` utility compiles to `color: var(--color-brand-500)` and gets the slash-opacity form (`/40`), the dark-mode variant (`dark:tex" }
+      },
+    ]
+  },
+  {
+    id = "05-017",
+    number = 17,
+    title = "Outline styles",
+    local_chapter_file = "017-outline-styles.md",
+    key_concepts = ["Hook: outline vs border, and why the difference matters", "Outline style: pick the line pattern", "Outline width: the width scale and the shorthand", "Position utilities: `top-*`, `right-*`, `bottom-*`, `left-*`, `inset-*`", "Margin utilities and `space-*`", "Padding utilities"],
+    total_duration_seconds = 777,
+    videos = [
+      {
+        id = "UzU6QzE3OlYxOjAxNy1v",
+        raw_key = "S5:C17:V1",
+        title = "Using display, position, and z-index utilities",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-display-position-and-z-index-utilities",
+        duration_text = "07m24s",
+        duration_seconds = 444,
+        description = "In-depth walkthrough of Outline styles, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1–2 · **Prerequisites:** Tailwind CSS: Utility-First Styling, Tailwind color palette, Tailwind theme variables, Custom color tokens, Tailwind focus indicator and outline utilities  The chapter title picks up where the focus-ring chapter left off: an outline is the line drawn around an element, separate from its border, drawn outside the box, and invisible to layout. This chapter covers the full **outline style** family (`outline-solid`, `outline-dashed`, `outline-dotted`, `outline-double`, `outline-hidden`, `outline-none`), the **outline width** scale, the **position** utilities that decide *where* the outline goes (and where every other absolutely-positioned child sits), then sweeps the smaller utility families that fill out a styled component: margin, padding, typography, vertical alignment, tab size, text transform, text color, text indent, background, table layout, table collapse, and SVG fill/stroke. One chapter, many utility families, all already in the `theme` namespace you built earlier.", mental_model = "Outline styles are the safe accessibility surface (a focus ring that does not shift layout, that high-contrast mode can force to a system color). Position utilities turn a relative parent into a coordinate system so badges, modals, and tooltips pin to a corner instead of the viewport. Margin and padding are the two halves of \"outer space vs inner space\" and getting them right is most of the day-to-day layout work. Typography, vertical alignment, tab size, text transform, text color, and text indent are the small utilities you reach for on every paragraph, every label, every code block. Background utilities paint the area behind the content, including the gradients and patterns that show up in every modern landing page. Table layout and table collapse are the missing piece for any data grid that has a \"show/hide column\" toggle. SVG fill and stroke let icon libraries match the brand palette without per-component overrides.", code_example = "<button className=\"border-2 border-sky-500 outline outline-2 outline-offset-2 outline-dashed outline-rose-500\">\n  Save\n</button>", pitfalls = "1. **Assuming `outline-none` removes the outline.** It does not. Tailwind's `outline-none` renders a transparent outline that high-contrast mode can force to a system color. Use `outline-hidden` if you really mean \"no outline, ever.\" 2. **Putting `outline-2` on a button that does not also set `outline-solid` (or another style).** The default `outline-style` is `none`, so a button with `outline outline-2 outline-rose-500` and no style class has a 2px rose outline at rest and no outline on focus (because `outline-none` clears it). Add `outline-solid` (or `outline-dashed` / `outline-dotted`) so the outline is actually drawn. 3. **Using `top-2 right-2` on a `relative` parent that is itself inside an `overflow-hidden` ancestor.** The badge pins to the parent's box, not the visible region; if th" }
+      },
+      {
+        id = "UzU6QzE3OlYyOjAxNy1v",
+        raw_key = "S5:C17:V2",
+        title = "Adding margins and padding",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/adding-margins-and-padding",
+        duration_text = "05m33s",
+        duration_seconds = 333,
+        description = "In-depth walkthrough of Outline styles, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1–2 · **Prerequisites:** Tailwind CSS: Utility-First Styling, Tailwind color palette, Tailwind theme variables, Custom color tokens, Tailwind focus indicator and outline utilities  The chapter title picks up where the focus-ring chapter left off: an outline is the line drawn around an element, separate from its border, drawn outside the box, and invisible to layout. This chapter covers the full **outline style** family (`outline-solid`, `outline-dashed`, `outline-dotted`, `outline-double`, `outline-hidden`, `outline-none`), the **outline width** scale, the **position** utilities that decide *where* the outline goes (and where every other absolutely-positioned child sits), then sweeps the smaller utility families that fill out a styled component: margin, padding, typography, vertical alignment, tab size, text transform, text color, text indent, background, table layout, table collapse, and SVG fill/stroke. One chapter, many utility families, all already in the `theme` namespace you built earlier.", mental_model = "Outline styles are the safe accessibility surface (a focus ring that does not shift layout, that high-contrast mode can force to a system color). Position utilities turn a relative parent into a coordinate system so badges, modals, and tooltips pin to a corner instead of the viewport. Margin and padding are the two halves of \"outer space vs inner space\" and getting them right is most of the day-to-day layout work. Typography, vertical alignment, tab size, text transform, text color, and text indent are the small utilities you reach for on every paragraph, every label, every code block. Background utilities paint the area behind the content, including the gradients and patterns that show up in every modern landing page. Table layout and table collapse are the missing piece for any data grid that has a \"show/hide column\" toggle. SVG fill and stroke let icon libraries match the brand palette without per-component overrides.", code_example = "<button className=\"border-2 border-sky-500 outline outline-2 outline-offset-2 outline-dashed outline-rose-500\">\n  Save\n</button>", pitfalls = "1. **Assuming `outline-none` removes the outline.** It does not. Tailwind's `outline-none` renders a transparent outline that high-contrast mode can force to a system color. Use `outline-hidden` if you really mean \"no outline, ever.\" 2. **Putting `outline-2` on a button that does not also set `outline-solid` (or another style).** The default `outline-style` is `none`, so a button with `outline outline-2 outline-rose-500` and no style class has a 2px rose outline at rest and no outline on focus (because `outline-none` clears it). Add `outline-solid` (or `outline-dashed` / `outline-dotted`) so the outline is actually drawn. 3. **Using `top-2 right-2` on a `relative` parent that is itself inside an `overflow-hidden` ancestor.** The badge pins to the parent's box, not the visible region; if th" }
+      },
+    ]
+  },
+  {
+    id = "05-018",
+    number = 18,
+    title = "stroke",
+    local_chapter_file = "018-stroke.md",
+    key_concepts = ["The `stroke-*` family", "`stroke-width` and the SVG attributes that stay on the element", "Text wrapping for the strings inside SVG `<text>`", "`overflow-wrap` for unbreakable strings", "Transforms: scale, rotate, translate, skew", "Variants: stacking prefixes and conditional rules"],
+    total_duration_seconds = 756,
+    videos = [
+      {
+        id = "UzU6QzE4OlYxOjAxOC1z",
+        raw_key = "S5:C18:V1",
+        title = "Applying text and font styles",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/applying-text-and-font-styles",
+        duration_text = "06m20s",
+        duration_seconds = 380,
+        description = "In-depth walkthrough of stroke, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Outline styles, Tailwind CSS: Utility-First Styling, Tailwind theme variables, Custom color tokens  SVG icons live in nearly every React UI: a tiny check inside a button, a settings cog on a profile menu, a chart axis. The stroke is the line that draws the shape, and Tailwind gives you a `stroke-*` family that mirrors `text-*` and `bg-*` for color plus a `stroke-none` / `stroke-inherit` / `stroke-current` / `stroke-transparent` set that mirrors how every other color utility handles edge cases. Once you can read and write `stroke-*`, the rest of this chapter is the supporting vocabulary that tends to show up next to it: text wrapping and line clamping for the long strings inside SVG `<text>` elements, transforms for the icon hover animations, variant prefixes and state utilities for `hover:stroke-...`, arbitrary values for the one-off color from your brand tokens, and the dark-mode and pseudo-element patterns that finish the look.", mental_model = "SVG icons are the visible load-bearing element of a Tailwind UI. Once you know that `stroke-current` tracks the parent's text color and the rest of the `stroke-*` family mirrors `text-*` / `bg-*`, you can re-skin icons across a design system by changing the parent's `text-*` and nothing else. The text-wrapping family covers the long strings that show up in SVG `<text>` and in `<p>` elements next to the icon. The variant and state utilities (`hover:`, `focus-visible:`, `dark:`, `group-hover:`) are the conditional layer that makes every state transition a one-line edit. Transforms give you the hover animations without writing keyframes. Arbitrary values and arbitrary properties cover the one-off color from your brand tokens and the CSS property Tailwind does not yet own.  Together these utilities are the 60% of \"icon-and-text\" UI you reach for 90% of the time. The remaining chapters cover transitions, shadows, filters, and the layout primitives (`flex`, `grid`) that house them.", code_example = "<svg viewBox=\"0 0 24 24\" className=\"size-6 stroke-current text-sky-600\" fill=\"none\">\n  <path d=\"M5 12l4 4L19 6\" strokeWidth={2} strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n</svg>", pitfalls = "`text-sky-500` on an `<svg>` element sets the `color` property, which is what `stroke-current` reads. It is a valid shortcut when the path itself is `stroke-current`, but it does not work if the path uses an explicit `stroke-*` color. Pick one mechanism per SVG: either every path uses `stroke-current` and the parent controls the color via `text-*`, or every path uses an explicit `stroke-<color>` and the parent's text color is irrelevant.  Many icon libraries ship paths with a default fill. If the icon renders as a solid blob instead of an outline, the path has a default fill that is painting over the stroke. Add `fill=\"none\"` to the `<svg>` (or the path) and the stroke shows through.  `text-balance` triggers a browser-native line-balancing algorithm on every render, and the cost scales wit" }
+      },
+      {
+        id = "UzU6QzE4OlYyOjAxOC1z",
+        raw_key = "S5:C18:V2",
+        title = "Style elements on hover and focus",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/style-elements-on-hover-and-focus",
+        duration_text = "06m16s",
+        duration_seconds = 376,
+        description = "In-depth walkthrough of stroke, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Outline styles, Tailwind CSS: Utility-First Styling, Tailwind theme variables, Custom color tokens  SVG icons live in nearly every React UI: a tiny check inside a button, a settings cog on a profile menu, a chart axis. The stroke is the line that draws the shape, and Tailwind gives you a `stroke-*` family that mirrors `text-*` and `bg-*` for color plus a `stroke-none` / `stroke-inherit` / `stroke-current` / `stroke-transparent` set that mirrors how every other color utility handles edge cases. Once you can read and write `stroke-*`, the rest of this chapter is the supporting vocabulary that tends to show up next to it: text wrapping and line clamping for the long strings inside SVG `<text>` elements, transforms for the icon hover animations, variant prefixes and state utilities for `hover:stroke-...`, arbitrary values for the one-off color from your brand tokens, and the dark-mode and pseudo-element patterns that finish the look.", mental_model = "SVG icons are the visible load-bearing element of a Tailwind UI. Once you know that `stroke-current` tracks the parent's text color and the rest of the `stroke-*` family mirrors `text-*` / `bg-*`, you can re-skin icons across a design system by changing the parent's `text-*` and nothing else. The text-wrapping family covers the long strings that show up in SVG `<text>` and in `<p>` elements next to the icon. The variant and state utilities (`hover:`, `focus-visible:`, `dark:`, `group-hover:`) are the conditional layer that makes every state transition a one-line edit. Transforms give you the hover animations without writing keyframes. Arbitrary values and arbitrary properties cover the one-off color from your brand tokens and the CSS property Tailwind does not yet own.  Together these utilities are the 60% of \"icon-and-text\" UI you reach for 90% of the time. The remaining chapters cover transitions, shadows, filters, and the layout primitives (`flex`, `grid`) that house them.", code_example = "<svg viewBox=\"0 0 24 24\" className=\"size-6 stroke-current text-sky-600\" fill=\"none\">\n  <path d=\"M5 12l4 4L19 6\" strokeWidth={2} strokeLinecap=\"round\" strokeLinejoin=\"round\" />\n</svg>", pitfalls = "`text-sky-500` on an `<svg>` element sets the `color` property, which is what `stroke-current` reads. It is a valid shortcut when the path itself is `stroke-current`, but it does not work if the path uses an explicit `stroke-*` color. Pick one mechanism per SVG: either every path uses `stroke-current` and the parent controls the color via `text-*`, or every path uses an explicit `stroke-<color>` and the parent's text color is irrelevant.  Many icon libraries ship paths with a default fill. If the icon renders as a solid blob instead of an outline, the path has a default fill that is painting over the stroke. Add `fill=\"none\"` to the `<svg>` (or the path) and the stroke shows through.  `text-balance` triggers a browser-native line-balancing algorithm on every render, and the cost scales wit" }
+      },
+    ]
+  },
+  {
+    id = "05-019",
+    number = 19,
+    title = "Generated content from attributes",
+    local_chapter_file = "019-generated-content-from-attributes.md",
+    key_concepts = ["Hook: generated content from a data attribute", "Native form state variants", "Perspective utilities for 3D transforms", "Responsive utility variants", "Breakpoint configuration", "Text alignment"],
+    total_duration_seconds = 725,
+    videos = [
+      {
+        id = "UzU6QzE5OlYxOjAxOS1n",
+        raw_key = "S5:C19:V1",
+        title = "Loading data from the store",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/loading-data-from-the-store",
+        duration_text = "05m07s",
+        duration_seconds = 307,
+        description = "In-depth walkthrough of Generated content from attributes, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** stroke, Tailwind CSS: Utility-First Styling, Outline styles, Tailwind theme variables, Custom color tokens  The chapter title picks up a small but useful CSS trick: `content-[attr(name)]` reads a DOM attribute straight into a pseudo-element's generated text. Once you can do that, the rest of the chapter is the supporting vocabulary that tends to show up next to it: native form state variants (`required`, `invalid`, `checked`, `disabled`) so the browser does the conditional class work for you, perspective utilities for 3D transforms, responsive breakpoints and breakpoint configuration, accessible outline utilities, text color opacity modifiers, transform composition and reset, the `color-scheme` utilities, visual effects, white-space preservation, sizing and width, and the table-layout pair. One chapter, many small utility families, all already in the `theme` namespace you built earlier.", mental_model = "Generated content from attributes is the cheapest way to render a label without changing the markup. Form state variants keep the conditional class logic out of the template: the browser picks the rule, not the JSX. Perspective utilities, transform composition, and effects utility handle the 3D and visual polish. Text color opacity, white-space, sizing, and table layout are the small utilities you reach for on every paragraph, every label, every form field, every data grid. Once you can read and write them, the rest of the chapter's families are the same pattern: a short list of complete literal classes, one or two CSS keywords, and a worked example that combines them.", code_example = "<a\n  href=\"/docs/hooks\"\n  data-section=\"Hooks\"\n  className=\"relative no-underline hover:underline before:absolute before:-top-2 before:left-0 before:text-[10px] before:font-semibold before:uppercase before:tracking-widest before:text-rose-500 before:content-[attr(data-section)]\"\n>\n  useState\n</a>", pitfalls = "1. **Forgetting that `content-[attr(name)]` reads the attribute value literally, without CSS string interpolation.** The pseudo-element prints whatever the attribute value is, character for character. If the attribute is missing, the content is empty. There is no default fallback. 2. **Using `attr(name)` without a fallback for missing attributes.** If the attribute is not on the element, the pseudo-element renders nothing. Either declare the attribute on every element or pair `content-[attr(name)]` with a CSS-only fallback (uncommon, just always declare the attribute). 3. **Assuming `invalid:` only fires after form submission.** `:invalid` is live: it fires the moment the typed value fails the browser's constraint validation. That's the right behavior for a \"show the user what's wrong\" UI," }
+      },
+      {
+        id = "UzU6QzE5OlYyOjAxOS1n",
+        raw_key = "S5:C19:V2",
+        title = "Transforms, transitions, and animations",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/transforms-transitions-and-animations",
+        duration_text = "06m58s",
+        duration_seconds = 418,
+        description = "In-depth walkthrough of Generated content from attributes, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** stroke, Tailwind CSS: Utility-First Styling, Outline styles, Tailwind theme variables, Custom color tokens  The chapter title picks up a small but useful CSS trick: `content-[attr(name)]` reads a DOM attribute straight into a pseudo-element's generated text. Once you can do that, the rest of the chapter is the supporting vocabulary that tends to show up next to it: native form state variants (`required`, `invalid`, `checked`, `disabled`) so the browser does the conditional class work for you, perspective utilities for 3D transforms, responsive breakpoints and breakpoint configuration, accessible outline utilities, text color opacity modifiers, transform composition and reset, the `color-scheme` utilities, visual effects, white-space preservation, sizing and width, and the table-layout pair. One chapter, many small utility families, all already in the `theme` namespace you built earlier.", mental_model = "Generated content from attributes is the cheapest way to render a label without changing the markup. Form state variants keep the conditional class logic out of the template: the browser picks the rule, not the JSX. Perspective utilities, transform composition, and effects utility handle the 3D and visual polish. Text color opacity, white-space, sizing, and table layout are the small utilities you reach for on every paragraph, every label, every form field, every data grid. Once you can read and write them, the rest of the chapter's families are the same pattern: a short list of complete literal classes, one or two CSS keywords, and a worked example that combines them.", code_example = "<a\n  href=\"/docs/hooks\"\n  data-section=\"Hooks\"\n  className=\"relative no-underline hover:underline before:absolute before:-top-2 before:left-0 before:text-[10px] before:font-semibold before:uppercase before:tracking-widest before:text-rose-500 before:content-[attr(data-section)]\"\n>\n  useState\n</a>", pitfalls = "1. **Forgetting that `content-[attr(name)]` reads the attribute value literally, without CSS string interpolation.** The pseudo-element prints whatever the attribute value is, character for character. If the attribute is missing, the content is empty. There is no default fallback. 2. **Using `attr(name)` without a fallback for missing attributes.** If the attribute is not on the element, the pseudo-element renders nothing. Either declare the attribute on every element or pair `content-[attr(name)]` with a CSS-only fallback (uncommon, just always declare the attribute). 3. **Assuming `invalid:` only fires after form submission.** `:invalid` is live: it fires the moment the typed value fails the browser's constraint validation. That's the right behavior for a \"show the user what's wrong\" UI," }
+      },
+    ]
+  },
+  {
+    id = "05-020",
+    number = 20,
+    title = "Combined width and height sizing",
+    local_chapter_file = "020-combined-width-and-height-sizing.md",
+    key_concepts = ["The mental model: size, bounds, and content-fit", "`min-w-*` and `max-w-*`", "`min-h-*` and `max-h-*`", "Logical-property sizing: `min-inline-size-*`, `max-inline-size-*`, `min-block-size-*`, `max-block-size-*`", "`size-*`: shorthand for width and height", "`aspect-*`: reserving a proportional box"],
+    total_duration_seconds = 847,
+    videos = [
+      {
+        id = "UzU6QzIwOlYxOjAyMC1j",
+        raw_key = "S5:C20:V1",
+        title = "Setting width and height",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/setting-width-and-height",
+        duration_text = "07m36s",
+        duration_seconds = 456,
+        description = "In-depth walkthrough of Combined width and height sizing, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A Tailwind utility is a class name that maps to one CSS declaration. `size-12` sets both `width` and `height` to 3rem. `max-w-prose` caps `max-width` at 65ch. `aspect-video` reserves a 16:9 box. `object-cover` keeps a replaced image from distorting inside its box. `truncate` clips overflowing text with an ellipsis. You compose class names on the element and the browser applies the declarations they stand for.  This chapter is a reference roundup. The top covers the bounding utilities (`min-w-*`, `max-w-*`, `min-h-*`, `max-h-*`, plus their logical-property counterparts `min-inline-size-*`, `max-inline-size-*`, `min-block-size-*`, `max-block-size-*`). The middle covers the `size-*` shorthand and `aspect-*` for square and rectangular boxes. The tail covers replaced-content utilities (`object-fit`, `object-position`), overflow (`overflow-*`), and text-overflow truncation (`truncate`, `text-ellipsis`, `text-clip`).", mental_model = "A box on the page has three independent sizing decisions: how big it is by default (`size-*`, `w-*`, `h-*`), how it can stretch or shrink (`min-*`, `max-*`), and how its replaced content (an `<img>`, `<video>`, `<svg>`) fits inside the box it has been given (`object-fit`, `object-position`, `aspect-*`). Each layer composes with the next.  Logical-property utilities (`inline-size-*`, `block-size-*`) are the direction-aware replacements for the physical `width-*` / `height-*` family. They map to the inline axis (the direction text flows) and the block axis (the direction lines stack) respectively, so the same component lays out correctly in LTR and RTL documents without a conditional. For most React codebases that ship only in one direction, `w-*` and `h-*` are simpler and identical; reach for `inline-size-*` / `block-size-*` when a component needs to survive a locale change.", code_example = "// HTML from the Tailwind docs:     <div class=\"size-12 max-w-prose\">\n// The same thing in a React component:\n<div className=\"size-12 max-w-prose\">...</div>", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzIwOlYyOjAyMC1j",
+        raw_key = "S5:C20:V2",
+        title = "Sizing flex items and nesting",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/sizing-flex-items-and-nesting",
+        duration_text = "06m31s",
+        duration_seconds = 391,
+        description = "In-depth walkthrough of Combined width and height sizing, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A Tailwind utility is a class name that maps to one CSS declaration. `size-12` sets both `width` and `height` to 3rem. `max-w-prose` caps `max-width` at 65ch. `aspect-video` reserves a 16:9 box. `object-cover` keeps a replaced image from distorting inside its box. `truncate` clips overflowing text with an ellipsis. You compose class names on the element and the browser applies the declarations they stand for.  This chapter is a reference roundup. The top covers the bounding utilities (`min-w-*`, `max-w-*`, `min-h-*`, `max-h-*`, plus their logical-property counterparts `min-inline-size-*`, `max-inline-size-*`, `min-block-size-*`, `max-block-size-*`). The middle covers the `size-*` shorthand and `aspect-*` for square and rectangular boxes. The tail covers replaced-content utilities (`object-fit`, `object-position`), overflow (`overflow-*`), and text-overflow truncation (`truncate`, `text-ellipsis`, `text-clip`).", mental_model = "A box on the page has three independent sizing decisions: how big it is by default (`size-*`, `w-*`, `h-*`), how it can stretch or shrink (`min-*`, `max-*`), and how its replaced content (an `<img>`, `<video>`, `<svg>`) fits inside the box it has been given (`object-fit`, `object-position`, `aspect-*`). Each layer composes with the next.  Logical-property utilities (`inline-size-*`, `block-size-*`) are the direction-aware replacements for the physical `width-*` / `height-*` family. They map to the inline axis (the direction text flows) and the block axis (the direction lines stack) respectively, so the same component lays out correctly in LTR and RTL documents without a conditional. For most React codebases that ship only in one direction, `w-*` and `h-*` are simpler and identical; reach for `inline-size-*` / `block-size-*` when a component needs to survive a locale change.", code_example = "// HTML from the Tailwind docs:     <div class=\"size-12 max-w-prose\">\n// The same thing in a React component:\n<div className=\"size-12 max-w-prose\">...</div>", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-021",
+    number = 21,
+    title = "Background color, image, size, and position utilities",
+    local_chapter_file = "021-background-color-image-size-and-position-utilities.md",
+    key_concepts = ["Background color: `bg-*`", "Background image: `bg-*` with images and gradients", "Background size: `bg-cover`, `bg-contain`, `bg-auto`, `bg-<length>`", "Background position: `bg-<position>`", "Background repeat: `bg-repeat`, `bg-no-repeat`, `bg-repeat-space`, `bg-repeat-round`", "Background attachment: `bg-fixed`, `bg-local`, `bg-scroll`"],
+    total_duration_seconds = 885,
+    videos = [
+      {
+        id = "UzU6QzIxOlYxOjAyMS1i",
+        raw_key = "S5:C21:V1",
+        title = "Applying background colors and gradients",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/applying-background-colors-and-gradients",
+        duration_text = "07m21s",
+        duration_seconds = 441,
+        description = "In-depth walkthrough of Background color, image, size, and position utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** Custom color tokens, Generated content from attributes, stroke, Combined width and height sizing, Tailwind theme variables  Backgrounds are where a UI leaves \"ordinary\" and starts showing texture. A solid color, an image that fills a card, a gradient that fades a hero, a parallax section that scrolls differently from its container, a marquee of icons that scrolls and snaps, a fully-painted text headline: each one of these is a property of the same CSS background machinery. Tailwind covers the whole family, and the chapters earlier in this section gave you the color tokens and the size primitives that the background utilities build on. This chapter is the bridge: it pulls those primitives together, names the families you reach for most, and pairs each one with a worked example.", mental_model = "Backgrounds are the CSS layer that runs above the box model but below the foreground. A `bg-*` family composes with the size, position, repeat, and origin utilities to express every visual relationship between an image and its container. Gradients, gradient text, and the slash-opacity modifier are what make modern card-based UI feasible: a single `bg-linear-to-r` block replaces a stylesheet of `linear-gradient(...)` declarations. The accessibility and environment variants (`motion-safe`, `pointer-fine`, `forced-colors`) close the loop by letting CSS adapt to the user's device and preferences without duplicating application logic.  Together with the color tokens from chapter 16, the stroke family from chapter 18, the sizing utilities from chapter 20, and the theme variables from chapter 15, this chapter completes the \"styling vocabulary\" you reach for in 80% of React UI work. The next chapters in this section move into filters, transitions, shadows, and the layout primitives that house them.", code_example = "<aside className=\"rounded-lg bg-sky-500/20 p-4 text-sky-900\n                  dark:bg-sky-500/10 dark:text-sky-100\">\n  Heads up: a sale ends tomorrow.\n</aside>", pitfalls = "The `bg-opacity-50` shorthand compiles to `background-color: rgb(... / 0.5)` in v3. In v4, that family is gone; the right pattern is `bg-sky-500/50`, which writes `color-mix(in oklab, ...)` and composes against the parent's background. Reaching for `bg-opacity-50` either fails to compile (no class generated) or, worse, compiles to a static color that does not respect the design tokens.  `bg-linear-to-r from-sky-500` writes a gradient with one stop. The CSS engine treats the other stop as the same color, so the result is a flat `bg-sky-500` rather than a gradient. Always include at least `from-*` and `to-*`; if you want a sharp band, use `from-sky-500 from-0% to-rose-500 to-0%` to put both stops at the boundary.  `bg-clip-text` clips the background to the text glyphs, but the default text c" }
+      },
+      {
+        id = "UzU6QzIxOlYyOjAyMS1i",
+        raw_key = "S5:C21:V2",
+        title = "Using display, position, and z-index utilities",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-display-position-and-z-index-utilities",
+        duration_text = "07m24s",
+        duration_seconds = 444,
+        description = "In-depth walkthrough of Background color, image, size, and position utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** Custom color tokens, Generated content from attributes, stroke, Combined width and height sizing, Tailwind theme variables  Backgrounds are where a UI leaves \"ordinary\" and starts showing texture. A solid color, an image that fills a card, a gradient that fades a hero, a parallax section that scrolls differently from its container, a marquee of icons that scrolls and snaps, a fully-painted text headline: each one of these is a property of the same CSS background machinery. Tailwind covers the whole family, and the chapters earlier in this section gave you the color tokens and the size primitives that the background utilities build on. This chapter is the bridge: it pulls those primitives together, names the families you reach for most, and pairs each one with a worked example.", mental_model = "Backgrounds are the CSS layer that runs above the box model but below the foreground. A `bg-*` family composes with the size, position, repeat, and origin utilities to express every visual relationship between an image and its container. Gradients, gradient text, and the slash-opacity modifier are what make modern card-based UI feasible: a single `bg-linear-to-r` block replaces a stylesheet of `linear-gradient(...)` declarations. The accessibility and environment variants (`motion-safe`, `pointer-fine`, `forced-colors`) close the loop by letting CSS adapt to the user's device and preferences without duplicating application logic.  Together with the color tokens from chapter 16, the stroke family from chapter 18, the sizing utilities from chapter 20, and the theme variables from chapter 15, this chapter completes the \"styling vocabulary\" you reach for in 80% of React UI work. The next chapters in this section move into filters, transitions, shadows, and the layout primitives that house them.", code_example = "<aside className=\"rounded-lg bg-sky-500/20 p-4 text-sky-900\n                  dark:bg-sky-500/10 dark:text-sky-100\">\n  Heads up: a sale ends tomorrow.\n</aside>", pitfalls = "The `bg-opacity-50` shorthand compiles to `background-color: rgb(... / 0.5)` in v3. In v4, that family is gone; the right pattern is `bg-sky-500/50`, which writes `color-mix(in oklab, ...)` and composes against the parent's background. Reaching for `bg-opacity-50` either fails to compile (no class generated) or, worse, compiles to a static color that does not respect the design tokens.  `bg-linear-to-r from-sky-500` writes a gradient with one stop. The CSS engine treats the other stop as the same color, so the result is a flat `bg-sky-500` rather than a gradient. Always include at least `from-*` and `to-*`; if you want a sharp band, use `from-sky-500 from-0% to-rose-500 to-0%` to put both stops at the boundary.  `bg-clip-text` clips the background to the text glyphs, but the default text c" }
+      },
+    ]
+  },
+  {
+    id = "05-022",
+    number = 22,
+    title = "CSS transition utilities",
+    local_chapter_file = "022-css-transition-utilities.md",
+    key_concepts = ["Mental model: properties, transitions, and the GPU", "The `transition-*` family: property, duration, delay, behaviour", "`duration-*`, `delay-*`, `ease-*`: timing knobs", "`transition-discrete` and the `transition-behavior-*` utilities", "`forced-color-adjust` utilities: respect the user's high-contrast palette", "`appearance-none` and `appearance-auto`: paint your own form controls"],
+    total_duration_seconds = 862,
+    videos = [
+      {
+        id = "UzU6QzIyOlYxOjAyMi1j",
+        raw_key = "S5:C22:V1",
+        title = "Transforms, transitions, and animations",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/transforms-transitions-and-animations",
+        duration_text = "06m58s",
+        duration_seconds = 418,
+        description = "In-depth walkthrough of CSS transition utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** stroke, Background color, image, size, and position utilities, Tailwind CSS: Utility-First Styling, Tailwind theme variables, Generated content from attributes, Custom color tokens  The interactive parts of a Tailwind UI are a small vocabulary: properties transition from one value to another over a duration, transforms reposition elements in 2D or 3D space, animations run a keyframe loop, and a handful of accessibility utilities (`appearance`, `forced-colors`) keep the result usable when the operating system overrides your colours. This chapter is the working reference for that vocabulary.", mental_model = "CSS does three things to a value: it *computes* it (the layout), it *paints* it (the bitmap), and it *composites* it (the layer cake the browser shows on screen). A `transition` interpolates a value over time on each frame. A `transform` is a single property that the browser composes on a separate layer, so changing it rarely re-triggers layout. Animations are time-based value programs that run on the same pipeline. The families in this chapter are all parts of those three pipelines.  The GPU-acceleration utilities (`transform-gpu`, `transform-cpu`) and the `will-change`-style hints matter when a transform is animating frequently enough that the CPU form becomes the bottleneck. Reach for them when a transform is visibly janky, not as a default.", code_example = "<button className=\"bg-sky-500 text-white transition-colors hover:bg-sky-700\">\n  Save\n</button>\n<div className=\"transition-transform hover:scale-110 active:scale-95\" />\n<input className=\"transition focus:ring-2 focus:ring-sky-500\" />", pitfalls = "`hover:scale-110` writes `transform: scale(1.10)` on hover, with no transition. Add `transition` or `transition-transform` to animate it. The default duration is 150 ms and the default property list is the seven common colour / opacity properties; `transition-transform` is the right shorthand for a transform-only animation.  `transition-all` will animate the properties that *can* animate (opacity, in this case) but `display` is a discrete property that flips at frame zero. Add `transition-discrete` alongside `transition-all` (or `transition` + `transition-discrete`) so the discrete change waits for the transition window:  A 3D-flip card needs `backface-hidden` on each face, otherwise the back face's content shows through during the transition and the flip looks like a smear. Add `backface-" }
+      },
+      {
+        id = "UzU6QzIyOlYyOjAyMi1j",
+        raw_key = "S5:C22:V2",
+        title = "Using display, position, and z-index utilities",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-display-position-and-z-index-utilities",
+        duration_text = "07m24s",
+        duration_seconds = 444,
+        description = "In-depth walkthrough of CSS transition utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** stroke, Background color, image, size, and position utilities, Tailwind CSS: Utility-First Styling, Tailwind theme variables, Generated content from attributes, Custom color tokens  The interactive parts of a Tailwind UI are a small vocabulary: properties transition from one value to another over a duration, transforms reposition elements in 2D or 3D space, animations run a keyframe loop, and a handful of accessibility utilities (`appearance`, `forced-colors`) keep the result usable when the operating system overrides your colours. This chapter is the working reference for that vocabulary.", mental_model = "CSS does three things to a value: it *computes* it (the layout), it *paints* it (the bitmap), and it *composites* it (the layer cake the browser shows on screen). A `transition` interpolates a value over time on each frame. A `transform` is a single property that the browser composes on a separate layer, so changing it rarely re-triggers layout. Animations are time-based value programs that run on the same pipeline. The families in this chapter are all parts of those three pipelines.  The GPU-acceleration utilities (`transform-gpu`, `transform-cpu`) and the `will-change`-style hints matter when a transform is animating frequently enough that the CPU form becomes the bottleneck. Reach for them when a transform is visibly janky, not as a default.", code_example = "<button className=\"bg-sky-500 text-white transition-colors hover:bg-sky-700\">\n  Save\n</button>\n<div className=\"transition-transform hover:scale-110 active:scale-95\" />\n<input className=\"transition focus:ring-2 focus:ring-sky-500\" />", pitfalls = "`hover:scale-110` writes `transform: scale(1.10)` on hover, with no transition. Add `transition` or `transition-transform` to animate it. The default duration is 150 ms and the default property list is the seven common colour / opacity properties; `transition-transform` is the right shorthand for a transform-only animation.  `transition-all` will animate the properties that *can* animate (opacity, in this case) but `display` is a discrete property that flips at frame zero. Add `transition-discrete` alongside `transition-all` (or `transition` + `transition-discrete`) so the discrete change waits for the transition window:  A 3D-flip card needs `backface-hidden` on each face, otherwise the back face's content shows through during the transition and the flip looks like a smear. Add `backface-" }
+      },
+    ]
+  },
+  {
+    id = "05-023",
+    number = 23,
+    title = "Z-axis translation",
+    local_chapter_file = "023-z-axis-translation.md",
+    key_concepts = ["Mental model: Z translation is just one coordinate on a 3D scene", "Reference roundup", "Putting it together: a Z-lifted feature spotlight", "Common mistakes", "Why this matters", "Recall check"],
+    total_duration_seconds = 779,
+    videos = [
+      {
+        id = "UzU6QzIzOlYxOjAyMy16",
+        raw_key = "S5:C23:V1",
+        title = "Using Codespaces for this course",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-codespaces-for-this-course",
+        duration_text = "04m39s",
+        duration_seconds = 279,
+        description = "In-depth walkthrough of Z-axis translation, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** CSS transition utilities, stroke, Tailwind CSS: Utility-First Styling, Background color, image, size, and position utilities, Custom color tokens, Generated content from attributes, Tailwind theme variables  The headline concept is `translate-z-*`, the utility that pushes an element toward or away from the viewer along the Z axis. Everything else in this chapter is a Tailwind v4 reference roundup for the small vocabulary that surrounds it: arbitrary values, arbitrary variants, direct-child and descendant selectors, container queries, breakpoints, the `container` utility, mobile-first composition, `background-blend-mode` utilities, `transform-gpu` acceleration, grid and spacing utilities, CSS-first configuration, custom styles, and theme overrides. Each is a one-paragraph reference with a one-line example. A worked section at the end shows how the pieces combine on a real \"feature spotlight\" card with a Z-axis lift.", mental_model = "A 2D transform lives on the page plane (X and Y). A 3D transform adds depth (Z). `translate-z-12` writes `transform: translate3d(0, 0, 12px)` (or the equivalent matrix call), pushing the element 12 pixels toward the viewer. Without a perspective on the ancestor, the value is a flat translate; the element moves \"toward the camera\" only visually. With `transform-3d` (which writes `transform-style: preserve-3d`) on an ancestor that has `perspective` set, the move reads as actual depth.  The Z translation only renders visibly when there is a `perspective` somewhere up the tree. The most common source of \"nothing happened\" is a missing `perspective-[value]` on a grandparent. Tailwind ships `perspective-near` (small depth), `perspective-far` (large depth), `perspective-<number>` (a numeric scale), and the arbitrary/pixel forms.", code_example = "<div className=\"perspective-[800px]\">\n  <div className=\"transform-3d transition-transform duration-300 ease-out\n                  hover:translate-z-12 hover:rotate-x-6\">\n    Spotlight\n  </div>\n</div>", pitfalls = "1. **Z translation without `perspective`.** A `translate-z-12` on a parent with no perspective looks like a flat 2D translate. Add `perspective-[<value>]` to a grandparent, or use `transform-3d` plus a perspective utility on the element itself. 2. **Z translation without `transform-3d`.** The parent of the lifted element needs `transform-style: preserve-3d` (Tailwind's `transform-3d`) so the Z translation is preserved on the move rather than collapsed. Without it, the rendered result is a flat translate. 3. **Negative Z without expected \"behind\" siblings.** A `translate-z-(-12)` pulls an element away from the viewer; it does not put it behind other elements. Use `z-*` (z-index utilities) for stacking. Z translation and z-index are orthogonal. 4. **`transform-gpu` on every element.** Promot" }
+      },
+      {
+        id = "UzU6QzIzOlYyOjAyMy16",
+        raw_key = "S5:C23:V2",
+        title = "Building common responsive layouts",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/building-common-responsive-layouts",
+        duration_text = "08m20s",
+        duration_seconds = 500,
+        description = "In-depth walkthrough of Z-axis translation, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** CSS transition utilities, stroke, Tailwind CSS: Utility-First Styling, Background color, image, size, and position utilities, Custom color tokens, Generated content from attributes, Tailwind theme variables  The headline concept is `translate-z-*`, the utility that pushes an element toward or away from the viewer along the Z axis. Everything else in this chapter is a Tailwind v4 reference roundup for the small vocabulary that surrounds it: arbitrary values, arbitrary variants, direct-child and descendant selectors, container queries, breakpoints, the `container` utility, mobile-first composition, `background-blend-mode` utilities, `transform-gpu` acceleration, grid and spacing utilities, CSS-first configuration, custom styles, and theme overrides. Each is a one-paragraph reference with a one-line example. A worked section at the end shows how the pieces combine on a real \"feature spotlight\" card with a Z-axis lift.", mental_model = "A 2D transform lives on the page plane (X and Y). A 3D transform adds depth (Z). `translate-z-12` writes `transform: translate3d(0, 0, 12px)` (or the equivalent matrix call), pushing the element 12 pixels toward the viewer. Without a perspective on the ancestor, the value is a flat translate; the element moves \"toward the camera\" only visually. With `transform-3d` (which writes `transform-style: preserve-3d`) on an ancestor that has `perspective` set, the move reads as actual depth.  The Z translation only renders visibly when there is a `perspective` somewhere up the tree. The most common source of \"nothing happened\" is a missing `perspective-[value]` on a grandparent. Tailwind ships `perspective-near` (small depth), `perspective-far` (large depth), `perspective-<number>` (a numeric scale), and the arbitrary/pixel forms.", code_example = "<div className=\"perspective-[800px]\">\n  <div className=\"transform-3d transition-transform duration-300 ease-out\n                  hover:translate-z-12 hover:rotate-x-6\">\n    Spotlight\n  </div>\n</div>", pitfalls = "1. **Z translation without `perspective`.** A `translate-z-12` on a parent with no perspective looks like a flat 2D translate. Add `perspective-[<value>]` to a grandparent, or use `transform-3d` plus a perspective utility on the element itself. 2. **Z translation without `transform-3d`.** The parent of the lifted element needs `transform-style: preserve-3d` (Tailwind's `transform-3d`) so the Z translation is preserved on the move rather than collapsed. Without it, the rendered result is a flat translate. 3. **Negative Z without expected \"behind\" siblings.** A `translate-z-(-12)` pulls an element away from the viewer; it does not put it behind other elements. Use `z-*` (z-index utilities) for stacking. Z translation and z-index are orthogonal. 4. **`transform-gpu` on every element.** Promot" }
+      },
+    ]
+  },
+  {
+    id = "05-024",
+    number = 24,
+    title = "Tailwind justify-items utilities",
+    local_chapter_file = "024-tailwind-justify-items-utilities.md",
+    key_concepts = ["The mental model: two axes, two endpoints, one override slot", "`justify-*`: position items along the main axis", "`items-*`: align items along the cross axis", "`justify-items-*`: align every grid item along the inline axis", "`self-*`: override cross-axis alignment for one item", "`justify-self-*`: override inline-axis alignment for one grid item"],
+    total_duration_seconds = 657,
+    videos = [
+      {
+        id = "UzU6QzI0OlYxOjAyNC10",
+        raw_key = "S5:C24:V1",
+        title = "Sizing and reordering grid items",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/sizing-and-reordering-grid-items",
+        duration_text = "04m26s",
+        duration_seconds = 266,
+        description = "In-depth walkthrough of Tailwind justify-items utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "Tailwind's flex and grid utilities are a thin vocabulary over the CSS box model. Each class name maps to one CSS declaration: `justify-center` is `justify-content: center`, `items-start` is `align-items: flex-start`, `order-2` is `order: 2`, `space-x-4` is `margin-left: 1rem` on every child after the first. You compose class names on the element and the browser applies the declarations they stand for.  This chapter is a reference roundup. The first half covers the flex/grid alignment families in two pairs: container-side (`justify-content`, `align-items`, `justify-items`) and item-side (`justify-self`, `align-self`, `order`). The middle covers spacing siblings (`space-x-*`, `space-y-*`), the flex sizing primitives (`flex`, `flex-1`, `grow`, `shrink`), and grid template tracks (`grid-cols-*`, `grid-rows-*`). The tail covers multi-column flow (`columns-*`) and the `break-*` family that controls whether pages or columns may split an element.", mental_model = "CSS flex and grid layout both describe how items sit inside a container. The container has a main axis (the direction the items are laid out) and a cross axis (the perpendicular direction). For each axis you have two kinds of choices: a container-side rule that applies to every item, and an item-side rule that overrides the container for one item.  Tailwind gives each of these slots a utility family. The container-side families end in a plural or a generic verb (`justify-*`, `items-*`, `justify-items-*`). The item-side families end in `self-*` (`justify-self-*`, `self-*`). The `order-*` family sits outside the axis model: it changes the visual order of items without touching the source order in the DOM.", code_example = "// HTML from the Tailwind docs: <div class=\"flex items-center justify-between\">\n// The same thing in a React component:\n<div className=\"flex items-center justify-between\">...</div>", pitfalls = "`break-inside-*` controls whether a page or column may split the contents of an element. `break-after-*` controls whether a page or column break is created immediately after an element. The values: `auto` (default), `avoid` (no break), `avoid-page`, `avoid-column`, `page`, `column`.  `break-inside-avoid` on a figure inside a `columns-3` article keeps the figure intact in one column, then resumes the text flow in the next. Without it, the browser may split the figure between two columns." }
+      },
+      {
+        id = "UzU6QzI0OlYyOjAyNC10",
+        raw_key = "S5:C24:V2",
+        title = "Sizing flex items and nesting",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/sizing-flex-items-and-nesting",
+        duration_text = "06m31s",
+        duration_seconds = 391,
+        description = "In-depth walkthrough of Tailwind justify-items utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "Tailwind's flex and grid utilities are a thin vocabulary over the CSS box model. Each class name maps to one CSS declaration: `justify-center` is `justify-content: center`, `items-start` is `align-items: flex-start`, `order-2` is `order: 2`, `space-x-4` is `margin-left: 1rem` on every child after the first. You compose class names on the element and the browser applies the declarations they stand for.  This chapter is a reference roundup. The first half covers the flex/grid alignment families in two pairs: container-side (`justify-content`, `align-items`, `justify-items`) and item-side (`justify-self`, `align-self`, `order`). The middle covers spacing siblings (`space-x-*`, `space-y-*`), the flex sizing primitives (`flex`, `flex-1`, `grow`, `shrink`), and grid template tracks (`grid-cols-*`, `grid-rows-*`). The tail covers multi-column flow (`columns-*`) and the `break-*` family that controls whether pages or columns may split an element.", mental_model = "CSS flex and grid layout both describe how items sit inside a container. The container has a main axis (the direction the items are laid out) and a cross axis (the perpendicular direction). For each axis you have two kinds of choices: a container-side rule that applies to every item, and an item-side rule that overrides the container for one item.  Tailwind gives each of these slots a utility family. The container-side families end in a plural or a generic verb (`justify-*`, `items-*`, `justify-items-*`). The item-side families end in `self-*` (`justify-self-*`, `self-*`). The `order-*` family sits outside the axis model: it changes the visual order of items without touching the source order in the DOM.", code_example = "// HTML from the Tailwind docs: <div class=\"flex items-center justify-between\">\n// The same thing in a React component:\n<div className=\"flex items-center justify-between\">...</div>", pitfalls = "`break-inside-*` controls whether a page or column may split the contents of an element. `break-after-*` controls whether a page or column break is created immediately after an element. The values: `auto` (default), `avoid` (no break), `avoid-page`, `avoid-column`, `page`, `column`.  `break-inside-avoid` on a figure inside a `columns-3` article keeps the figure intact in one column, then resumes the text flow in the next. Without it, the browser may split the figure between two columns." }
+      },
+    ]
+  },
+  {
+    id = "05-025",
+    number = 25,
+    title = "Break before an element",
+    local_chapter_file = "025-break-before-an-element.md",
+    key_concepts = ["Mental model: breaks and two-axis shortcuts", "`break-before-*` and `break-after-*`: force a break, then resume", "`place-content-*`: two-axis content distribution for the container", "`place-items-*`: set per-cell alignment once on the container", "`place-self-*`: override container alignment for one item", "`space-x-*` / `space-y-*` vs `gap`: when each one is right"],
+    total_duration_seconds = 657,
+    videos = [
+      {
+        id = "UzU6QzI1OlYxOjAyNS1i",
+        raw_key = "S5:C25:V1",
+        title = "Sizing flex items and nesting",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/sizing-flex-items-and-nesting",
+        duration_text = "06m31s",
+        duration_seconds = 391,
+        description = "In-depth walkthrough of Break before an element, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** Tailwind justify-items utilities, Z-axis translation, Generated content from attributes, scale utilities, Tailwind UI Ecommerce kit, Tailwind theme variables, stroke  The headline concept is `break-before-*`, the family of utilities that ask the browser to start the next page, column, or region on a fresh break right before an element. Everything else in this chapter is a Tailwind v4 reference roundup: `break-after-*` complements it, and a block of two-axis alignment shortcuts (`place-content-*`, `place-items-*`, `place-self-*`) replaces the verbose `justify-items-*` plus `align-items-*` boilerplate. A short note at the end covers `space-*` versus `gap` so you stop reaching for `space-y-4` on grids, then four framework installation guides (Gatsby, Laravel + Vite, Meteor, Ember.js), a note on layer-aware purge, the `@plugin` directive for legacy Tailwind v3 plugins, and the relationship-bound state variants (`group-*`, `peer-*`, `has-*`, `aria-*`, `data-*`).", mental_model = "A break (`break-before-*` / `break-after-*` / `break-inside-*`) is an instruction the layout engine obeys when it is splitting content across pages, columns, or regions. `columns-3` from chapter 024 turns an article into a three-column newspaper flow; `break-before-column` on the next `<h2>` forces that heading to start a new column. `place-content-*` and friends are vocabulary shortcuts: each one writes two CSS declarations, mirroring the relationship between `justify-content` and `align-content` on a container, or between `justify-self` and `align-self` on an item.  Every entry in this chapter is a thin layer over an existing CSS declaration. The value is not new power, it is fewer characters to type and a consistent vocabulary across the team.", code_example = "<article className=\"columns-3 gap-8\">\n  <p>...</p>\n  <h2 className=\"break-before-column text-xl font-semibold mt-6\">Section A</h2>\n  <p>...</p>\n  <h2 className=\"break-before-column text-xl font-semibold mt-6\">Section B</h2>\n</article>", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzI1OlYyOjAyNS1i",
+        raw_key = "S5:C25:V2",
+        title = "Sizing and reordering grid items",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/sizing-and-reordering-grid-items",
+        duration_text = "04m26s",
+        duration_seconds = 266,
+        description = "In-depth walkthrough of Break before an element, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** Tailwind justify-items utilities, Z-axis translation, Generated content from attributes, scale utilities, Tailwind UI Ecommerce kit, Tailwind theme variables, stroke  The headline concept is `break-before-*`, the family of utilities that ask the browser to start the next page, column, or region on a fresh break right before an element. Everything else in this chapter is a Tailwind v4 reference roundup: `break-after-*` complements it, and a block of two-axis alignment shortcuts (`place-content-*`, `place-items-*`, `place-self-*`) replaces the verbose `justify-items-*` plus `align-items-*` boilerplate. A short note at the end covers `space-*` versus `gap` so you stop reaching for `space-y-4` on grids, then four framework installation guides (Gatsby, Laravel + Vite, Meteor, Ember.js), a note on layer-aware purge, the `@plugin` directive for legacy Tailwind v3 plugins, and the relationship-bound state variants (`group-*`, `peer-*`, `has-*`, `aria-*`, `data-*`).", mental_model = "A break (`break-before-*` / `break-after-*` / `break-inside-*`) is an instruction the layout engine obeys when it is splitting content across pages, columns, or regions. `columns-3` from chapter 024 turns an article into a three-column newspaper flow; `break-before-column` on the next `<h2>` forces that heading to start a new column. `place-content-*` and friends are vocabulary shortcuts: each one writes two CSS declarations, mirroring the relationship between `justify-content` and `align-content` on a container, or between `justify-self` and `align-self` on an item.  Every entry in this chapter is a thin layer over an existing CSS declaration. The value is not new power, it is fewer characters to type and a consistent vocabulary across the team.", code_example = "<article className=\"columns-3 gap-8\">\n  <p>...</p>\n  <h2 className=\"break-before-column text-xl font-semibold mt-6\">Section A</h2>\n  <p>...</p>\n  <h2 className=\"break-before-column text-xl font-semibold mt-6\">Section B</h2>\n</article>", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-026",
+    number = 26,
+    title = "Outline width",
+    local_chapter_file = "026-outline-width.md",
+    key_concepts = ["Hook: three independent knobs on one line", "Outline width: the number is pixels", "Outline color: the same palette you already use", "Outline offset: push the line out (or in)", "Ring: a focus indicator built from box-shadow", "Scale: resize visually without touching layout"],
+    total_duration_seconds = 926,
+    videos = [
+      {
+        id = "UzU6QzI2OlYxOjAyNi1v",
+        raw_key = "S5:C26:V1",
+        title = "Setting width and height",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/setting-width-and-height",
+        duration_text = "07m36s",
+        duration_seconds = 456,
+        description = "In-depth walkthrough of Outline width, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Outline styles, Tailwind CSS: Utility-First Styling, Custom color tokens, Tailwind theme variables, CSS transition utilities, Break before an element  The outline-styles chapter taught you that an outline is a line drawn *outside* the box, invisible to layout, and the safe surface for a keyboard focus ring. This chapter zooms in on the three utilities that decide how that line looks (`outline-<width>`, `outline-<color>`, `outline-offset-<n>`), the `ring-*` alternative built from box-shadow, the `scale-*` transform, the `underline` / `line-through` text-decoration family, and the four transition utilities that animate all of it: `transition-<group>`, `duration-<n>`, `delay-<n>`, and `ease-*`. Every one of these is difficulty 1. The value is in the combinations: a focus ring that fades in over 200ms, a card that scales up on hover, a \"done\" item that strikes through with a coloured line.", mental_model = "Outline width, colour, and offset are the accessibility surface: a focus ring that a keyboard user can see, that high-contrast mode can force to a system colour, and that never shifts layout when it appears. The ring utilities give you the same indicator when you want it to hug rounded corners. Scale is the hover/press affordance on every interactive card and button in a modern UI. Text-decoration lines carry meaning (a struck-through price, a completed task) that colour alone should not carry. And the four transition families are what separate a UI that snaps harshly from one that feels considered, all without a single line of JavaScript animation code. You will apply these together on nearly every button, link, and card you build for the rest of the course.", code_example = "<button className=\"outline-2 outline-sky-500 outline-offset-2\">Save</button>", pitfalls = "1. **`outline-2` with no colour on a light background.** The width is set, but `outline-color` defaults to the element's `currentColor` (its text colour). On a white button with dark text you get a dark ring you did not design. Always pair a width with an explicit `outline-<color>` (or `ring-<color>`). 2. **Expecting `outline-offset` to animate the box.** It animates the *gap*, not the box size, which is exactly why it is safe. If you meant to grow the element, that is `scale-*` or a size utility, not offset. 3. **Reaching for `transition-all` by default.** It animates every property, including layout properties like `height` and `width` that reflow. A hover that changes `height` under `transition-all` will visibly lurch. Use the narrowest group: `transition-colors`, `transition-transform`" }
+      },
+      {
+        id = "UzU6QzI2OlYyOjAyNi1v",
+        raw_key = "S5:C26:V2",
+        title = "Creating flexbox layouts",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/creating-flexbox-layouts",
+        duration_text = "07m50s",
+        duration_seconds = 470,
+        description = "In-depth walkthrough of Outline width, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Outline styles, Tailwind CSS: Utility-First Styling, Custom color tokens, Tailwind theme variables, CSS transition utilities, Break before an element  The outline-styles chapter taught you that an outline is a line drawn *outside* the box, invisible to layout, and the safe surface for a keyboard focus ring. This chapter zooms in on the three utilities that decide how that line looks (`outline-<width>`, `outline-<color>`, `outline-offset-<n>`), the `ring-*` alternative built from box-shadow, the `scale-*` transform, the `underline` / `line-through` text-decoration family, and the four transition utilities that animate all of it: `transition-<group>`, `duration-<n>`, `delay-<n>`, and `ease-*`. Every one of these is difficulty 1. The value is in the combinations: a focus ring that fades in over 200ms, a card that scales up on hover, a \"done\" item that strikes through with a coloured line.", mental_model = "Outline width, colour, and offset are the accessibility surface: a focus ring that a keyboard user can see, that high-contrast mode can force to a system colour, and that never shifts layout when it appears. The ring utilities give you the same indicator when you want it to hug rounded corners. Scale is the hover/press affordance on every interactive card and button in a modern UI. Text-decoration lines carry meaning (a struck-through price, a completed task) that colour alone should not carry. And the four transition families are what separate a UI that snaps harshly from one that feels considered, all without a single line of JavaScript animation code. You will apply these together on nearly every button, link, and card you build for the rest of the course.", code_example = "<button className=\"outline-2 outline-sky-500 outline-offset-2\">Save</button>", pitfalls = "1. **`outline-2` with no colour on a light background.** The width is set, but `outline-color` defaults to the element's `currentColor` (its text colour). On a white button with dark text you get a dark ring you did not design. Always pair a width with an explicit `outline-<color>` (or `ring-<color>`). 2. **Expecting `outline-offset` to animate the box.** It animates the *gap*, not the box size, which is exactly why it is safe. If you meant to grow the element, that is `scale-*` or a size utility, not offset. 3. **Reaching for `transition-all` by default.** It animates every property, including layout properties like `height` and `width` that reflow. A hover that changes `height` under `transition-all` will visibly lurch. Use the narrowest group: `transition-colors`, `transition-transform`" }
+      },
+    ]
+  },
+  {
+    id = "05-027",
+    number = 27,
+    title = "Transition property utilities",
+    local_chapter_file = "027-transition-property-utilities.md",
+    key_concepts = ["Mental model: an accessibility-first motion vocabulary", "`transition-property-(*)` and `transition-[<list>]`: named property families", "`transition-discrete` and `transition-normal`: discrete-property behaviour", "`motion-reduce:` and `motion-safe:` variants", "`--ease-*` theme variables: custom easing as a design token", "`zoom-*` utilities: the CSS `zoom` property"],
+    total_duration_seconds = 428,
+    videos = [
+      {
+        id = "UzU6QzI3OlYxOjAyNy10",
+        raw_key = "S5:C27:V1",
+        title = "Creating custom utilities",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/creating-custom-utilities",
+        duration_text = "04m17s",
+        duration_seconds = 257,
+        description = "In-depth walkthrough of Transition property utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** CSS transition utilities, Break before an element, Outline styles, Outline width, Background color, image, size, and position utilities, Tailwind theme variables, stroke  This chapter is the wider Tailwind vocabulary that surrounds `transition-*` and the transform families. It collects the property-list extensions, the accessibility-aware variants, the interactivity utilities, the motion-preference variants, and the few transform-adjacent families that did not fit in the CSS transition utilities chapter. Each section is short on prose and dense on tables.", mental_model = "A Tailwind UI is a contract with the user as much as it is a set of classes. Each interactive utility answers a question: *what animates*, *who gets it*, *when does it fire*, *does the user know it's moving*. The contracts layer on top of each other:  Read the class string once per layer. The first layer says what animates. The second layer says which user states it applies to. The third layer says how it degrades for users who opted out.", code_example = "@import \"tailwindcss\";\n\n@theme {\n  --card-properties: width, height, color, background-color, box-shadow;\n}", pitfalls = "// right: branch between complete strings. className={kind === \"color\" ? \"transition-colors\" : \"transition-transform\"} ```  The full class name is never a literal in a scanned file, so the scanner does not generate CSS for it. The style silently does nothing. Branch between complete strings or build a `Record<Kind, string>` of complete class strings.  A user who has asked the OS for less motion still sees the lift. The WCAG-recommended fix is to pair every animated utility with `motion-reduce:`:  Forgetting the `motion-reduce:` on a *single* utility breaks the user's accessibility setting without warning. Audit class strings for any `transition-*`, `duration-*`, `delay-*`, `animate-*`, `scale-*`, `rotate-*`, or `translate-*`; each is a candidate." }
+      },
+      {
+        id = "UzU6QzI3OlYyOjAyNy10",
+        raw_key = "S5:C27:V2",
+        title = "Passing props to styled-components",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/passing-props-to-styled-components",
+        duration_text = "02m51s",
+        duration_seconds = 171,
+        description = "In-depth walkthrough of Transition property utilities, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** CSS transition utilities, Break before an element, Outline styles, Outline width, Background color, image, size, and position utilities, Tailwind theme variables, stroke  This chapter is the wider Tailwind vocabulary that surrounds `transition-*` and the transform families. It collects the property-list extensions, the accessibility-aware variants, the interactivity utilities, the motion-preference variants, and the few transform-adjacent families that did not fit in the CSS transition utilities chapter. Each section is short on prose and dense on tables.", mental_model = "A Tailwind UI is a contract with the user as much as it is a set of classes. Each interactive utility answers a question: *what animates*, *who gets it*, *when does it fire*, *does the user know it's moving*. The contracts layer on top of each other:  Read the class string once per layer. The first layer says what animates. The second layer says which user states it applies to. The third layer says how it degrades for users who opted out.", code_example = "@import \"tailwindcss\";\n\n@theme {\n  --card-properties: width, height, color, background-color, box-shadow;\n}", pitfalls = "// right: branch between complete strings. className={kind === \"color\" ? \"transition-colors\" : \"transition-transform\"} ```  The full class name is never a literal in a scanned file, so the scanner does not generate CSS for it. The style silently does nothing. Branch between complete strings or build a `Record<Kind, string>` of complete class strings.  A user who has asked the OS for less motion still sees the lift. The WCAG-recommended fix is to pair every animated utility with `motion-reduce:`:  Forgetting the `motion-reduce:` on a *single* utility breaks the user's accessibility setting without warning. Audit class strings for any `transition-*`, `duration-*`, `delay-*`, `animate-*`, `scale-*`, `rotate-*`, or `translate-*`; each is a candidate." }
+      },
+    ]
+  },
+  {
+    id = "05-028",
+    number = 28,
+    title = "perspective-origin",
+    local_chapter_file = "028-perspective-origin.md",
+    key_concepts = ["Mental model: a camera aimed at a card", "The concept", "Minimal example", "Reference roundup: the surrounding Tailwind vocabulary", "Worked example: a typed 3D card and carousel", "Predict the render"],
+    total_duration_seconds = 408,
+    videos = [
+      {
+        id = "UzU6QzI4OlYxOjAyOC1w",
+        raw_key = "S5:C28:V1",
+        title = "Challenge: Style a testimonial card",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/challenge-style-a-testimonial-card",
+        duration_text = "02m55s",
+        duration_seconds = 175,
+        description = "In-depth walkthrough of perspective-origin, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** Transition property utilities, Tailwind theme variables, stroke, Z-axis translation, Width and height utilities, Break before an element, overscroll-behavior utilities, Custom color tokens, Tailwind CSS: Utility-First Styling, Tailwind UI Ecommerce kit, Generated content from attributes  This is a reference-heavy Tailwind chapter. Its main subject is `perspective-origin`, with a compact reference roundup for related Tailwind v4 configuration and interaction utilities used in the exercises.", mental_model = "Imagine a small card floating in front of a camera. `perspective-*` chooses how close the camera is. `perspective-origin-*` moves the camera's vanishing point across the card. The card can use the same `rotate-y-12` transform in both cases, yet the tilt appears to lean toward a different corner.  The origin is a coordinate on the element being projected. It does not move the element by itself. A 3D transform must be present before changing the origin can produce a visible difference.", code_example = "export function OriginPreview() {\n  return (\n    <div className=\"grid grid-cols-2 gap-6\">\n      <div className=\"perspective-near\">\n        <div className=\"perspective-origin-top-left transform-3d rotate-y-12 rounded-lg bg-sky-500 p-6 text-white\">\n          top left\n        </div>\n      </div>\n      <div className=\"perspective-near\">\n        <div className=\"perspective-origin-bottom-right transform-3d rotate-y-12 rounded-lg bg-indigo-500 p-6 text-white\">\n          bottom right\n        </div>\n      </div>\n    </div>\n  );\n}", pitfalls = "This deliberately broken TypeScript does not compile:  function Origin({ value }: { value: string }) {   const className: string = origins[value as keyof typeof origins];   return <div className={className} />; } ```  A stricter and safer version accepts the union at the component boundary:  function Origin({ value }: { value: Origin }) {   return <div className={origins[value]} />; } ```" }
+      },
+      {
+        id = "UzU6QzI4OlYyOjAyOC1w",
+        raw_key = "S5:C28:V2",
+        title = "Solution: Style a testimonial card",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/solution-style-a-testimonial-card",
+        duration_text = "03m53s",
+        duration_seconds = 233,
+        description = "In-depth walkthrough of perspective-origin, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** Transition property utilities, Tailwind theme variables, stroke, Z-axis translation, Width and height utilities, Break before an element, overscroll-behavior utilities, Custom color tokens, Tailwind CSS: Utility-First Styling, Tailwind UI Ecommerce kit, Generated content from attributes  This is a reference-heavy Tailwind chapter. Its main subject is `perspective-origin`, with a compact reference roundup for related Tailwind v4 configuration and interaction utilities used in the exercises.", mental_model = "Imagine a small card floating in front of a camera. `perspective-*` chooses how close the camera is. `perspective-origin-*` moves the camera's vanishing point across the card. The card can use the same `rotate-y-12` transform in both cases, yet the tilt appears to lean toward a different corner.  The origin is a coordinate on the element being projected. It does not move the element by itself. A 3D transform must be present before changing the origin can produce a visible difference.", code_example = "export function OriginPreview() {\n  return (\n    <div className=\"grid grid-cols-2 gap-6\">\n      <div className=\"perspective-near\">\n        <div className=\"perspective-origin-top-left transform-3d rotate-y-12 rounded-lg bg-sky-500 p-6 text-white\">\n          top left\n        </div>\n      </div>\n      <div className=\"perspective-near\">\n        <div className=\"perspective-origin-bottom-right transform-3d rotate-y-12 rounded-lg bg-indigo-500 p-6 text-white\">\n          bottom right\n        </div>\n      </div>\n    </div>\n  );\n}", pitfalls = "This deliberately broken TypeScript does not compile:  function Origin({ value }: { value: string }) {   const className: string = origins[value as keyof typeof origins];   return <div className={className} />; } ```  A stricter and safer version accepts the union at the component boundary:  function Origin({ value }: { value: Origin }) {   return <div className={origins[value]} />; } ```" }
+      },
+    ]
+  },
+  {
+    id = "05-029",
+    number = 29,
+    title = "Shadows, opacity, blending, and isolation",
+    local_chapter_file = "029-shadows-opacity-blending-and-isolation.md",
+    key_concepts = ["Box shadow: elevation tokens and inset shadows", "Text shadow: `text-shadow-*` and shadow colour", "Opacity: `opacity-*` and how it differs from slash-opacity", "Filter family: blur, brightness, and composition", "Mix-blend-mode: how an element combines with its backdrop", "Isolation: `isolate`"],
+    total_duration_seconds = 825,
+    videos = [
+      {
+        id = "UzU6QzI5OlYxOjAyOS1z",
+        raw_key = "S5:C29:V1",
+        title = "Adding borders and shadows",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/adding-borders-and-shadows",
+        duration_text = "07m25s",
+        duration_seconds = 445,
+        description = "In-depth walkthrough of Shadows, opacity, blending, and isolation, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** Custom color tokens, perspective-origin, Outline styles, Break before an element, stroke  Effects are the surface layer of a UI. They make cards lift, text punch through a busy hero, and a frosted modal read like glass instead of cardboard. Tailwind groups all of these under one roof, calling them *effects*. Most are zero-runtime utility wrappers around a CSS property: `shadow-*` wraps `box-shadow`, `opacity-*` wraps `opacity`, `mix-blend-*` wraps `mix-blend-mode`, `mask-*` wraps the mask family, and `backdrop-*` wraps the backdrop-filter family.", mental_model = "Every modern UI pulls from this toolkit: a hero headline drops a text shadow, a card lifts on hover, a modal blurs its backdrop, a price tag multiplies into the card. Treating the effect utilities as a vocabulary (a `box-shadow` story, a `text-shadow` story, an `opacity` story, a `filter` story, a `mix-blend-mode` story, a `mask` story, a `prose` story) keeps every component pulled from the same palette. The classes live in the same `className` strings as the layout utilities from earlier chapters, so a fully styled component is one string per element.", code_example = "<button\n  type=\"button\"\n  className=\"rounded-md bg-white px-4 py-2 text-slate-900\n             shadow-md hover:shadow-lg\n             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500\n             dark:bg-slate-800 dark:text-slate-100\"\n>\n  Save\n</button>", pitfalls = "Tailwind's scanner does not see the assembled string, so the utility is missing from the generated CSS. The element renders with no shadow at all, and the bug surfaces only in production builds where unused utilities are stripped. Map values to complete strings instead.  `opacity` is multiplied across every rendered pixel of the element and its children. The title and the body fade with the surface. If the goal is a translucent surface with crisp text, reach for `bg-sky-500/30` instead and leave `text-*` fully opaque.  Without an isolating ancestor, `mix-blend-mode` composites against everything behind the element in the stacking context, including the page background. The multiply can produce unexpected colours when the layout shifts. Wrap the card in `isolate` (or any `position: relative" }
+      },
+      {
+        id = "UzU6QzI5OlYyOjAyOS1z",
+        raw_key = "S5:C29:V2",
+        title = "Applying text and font styles",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/applying-text-and-font-styles",
+        duration_text = "06m20s",
+        duration_seconds = 380,
+        description = "In-depth walkthrough of Shadows, opacity, blending, and isolation, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** Custom color tokens, perspective-origin, Outline styles, Break before an element, stroke  Effects are the surface layer of a UI. They make cards lift, text punch through a busy hero, and a frosted modal read like glass instead of cardboard. Tailwind groups all of these under one roof, calling them *effects*. Most are zero-runtime utility wrappers around a CSS property: `shadow-*` wraps `box-shadow`, `opacity-*` wraps `opacity`, `mix-blend-*` wraps `mix-blend-mode`, `mask-*` wraps the mask family, and `backdrop-*` wraps the backdrop-filter family.", mental_model = "Every modern UI pulls from this toolkit: a hero headline drops a text shadow, a card lifts on hover, a modal blurs its backdrop, a price tag multiplies into the card. Treating the effect utilities as a vocabulary (a `box-shadow` story, a `text-shadow` story, an `opacity` story, a `filter` story, a `mix-blend-mode` story, a `mask` story, a `prose` story) keeps every component pulled from the same palette. The classes live in the same `className` strings as the layout utilities from earlier chapters, so a fully styled component is one string per element.", code_example = "<button\n  type=\"button\"\n  className=\"rounded-md bg-white px-4 py-2 text-slate-900\n             shadow-md hover:shadow-lg\n             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500\n             dark:bg-slate-800 dark:text-slate-100\"\n>\n  Save\n</button>", pitfalls = "Tailwind's scanner does not see the assembled string, so the utility is missing from the generated CSS. The element renders with no shadow at all, and the bug surfaces only in production builds where unused utilities are stripped. Map values to complete strings instead.  `opacity` is multiplied across every rendered pixel of the element and its children. The title and the body fade with the surface. If the goal is a translucent surface with crisp text, reach for `bg-sky-500/30` instead and leave `text-*` fully opaque.  Without an isolating ancestor, `mix-blend-mode` composites against everything behind the element in the stacking context, including the page background. The multiply can produce unexpected colours when the layout shifts. Wrap the card in `isolate` (or any `position: relative" }
+      },
+    ]
+  },
+  {
+    id = "05-030",
+    number = 30,
+    title = "Tailwind contrast filter",
+    local_chapter_file = "030-tailwind-contrast-filter.md",
+    key_concepts = ["`contrast-*`", "`grayscale`", "`hue-rotate-*`", "`invert`", "`saturate-*`", "`sepia`"],
+    total_duration_seconds = 100,
+    videos = [
+      {
+        id = "UzU6QzMwOlYxOjAzMC10",
+        raw_key = "S5:C30:V1",
+        title = "Meet Tailwind CSS",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/meet-tailwind-css",
+        duration_text = "00m44s",
+        duration_seconds = 44,
+        description = "In-depth walkthrough of Tailwind contrast filter, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Shadows, opacity, blending, and isolation  CSS `filter` accepts a chain of effects: `contrast(150%) grayscale(50%) hue-rotate(45deg)`. Tailwind splits the chain into single-purpose utilities that compose on the element. `backdrop-filter` is the same idea applied to whatever is behind the element, which is only visible when the element itself is translucent. `drop-shadow` is the filter-family version of `box-shadow`, and it follows the rendered silhouette instead of the box.", mental_model = "Filters show up the moment a UI stops being a stack of rectangles: a hero photo that needs more punch, a logo that needs to flip in dark mode, a frosted modal scrim, a coloured drop-shadow on an SVG icon. Tailwind's filter families are the canonical place to reach for them; CSS exposes the same primitives, but the utility form lets you keep all of styling in `className` so the design tokens and the component logic live in the same file.  - `filter-*` on the element, `backdrop-*` on what is behind. They compose independently. - `drop-shadow-*` follows the silhouette; `shadow-*` follows the box. For SVG, PNG-with-transparency, or text, `drop-shadow` is correct; for cards, modals, and other rectangles, `shadow` is correct.", code_example = "<img className=\"contrast-50 ...\" src=\"/photo.jpg\" alt=\"Low contrast\" />\n<img className=\"contrast-100 ...\" src=\"/photo.jpg\" alt=\"Identity\" />\n<img className=\"contrast-150 hover:contrast-200 ...\" src=\"/photo.jpg\" alt=\"Boosted\" />", pitfalls = "`drop-shadow-lg` on a rectangular div produces the same result as `shadow-lg`. The cost is higher: `drop-shadow` runs through the silhouette pass even though the silhouette is the same as the box. For rectangles, `shadow-lg` is the right tool. Reach for `drop-shadow` only when the silhouette is non-rectangular: SVG icons, PNG logos with transparency, text glyphs.  `bg-white` is opaque; the backdrop blur has nothing to blur. The element looks like a plain white card. Pair every `backdrop-*` utility with a `/<opacity>` colour modifier (`bg-white/30`, `bg-slate-900/40`).  These are two different effects. `saturate-150` recolours the image pixels. `backdrop-saturate-150` recolours the pixels behind the `bg-slate-900` element. They look similar in a screenshot, but the underlying filter declara" }
+      },
+      {
+        id = "UzU6QzMwOlYyOjAzMC10",
+        raw_key = "S5:C30:V2",
+        title = "What you should know",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/what-you-should-know",
+        duration_text = "00m56s",
+        duration_seconds = 56,
+        description = "In-depth walkthrough of Tailwind contrast filter, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Shadows, opacity, blending, and isolation  CSS `filter` accepts a chain of effects: `contrast(150%) grayscale(50%) hue-rotate(45deg)`. Tailwind splits the chain into single-purpose utilities that compose on the element. `backdrop-filter` is the same idea applied to whatever is behind the element, which is only visible when the element itself is translucent. `drop-shadow` is the filter-family version of `box-shadow`, and it follows the rendered silhouette instead of the box.", mental_model = "Filters show up the moment a UI stops being a stack of rectangles: a hero photo that needs more punch, a logo that needs to flip in dark mode, a frosted modal scrim, a coloured drop-shadow on an SVG icon. Tailwind's filter families are the canonical place to reach for them; CSS exposes the same primitives, but the utility form lets you keep all of styling in `className` so the design tokens and the component logic live in the same file.  - `filter-*` on the element, `backdrop-*` on what is behind. They compose independently. - `drop-shadow-*` follows the silhouette; `shadow-*` follows the box. For SVG, PNG-with-transparency, or text, `drop-shadow` is correct; for cards, modals, and other rectangles, `shadow` is correct.", code_example = "<img className=\"contrast-50 ...\" src=\"/photo.jpg\" alt=\"Low contrast\" />\n<img className=\"contrast-100 ...\" src=\"/photo.jpg\" alt=\"Identity\" />\n<img className=\"contrast-150 hover:contrast-200 ...\" src=\"/photo.jpg\" alt=\"Boosted\" />", pitfalls = "`drop-shadow-lg` on a rectangular div produces the same result as `shadow-lg`. The cost is higher: `drop-shadow` runs through the silhouette pass even though the silhouette is the same as the box. For rectangles, `shadow-lg` is the right tool. Reach for `drop-shadow` only when the silhouette is non-rectangular: SVG icons, PNG logos with transparency, text glyphs.  `bg-white` is opaque; the backdrop blur has nothing to blur. The element looks like a plain white card. Pair every `backdrop-*` utility with a `/<opacity>` colour modifier (`bg-white/30`, `bg-slate-900/40`).  These are two different effects. `saturate-150` recolours the image pixels. `backdrop-saturate-150` recolours the pixels behind the `bg-slate-900` element. They look similar in a screenshot, but the underlying filter declara" }
+      },
+    ]
+  },
+  {
+    id = "05-031",
+    number = 31,
+    title = "Global important mode and utility conflicts",
+    local_chapter_file = "031-global-important-mode-and-utility-conflicts.md",
+    key_concepts = ["Cascade order wins over class-name order", "Global important mode", "`@apply` and other Tailwind directives", "`--alpha()` and colour tokens in custom CSS", "Component classes in the components layer", "`peer-*` sibling variants"],
+    total_duration_seconds = 711,
+    videos = [
+      {
+        id = "UzU6QzMxOlYxOjAzMS1n",
+        raw_key = "S5:C31:V1",
+        title = "Adding borders and shadows",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/adding-borders-and-shadows",
+        duration_text = "07m25s",
+        duration_seconds = 445,
+        description = "In-depth walkthrough of Global important mode and utility conflicts, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** Perspective origin, Tailwind theme variables, Custom color tokens, Tailwind UI Ecommerce kit, Tailwind CSS Just-In-Time engine, Static asset URL import  Tailwind generates one CSS file that contains every utility your content scan touched. Two utilities that target the same property (`bg-blue-500` and `bg-red-500`) end up as two rules with the same specificity. The browser applies whichever rule appears later in the source order; the order of class names on the element is irrelevant. The same applies when Tailwind sits next to legacy CSS that uses IDs or `!important`: Tailwind's specificity is class-only, so legacy rules win unless Tailwind is forced to be `!important` globally.", mental_model = "The cascade is the part of Tailwind most projects get wrong without knowing it. A designer asks \"why does this button not turn blue on hover?\", a developer reorders class names, nothing happens, the developer adds `!important` to the rule that should lose, the page becomes unmaintainable. None of those fixes address the actual cause: class-name order is not the cascade.  The features in this chapter (the `!` modifier, the global `important` mode, the `@apply` directive, the `--alpha()` function, the `@layer` ordering, the `peer-*` and `group-*` variants, the `type:` hint) are the tools that make the cascade do what you want without `!important` on every rule. The version notes are a paper trail: if you inherit a v3 project and need to know whether `flex-shrink` or `shrink` is the right class, the v4 changelog is the answer.", code_example = "<button className=\"bg-red-500 hover:bg-blue-500\">Save</button>", pitfalls = "The two are equivalent. The class attribute is not a stylesheet; the browser applies both rules, and the one that appears later in the *generated* CSS wins. Reordering class names to \"make the override win\" is a no-op.  The `!` makes the red `!important`. The hover fires, the blue wins because the blue rule is the only one matching the hover state, and the red rule (even though important) does not match the hover state. The button is blue on hover. The `!` is not a \"make this state win\", it is a \"make this declaration unkillable by non-important rules\".  Without `@layer components` (or any `@layer`), the rule sits in the author's layer, which is the lowest specificity in the cascade. A `<button className=\"bg-red-500\">` inside the rule would lose, even though utilities are supposed to overr" }
+      },
+      {
+        id = "UzU6QzMxOlYyOjAzMS1n",
+        raw_key = "S5:C31:V2",
+        title = "Sizing and reordering grid items",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/sizing-and-reordering-grid-items",
+        duration_text = "04m26s",
+        duration_seconds = 266,
+        description = "In-depth walkthrough of Global important mode and utility conflicts, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** Perspective origin, Tailwind theme variables, Custom color tokens, Tailwind UI Ecommerce kit, Tailwind CSS Just-In-Time engine, Static asset URL import  Tailwind generates one CSS file that contains every utility your content scan touched. Two utilities that target the same property (`bg-blue-500` and `bg-red-500`) end up as two rules with the same specificity. The browser applies whichever rule appears later in the source order; the order of class names on the element is irrelevant. The same applies when Tailwind sits next to legacy CSS that uses IDs or `!important`: Tailwind's specificity is class-only, so legacy rules win unless Tailwind is forced to be `!important` globally.", mental_model = "The cascade is the part of Tailwind most projects get wrong without knowing it. A designer asks \"why does this button not turn blue on hover?\", a developer reorders class names, nothing happens, the developer adds `!important` to the rule that should lose, the page becomes unmaintainable. None of those fixes address the actual cause: class-name order is not the cascade.  The features in this chapter (the `!` modifier, the global `important` mode, the `@apply` directive, the `--alpha()` function, the `@layer` ordering, the `peer-*` and `group-*` variants, the `type:` hint) are the tools that make the cascade do what you want without `!important` on every rule. The version notes are a paper trail: if you inherit a v3 project and need to know whether `flex-shrink` or `shrink` is the right class, the v4 changelog is the answer.", code_example = "<button className=\"bg-red-500 hover:bg-blue-500\">Save</button>", pitfalls = "The two are equivalent. The class attribute is not a stylesheet; the browser applies both rules, and the one that appears later in the *generated* CSS wins. Reordering class names to \"make the override win\" is a no-op.  The `!` makes the red `!important`. The hover fires, the blue wins because the blue rule is the only one matching the hover state, and the red rule (even though important) does not match the hover state. The button is blue on hover. The `!` is not a \"make this state win\", it is a \"make this declaration unkillable by non-important rules\".  Without `@layer components` (or any `@layer`), the rule sits in the author's layer, which is the lowest specificity in the cascade. A `<button className=\"bg-red-500\">` inside the rule would lose, even though utilities are supposed to overr" }
+      },
+    ]
+  },
+  {
+    id = "05-032",
+    number = 32,
+    title = "Tailwind v4 default style changes",
+    local_chapter_file = "032-tailwind-v4-default-style-changes.md",
+    key_concepts = ["Hook: read the release notes before you upgrade", "Default style changes", "Individual transform properties", "Removed and renamed utilities", "Variant behavior", "`will-change` utilities"],
+    total_duration_seconds = 555,
+    videos = [
+      {
+        id = "UzU6QzMyOlYxOjAzMi10",
+        raw_key = "S5:C32:V1",
+        title = "Applying text and font styles",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/applying-text-and-font-styles",
+        duration_text = "06m20s",
+        duration_seconds = 380,
+        description = "In-depth walkthrough of Tailwind v4 default style changes, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 3 · **Prerequisites:** Global important mode and utility conflicts, perspective-origin, CSS transition utilities, Outline width, Break before an element, Transition property utilities, Background color, image, size, and position utilities, Tailwind CSS: Utility-First Styling, Currying event-handler factories, Tailwind theme variables, Custom color tokens, stroke  Tailwind v4 is a rewrite, not a rename. The utility names you already know mostly survived, so a `bg-rose-500` from a v3 codebase still works in v4. What changed is the ground under those names: the Preflight defaults, the CSS properties the transform utilities emit, the order stacked variants apply, and the syntax for arbitrary values. A migration is mostly an audit: walk every place you relied on a v3 default and decide whether the new default is what you want or whether you have to restate it.", mental_model = "Tailwind v4 keeps the utility names that made Tailwind popular and rebuilds the engine underneath. The className strings you write are mostly unchanged; the CSS those strings compile to has shifted in ways that affect borders, rings, placeholders, buttons, dialogs, transforms, and the variant order. A migration that does not audit these defaults ships subtle visual regressions: a border that paints in `currentColor` instead of gray-200, a focus ring that is 1px instead of 3px, a placeholder that is solid instead of 60% opacity, a button cursor that is `default` instead of `pointer`.  You will meet this in real codebases in three places. First, a v3 project you inherit gets the v4 upgrade and the audit checklist is your first task. Second, a v4 design system you build has to choose whether to accept the new defaults or restate the old ones; the `@theme` block is the right place to set the project-wide preferences. Third, a v4 dependency you consume (a UI kit, a design-system package) may rely on `@theme inline` or `theme(static)`, and you have to know the difference to debug \"why is my variable empty in production?\" bugs.", code_example = "/* v4 output */\n.border { border-color: currentColor; }\n.border-2 { border-color: currentColor; border-width: 2px; }", pitfalls = "In v4 it paints `currentColor`. A card with `className=\"border p-4\"` whose parent is dark-mode-on will have a white border on a dark background. If you wanted gray-200 (the v3 default), write `border-gray-200`.  v4 ignores `bg-opacity-50`. Replace with `bg-red-500/50`.  v4 renamed them. `shrink-0` and `grow-1` are the v4 spellings. A v3 codebase migrating to v4 needs every `flex-shrink-*` and `flex-grow-*` swapped.  `overflow-ellipsis` is removed; `text-ellipsis` is the v4 spelling. A global find-and-replace handles most migrations." }
+      },
+      {
+        id = "UzU6QzMyOlYyOjAzMi10",
+        raw_key = "S5:C32:V2",
+        title = "Challenge: Style a testimonial card",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/challenge-style-a-testimonial-card",
+        duration_text = "02m55s",
+        duration_seconds = 175,
+        description = "In-depth walkthrough of Tailwind v4 default style changes, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 3 · **Prerequisites:** Global important mode and utility conflicts, perspective-origin, CSS transition utilities, Outline width, Break before an element, Transition property utilities, Background color, image, size, and position utilities, Tailwind CSS: Utility-First Styling, Currying event-handler factories, Tailwind theme variables, Custom color tokens, stroke  Tailwind v4 is a rewrite, not a rename. The utility names you already know mostly survived, so a `bg-rose-500` from a v3 codebase still works in v4. What changed is the ground under those names: the Preflight defaults, the CSS properties the transform utilities emit, the order stacked variants apply, and the syntax for arbitrary values. A migration is mostly an audit: walk every place you relied on a v3 default and decide whether the new default is what you want or whether you have to restate it.", mental_model = "Tailwind v4 keeps the utility names that made Tailwind popular and rebuilds the engine underneath. The className strings you write are mostly unchanged; the CSS those strings compile to has shifted in ways that affect borders, rings, placeholders, buttons, dialogs, transforms, and the variant order. A migration that does not audit these defaults ships subtle visual regressions: a border that paints in `currentColor` instead of gray-200, a focus ring that is 1px instead of 3px, a placeholder that is solid instead of 60% opacity, a button cursor that is `default` instead of `pointer`.  You will meet this in real codebases in three places. First, a v3 project you inherit gets the v4 upgrade and the audit checklist is your first task. Second, a v4 design system you build has to choose whether to accept the new defaults or restate the old ones; the `@theme` block is the right place to set the project-wide preferences. Third, a v4 dependency you consume (a UI kit, a design-system package) may rely on `@theme inline` or `theme(static)`, and you have to know the difference to debug \"why is my variable empty in production?\" bugs.", code_example = "/* v4 output */\n.border { border-color: currentColor; }\n.border-2 { border-color: currentColor; border-width: 2px; }", pitfalls = "In v4 it paints `currentColor`. A card with `className=\"border p-4\"` whose parent is dark-mode-on will have a white border on a dark background. If you wanted gray-200 (the v3 default), write `border-gray-200`.  v4 ignores `bg-opacity-50`. Replace with `bg-red-500/50`.  v4 renamed them. `shrink-0` and `grow-1` are the v4 spellings. A v3 codebase migrating to v4 needs every `flex-shrink-*` and `flex-grow-*` swapped.  `overflow-ellipsis` is removed; `text-ellipsis` is the v4 spelling. A global find-and-replace handles most migrations." }
+      },
+    ]
+  },
+  {
+    id = "05-033",
+    number = 33,
+    title = "Component Libraries: Material UI",
+    local_chapter_file = "033-component-libraries.md",
+    key_concepts = ["Choosing the level of abstraction", "A compact component reference", "Predict the render", "Tailwind release context", "Common mistakes", "Why this matters"],
+    total_duration_seconds = 652,
+    videos = [
+      {
+        id = "UzU6QzMzOlYxOjAzMy1j",
+        raw_key = "S5:C33:V1",
+        title = "Adding more components",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/adding-more-components",
+        duration_text = "05m45s",
+        duration_seconds = 345,
+        description = "In-depth walkthrough of Component Libraries: Material UI, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "A component library is like a box of tested building parts. You assemble buttons, alerts, navigation, and forms instead of cutting every piece from raw CSS. The tradeoff is that the parts arrive with an API and a visual opinion.", mental_model = "Component libraries shorten routine UI work and make interaction patterns consistent. Their props also become architectural boundaries: application state enters through typed props, events leave through callbacks, and theme values coordinate the screen. Knowing where the library stops prevents accessibility regressions, invalid prop values, and state hidden inside visual components.", code_example = "bun add @mui/material @emotion/react @emotion/styled", pitfalls = "Installing only `@mui/material` can produce:  Install `@emotion/react` and `@emotion/styled` with MUI's core package.  This is deliberately broken:  Use `variant=\"contained\"`, or augment MUI's variant types when your theme defines a real custom variant." }
+      },
+      {
+        id = "UzU6QzMzOlYyOjAzMy1j",
+        raw_key = "S5:C33:V2",
+        title = "Creating the TodoList component",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/creating-the-todolist-component",
+        duration_text = "05m07s",
+        duration_seconds = 307,
+        description = "In-depth walkthrough of Component Libraries: Material UI, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "A component library is like a box of tested building parts. You assemble buttons, alerts, navigation, and forms instead of cutting every piece from raw CSS. The tradeoff is that the parts arrive with an API and a visual opinion.", mental_model = "Component libraries shorten routine UI work and make interaction patterns consistent. Their props also become architectural boundaries: application state enters through typed props, events leave through callbacks, and theme values coordinate the screen. Knowing where the library stops prevents accessibility regressions, invalid prop values, and state hidden inside visual components.", code_example = "bun add @mui/material @emotion/react @emotion/styled", pitfalls = "Installing only `@mui/material` can produce:  Install `@emotion/react` and `@emotion/styled` with MUI's core package.  This is deliberately broken:  Use `variant=\"contained\"`, or augment MUI's variant types when your theme defines a real custom variant." }
+      },
+    ]
+  },
+  {
+    id = "05-034",
+    number = 34,
+    title = "Chip (and friends: List, ImageList, ButtonGroup, Alert, Avatar, Backdrop, Badge, Button, Card, Checkbox, Container)",
+    local_chapter_file = "034-chip.md",
+    key_concepts = ["Mental model", "`Chip`", "Neighbouring primitives (reference)", "Icons package", "Combining these in practice"],
+    total_duration_seconds = 367,
+    videos = [
+      {
+        id = "UzU6QzM0OlYxOjAzNC1j",
+        raw_key = "S5:C34:V1",
+        title = "Combining selectors",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/combining-selectors",
+        duration_text = "04m18s",
+        duration_seconds = 258,
+        description = "In-depth walkthrough of Chip (and friends: List, ImageList, ButtonGroup, Alert, Avatar, Backdrop, Badge, Button, Card, Checkbox, Container), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Component Libraries: Material UI  This chapter is a reference roundup. The page covers the `Chip` family in depth (the slug's namesake), then summarises a dozen neighbouring Material UI primitives: `List`, `ImageList`, `ButtonGroup`, `Alert`, `Avatar`, `Backdrop`, `Badge`, `Button`, `Card`, `Checkbox`, and `Container`. Each entry is what the component is for, its signature props, and one minimal JSX. The two exercises at the end pull several of them into one UI slice and then re-type the slice with strict TypeScript.", mental_model = "A `Chip` is the small, rounded pill that lives in three places: filters at the top of a list view, tags on a content card, and inline status messages next to a user avatar. It is the smallest interactive thing Material UI ships, and it borrows from three of the bigger components:  - `Avatar` for the leading ornament (`avatar` prop), - `Icon` for the leading or trailing glyph (`icon` prop, or the delete-icon from `onDelete`), - `ButtonBase` for the underlying click affordance (when `onClick` or `onDelete` is set, the chip is a button in the tab order).", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzM0OlYyOjAzNC1j",
+        raw_key = "S5:C34:V2",
+        title = "Why do we need Redux-Thunk?",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/why-do-we-need-redux-thunk",
+        duration_text = "01m49s",
+        duration_seconds = 109,
+        description = "In-depth walkthrough of Chip (and friends: List, ImageList, ButtonGroup, Alert, Avatar, Backdrop, Badge, Button, Card, Checkbox, Container), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Component Libraries: Material UI  This chapter is a reference roundup. The page covers the `Chip` family in depth (the slug's namesake), then summarises a dozen neighbouring Material UI primitives: `List`, `ImageList`, `ButtonGroup`, `Alert`, `Avatar`, `Backdrop`, `Badge`, `Button`, `Card`, `Checkbox`, and `Container`. Each entry is what the component is for, its signature props, and one minimal JSX. The two exercises at the end pull several of them into one UI slice and then re-type the slice with strict TypeScript.", mental_model = "A `Chip` is the small, rounded pill that lives in three places: filters at the top of a list view, tags on a content card, and inline status messages next to a user avatar. It is the smallest interactive thing Material UI ships, and it borrows from three of the bigger components:  - `Avatar` for the leading ornament (`avatar` prop), - `Icon` for the leading or trailing glyph (`icon` prop, or the delete-icon from `onDelete`), - `ButtonBase` for the underlying click affordance (when `onClick` or `onDelete` is set, the chip is a button in the tab order).", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-035",
+    number = 35,
+    title = "Material UI deep imports for bundle size",
+    local_chapter_file = "035-material-ui-deep-imports-for-bundle-size.md",
+    key_concepts = ["Mental model", "The deep-import rule", "Minimal example", "Enforce the rule with ESLint", "Predict the render", "Common mistakes"],
+    total_duration_seconds = 321,
+    videos = [
+      {
+        id = "UzU6QzM1OlYxOjAzNS1t",
+        raw_key = "S5:C35:V1",
+        title = "Next steps for building with React",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/next-steps-for-building-with-react",
+        duration_text = "01m01s",
+        duration_seconds = 61,
+        description = "In-depth walkthrough of Material UI deep imports for bundle size, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Chip, Component Libraries: Material UI  This chapter covers two things. First, the deep-import rule that keeps Material UI's dev server fast (barrel imports do not change the production bundle, but they do slow startup and rebuild). Second, a reference roundup of nine neighbouring MUI primitives you will reach for next to `Chip` and `Button`: `Divider`, `Fab`, `Link`, `Paper`, `Progress` indicators, `RadioGroup`, `Skeleton`, the `createTheme` / `ThemeProvider` pair, and the responsive viewport meta tag. The two exercises at the end combine most of these into one UI slice and then re-type it under strict TypeScript.", mental_model = "Material UI's package layout is a directory of files with one default export per file, plus one barrel file (`index.js`) that re-exports them all. Your bundler can resolve either path:  In production, both paths ship the same tree-shaken result. In development, the barrel forces the dev server to parse every named export to learn which symbols exist before it can throw a `ReferenceError` when you mistype one. That parse takes a long time. The `@mui/icons-material` package is worse: it ships 2,100+ components, and the barrel parse takes long enough that you can watch it happen.", code_example = "import Button from '@mui/material/Button';\nimport DeleteIcon from '@mui/icons-material/Delete';\n\nexport default function ConfirmDelete() {\n  return (\n    <Button\n      variant=\"contained\"\n      color=\"error\"\n      startIcon={<DeleteIcon />}\n      onClick={() => console.log('confirmed')}\n    >\n      Delete account\n    </Button>\n  );\n}", pitfalls = "ESLint with the `no-restricted-imports` pattern from above reports:  Replace with `import Button from '@mui/material/Button';`. Add `@mui/icons-material/[IconName]` for icons.  VS Code by default adds barrel-import suggestions. Stop that for MUI with a project-scoped setting:  `@mui/icons-material` depends on `@mui/material`, which depends on Emotion. Installing the icon package without the core produces runtime errors when the first icon mounts:" }
+      },
+      {
+        id = "UzU6QzM1OlYyOjAzNS1t",
+        raw_key = "S5:C35:V2",
+        title = "Creating the NewTodoForm component",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/creating-the-newtodoform-component",
+        duration_text = "04m20s",
+        duration_seconds = 260,
+        description = "In-depth walkthrough of Material UI deep imports for bundle size, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Chip, Component Libraries: Material UI  This chapter covers two things. First, the deep-import rule that keeps Material UI's dev server fast (barrel imports do not change the production bundle, but they do slow startup and rebuild). Second, a reference roundup of nine neighbouring MUI primitives you will reach for next to `Chip` and `Button`: `Divider`, `Fab`, `Link`, `Paper`, `Progress` indicators, `RadioGroup`, `Skeleton`, the `createTheme` / `ThemeProvider` pair, and the responsive viewport meta tag. The two exercises at the end combine most of these into one UI slice and then re-type it under strict TypeScript.", mental_model = "Material UI's package layout is a directory of files with one default export per file, plus one barrel file (`index.js`) that re-exports them all. Your bundler can resolve either path:  In production, both paths ship the same tree-shaken result. In development, the barrel forces the dev server to parse every named export to learn which symbols exist before it can throw a `ReferenceError` when you mistype one. That parse takes a long time. The `@mui/icons-material` package is worse: it ships 2,100+ components, and the barrel parse takes long enough that you can watch it happen.", code_example = "import Button from '@mui/material/Button';\nimport DeleteIcon from '@mui/icons-material/Delete';\n\nexport default function ConfirmDelete() {\n  return (\n    <Button\n      variant=\"contained\"\n      color=\"error\"\n      startIcon={<DeleteIcon />}\n      onClick={() => console.log('confirmed')}\n    >\n      Delete account\n    </Button>\n  );\n}", pitfalls = "ESLint with the `no-restricted-imports` pattern from above reports:  Replace with `import Button from '@mui/material/Button';`. Add `@mui/icons-material/[IconName]` for icons.  VS Code by default adds barrel-import suggestions. Stop that for MUI with a project-scoped setting:  `@mui/icons-material` depends on `@mui/material`, which depends on Emotion. Installing the icon package without the core produces runtime errors when the first icon mounts:" }
+      },
+    ]
+  },
+  {
+    id = "05-036",
+    number = 36,
+    title = "MUI Avatar (and friends: Backdrop, Badge, BottomNavigation, Box, ButtonGroup, Fab, plus a density aside)",
+    local_chapter_file = "036-mui-avatar.md",
+    key_concepts = ["Mental model", "`Avatar`", "`AvatarGroup`", "Avatar with a badge", "Neighbouring primitives (reference)", "Density aside"],
+    total_duration_seconds = 297,
+    videos = [
+      {
+        id = "UzU6QzM2OlYxOjAzNi1t",
+        raw_key = "S5:C36:V1",
+        title = "Challenge: Info card with image",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/challenge-info-card-with-image",
+        duration_text = "01m36s",
+        duration_seconds = 96,
+        description = "In-depth walkthrough of MUI Avatar (and friends: Backdrop, Badge, BottomNavigation, Box, ButtonGroup, Fab, plus a density aside), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Component Libraries: Material UI, Chip  This chapter is a reference roundup. The page covers the `Avatar` family in depth (the slug's namesake): `Avatar` itself, the `AvatarGroup` stack, the image / letter / icon / variant choices, and the fallback chain. It then summarises the neighbouring Material UI primitives this chapter covers: `Backdrop`, `Badge`, `BottomNavigation`, `Box`, `ButtonGroup`, `Fab`. A short aside on per-component **density** via `defaultProps` in the theme sits before the closing reference notes on Material UI design resources, vision, example projects, and support channels.", mental_model = "An `Avatar` is a circle (or square, or rounded rectangle) that stands in for a person or entity. It is the smallest branded surface in Material UI, and it borrows from three of the bigger components:  - `Badge` for the unread-count envelope (when the avatar is on a message icon, or next to a profile), - `Chip` for the leading adornment in a chip-styled user mention, - `Icon` for the generic-person glyph that shows up when the image fails and there is no `alt` fallback.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzM2OlYyOjAzNi1t",
+        raw_key = "S5:C36:V2",
+        title = "Solution: Info card with image",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/solution-info-card-with-image",
+        duration_text = "03m21s",
+        duration_seconds = 201,
+        description = "In-depth walkthrough of MUI Avatar (and friends: Backdrop, Badge, BottomNavigation, Box, ButtonGroup, Fab, plus a density aside), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Component Libraries: Material UI, Chip  This chapter is a reference roundup. The page covers the `Avatar` family in depth (the slug's namesake): `Avatar` itself, the `AvatarGroup` stack, the image / letter / icon / variant choices, and the fallback chain. It then summarises the neighbouring Material UI primitives this chapter covers: `Backdrop`, `Badge`, `BottomNavigation`, `Box`, `ButtonGroup`, `Fab`. A short aside on per-component **density** via `defaultProps` in the theme sits before the closing reference notes on Material UI design resources, vision, example projects, and support channels.", mental_model = "An `Avatar` is a circle (or square, or rounded rectangle) that stands in for a person or entity. It is the smallest branded surface in Material UI, and it borrows from three of the bigger components:  - `Badge` for the unread-count envelope (when the avatar is on a message icon, or next to a profile), - `Chip` for the leading adornment in a chip-styled user mention, - `Icon` for the generic-person glyph that shows up when the image fails and there is no `alt` fallback.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-037",
+    number = 37,
+    title = "MUI Free Templates (and friends: Learning Resources, Color System, Progress, Skeleton, Vision, React Templates, Related Projects, Roadmap, Showcase, Sponsorship, Support)",
+    local_chapter_file = "037-mui-free-templates.md",
+    key_concepts = ["MUI Free Templates", "Minimal example: cloning a template", "Neighbouring resources (reference)", "Combining these in practice", "Recall check"],
+    total_duration_seconds = 806,
+    videos = [
+      {
+        id = "UzU6QzM3OlYxOjAzNy1t",
+        raw_key = "S5:C37:V1",
+        title = "Using Thunks to create server resources",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/using-thunks-to-create-server-resources",
+        duration_text = "07m56s",
+        duration_seconds = 476,
+        description = "In-depth walkthrough of MUI Free Templates (and friends: Learning Resources, Color System, Progress, Skeleton, Vision, React Templates, Related Projects, Roadmap, Showcase, Sponsorship, Support), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Chip  This chapter is a reference roundup. The slug's namesake, **MUI Free Templates**, gets a dedicated section: what ships in the official template collection, what the included custom theme does, and how the modular sections plug into a real app. The page then summarises the neighbouring Material UI resources covered by this chapter's concept set: the MUI **Learning Resources** path, the **Material Design color tokens**, **Progress** components (`CircularProgress` and `LinearProgress`), the **Skeleton** placeholder primitive, MUI's **Vision**, the **React Templates** collection, **Related Projects** (community extensions), the **Roadmap** process, the **Showcase**, **Sponsorship and Backers**, and the **Support Workflow**.", mental_model = "MUI publishes a set of free React templates that bundle a working theme, layout sections, and example pages. Each template is a standalone Vite + React + TypeScript project, so you can clone it and start replacing content rather than wiring up a theme from scratch.  The collection covers the most common app shapes:", code_example = "bun create vite@latest my-dashboard -- --template react-swc-ts\ncd my-dashboard\nbun add @mui/material @emotion/react @emotion/styled @mui/icons-material\n# Copy the dashboard template's src/ into my-dashboard/src/", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzM3OlYyOjAzNy1t",
+        raw_key = "S5:C37:V2",
+        title = "Using Thunks to delete server resources",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/using-thunks-to-delete-server-resources",
+        duration_text = "05m30s",
+        duration_seconds = 330,
+        description = "In-depth walkthrough of MUI Free Templates (and friends: Learning Resources, Color System, Progress, Skeleton, Vision, React Templates, Related Projects, Roadmap, Showcase, Sponsorship, Support), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Chip  This chapter is a reference roundup. The slug's namesake, **MUI Free Templates**, gets a dedicated section: what ships in the official template collection, what the included custom theme does, and how the modular sections plug into a real app. The page then summarises the neighbouring Material UI resources covered by this chapter's concept set: the MUI **Learning Resources** path, the **Material Design color tokens**, **Progress** components (`CircularProgress` and `LinearProgress`), the **Skeleton** placeholder primitive, MUI's **Vision**, the **React Templates** collection, **Related Projects** (community extensions), the **Roadmap** process, the **Showcase**, **Sponsorship and Backers**, and the **Support Workflow**.", mental_model = "MUI publishes a set of free React templates that bundle a working theme, layout sections, and example pages. Each template is a standalone Vite + React + TypeScript project, so you can clone it and start replacing content rather than wiring up a theme from scratch.  The collection covers the most common app shapes:", code_example = "bun create vite@latest my-dashboard -- --template react-swc-ts\ncd my-dashboard\nbun add @mui/material @emotion/react @emotion/styled @mui/icons-material\n# Copy the dashboard template's src/ into my-dashboard/src/", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-038",
+    number = 38,
+    title = "MUI Supported Components (and friends: Supported Platforms, System Props to sx, TextareaAutosize, Timeline, Versioning, Changelog Policy, Long-Term Support, Paper, Card, Alert, Progress, Radio)",
+    local_chapter_file = "038-mui-supported-components.md",
+    key_concepts = ["What \"supported components\" actually means", "Supported Platforms", "System props to `sx` prop", "TextareaAutosize", "Timeline", "Versioning Strategy"],
+    total_duration_seconds = 333,
+    videos = [
+      {
+        id = "UzU6QzM4OlYxOjAzOC1t",
+        raw_key = "S5:C38:V1",
+        title = "Passing props to styled-components",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/passing-props-to-styled-components",
+        duration_text = "02m51s",
+        duration_seconds = 171,
+        description = "In-depth walkthrough of MUI Supported Components (and friends: Supported Platforms, System Props to sx, TextareaAutosize, Timeline, Versioning, Changelog Policy, Long-Term Support, Paper, Card, Alert, Progress, Radio), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Chip, Component Libraries: Material UI  This chapter is a reference roundup. The slug's namesake, **MUI Supported Components**, frames Material UI's scope: the library ships the practical building blocks of Material Design but does not promise every component or every guideline feature. Around that, the page documents **Supported Platforms** (which browsers, runtimes, and bundlers are first-class), the **System props to `sx`** codemod for the v6/v9 migration, the **TextareaAutosize** utility that auto-grows a `<textarea>`, the **Timeline** lab component for chronological content, the **Versioning Strategy** (semantic versioning with deprecation windows), the **Changelog Policy** (`CHANGELOG.md` for the current major, `CHANGELOG.old.md` for archives), the **Long-Term Support** policy (security and regression fixes for the predecessor major), and the four core building blocks the rest of the section leans on: **Paper** (surface + elevation), **Card** (paper with composable parts), **Alert** (transient feedback with severity), **Progress** (LinearProgress and CircularProgress), and **Radio** + **RadioGroup** (roving-tabindex single-select).", mental_model = "Material UI's stance is explicit: it provides the practical building blocks developers need to build compelling user interfaces, omitting incidental or rarely-used components. The library does not aim to implement every Material Design component or every guideline feature. If a component exists in the Material Design specification but has no clear use in real apps, it does not ship in `@mui/material`. If you need it, you either build it yourself or reach for a community extension in `@mui/x` or a related project.  The practical effect of this scope:", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzM4OlYyOjAzOC1t",
+        raw_key = "S5:C38:V2",
+        title = "Why use the React ecosystem?",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/why-use-the-react-ecosystem",
+        duration_text = "02m42s",
+        duration_seconds = 162,
+        description = "In-depth walkthrough of MUI Supported Components (and friends: Supported Platforms, System Props to sx, TextareaAutosize, Timeline, Versioning, Changelog Policy, Long-Term Support, Paper, Card, Alert, Progress, Radio), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1 · **Prerequisites:** Chip, Component Libraries: Material UI  This chapter is a reference roundup. The slug's namesake, **MUI Supported Components**, frames Material UI's scope: the library ships the practical building blocks of Material Design but does not promise every component or every guideline feature. Around that, the page documents **Supported Platforms** (which browsers, runtimes, and bundlers are first-class), the **System props to `sx`** codemod for the v6/v9 migration, the **TextareaAutosize** utility that auto-grows a `<textarea>`, the **Timeline** lab component for chronological content, the **Versioning Strategy** (semantic versioning with deprecation windows), the **Changelog Policy** (`CHANGELOG.md` for the current major, `CHANGELOG.old.md` for archives), the **Long-Term Support** policy (security and regression fixes for the predecessor major), and the four core building blocks the rest of the section leans on: **Paper** (surface + elevation), **Card** (paper with composable parts), **Alert** (transient feedback with severity), **Progress** (LinearProgress and CircularProgress), and **Radio** + **RadioGroup** (roving-tabindex single-select).", mental_model = "Material UI's stance is explicit: it provides the practical building blocks developers need to build compelling user interfaces, omitting incidental or rarely-used components. The library does not aim to implement every Material Design component or every guideline feature. If a component exists in the Material Design specification but has no clear use in real apps, it does not ship in `@mui/material`. If you need it, you either build it yourself or reach for a community extension in `@mui/x` or a related project.  The practical effect of this scope:", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-039",
+    number = 39,
+    title = "Material UI component catalog",
+    local_chapter_file = "039-material-ui-component-catalog.md",
+    key_concepts = ["From interface job to component", "Minimal example", "Catalog reference", "Theme, baseline, and templates", "Predict the render", "Common mistakes"],
+    total_duration_seconds = 652,
+    videos = [
+      {
+        id = "UzU6QzM5OlYxOjAzOS1t",
+        raw_key = "S5:C39:V1",
+        title = "Adding more components",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/adding-more-components",
+        duration_text = "05m45s",
+        duration_seconds = 345,
+        description = "In-depth walkthrough of Material UI component catalog, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "A hardware shop sorts parts by job: switches control power, gauges display values, and fasteners join pieces. Material UI's catalog works the same way. Start with the job your interface must perform, then choose a component from the matching category.  **Difficulty:** 1 · **Prerequisites:** Pagination Query Parameters, Component Libraries: Material UI, Chip", mental_model = "Real screens mix categories. A settings page may use `TextField`, `Select`, `Switch`, `Divider`, `Button`, and `Snackbar` in one component tree. Choosing by behavior prevents controls that look right but carry the wrong semantics. Controlled props keep application state visible, theme context keeps visual decisions consistent, and matching skeleton dimensions prevents layout shifts while data loads.", code_example = "import Button from '@mui/material/Button';\nimport Chip from '@mui/material/Chip';\nimport Divider from '@mui/material/Divider';\nimport Stack from '@mui/material/Stack';\n\nexport default function Actions() {\n  return (\n    <Stack spacing={2} divider={<Divider flexItem />}>\n      <Chip label=\"Draft\" size=\"small\" />\n      <Button variant=\"contained\">Publish</Button>\n    </Stack>\n  );\n}", pitfalls = "This is deliberately broken:  Use `variant=\"contained\"`, or add a typed theme variant before using a custom name.  A visual placeholder is not a label. An unlabeled `Select` may produce an accessibility audit such as:  Connect `InputLabel` and `Select` with `labelId`, or use `TextField` with `select` and `label`." }
+      },
+      {
+        id = "UzU6QzM5OlYyOjAzOS1t",
+        raw_key = "S5:C39:V2",
+        title = "Creating the TodoList component",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/creating-the-todolist-component",
+        duration_text = "05m07s",
+        duration_seconds = 307,
+        description = "In-depth walkthrough of Material UI component catalog, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "A hardware shop sorts parts by job: switches control power, gauges display values, and fasteners join pieces. Material UI's catalog works the same way. Start with the job your interface must perform, then choose a component from the matching category.  **Difficulty:** 1 · **Prerequisites:** Pagination Query Parameters, Component Libraries: Material UI, Chip", mental_model = "Real screens mix categories. A settings page may use `TextField`, `Select`, `Switch`, `Divider`, `Button`, and `Snackbar` in one component tree. Choosing by behavior prevents controls that look right but carry the wrong semantics. Controlled props keep application state visible, theme context keeps visual decisions consistent, and matching skeleton dimensions prevents layout shifts while data loads.", code_example = "import Button from '@mui/material/Button';\nimport Chip from '@mui/material/Chip';\nimport Divider from '@mui/material/Divider';\nimport Stack from '@mui/material/Stack';\n\nexport default function Actions() {\n  return (\n    <Stack spacing={2} divider={<Divider flexItem />}>\n      <Chip label=\"Draft\" size=\"small\" />\n      <Button variant=\"contained\">Publish</Button>\n    </Stack>\n  );\n}", pitfalls = "This is deliberately broken:  Use `variant=\"contained\"`, or add a typed theme variant before using a custom name.  A visual placeholder is not a label. An unlabeled `Select` may produce an accessibility audit such as:  Connect `InputLabel` and `Select` with `labelId`, or use `TextField` with `select` and `label`." }
+      },
+    ]
+  },
+  {
+    id = "05-040",
+    number = 40,
+    title = "Material UI Color System",
+    local_chapter_file = "040-material-ui-color-system.md",
+    key_concepts = ["Mental model", "The color system", "Theme spacing", "CssBaseline and ScopedCssBaseline", "Paper (elevation surface)", "Skeleton (loading placeholder)"],
+    total_duration_seconds = 717,
+    videos = [
+      {
+        id = "UzU6QzQwOlYxOjA0MC1t",
+        raw_key = "S5:C40:V1",
+        title = "Using colors",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-colors",
+        duration_text = "04m36s",
+        duration_seconds = 276,
+        description = "In-depth walkthrough of Material UI Color System, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Material UI component catalog, Material UI deep imports for bundle size, Component Libraries: Material UI, Chip, Conditional Rendering and Lists  This chapter is a reference roundup. The headline topic is Material UI's color architecture (palettes, shades, and the `theme.spacing` scale), but the page also covers the supporting surfaces and patterns you reach for when you wire a theme into a real app: `CssBaseline` for normalization, `Paper` for elevation, `Skeleton` for loading placeholders, the `default-theme` viewer for inspection, the Figma design kit for designer-developer parity, locale text, the `theme.zIndex` scale, the `slots` / `slotProps` / `component` composition contract, the boolean-versus-enum prop convention, the tree-shaking rule, and the experimental API stability contract.", mental_model = "A Material UI color object is a colour dictionary in the same shape as Material Design's design tokens. Each colour has a `main` shade, a `light` and `dark` companion, and a `contrastText` shade that picks readable text on top of `main`. The palette tokens you address in components (`primary`, `secondary`, `error`, `warning`, `info`, `success`) are slots on a `palette` object that each reference a colour object.  You can either hand-build a color object (good for full control) or import a prebuilt hue from `@mui/material/colors` and pass its `main` shade into `createTheme` (good for a quick branded seed). Components read the `palette.primary.main` token through React context, so the same colour shows up everywhere without prop drilling.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "The locale is not a `ThemeProvider` prop. The compiler does not always catch this because both accept a string-shaped prop. Pass the locale to `createTheme`:  If a `Snackbar` or `Tooltip` mounts at the same time, your backdrop sits behind them. Read `theme.zIndex.drawer + 1` (or whichever neighbour you need to be above) and let the theme own the layering scale.  The import works. The next minor release can rename or remove it. Add a comment at the call site so the next maintainer knows the surface is unstable and can plan a migration.  `component` swaps the root element; the `variant` styles then target a `<div>` instead of a `<button>`. The result looks the same visually but loses the button semantics (no form submission, no native click activation). Use `component` for router links and s" }
+      },
+      {
+        id = "UzU6QzQwOlYyOjA0MC1t",
+        raw_key = "S5:C40:V2",
+        title = "Applying background colors and gradients",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/applying-background-colors-and-gradients",
+        duration_text = "07m21s",
+        duration_seconds = 441,
+        description = "In-depth walkthrough of Material UI Color System, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Material UI component catalog, Material UI deep imports for bundle size, Component Libraries: Material UI, Chip, Conditional Rendering and Lists  This chapter is a reference roundup. The headline topic is Material UI's color architecture (palettes, shades, and the `theme.spacing` scale), but the page also covers the supporting surfaces and patterns you reach for when you wire a theme into a real app: `CssBaseline` for normalization, `Paper` for elevation, `Skeleton` for loading placeholders, the `default-theme` viewer for inspection, the Figma design kit for designer-developer parity, locale text, the `theme.zIndex` scale, the `slots` / `slotProps` / `component` composition contract, the boolean-versus-enum prop convention, the tree-shaking rule, and the experimental API stability contract.", mental_model = "A Material UI color object is a colour dictionary in the same shape as Material Design's design tokens. Each colour has a `main` shade, a `light` and `dark` companion, and a `contrastText` shade that picks readable text on top of `main`. The palette tokens you address in components (`primary`, `secondary`, `error`, `warning`, `info`, `success`) are slots on a `palette` object that each reference a colour object.  You can either hand-build a color object (good for full control) or import a prebuilt hue from `@mui/material/colors` and pass its `main` shade into `createTheme` (good for a quick branded seed). Components read the `palette.primary.main` token through React context, so the same colour shows up everywhere without prop drilling.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "The locale is not a `ThemeProvider` prop. The compiler does not always catch this because both accept a string-shaped prop. Pass the locale to `createTheme`:  If a `Snackbar` or `Tooltip` mounts at the same time, your backdrop sits behind them. Read `theme.zIndex.drawer + 1` (or whichever neighbour you need to be above) and let the theme own the layering scale.  The import works. The next minor release can rename or remove it. Add a comment at the call site so the next maintainer knows the surface is unstable and can plan a migration.  `component` swaps the root element; the `variant` styles then target a `<div>` instead of a `<button>`. The result looks the same visually but loses the button semantics (no form submission, no native click activation). Use `component` for router links and s" }
+      },
+    ]
+  },
+  {
+    id = "05-041",
+    number = 41,
+    title = "Keyboard navigation and focus (and friends: Accordion, AppBar, BottomNavigation, Breakpoints, ClickAwayListener, CSS Theme Variables, Customization strategy ladder, Figma design kit, Grid v2, Icon APIs, ImageList, MUI Lab, List, Masonry)",
+    local_chapter_file = "041-keyboard-navigation-and-focus.md",
+    key_concepts = ["Mental model", "Keyboard navigation and focus", "`Accordion`", "`AppBar`", "`BottomNavigation`", "Breakpoints"],
+    total_duration_seconds = 642,
+    videos = [
+      {
+        id = "UzU6QzQxOlYxOjA0MS1r",
+        raw_key = "S5:C41:V1",
+        title = "Style elements on hover and focus",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/style-elements-on-hover-and-focus",
+        duration_text = "06m16s",
+        duration_seconds = 376,
+        description = "In-depth walkthrough of Keyboard navigation and focus (and friends: Accordion, AppBar, BottomNavigation, Breakpoints, ClickAwayListener, CSS Theme Variables, Customization strategy ladder, Figma design kit, Grid v2, Icon APIs, ImageList, MUI Lab, List, Masonry), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Component Libraries: Material UI, Chip, Material UI component catalog, Material UI Color System  This chapter is a reference roundup. The slug's namesake, **Keyboard navigation and focus**, frames how Material UI implements WAI-ARIA Authoring Practices out of the box: tabs move with arrow keys, dialogs trap focus inside the modal and restore it on close, menus support type-ahead, and `Tooltip` wraps disabled children in a `<span>` so they can receive focus. Around that, the page documents the neighbouring MUI primitives and APIs that this chapter covers: **Accordion** (a collapsible region with `AccordionSummary` / `AccordionDetails`), **AppBar** (top-of-page chrome), **BottomNavigation** (the mobile top-level dest switcher), the **Breakpoints** API (`up` / `down` / `only` / `between`), **ClickAwayListener** (close-on-outside-click utility), **CSS Theme Variables** (token-based theming via custom properties), the **Customization Strategy Ladder** (sx -> styled -> theme overrides -> global CSS), the **Figma design kit** vocabulary, the **Grid v1 -> Grid v2** migration, the **Icon APIs** (packaged SVG, custom `SvgIcon`, fonts through `Icon`), **ImageList** (the modernised grid list), **MUI Lab** (the `@mui/lab` incubator package), **List** (the semantic list primitive), and **Masonry** (variable-height columns).", mental_model = "Keyboard navigation and focus is a contract between every interactive MUI primitive and the user agent: the component owns the keyboard behaviour, the ARIA roles, and the focus management. You write JSX with `value`, `onChange`, and content; MUI ships the arrow-key roving tabindex on `Tabs`, the focus trap on `Dialog`, and the type-ahead buffer on `Autocomplete`. The job you do as a developer is to make sure the props you pass carry an accessible name and the layout you build does not break the focus order.  Each primitive in the roundup below carries its own keyboard contract; the rest of the chapter is reference material grouped around that idea, the same way Material UI component catalog groups primitives by interface job.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzQxOlYyOjA0MS1r",
+        raw_key = "S5:C41:V2",
+        title = "Sizing and reordering grid items",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/sizing-and-reordering-grid-items",
+        duration_text = "04m26s",
+        duration_seconds = 266,
+        description = "In-depth walkthrough of Keyboard navigation and focus (and friends: Accordion, AppBar, BottomNavigation, Breakpoints, ClickAwayListener, CSS Theme Variables, Customization strategy ladder, Figma design kit, Grid v2, Icon APIs, ImageList, MUI Lab, List, Masonry), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Component Libraries: Material UI, Chip, Material UI component catalog, Material UI Color System  This chapter is a reference roundup. The slug's namesake, **Keyboard navigation and focus**, frames how Material UI implements WAI-ARIA Authoring Practices out of the box: tabs move with arrow keys, dialogs trap focus inside the modal and restore it on close, menus support type-ahead, and `Tooltip` wraps disabled children in a `<span>` so they can receive focus. Around that, the page documents the neighbouring MUI primitives and APIs that this chapter covers: **Accordion** (a collapsible region with `AccordionSummary` / `AccordionDetails`), **AppBar** (top-of-page chrome), **BottomNavigation** (the mobile top-level dest switcher), the **Breakpoints** API (`up` / `down` / `only` / `between`), **ClickAwayListener** (close-on-outside-click utility), **CSS Theme Variables** (token-based theming via custom properties), the **Customization Strategy Ladder** (sx -> styled -> theme overrides -> global CSS), the **Figma design kit** vocabulary, the **Grid v1 -> Grid v2** migration, the **Icon APIs** (packaged SVG, custom `SvgIcon`, fonts through `Icon`), **ImageList** (the modernised grid list), **MUI Lab** (the `@mui/lab` incubator package), **List** (the semantic list primitive), and **Masonry** (variable-height columns).", mental_model = "Keyboard navigation and focus is a contract between every interactive MUI primitive and the user agent: the component owns the keyboard behaviour, the ARIA roles, and the focus management. You write JSX with `value`, `onChange`, and content; MUI ships the arrow-key roving tabindex on `Tabs`, the focus trap on `Dialog`, and the type-ahead buffer on `Autocomplete`. The job you do as a developer is to make sure the props you pass carry an accessible name and the layout you build does not break the focus order.  Each primitive in the roundup below carries its own keyboard contract; the rest of the chapter is reference material grouped around that idea, the same way Material UI component catalog groups primitives by interface job.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-042",
+    number = 42,
+    title = "Material UI MCP documentation server (and friends: native color, Pagination, Portal, Rating, Select, Shape tokens, Slider, Snackbar, slots and slotProps, StyledEngineProvider, style interoperability, Figma Sync, theme palette)",
+    local_chapter_file = "042-material-ui-mcp-documentation-server.md",
+    key_concepts = ["Material UI MCP documentation server", "Native color (`cssVariables.nativeColor`)", "`Pagination`", "`Portal`", "`Rating`", "`Select`"],
+    total_duration_seconds = 551,
+    videos = [
+      {
+        id = "UzU6QzQyOlYxOjA0Mi1t",
+        raw_key = "S5:C42:V1",
+        title = "Passing props to styled-components",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/passing-props-to-styled-components",
+        duration_text = "02m51s",
+        duration_seconds = 171,
+        description = "In-depth walkthrough of Material UI MCP documentation server (and friends: native color, Pagination, Portal, Rating, Select, Shape tokens, Slider, Snackbar, slots and slotProps, StyledEngineProvider, style interoperability, Figma Sync, theme palette), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Component Libraries: Material UI, Chip, MUI Free Templates, Material UI component catalog, Material UI Color System, Keyboard navigation and focus  This chapter is a reference roundup. The slug's namesake is the **Material UI MCP documentation server**: a local process that hands your AI client the official Material UI docs and published component code over standard I/O, so answers cite real pages instead of guessing at APIs. Around that, the page documents the MUI primitives and theme APIs this chapter owns: the **native color** opt-in (`cssVariables.nativeColor`), **Pagination**, **Portal**, **Rating**, **Select**, the theme **shape** tokens, **Slider**, **Snackbar**, the **slots / slotProps** structure model and its migration API, **StyledEngineProvider**, **style library interoperability**, **Material UI Sync for Figma**, and the theme **palette**.", mental_model = "The Model Context Protocol (MCP) is an open standard that connects an AI client to trusted sources of documentation and code. The Material UI MCP server is a small package that runs on your machine and speaks to the client over the `stdio` transport. When the client asks a question about MUI, the server returns passages from the official docs and code from the published component registries, so the answer quotes a real page and links to a URL that resolves.  You add it to a client with one command. In Claude Code:", code_example = "claude mcp add mui-mcp -- npx -y @mui/mcp@latest", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzQyOlYyOjA0Mi1t",
+        raw_key = "S5:C42:V2",
+        title = "Applying text and font styles",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/applying-text-and-font-styles",
+        duration_text = "06m20s",
+        duration_seconds = 380,
+        description = "In-depth walkthrough of Material UI MCP documentation server (and friends: native color, Pagination, Portal, Rating, Select, Shape tokens, Slider, Snackbar, slots and slotProps, StyledEngineProvider, style interoperability, Figma Sync, theme palette), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Component Libraries: Material UI, Chip, MUI Free Templates, Material UI component catalog, Material UI Color System, Keyboard navigation and focus  This chapter is a reference roundup. The slug's namesake is the **Material UI MCP documentation server**: a local process that hands your AI client the official Material UI docs and published component code over standard I/O, so answers cite real pages instead of guessing at APIs. Around that, the page documents the MUI primitives and theme APIs this chapter owns: the **native color** opt-in (`cssVariables.nativeColor`), **Pagination**, **Portal**, **Rating**, **Select**, the theme **shape** tokens, **Slider**, **Snackbar**, the **slots / slotProps** structure model and its migration API, **StyledEngineProvider**, **style library interoperability**, **Material UI Sync for Figma**, and the theme **palette**.", mental_model = "The Model Context Protocol (MCP) is an open standard that connects an AI client to trusted sources of documentation and code. The Material UI MCP server is a small package that runs on your machine and speaks to the client over the `stdio` transport. When the client asks a question about MUI, the server returns passages from the official docs and code from the published component registries, so the answer quotes a real page and links to a URL that resolves.  You add it to a client with one command. In Claude Code:", code_example = "claude mcp add mui-mcp -- npx -y @mui/mcp@latest", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-043",
+    number = 43,
+    title = "Material UI theme provider",
+    local_chapter_file = "043-material-ui-theme-provider.md",
+    key_concepts = ["Mental model", "createTheme and ThemeProvider", "Theme scoping with THEME_ID", "theme.transitions.create and getAutoHeightDuration", "Themed components (default props, slot overrides, variants)", "Transfer List pattern"],
+    total_duration_seconds = 919,
+    videos = [
+      {
+        id = "UzU6QzQzOlYxOjA0My1t",
+        raw_key = "S5:C43:V1",
+        title = "Changing the theme",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/changing-the-theme",
+        duration_text = "09m34s",
+        duration_seconds = 574,
+        description = "In-depth walkthrough of Material UI theme provider, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Material UI component catalog, Material UI Color System, Component Libraries: Material UI, Chip, Material UI deep imports for bundle size, Material UI MCP documentation server  This chapter is a reference roundup. The headline topic is the `ThemeProvider` and the `createTheme` factory, but the page also covers the surfaces and patterns you reach for when you wire a theme into a real app: scoping MUI alongside another styling system with `THEME_ID`, the `theme.transitions.create` and `getAutoHeightDuration` motion helpers, the theme's `components` section for default-props and slot-level overrides, the `TransferList` shuttle composition pattern, the five transition primitives (`Collapse`, `Fade`, `Grow`, `Slide`, `Zoom`), the migration paths from v0 to v1 and v3 to v4, the v5 component-level and style-level breaking changes, the v7 `enableCssLayer` and standardized slots update, the `theme.zIndex` scale, the minimal-bug-reproduction rule for filing MUI issues, the bundle-size minimization story, and the `Modal` primitive that `Dialog`, `Drawer`, `Menu`, and `Popover` all build on.", mental_model = "The `ThemeProvider` is a React context provider whose value is a fully built `Theme` object. `createTheme(options)` walks the options, fills every unset token from a default, and returns a complete, deeply-typed `Theme`. The provider hands that theme down the tree, and every MUI component (and every `styled` / `sx` / `useTheme` call) reads it from context. Move the provider, change the theme; the visible app re-themes without a single prop-drilled colour.  When two styling systems coexist in the same tree (MUI plus Theme UI, MUI plus Chakra, MUI plus a custom design-token context), the providers must agree on which context key carries which theme. MUI exposes `THEME_ID` for exactly that negotiation: a string constant you put on a non-default context, so MUI's `styled`, `sx`, and `useTheme` look up the right value while other libraries keep using the default key.", code_example = "bun add @mui/material @emotion/react @emotion/styled", pitfalls = "`useTheme` from `@mui/material/styles` looks up the value under the `THEME_ID` constant, not under `myCustomKey`. The button will render with the default theme or throw depending on the MUI version. Use `[THEME_ID]: materialTheme`.  The property is `theme.transitions.duration.standard`. `theme.duration` is undefined. A rename of the namespace would be a breaking change, so the chain stays as is.  The button's icon slot is `startIcon` and `endIcon`, not `icon`. The wrong name compiles because the slot map is open-ended, but the override never applies. The fix is the slot name printed in the component's `slots` table.  A `Snackbar` at `zIndex.tooltip` or a `Dialog` at `zIndex.modal` can stack above the hand-picked number. Use `theme.zIndex.drawer + 1` (or whichever neighbour the backdrop nee" }
+      },
+      {
+        id = "UzU6QzQzOlYyOjA0My1t",
+        raw_key = "S5:C43:V2",
+        title = "Adding more components",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/adding-more-components",
+        duration_text = "05m45s",
+        duration_seconds = 345,
+        description = "In-depth walkthrough of Material UI theme provider, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Material UI component catalog, Material UI Color System, Component Libraries: Material UI, Chip, Material UI deep imports for bundle size, Material UI MCP documentation server  This chapter is a reference roundup. The headline topic is the `ThemeProvider` and the `createTheme` factory, but the page also covers the surfaces and patterns you reach for when you wire a theme into a real app: scoping MUI alongside another styling system with `THEME_ID`, the `theme.transitions.create` and `getAutoHeightDuration` motion helpers, the theme's `components` section for default-props and slot-level overrides, the `TransferList` shuttle composition pattern, the five transition primitives (`Collapse`, `Fade`, `Grow`, `Slide`, `Zoom`), the migration paths from v0 to v1 and v3 to v4, the v5 component-level and style-level breaking changes, the v7 `enableCssLayer` and standardized slots update, the `theme.zIndex` scale, the minimal-bug-reproduction rule for filing MUI issues, the bundle-size minimization story, and the `Modal` primitive that `Dialog`, `Drawer`, `Menu`, and `Popover` all build on.", mental_model = "The `ThemeProvider` is a React context provider whose value is a fully built `Theme` object. `createTheme(options)` walks the options, fills every unset token from a default, and returns a complete, deeply-typed `Theme`. The provider hands that theme down the tree, and every MUI component (and every `styled` / `sx` / `useTheme` call) reads it from context. Move the provider, change the theme; the visible app re-themes without a single prop-drilled colour.  When two styling systems coexist in the same tree (MUI plus Theme UI, MUI plus Chakra, MUI plus a custom design-token context), the providers must agree on which context key carries which theme. MUI exposes `THEME_ID` for exactly that negotiation: a string constant you put on a non-default context, so MUI's `styled`, `sx`, and `useTheme` look up the right value while other libraries keep using the default key.", code_example = "bun add @mui/material @emotion/react @emotion/styled", pitfalls = "`useTheme` from `@mui/material/styles` looks up the value under the `THEME_ID` constant, not under `myCustomKey`. The button will render with the default theme or throw depending on the MUI version. Use `[THEME_ID]: materialTheme`.  The property is `theme.transitions.duration.standard`. `theme.duration` is undefined. A rename of the namespace would be a breaking change, so the chain stays as is.  The button's icon slot is `startIcon` and `endIcon`, not `icon`. The wrong name compiles because the slot map is open-ended, but the override never applies. The fix is the slot name printed in the component's `slots` table.  A `Snackbar` at `zIndex.tooltip` or a `Dialog` at `zIndex.modal` can stack above the hand-picked number. Use `theme.zIndex.drawer + 1` (or whichever neighbour the backdrop nee" }
+      },
+    ]
+  },
+  {
+    id = "05-044",
+    number = 44,
+    title = "Dialog",
+    local_chapter_file = "044-dialog.md",
+    key_concepts = ["Mental model", "Dialog", "Drawer and SwipeableDrawer", "Popover", "Modal scroll lock and fixed elements", "Accordion"],
+    total_duration_seconds = 641,
+    videos = [
+      {
+        id = "UzU6QzQ0OlYxOjA0NC1k",
+        raw_key = "S5:C44:V1",
+        title = "Style elements on hover and focus",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/style-elements-on-hover-and-focus",
+        duration_text = "06m16s",
+        duration_seconds = 376,
+        description = "In-depth walkthrough of Dialog, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Material UI theme provider, Component Libraries: Material UI, Material UI component catalog  This chapter is a reference roundup. The headline topic is the `Dialog` family and the small constellation of surfaces that share MUI's `Modal` primitive, but the page also covers the panels that flank a screen (`Drawer`, `SwipeableDrawer`, `Popover`), the scroll lock behind every modal, the disclosure and message components that sit alongside a dialog (`Accordion`, `Alert`), the top-of-screen surface (`AppBar`, `Toolbar`), and the responsive helpers (`breakpoints`, `useMediaQuery`, `Grid`, theme `Typography`, MUI's API design rules) that switch a dialog between desktop and full-screen mobile.", mental_model = "A `Dialog` is a paper panel that floats above the page, traps focus, and blocks the rest of the screen until dismissed. Under the hood it is `Dialog` content composed inside `Modal`. The same `Modal` primitive powers `Drawer`, `Popover`, `Menu`, and the dropdown half of `Select`. Reach for one of those higher-level components whenever the surface matches its job; reach for `Modal` directly only when you need a custom positioner (a video lightbox, a centered tooltip).  The `Modal` primitive is the seam: backdrop, focus trap, scroll lock, portal. Every higher-level surface inherits those behaviours and adds one more concern (a paper panel for `Dialog`, an anchor position for `Drawer`/`Popover`, an item list for `Menu`).", code_example = "import { useState } from 'react';\nimport Button from '@mui/material/Button';\nimport Dialog from '@mui/material/Dialog';\nimport DialogTitle from '@mui/material/DialogTitle';\nimport DialogContent from '@mui/material/DialogContent';\nimport DialogContentText from '@mui/material/DialogContentText';\nimport DialogActions from '@mui/material/DialogActions';\nimport Slide from '@mui/material/Slide';\nimport { createTheme, ThemeProvider, type Theme } from '@mui/material/styles';\n\nconst theme: Theme = createTheme({\n  palette: { primary: { main: '#0052cc' } },\n  shape: { borderRadius: 8 },\n});\n\nexport function App(): JSX.Element {\n  const [open, setOpen] = useState(false);\n  return (\n    <ThemeProvider theme={theme}>\n      <Button variant=\"contained\" color=\"primary\" onClick={() => setOpen(true)}>\n      ", pitfalls = "A screen reader announces a dialog with no name (failures of the same kind as a button without an accessible name). Pair the title's `id` with the dialog's `aria-labelledby`:  Mobile and desktop want different drawer behaviour. The wrong answer is to render `<Drawer variant=\"temporary\">` everywhere and toggle `open` everywhere; the user on desktop still has to click the menu icon to see the sidebar. The right answer is the responsive swap with `useMediaQuery`.  Without `open` and `onClose`, the popover never renders. Both props are required for a controlled popover. Same `open` / `onClose` pair as `Dialog` and `Drawer`.  When a `Dialog` opens, the body scrollbar disappears. The banner, which ignores the scrollbar, visibly shifts left. Add the `mui-fixed` class to the banner root and MUI co" }
+      },
+      {
+        id = "UzU6QzQ0OlYyOjA0NC1k",
+        raw_key = "S5:C44:V2",
+        title = "Styling pseudo-elements",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/styling-pseudo-elements",
+        duration_text = "04m25s",
+        duration_seconds = 265,
+        description = "In-depth walkthrough of Dialog, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Material UI theme provider, Component Libraries: Material UI, Material UI component catalog  This chapter is a reference roundup. The headline topic is the `Dialog` family and the small constellation of surfaces that share MUI's `Modal` primitive, but the page also covers the panels that flank a screen (`Drawer`, `SwipeableDrawer`, `Popover`), the scroll lock behind every modal, the disclosure and message components that sit alongside a dialog (`Accordion`, `Alert`), the top-of-screen surface (`AppBar`, `Toolbar`), and the responsive helpers (`breakpoints`, `useMediaQuery`, `Grid`, theme `Typography`, MUI's API design rules) that switch a dialog between desktop and full-screen mobile.", mental_model = "A `Dialog` is a paper panel that floats above the page, traps focus, and blocks the rest of the screen until dismissed. Under the hood it is `Dialog` content composed inside `Modal`. The same `Modal` primitive powers `Drawer`, `Popover`, `Menu`, and the dropdown half of `Select`. Reach for one of those higher-level components whenever the surface matches its job; reach for `Modal` directly only when you need a custom positioner (a video lightbox, a centered tooltip).  The `Modal` primitive is the seam: backdrop, focus trap, scroll lock, portal. Every higher-level surface inherits those behaviours and adds one more concern (a paper panel for `Dialog`, an anchor position for `Drawer`/`Popover`, an item list for `Menu`).", code_example = "import { useState } from 'react';\nimport Button from '@mui/material/Button';\nimport Dialog from '@mui/material/Dialog';\nimport DialogTitle from '@mui/material/DialogTitle';\nimport DialogContent from '@mui/material/DialogContent';\nimport DialogContentText from '@mui/material/DialogContentText';\nimport DialogActions from '@mui/material/DialogActions';\nimport Slide from '@mui/material/Slide';\nimport { createTheme, ThemeProvider, type Theme } from '@mui/material/styles';\n\nconst theme: Theme = createTheme({\n  palette: { primary: { main: '#0052cc' } },\n  shape: { borderRadius: 8 },\n});\n\nexport function App(): JSX.Element {\n  const [open, setOpen] = useState(false);\n  return (\n    <ThemeProvider theme={theme}>\n      <Button variant=\"contained\" color=\"primary\" onClick={() => setOpen(true)}>\n      ", pitfalls = "A screen reader announces a dialog with no name (failures of the same kind as a button without an accessible name). Pair the title's `id` with the dialog's `aria-labelledby`:  Mobile and desktop want different drawer behaviour. The wrong answer is to render `<Drawer variant=\"temporary\">` everywhere and toggle `open` everywhere; the user on desktop still has to click the menu icon to see the sidebar. The right answer is the responsive swap with `useMediaQuery`.  Without `open` and `onClose`, the popover never renders. Both props are required for a controlled popover. Same `open` / `onClose` pair as `Dialog` and `Drawer`.  When a `Dialog` opens, the body scrollbar disappears. The banner, which ignores the scrollbar, visibly shifts left. Add the `mui-fixed` class to the banner root and MUI co" }
+      },
+    ]
+  },
+  {
+    id = "05-045",
+    number = 45,
+    title = "MUI Bundle Size Optimization",
+    local_chapter_file = "045-mui-bundle-size-optimization.md",
+    key_concepts = ["Mental model", "Deep imports", "Enforce the rule with ESLint", "Stop VS Code from auto-importing the barrel", "Next.js `optimizePackageImports`", "Parcel and package exports"],
+    total_duration_seconds = 454,
+    videos = [
+      {
+        id = "UzU6QzQ1OlYxOjA0NS1t",
+        raw_key = "S5:C45:V1",
+        title = "Create a project with Next.js",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/create-a-project-with-next-js",
+        duration_text = "05m13s",
+        duration_seconds = 313,
+        description = "In-depth walkthrough of MUI Bundle Size Optimization, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Chip, Material UI component catalog, Component Libraries: Material UI, Pagination Query Parameters, MUI Supported Components, JSX and Rendering, Dialog, Material UI deep imports for bundle size  This chapter is a reference roundup. The headline topic is the bundle-size story for Material UI: why `@mui/material` and `@mui/icons-material` barrel imports are slow on the developer machine, how to enforce deep imports with ESLint, and how to keep your IDE from re-introducing barrel imports through auto-complete. The page then summarises the neighbouring MUI primitives the rest of the roundup covers: `ButtonGroup`, `Card` (and its composition parts), `CircularProgress`, `ClickAwayListener`, `theme.containerQueries`, `CssBaseline` (and `ScopedCssBaseline`), MUI's deprecation lifecycle, dialog and snackbar feedback, the FAQ practices that come up most, `Fab`, and the SVG / `SvgIcon` / `createSvgIcon` icon path. The two exercises at the end combine most of these into one UI slice and then re-type the slice under strict TypeScript.", mental_model = "Material UI's package layout is a directory of files, one default export per file, plus one barrel file (`index.js`) that re-exports them all. Modern bundlers tree-shake the production bundle, so the size on a deployed CDN is the same either way. The cost shows up on the developer machine, where the bundler has to walk every named export of the barrel to learn which symbols exist before it can throw a `ReferenceError` when you mistype one. `@mui/icons-material` is worse than `@mui/material`: it ships 2,100+ icons in the barrel, and the parse takes long enough to watch.  Importing each component by its own path side-steps the barrel. The dev server sees the one file you need and skips the rest. ESLint stops the rule from being silently broken, the IDE auto-import exclusion stops VS Code from re-introducing the barrel, and the codemod migrates existing barrel imports in bulk.", code_example = "import Button from '@mui/material/Button';\nimport DeleteIcon from '@mui/icons-material/Delete';\n\nexport default function ConfirmDelete() {\n  return (\n    <Button\n      variant=\"contained\"\n      color=\"error\"\n      startIcon={<DeleteIcon />}\n      onClick={() => console.log('confirmed')}\n    >\n      Delete account\n    </Button>\n  );\n}", pitfalls = "ESLint with the `no-restricted-imports` pattern from above reports:  Replace with `import Button from '@mui/material/Button';`. Add `@mui/icons-material/[IconName]` for icons.  VS Code by default offers `Button` from `@mui/material` first. Add `typescript.preferences.autoImportSpecifierExcludeRegexes` from above, or accept the suggestion, then let ESLint flag it.  `@mui/icons-material` depends on `@mui/material`, which depends on Emotion. Installing the icon package without the core produces runtime errors when the first icon mounts:" }
+      },
+      {
+        id = "UzU6QzQ1OlYyOjA0NS1t",
+        raw_key = "S5:C45:V2",
+        title = "Building a React project from scratch",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/building-a-react-project-from-scratch",
+        duration_text = "02m21s",
+        duration_seconds = 141,
+        description = "In-depth walkthrough of MUI Bundle Size Optimization, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 2 · **Prerequisites:** Chip, Material UI component catalog, Component Libraries: Material UI, Pagination Query Parameters, MUI Supported Components, JSX and Rendering, Dialog, Material UI deep imports for bundle size  This chapter is a reference roundup. The headline topic is the bundle-size story for Material UI: why `@mui/material` and `@mui/icons-material` barrel imports are slow on the developer machine, how to enforce deep imports with ESLint, and how to keep your IDE from re-introducing barrel imports through auto-complete. The page then summarises the neighbouring MUI primitives the rest of the roundup covers: `ButtonGroup`, `Card` (and its composition parts), `CircularProgress`, `ClickAwayListener`, `theme.containerQueries`, `CssBaseline` (and `ScopedCssBaseline`), MUI's deprecation lifecycle, dialog and snackbar feedback, the FAQ practices that come up most, `Fab`, and the SVG / `SvgIcon` / `createSvgIcon` icon path. The two exercises at the end combine most of these into one UI slice and then re-type the slice under strict TypeScript.", mental_model = "Material UI's package layout is a directory of files, one default export per file, plus one barrel file (`index.js`) that re-exports them all. Modern bundlers tree-shake the production bundle, so the size on a deployed CDN is the same either way. The cost shows up on the developer machine, where the bundler has to walk every named export of the barrel to learn which symbols exist before it can throw a `ReferenceError` when you mistype one. `@mui/icons-material` is worse than `@mui/material`: it ships 2,100+ icons in the barrel, and the parse takes long enough to watch.  Importing each component by its own path side-steps the barrel. The dev server sees the one file you need and skips the rest. ESLint stops the rule from being silently broken, the IDE auto-import exclusion stops VS Code from re-introducing the barrel, and the codemod migrates existing barrel imports in bulk.", code_example = "import Button from '@mui/material/Button';\nimport DeleteIcon from '@mui/icons-material/Delete';\n\nexport default function ConfirmDelete() {\n  return (\n    <Button\n      variant=\"contained\"\n      color=\"error\"\n      startIcon={<DeleteIcon />}\n      onClick={() => console.log('confirmed')}\n    >\n      Delete account\n    </Button>\n  );\n}", pitfalls = "ESLint with the `no-restricted-imports` pattern from above reports:  Replace with `import Button from '@mui/material/Button';`. Add `@mui/icons-material/[IconName]` for icons.  VS Code by default offers `Button` from `@mui/material` first. Add `typescript.preferences.autoImportSpecifierExcludeRegexes` from above, or accept the suggestion, then let ESLint flag it.  `@mui/icons-material` depends on `@mui/material`, which depends on Emotion. Installing the icon package without the core produces runtime errors when the first icon mounts:" }
+      },
+    ]
+  },
+  {
+    id = "05-046",
+    number = 46,
+    title = "MUI Material Icons Package (and a roundup: ImageList, layout primitives, LinearProgress, List, Rating, SpeedDial, NumberField, localization, RTL, the `classes` and `slots` APIs, and the MCP server)",
+    local_chapter_file = "046-mui-material-icons-package.md",
+    key_concepts = ["The icon package", "`ImageList`", "Layout primitives: `Box`, `Stack`, `Grid`", "`LinearProgress`", "The `List` family", "`Rating`"],
+    total_duration_seconds = 423,
+    videos = [
+      {
+        id = "UzU6QzQ2OlYxOjA0Ni1t",
+        raw_key = "S5:C46:V1",
+        title = "Understanding the utility-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-utility-first-approach",
+        duration_text = "03m57s",
+        duration_seconds = 237,
+        description = "In-depth walkthrough of MUI Material Icons Package (and a roundup: ImageList, layout primitives, LinearProgress, List, Rating, SpeedDial, NumberField, localization, RTL, the `classes` and `slots` APIs, and the MCP server), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Component Libraries: Material UI, Chip, MUI Avatar, MUI Supported Components, Material UI component catalog, MUI Bundle Size Optimization, Pagination Query Parameters  This is a reference roundup built around the icon package that most Material UI screens depend on. The namesake is `@mui/icons-material`, the package that ships the official Material Icons as React components. Around it sits the set of components you reach for in the same breath: the `ImageList` grid, the layout primitives (`Box`, `Stack`, `Grid`), the `LinearProgress` bar, the `List` family, the `Rating` and `SpeedDial` interactive surfaces, the Base-UI-composed `NumberField`, and the two customization APIs (`classes` and `slots` / `slotProps`) that every one of these components exposes. Localization, right-to-left layout, and the documentation MCP server close it out.", mental_model = "`@mui/icons-material` converts the 2,100+ official Material Icons into `SvgIcon`-based React components. Each icon is a named export, and each name follows a predictable scheme: the icon's Material name in PascalCase, with an optional theme suffix.  The five themes are `Filled` (the default, no suffix), `Outlined`, `Rounded`, `TwoTone`, and `Sharp`. An icon whose Material name starts with a digit is prefixed so it stays a valid identifier: the \"3D Rotation\" icon is `ThreeDRotation`.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzQ2OlYyOjA0Ni1t",
+        raw_key = "S5:C46:V2",
+        title = "Understanding the mobile-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-mobile-first-approach",
+        duration_text = "03m06s",
+        duration_seconds = 186,
+        description = "In-depth walkthrough of MUI Material Icons Package (and a roundup: ImageList, layout primitives, LinearProgress, List, Rating, SpeedDial, NumberField, localization, RTL, the `classes` and `slots` APIs, and the MCP server), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Component Libraries: Material UI, Chip, MUI Avatar, MUI Supported Components, Material UI component catalog, MUI Bundle Size Optimization, Pagination Query Parameters  This is a reference roundup built around the icon package that most Material UI screens depend on. The namesake is `@mui/icons-material`, the package that ships the official Material Icons as React components. Around it sits the set of components you reach for in the same breath: the `ImageList` grid, the layout primitives (`Box`, `Stack`, `Grid`), the `LinearProgress` bar, the `List` family, the `Rating` and `SpeedDial` interactive surfaces, the Base-UI-composed `NumberField`, and the two customization APIs (`classes` and `slots` / `slotProps`) that every one of these components exposes. Localization, right-to-left layout, and the documentation MCP server close it out.", mental_model = "`@mui/icons-material` converts the 2,100+ official Material Icons into `SvgIcon`-based React components. Each icon is a named export, and each name follows a predictable scheme: the icon's Material name in PascalCase, with an optional theme suffix.  The five themes are `Filled` (the default, no suffix), `Outlined`, `Rounded`, `TwoTone`, and `Sharp`. An icon whose Material name starts with a digit is prefixed so it stays a valid identifier: the \"3D Rotation\" icon is `ThreeDRotation`.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-047",
+    number = 47,
+    title = "MUI Stepper (and a roundup: SvgIcon and `@mui/icons-material`, `sx` and style overrides, the `Table` family, `Tabs`, `TextField` and `NumberField`, `ToggleButton`, nested themes, and the polymorphic `component` prop)",
+    local_chapter_file = "047-mui-stepper.md",
+    key_concepts = ["Mental model", "`Stepper` and `Step` basics", "`MobileStepper`", "`SvgIcon` and `@mui/icons-material`", "Customizing `Stepper` with `sx` and theme overrides", "`Table` family for a wizard's review step"],
+    total_duration_seconds = 423,
+    videos = [
+      {
+        id = "UzU6QzQ3OlYxOjA0Ny1t",
+        raw_key = "S5:C47:V1",
+        title = "Understanding the utility-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-utility-first-approach",
+        duration_text = "03m57s",
+        duration_seconds = 237,
+        description = "In-depth walkthrough of MUI Stepper (and a roundup: SvgIcon and `@mui/icons-material`, `sx` and style overrides, the `Table` family, `Tabs`, `TextField` and `NumberField`, `ToggleButton`, nested themes, and the polymorphic `component` prop), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Component Libraries: Material UI, Pagination Query Parameters, Material UI component catalog  This chapter is a reference roundup built around the `Stepper` family, the wizard-like workflow surface that comes up in every multi-step form (checkout, onboarding, settings with validation steps, KYC, signup). Around the `Stepper` sits the constellation of MUI parts a stepper naturally composes with: the `SvgIcon` wrapper and the `@mui/icons-material` package that put a check mark on completed steps, the `sx` prop and the wider customization strategy that retunes a step's look, the `Table` family for the \"summary\" final step in many wizards, `Tabs` for the variant where the steps are peers rather than a sequence, the `TextField` and `NumberField` inputs that fill each step's body, `ToggleButton` for binary choices in a step, nested `ThemeProvider`s to give the wizard its own palette, and the polymorphic `component` prop that swaps the step root for a router link when the wizard drives a URL.", mental_model = "A `Stepper` is a numbered, sequenced indicator. You feed it the steps (an array of labels) and tell it which one is active; it paints the icons, the connectors, and the labels in the correct state. The pattern is \"active / completed / disabled / error\" on every step, with a connector rule between each pair.  The `Stepper` only paints the indicator. The body of each step lives outside the indicator; you keep a `currentStep` index in your component and render a different `<Box>` (or `StepContent`) based on that index. The component gives you the chrome, you own the body and the navigation.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzQ3OlYyOjA0Ny1t",
+        raw_key = "S5:C47:V2",
+        title = "Understanding the mobile-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-mobile-first-approach",
+        duration_text = "03m06s",
+        duration_seconds = 186,
+        description = "In-depth walkthrough of MUI Stepper (and a roundup: SvgIcon and `@mui/icons-material`, `sx` and style overrides, the `Table` family, `Tabs`, `TextField` and `NumberField`, `ToggleButton`, nested themes, and the polymorphic `component` prop), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Component Libraries: Material UI, Pagination Query Parameters, Material UI component catalog  This chapter is a reference roundup built around the `Stepper` family, the wizard-like workflow surface that comes up in every multi-step form (checkout, onboarding, settings with validation steps, KYC, signup). Around the `Stepper` sits the constellation of MUI parts a stepper naturally composes with: the `SvgIcon` wrapper and the `@mui/icons-material` package that put a check mark on completed steps, the `sx` prop and the wider customization strategy that retunes a step's look, the `Table` family for the \"summary\" final step in many wizards, `Tabs` for the variant where the steps are peers rather than a sequence, the `TextField` and `NumberField` inputs that fill each step's body, `ToggleButton` for binary choices in a step, nested `ThemeProvider`s to give the wizard its own palette, and the polymorphic `component` prop that swaps the step root for a router link when the wizard drives a URL.", mental_model = "A `Stepper` is a numbered, sequenced indicator. You feed it the steps (an array of labels) and tell it which one is active; it paints the icons, the connectors, and the labels in the correct state. The pattern is \"active / completed / disabled / error\" on every step, with a connector rule between each pair.  The `Stepper` only paints the indicator. The body of each step lives outside the indicator; you keep a `currentStep` index in your component and render a different `<Box>` (or `StepContent`) based on that index. The component gives you the chrome, you own the body and the navigation.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-048",
+    number = 48,
+    title = "Popper (and friends: Menu, Autocomplete, Tabs, Box, Stack, Paper, Icons, RTL, prop forwarding, styled engine)",
+    local_chapter_file = "048-popper.md",
+    key_concepts = ["Mental model", "`Popper`", "Common mistakes", "Why this matters", "Reference: composite positioning components", "Reference: layout primitives"],
+    total_duration_seconds = 671,
+    videos = [
+      {
+        id = "UzU6QzQ4OlYxOjA0OC1w",
+        raw_key = "S5:C48:V1",
+        title = "Passing props to styled-components",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/passing-props-to-styled-components",
+        duration_text = "02m51s",
+        duration_seconds = 171,
+        description = "In-depth walkthrough of Popper (and friends: Menu, Autocomplete, Tabs, Box, Stack, Paper, Icons, RTL, prop forwarding, styled engine), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Component Libraries: Material UI, Material UI component catalog, Chip  This chapter opens the positioning layer of Material UI. `Popper` is the low-level primitive that places any floating content next to an anchor, and three of the most-used composite components (`Tooltip`, `Menu`, `Autocomplete`) are built on top of it. The reference sections after `Popper` cover the rest of the components in the brief: `Box`, `Stack`, `Paper`, `Tabs`, the `@mui/icons-material` package, right-to-left support, root and nested prop forwarding, and the Emotion vs `@mui/styled-engine-sc` choice. Each section is what the component is for, the props you reach for, and one minimal JSX. The two exercises at the end build a real `Autocomplete` and a Tabs-driven settings panel.", mental_model = "A `Popper` is a positioning engine, not a UI element. You give it an `anchorEl` (the thing you want to float content next to) and a child, and the child lands where the browser viewport and Popper's placement logic say it should land. The component itself draws no border, no background, and no shadow. It is the anchor + the child + the math that connects them.  1. `Popper` renders into a `Portal` at `document.body` by default. The floating content escapes any `overflow: hidden` or `transform: 3d` ancestor on the trigger. This is why tooltips survive inside scrolling drawers. 2. `Popper` does not block scrolling, does not close on click-away, and does not manage focus. Those are jobs for `Popover` and `Dialog`, which wrap `Popper` and add the modal behaviour.", code_example = "import { useRef, useState } from \"react\";\nimport Popper from \"@mui/material/Popper\";\nimport Box from \"@mui/material/Box\";\n\nexport default function HoverHint() {\n  const [anchor, setAnchor] = useState<HTMLElement | null>(null);\n  return (\n    <>\n      <button\n        ref={useRef(null)}\n        onMouseEnter={(event) => {\n          setAnchor(event.currentTarget);\n        }}\n        onMouseLeave={() => {\n          setAnchor(null);\n        }}\n      >\n        Hover me\n      </button>\n      <Popper open={Boolean(anchor)} anchorEl={anchor} placement=\"top\">\n        <Box sx={{ p: 1, bgcolor: \"background.paper\", boxShadow: 3 }}>\n          Floating hint\n        </Box>\n      </Popper>\n    </>\n  );\n}", pitfalls = "`Popover` is a `Popper` plus click-away handling, scroll lock, focus management, and a `Paper` surface. If you want modal behaviour (the user must dismiss the floating content), reach for `Popover` first and only fall back to `Popper` when you need raw positioning without the modal layer.  `Popper` opens when `open` is true and `anchorEl` is non-null. If you call `setAnchor(null)` to close, the popper unmounts. If you keep `anchorEl` set and just flip `open` to `false`, the popper unmounts as well, but the next render starts with no target to measure against, which produces a one-frame flash if you re-mount quickly. Clear both on close.  Click-away handling is not built in. You need a `ClickAwayListener` from `@mui/material/ClickAwayListener` around the trigger (not the popper) and a manua" }
+      },
+      {
+        id = "UzU6QzQ4OlYyOjA0OC1w",
+        raw_key = "S5:C48:V2",
+        title = "Building common responsive layouts",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/building-common-responsive-layouts",
+        duration_text = "08m20s",
+        duration_seconds = 500,
+        description = "In-depth walkthrough of Popper (and friends: Menu, Autocomplete, Tabs, Box, Stack, Paper, Icons, RTL, prop forwarding, styled engine), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Component Libraries: Material UI, Material UI component catalog, Chip  This chapter opens the positioning layer of Material UI. `Popper` is the low-level primitive that places any floating content next to an anchor, and three of the most-used composite components (`Tooltip`, `Menu`, `Autocomplete`) are built on top of it. The reference sections after `Popper` cover the rest of the components in the brief: `Box`, `Stack`, `Paper`, `Tabs`, the `@mui/icons-material` package, right-to-left support, root and nested prop forwarding, and the Emotion vs `@mui/styled-engine-sc` choice. Each section is what the component is for, the props you reach for, and one minimal JSX. The two exercises at the end build a real `Autocomplete` and a Tabs-driven settings panel.", mental_model = "A `Popper` is a positioning engine, not a UI element. You give it an `anchorEl` (the thing you want to float content next to) and a child, and the child lands where the browser viewport and Popper's placement logic say it should land. The component itself draws no border, no background, and no shadow. It is the anchor + the child + the math that connects them.  1. `Popper` renders into a `Portal` at `document.body` by default. The floating content escapes any `overflow: hidden` or `transform: 3d` ancestor on the trigger. This is why tooltips survive inside scrolling drawers. 2. `Popper` does not block scrolling, does not close on click-away, and does not manage focus. Those are jobs for `Popover` and `Dialog`, which wrap `Popper` and add the modal behaviour.", code_example = "import { useRef, useState } from \"react\";\nimport Popper from \"@mui/material/Popper\";\nimport Box from \"@mui/material/Box\";\n\nexport default function HoverHint() {\n  const [anchor, setAnchor] = useState<HTMLElement | null>(null);\n  return (\n    <>\n      <button\n        ref={useRef(null)}\n        onMouseEnter={(event) => {\n          setAnchor(event.currentTarget);\n        }}\n        onMouseLeave={() => {\n          setAnchor(null);\n        }}\n      >\n        Hover me\n      </button>\n      <Popper open={Boolean(anchor)} anchorEl={anchor} placement=\"top\">\n        <Box sx={{ p: 1, bgcolor: \"background.paper\", boxShadow: 3 }}>\n          Floating hint\n        </Box>\n      </Popper>\n    </>\n  );\n}", pitfalls = "`Popover` is a `Popper` plus click-away handling, scroll lock, focus management, and a `Paper` surface. If you want modal behaviour (the user must dismiss the floating content), reach for `Popover` first and only fall back to `Popper` when you need raw positioning without the modal layer.  `Popper` opens when `open` is true and `anchorEl` is non-null. If you call `setAnchor(null)` to close, the popper unmounts. If you keep `anchorEl` set and just flip `open` to `false`, the popper unmounts as well, but the next render starts with no target to measure against, which produces a one-frame flash if you re-mount quickly. Clear both on close.  Click-away handling is not built in. You need a `ClickAwayListener` from `@mui/material/ClickAwayListener` around the trigger (not the popper) and a manua" }
+      },
+    ]
+  },
+  {
+    id = "05-049",
+    number = 49,
+    title = "MUI Timeline component (and a roundup: theme breakpoints, `Container`, `Grid`, theme component defaults / overrides / variants, density, `defaultProps` merging, routing integration, palette tokens, `theme.spacing()`, `Stack`)",
+    local_chapter_file = "049-mui-timeline-component.md",
+    key_concepts = ["Mental model", "`Timeline` and `TimelineItem`", "Theme breakpoints", "`Container`", "`Grid` (MUI 6 layout grid)", "Theme component overrides"],
+    total_duration_seconds = 745,
+    videos = [
+      {
+        id = "UzU6QzQ5OlYxOjA0OS1t",
+        raw_key = "S5:C49:V1",
+        title = "Passing props to styled-components",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/passing-props-to-styled-components",
+        duration_text = "02m51s",
+        duration_seconds = 171,
+        description = "In-depth walkthrough of MUI Timeline component (and a roundup: theme breakpoints, `Container`, `Grid`, theme component defaults / overrides / variants, density, `defaultProps` merging, routing integration, palette tokens, `theme.spacing()`, `Stack`), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Component Libraries: Material UI, Material UI component catalog, Material UI Color System, Dialog, Popper  This chapter is a reference roundup built around the `Timeline` component, the chronological list surface that comes up in changelogs, order histories, audit logs, and activity feeds. Around the `Timeline` sits the larger MUI layout and theming toolkit a `Timeline` composes with: the `theme.breakpoints` API (the five screen-width keys and the `up` / `down` / `only` / `between` helpers) that lets the layout collapse from alternating to single-column on small screens, `Container` for horizontally centered page content, `Grid` (MUI 6 layout grid) for the responsive two-column variant of the `Timeline`, the `theme.components` overrides system that tunes every `TimelineDot` in the app at once, density props that tighten the `Timeline` on dense surfaces, `defaultProps` merging for class-name and style defaults, routing integration for the optional click-through timeline, palette tokens for the dot colour, `theme.spacing()` for the row gap, and `Stack` for the inner content column.", mental_model = "A `Timeline` is a chronological list. Each entry is a `TimelineItem` whose visual structure is a `TimelineSeparator` (the line and the dot) sitting next to a `TimelineContent` (the title and body). The optional `TimelineOppositeContent` provides a second column used for dates or timestamps in alternating layouts.  The `Timeline` owns chrome (lines, dots, spacing). The `TimelineContent` is yours to fill: a typography node, a card, a button, a `Stack` of chips. The component is open enough to render anything inside the content slot but opinionated enough to keep the visual rhythm consistent.", code_example = "bun add @mui/material @emotion/react @emotion/styled", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+      {
+        id = "UzU6QzQ5OlYyOjA0OS1t",
+        raw_key = "S5:C49:V2",
+        title = "Changing the theme",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/changing-the-theme",
+        duration_text = "09m34s",
+        duration_seconds = 574,
+        description = "In-depth walkthrough of MUI Timeline component (and a roundup: theme breakpoints, `Container`, `Grid`, theme component defaults / overrides / variants, density, `defaultProps` merging, routing integration, palette tokens, `theme.spacing()`, `Stack`), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-2 · **Prerequisites:** Component Libraries: Material UI, Material UI component catalog, Material UI Color System, Dialog, Popper  This chapter is a reference roundup built around the `Timeline` component, the chronological list surface that comes up in changelogs, order histories, audit logs, and activity feeds. Around the `Timeline` sits the larger MUI layout and theming toolkit a `Timeline` composes with: the `theme.breakpoints` API (the five screen-width keys and the `up` / `down` / `only` / `between` helpers) that lets the layout collapse from alternating to single-column on small screens, `Container` for horizontally centered page content, `Grid` (MUI 6 layout grid) for the responsive two-column variant of the `Timeline`, the `theme.components` overrides system that tunes every `TimelineDot` in the app at once, density props that tighten the `Timeline` on dense surfaces, `defaultProps` merging for class-name and style defaults, routing integration for the optional click-through timeline, palette tokens for the dot colour, `theme.spacing()` for the row gap, and `Stack` for the inner content column.", mental_model = "A `Timeline` is a chronological list. Each entry is a `TimelineItem` whose visual structure is a `TimelineSeparator` (the line and the dot) sitting next to a `TimelineContent` (the title and body). The optional `TimelineOppositeContent` provides a second column used for dates or timestamps in alternating layouts.  The `Timeline` owns chrome (lines, dots, spacing). The `TimelineContent` is yours to fill: a typography node, a card, a button, a `Stack` of chips. The component is open enough to render anything inside the content slot but opinionated enough to keep the visual rhythm consistent.", code_example = "bun add @mui/material @emotion/react @emotion/styled", pitfalls = "Direct DOM mutation or impure side effects during the render phase cause hydration mismatches, duplicate executions in Strict Mode, and stale closures. Always declare full dependency arrays in useEffect and never read state during render from outside the component tree." }
+      },
+    ]
+  },
+  {
+    id = "05-050",
+    number = 50,
+    title = "Material UI Grid v2 migration (and a roundup: `theme.typography` and the `Typography`/`Link` components, `theme.transitions`, reduced motion, `ImageList`, `Tooltip`, the `ClassNameGenerator` build-time hook)",
+    local_chapter_file = "050-material-ui-grid-v2-migration.md",
+    key_concepts = ["Mental model", "Grid v2 migration", "`theme.typography` and the `Typography` component", "`Link`", "`theme.transitions` and reduced motion", "`ImageList`"],
+    total_duration_seconds = 776,
+    videos = [
+      {
+        id = "UzU6QzUwOlYxOjA1MC1t",
+        raw_key = "S5:C50:V1",
+        title = "Creating the TodoList component",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/creating-the-todolist-component",
+        duration_text = "05m07s",
+        duration_seconds = 307,
+        description = "In-depth walkthrough of Material UI Grid v2 migration (and a roundup: `theme.typography` and the `Typography`/`Link` components, `theme.transitions`, reduced motion, `ImageList`, `Tooltip`, the `ClassNameGenerator` build-time hook), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** Component Libraries: Material UI, Chip, Material UI component catalog, MUI Timeline component, Popper  This chapter opens with the Grid v2 migration, which renames the legacy grid (`@mui/material/Grid` in v6, `@mui/material/GridLegacy` in v7) and lands the new layout grid at `@mui/material/Grid` (v7) or `@mui/material/Grid2` (v6), with collapsed `size={{ xs, sm, md, ... }}` props and a removed `item` prop. Around the migration sits the rest of the MUI vocabulary the new grid composes with: `theme.typography` and the `Typography` and `Link` components that style every text node, the `Typography` `variantMapping` that decouples visual variant from semantic HTML, `responsiveFontSizes()` for media-query-driven type scales, the `theme.transitions.create()` and `getAutoHeightDuration()` helpers plus `theme.motion.reducedMotion` that keep motion consistent across the UI, `ImageList` (and its quilted / woven / masonry variants) for repeated image grids, `Tooltip` for accessible labels on hover / focus / long-press, and the `unstable_ClassNameGenerator` build-time hook that rewrites every MUI component class prefix across the app before any `@mui/*` import is evaluated.", mental_model = "The new layout grid (Grid v2, also called the modern Grid) is the same flexbox idea as before: a `container` with `size`-driven children that break onto multiple lines at the theme breakpoints. What changed is the API surface. Per-breakpoint props collapsed into a single `size` object, the `item` flag disappeared, the `offset` feature replaced `zeroMinWidth`, and the grid now uses CSS variables instead of nested negative margins (so it no longer overflows the container). The migration is a one-time rewrite of an import path and a few prop names, with a codemod that does most of the rename for you.  subgraph v6 [MUI v6]     V6Import[\"import Grid from '@mui/material/Grid2'\"]     V6Props[\"size={{ xs: 12, sm: 6 }}\"]     V6Import --> V6Grid[\"Modern Grid (Grid2 import)\"]     V6Props --> V6Grid   end", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "The codemod is keyed on the import path. Run it after the rename or it skips the file.  Either un-wrap the inner `<Grid>` (rename one of them), or do the prop rename by hand. The codemod's source-matcher only catches direct `<Grid>` JSX.  Missing weights fall back to browser synthetic bold / light, which never matches real Roboto. The MUI docs flag the four weights explicitly.  `hyphens-auto` is language-aware and depends on a `lang` attribute somewhere up the tree (the standard place is on `<html>` or the section root). A `<Typography lang=\"en\">` works for that node, but if you put `lang` only on the `Typography` and not on the surrounding `ImageList` or `Box`, the rest of the tree still uses the document language." }
+      },
+      {
+        id = "UzU6QzUwOlYyOjA1MC1t",
+        raw_key = "S5:C50:V2",
+        title = "Creating the TodoListItem component",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/creating-the-todolistitem-component",
+        duration_text = "07m49s",
+        duration_seconds = 469,
+        description = "In-depth walkthrough of Material UI Grid v2 migration (and a roundup: `theme.typography` and the `Typography`/`Link` components, `theme.transitions`, reduced motion, `ImageList`, `Tooltip`, the `ClassNameGenerator` build-time hook), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-3 · **Prerequisites:** Component Libraries: Material UI, Chip, Material UI component catalog, MUI Timeline component, Popper  This chapter opens with the Grid v2 migration, which renames the legacy grid (`@mui/material/Grid` in v6, `@mui/material/GridLegacy` in v7) and lands the new layout grid at `@mui/material/Grid` (v7) or `@mui/material/Grid2` (v6), with collapsed `size={{ xs, sm, md, ... }}` props and a removed `item` prop. Around the migration sits the rest of the MUI vocabulary the new grid composes with: `theme.typography` and the `Typography` and `Link` components that style every text node, the `Typography` `variantMapping` that decouples visual variant from semantic HTML, `responsiveFontSizes()` for media-query-driven type scales, the `theme.transitions.create()` and `getAutoHeightDuration()` helpers plus `theme.motion.reducedMotion` that keep motion consistent across the UI, `ImageList` (and its quilted / woven / masonry variants) for repeated image grids, `Tooltip` for accessible labels on hover / focus / long-press, and the `unstable_ClassNameGenerator` build-time hook that rewrites every MUI component class prefix across the app before any `@mui/*` import is evaluated.", mental_model = "The new layout grid (Grid v2, also called the modern Grid) is the same flexbox idea as before: a `container` with `size`-driven children that break onto multiple lines at the theme breakpoints. What changed is the API surface. Per-breakpoint props collapsed into a single `size` object, the `item` flag disappeared, the `offset` feature replaced `zeroMinWidth`, and the grid now uses CSS variables instead of nested negative margins (so it no longer overflows the container). The migration is a one-time rewrite of an import path and a few prop names, with a codemod that does most of the rename for you.  subgraph v6 [MUI v6]     V6Import[\"import Grid from '@mui/material/Grid2'\"]     V6Props[\"size={{ xs: 12, sm: 6 }}\"]     V6Import --> V6Grid[\"Modern Grid (Grid2 import)\"]     V6Props --> V6Grid   end", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material", pitfalls = "The codemod is keyed on the import path. Run it after the rename or it skips the file.  Either un-wrap the inner `<Grid>` (rename one of them), or do the prop rename by hand. The codemod's source-matcher only catches direct `<Grid>` JSX.  Missing weights fall back to browser synthetic bold / light, which never matches real Roboto. The MUI docs flag the four weights explicitly.  `hyphens-auto` is language-aware and depends on a `lang` attribute somewhere up the tree (the standard place is on `<html>` or the section root). A `<Typography lang=\"en\">` works for that node, but if you put `lang` only on the `Typography` and not on the surrounding `ImageList` or `Box`, the rest of the tree still uses the document language." }
+      },
+    ]
+  },
+  {
+    id = "05-051",
+    number = 51,
+    title = "Composing dependent theme options (and a roundup: container queries, themable components, forced-colors, `Autocomplete`, CSS cascade layers, pickers migration, RTL, Tailwind v4 integration, v4-to-v9 upgrade path)",
+    local_chapter_file = "051-composing-dependent-theme-options.md",
+    key_concepts = ["Mental model", "Composing dependent theme options", "`theme.containerQueries` and the `@<size>` `sx` shorthand", "Creating themeable Material UI components", "Forced-colors theme enhancement", "`Autocomplete`"],
+    total_duration_seconds = 618,
+    videos = [
+      {
+        id = "UzU6QzUxOlYxOjA1MS1j",
+        raw_key = "S5:C51:V1",
+        title = "Changing the theme",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/changing-the-theme",
+        duration_text = "09m34s",
+        duration_seconds = 574,
+        description = "In-depth walkthrough of Composing dependent theme options (and a roundup: container queries, themable components, forced-colors, `Autocomplete`, CSS cascade layers, pickers migration, RTL, Tailwind v4 integration, v4-to-v9 upgrade path), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 3 · **Prerequisites:** Material UI component catalog, MUI Timeline component, Chip, Dialog, Material UI MCP documentation server, Tailwind theme variables  This chapter opens with the `createTheme(options)` rule that catches people the first time they try to derive one theme option from another: build the base theme first, then derive the dependent values from it. Around that rule sits the rest of the MUI architecture vocabulary a real application leans on: `theme.containerQueries` (and the `@<size>` `sx` shorthand) for sizing against the parent container rather than the viewport, the `styled` / `ownerState` / `useThemeProps` pattern for building components that participate in the theme, `enhanceHighContrast` for Windows High Contrast Mode support, `Autocomplete` for searchable selects with separately tracked input text and selected value, CSS cascade layers (`enableCssLayer: true` plus a named `mui` layer or modular sublayers) for ordering framework and application styles, the `@material-ui/pickers` to `@mui/x-date-pickers` migration (with `Desktop*` / `Mobile*` / `Static*` exports and `LocalizationProvider`), right-to-left support (`dir` attribute, `theme.direction: 'rtl'`, RTL Stylis plugin), the Tailwind v4 CSS layers integration (`@layer mui` plus `@layer utilities` plus `@theme inline`), and the v4 → v5 → v6 → v7 → v9 upgrade ladder (codemods, Emotion peer deps, Grid rename, ESM-only, slots/slotProps, system-props codemod).", mental_model = "`createTheme(options)` is a normalising pass: it merges your `options` over the default theme, computes derived values (palette light/dark variants, typography rem sizes, breakpoint helpers), and returns the resolved theme. A dependent option is one whose value must read from another resolved option. The dependency has to be resolved at construction time, not at module load time, so the practical shape is \"build the base theme in one call, derive the dependent options from it in a second call\".  The same shape applies when you receive a theme as a prop (for instance from a `ThemeProvider` parent) and want to extend it: read the prop, derive the dependent values, return a new theme object. Forward-compatibility matters: an independently supplied options object should be merged into the *first* argument of the next `createTheme`, so the call is `(input, ...rest) => createTheme(deepmerge(base, input), ...rest)` rather than two separate calls.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material\nbun add @mui/lab\nbun add @mui/x-date-pickers", pitfalls = "`createTheme` is the normalising pass. Reading from raw options gives you the literal you wrote in, not the resolved value. The base theme is what you should read from.  The first argument is the resolved theme to extend; the second is the new options. Independent options objects should be merged into the first argument rather than chained through separate calls.  <Grid container>   <Grid2 size={6}>A</Grid2> </Grid> ```  <Grid container>   <Grid size={6}>A</Grid> </Grid> ```" }
+      },
+      {
+        id = "UzU6QzUxOlYyOjA1MS1j",
+        raw_key = "S5:C51:V2",
+        title = "Meet Tailwind CSS",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/meet-tailwind-css",
+        duration_text = "00m44s",
+        duration_seconds = 44,
+        description = "In-depth walkthrough of Composing dependent theme options (and a roundup: container queries, themable components, forced-colors, `Autocomplete`, CSS cascade layers, pickers migration, RTL, Tailwind v4 integration, v4-to-v9 upgrade path), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 3 · **Prerequisites:** Material UI component catalog, MUI Timeline component, Chip, Dialog, Material UI MCP documentation server, Tailwind theme variables  This chapter opens with the `createTheme(options)` rule that catches people the first time they try to derive one theme option from another: build the base theme first, then derive the dependent values from it. Around that rule sits the rest of the MUI architecture vocabulary a real application leans on: `theme.containerQueries` (and the `@<size>` `sx` shorthand) for sizing against the parent container rather than the viewport, the `styled` / `ownerState` / `useThemeProps` pattern for building components that participate in the theme, `enhanceHighContrast` for Windows High Contrast Mode support, `Autocomplete` for searchable selects with separately tracked input text and selected value, CSS cascade layers (`enableCssLayer: true` plus a named `mui` layer or modular sublayers) for ordering framework and application styles, the `@material-ui/pickers` to `@mui/x-date-pickers` migration (with `Desktop*` / `Mobile*` / `Static*` exports and `LocalizationProvider`), right-to-left support (`dir` attribute, `theme.direction: 'rtl'`, RTL Stylis plugin), the Tailwind v4 CSS layers integration (`@layer mui` plus `@layer utilities` plus `@theme inline`), and the v4 → v5 → v6 → v7 → v9 upgrade ladder (codemods, Emotion peer deps, Grid rename, ESM-only, slots/slotProps, system-props codemod).", mental_model = "`createTheme(options)` is a normalising pass: it merges your `options` over the default theme, computes derived values (palette light/dark variants, typography rem sizes, breakpoint helpers), and returns the resolved theme. A dependent option is one whose value must read from another resolved option. The dependency has to be resolved at construction time, not at module load time, so the practical shape is \"build the base theme in one call, derive the dependent options from it in a second call\".  The same shape applies when you receive a theme as a prop (for instance from a `ThemeProvider` parent) and want to extend it: read the prop, derive the dependent values, return a new theme object. Forward-compatibility matters: an independently supplied options object should be merged into the *first* argument of the next `createTheme`, so the call is `(input, ...rest) => createTheme(deepmerge(base, input), ...rest)` rather than two separate calls.", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material\nbun add @mui/lab\nbun add @mui/x-date-pickers", pitfalls = "`createTheme` is the normalising pass. Reading from raw options gives you the literal you wrote in, not the resolved value. The base theme is what you should read from.  The first argument is the resolved theme to extend; the second is the new options. Independent options objects should be merged into the first argument rather than chained through separate calls.  <Grid container>   <Grid2 size={6}>A</Grid2> </Grid> ```  <Grid container>   <Grid size={6}>A</Grid> </Grid> ```" }
+      },
+    ]
+  },
+  {
+    id = "05-052",
+    number = 52,
+    title = "Material UI with Tailwind CSS v4 (CSS layers) (and a roundup: `Menubar` from Base UI, `NumberField` from Base UI, JSS to Emotion migration, MUI API design, `Autocomplete`, v9 upgrade highlights, `ClassNameGenerator`, MUI composition, composition with `component` and `slots`, themed custom components, MUI CSS cascade layers, MUI CSS theme variables, MUI `Drawer` variants, MUI extensible themes)",
+    local_chapter_file = "052-material-ui-with-tailwind-css-v4-css-layers.md",
+    key_concepts = ["Mental model", "MUI + Tailwind v4 setup", "The MUI CSS layer theme options", "`Menubar` (Base UI composition recipe)", "`NumberField` (Base UI composition recipe)", "JSS to Emotion migration"],
+    total_duration_seconds = 140,
+    videos = [
+      {
+        id = "UzU6QzUyOlYxOjA1Mi1t",
+        raw_key = "S5:C52:V1",
+        title = "Meet Tailwind CSS",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/meet-tailwind-css",
+        duration_text = "00m44s",
+        duration_seconds = 44,
+        description = "In-depth walkthrough of Material UI with Tailwind CSS v4 (CSS layers) (and a roundup: `Menubar` from Base UI, `NumberField` from Base UI, JSS to Emotion migration, MUI API design, `Autocomplete`, v9 upgrade highlights, `ClassNameGenerator`, MUI composition, composition with `component` and `slots`, themed custom components, MUI CSS cascade layers, MUI CSS theme variables, MUI `Drawer` variants, MUI extensible themes), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** Component Libraries: Material UI, Chip, Material UI component catalog, Material UI theme provider, MUI Timeline component  This chapter opens with the integration that lets Material UI and Tailwind v4 share the same DOM without `!important` wars: CSS cascade layers. MUI ships `experimental_extendTheme({ cssLayers: { ... } })` (and the corresponding `enableCssLayer` on the theme) to wrap every generated Emotion stylesheet in `@layer mui.global`, `@layer mui.components`, `@layer mui.theme`, `@layer mui.custom`, and `@layer mui.sx`; Tailwind v4 reads those layers and orders its own utilities last, so a `className=\"bg-red-500\"` always wins. Around the integration sits the rest of the MUI vocabulary the layered theme composes with: the documented `Menubar` recipe that composes Base UI's primitives with MUI components, the `NumberField` recipe that wires Base UI's `NumberField` to MUI form controls, the JSS to Emotion migration path for v4 to v5 codebases, the MUI API design conventions (low-level composition, consistent prop naming, root prop spreading, slot customisation, controlled state, root ref forwarding), the `Autocomplete` combobox (props like `options`, `value`/`onChange`, `inputValue`/`onInputChange`, `getOptionLabel`, `isOptionEqualToValue`, `multiple`, `freeSolo`, `groupBy`, `renderGroup`, `renderInput`, `renderOption`, `filterOptions`, `createFilterOptions`, plus the headless `useAutocomplete`), the v9 upgrade highlights (Enter/Space clicks now bubble as `MouseEvent`, the `nativeButton` prop for `<div>`-based custom buttons, the `AutocompleteValueOrFreeSoloValueMapping` typing for `freeSolo`, `Backdrop` no longer adding `aria-hidden` by default), the `unstable_ClassNameGenerator` build-time hook for rewriting the MUI class-name prefix, the composition guide (forwarded props, `muiName` preservation, merged slot props, polymorphic roots, forwarded refs), the composition patterns that use the `component` and `slots`/`slotProps` props plus `mergeSlotProps`, the themed custom components recipe (`styled(..., { name: 'MuiXxx', slot: 'root' })` so the theme can override the component via `components.MuiXxx.styleOverrides` and expose defaults via `defaultProps`/`useThemeProps`), the `cssVariables` mode that emits theme tokens as CSS custom properties (`--mui-palette-primary-main`, `theme.vars`, `colorSchemeSelector`, `useColorScheme`, `InitColorSchemeScript`), the `Drawer` variants (`temporary`, `persistent`, `mini`, `permanent`, `swipeable`), and the extensible-theme pattern that splits tokens and component defaults across separate exports so consuming apps can extend with object spread and preserve component variants with array syntax.", mental_model = "CSS cascade layers (`@layer a, b, c;`) define a strict order of precedence across the whole stylesheet. A rule inside `@layer a` always loses to a rule in `@layer b`, regardless of selector specificity. Tailwind v4 emits every utility class inside `@layer utilities;` so that any user-land `@layer theme` or `@layer components` overrides are guaranteed to lose to a Tailwind utility. The MUI integration simply wraps every Emotion-generated stylesheet inside `@layer mui.*` so it sits inside the cascade order too. With both sides agreeing on the layer order, you never need `!important`.  L1[\"@layer theme, base\"]:::base   L2[\"@layer mui.global\"]:::mui   L3[\"@layer mui.components\"]:::mui   L4[\"@layer mui.theme\"]:::mui   L5[\"@layer mui.custom\"]:::mui   L6[\"@layer mui.sx\"]:::mui   L7[\"@layer components\"]:::base   L8[\"@layer utilities\"]:::tw", code_example = "bun add @mui/material @emotion/react @emotion/styled", pitfalls = "// Right: inject the initial color scheme into the document before React hydrates <html>   <head>     <InitColorSchemeScript attribute=\"class\" />   </head>   <body>     <ThemeProvider theme={theme}>{children}</ThemeProvider>   </body> </html> ```  /* Right: declare the layer order at the top of the entry stylesheet */ @layer theme, base, mui, components, utilities;  @import \"tailwindcss\"; ```  // Right: also declare the order in CSS // @layer theme, base, mui, components, utilities; ```" }
+      },
+      {
+        id = "UzU6QzUyOlYyOjA1Mi1t",
+        raw_key = "S5:C52:V2",
+        title = "Challenge: Info card with image",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/challenge-info-card-with-image",
+        duration_text = "01m36s",
+        duration_seconds = 96,
+        description = "In-depth walkthrough of Material UI with Tailwind CSS v4 (CSS layers) (and a roundup: `Menubar` from Base UI, `NumberField` from Base UI, JSS to Emotion migration, MUI API design, `Autocomplete`, v9 upgrade highlights, `ClassNameGenerator`, MUI composition, composition with `component` and `slots`, themed custom components, MUI CSS cascade layers, MUI CSS theme variables, MUI `Drawer` variants, MUI extensible themes), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** Component Libraries: Material UI, Chip, Material UI component catalog, Material UI theme provider, MUI Timeline component  This chapter opens with the integration that lets Material UI and Tailwind v4 share the same DOM without `!important` wars: CSS cascade layers. MUI ships `experimental_extendTheme({ cssLayers: { ... } })` (and the corresponding `enableCssLayer` on the theme) to wrap every generated Emotion stylesheet in `@layer mui.global`, `@layer mui.components`, `@layer mui.theme`, `@layer mui.custom`, and `@layer mui.sx`; Tailwind v4 reads those layers and orders its own utilities last, so a `className=\"bg-red-500\"` always wins. Around the integration sits the rest of the MUI vocabulary the layered theme composes with: the documented `Menubar` recipe that composes Base UI's primitives with MUI components, the `NumberField` recipe that wires Base UI's `NumberField` to MUI form controls, the JSS to Emotion migration path for v4 to v5 codebases, the MUI API design conventions (low-level composition, consistent prop naming, root prop spreading, slot customisation, controlled state, root ref forwarding), the `Autocomplete` combobox (props like `options`, `value`/`onChange`, `inputValue`/`onInputChange`, `getOptionLabel`, `isOptionEqualToValue`, `multiple`, `freeSolo`, `groupBy`, `renderGroup`, `renderInput`, `renderOption`, `filterOptions`, `createFilterOptions`, plus the headless `useAutocomplete`), the v9 upgrade highlights (Enter/Space clicks now bubble as `MouseEvent`, the `nativeButton` prop for `<div>`-based custom buttons, the `AutocompleteValueOrFreeSoloValueMapping` typing for `freeSolo`, `Backdrop` no longer adding `aria-hidden` by default), the `unstable_ClassNameGenerator` build-time hook for rewriting the MUI class-name prefix, the composition guide (forwarded props, `muiName` preservation, merged slot props, polymorphic roots, forwarded refs), the composition patterns that use the `component` and `slots`/`slotProps` props plus `mergeSlotProps`, the themed custom components recipe (`styled(..., { name: 'MuiXxx', slot: 'root' })` so the theme can override the component via `components.MuiXxx.styleOverrides` and expose defaults via `defaultProps`/`useThemeProps`), the `cssVariables` mode that emits theme tokens as CSS custom properties (`--mui-palette-primary-main`, `theme.vars`, `colorSchemeSelector`, `useColorScheme`, `InitColorSchemeScript`), the `Drawer` variants (`temporary`, `persistent`, `mini`, `permanent`, `swipeable`), and the extensible-theme pattern that splits tokens and component defaults across separate exports so consuming apps can extend with object spread and preserve component variants with array syntax.", mental_model = "CSS cascade layers (`@layer a, b, c;`) define a strict order of precedence across the whole stylesheet. A rule inside `@layer a` always loses to a rule in `@layer b`, regardless of selector specificity. Tailwind v4 emits every utility class inside `@layer utilities;` so that any user-land `@layer theme` or `@layer components` overrides are guaranteed to lose to a Tailwind utility. The MUI integration simply wraps every Emotion-generated stylesheet inside `@layer mui.*` so it sits inside the cascade order too. With both sides agreeing on the layer order, you never need `!important`.  L1[\"@layer theme, base\"]:::base   L2[\"@layer mui.global\"]:::mui   L3[\"@layer mui.components\"]:::mui   L4[\"@layer mui.theme\"]:::mui   L5[\"@layer mui.custom\"]:::mui   L6[\"@layer mui.sx\"]:::mui   L7[\"@layer components\"]:::base   L8[\"@layer utilities\"]:::tw", code_example = "bun add @mui/material @emotion/react @emotion/styled", pitfalls = "// Right: inject the initial color scheme into the document before React hydrates <html>   <head>     <InitColorSchemeScript attribute=\"class\" />   </head>   <body>     <ThemeProvider theme={theme}>{children}</ThemeProvider>   </body> </html> ```  /* Right: declare the layer order at the top of the entry stylesheet */ @layer theme, base, mui, components, utilities;  @import \"tailwindcss\"; ```  // Right: also declare the order in CSS // @layer theme, base, mui, components, utilities; ```" }
+      },
+    ]
+  },
+  {
+    id = "05-053",
+    number = 53,
+    title = "Masonry (and friends: Modal, Drawer, Popover, Menu, Popper, Menubar, Native Color, Pigment CSS, Styled Engine)",
+    local_chapter_file = "053-mui-masonry.md",
+    key_concepts = ["Mental model", "`Masonry` and `MasonryItem`", "Modal layer (Modal, Drawer, Popover, Menu, Popper, Menubar)", "Theming layer", "Combining these in practice", "Common mistakes"],
+    total_duration_seconds = 706,
+    videos = [
+      {
+        id = "UzU6QzUzOlYxOjA1My1t",
+        raw_key = "S5:C53:V1",
+        title = "Building common responsive layouts",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/building-common-responsive-layouts",
+        duration_text = "08m20s",
+        duration_seconds = 500,
+        description = "In-depth walkthrough of Masonry (and friends: Modal, Drawer, Popover, Menu, Popper, Menubar, Native Color, Pigment CSS, Styled Engine), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** Component Libraries: Material UI, Material UI component catalog, Dialog, Popper, MUI Timeline component  This chapter is a reference roundup built around the `Masonry` component, the variable-height, Pinterest-style column layout. Around `Masonry` sits the wider overlay ecosystem a `Masonry` host page usually pairs with: `Modal` (the foundation that `Dialog`, `Drawer`, `Menu`, and `Popover` all build on), `Drawer` for side navigation, `Popover` for anchored floating content, `Menu` and `Popper` for menus and tooltips, `Menubar` for top-level menus composed on top of Base UI's primitive, `Native Color` for opting the theme into CSS `color-mix()` and relative-color syntax, `Pigment CSS` for zero-runtime CSS-in-JS, and the styled-engine choice between Emotion and `@mui/styled-engine-sc`.", mental_model = "A `Masonry` packs variable-height blocks at a uniform width into N columns. Each new block goes into the shortest column, which avoids the \"ragged bottom\" you get with CSS grid when row heights differ. The component is not a CSS grid; it is a JS layout that measures every block and places it manually, which is what makes the no-vertical-gap packing possible.  Three details that drive every `Masonry` you write:", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material\nbun add @mui/lab   # optional: Lab ships Masonry in some MUI versions", pitfalls = "`Masonry` measures and places each child in JavaScript. Wrapping the container in `display: grid` interferes with the column math. Use `Masonry`'s own column/spacing props, or use `Grid` (MUI 6 layout grid) when you want CSS grid behaviour.  Without it, the server renders an empty placeholder under each column and the page jumps on hydration. Set `defaultHeight` (and `defaultColumns`, `defaultSpacing`) to match the post-hydration layout.  `Modal` is the foundation; it does not bring visuals. Reach for the composite component that matches the user intent. Use `Modal` only when the surface is custom (a centred Card with bespoke padding and transitions).  `Popper` does not close on outside click. If you want a dropdown that dismisses itself, use `Popover` (or `Menu`). `Popper` is the right pr" }
+      },
+      {
+        id = "UzU6QzUzOlYyOjA1My1t",
+        raw_key = "S5:C53:V2",
+        title = "Extracting common styles",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/extracting-common-styles",
+        duration_text = "03m26s",
+        duration_seconds = 206,
+        description = "In-depth walkthrough of Masonry (and friends: Modal, Drawer, Popover, Menu, Popper, Menubar, Native Color, Pigment CSS, Styled Engine), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** Component Libraries: Material UI, Material UI component catalog, Dialog, Popper, MUI Timeline component  This chapter is a reference roundup built around the `Masonry` component, the variable-height, Pinterest-style column layout. Around `Masonry` sits the wider overlay ecosystem a `Masonry` host page usually pairs with: `Modal` (the foundation that `Dialog`, `Drawer`, `Menu`, and `Popover` all build on), `Drawer` for side navigation, `Popover` for anchored floating content, `Menu` and `Popper` for menus and tooltips, `Menubar` for top-level menus composed on top of Base UI's primitive, `Native Color` for opting the theme into CSS `color-mix()` and relative-color syntax, `Pigment CSS` for zero-runtime CSS-in-JS, and the styled-engine choice between Emotion and `@mui/styled-engine-sc`.", mental_model = "A `Masonry` packs variable-height blocks at a uniform width into N columns. Each new block goes into the shortest column, which avoids the \"ragged bottom\" you get with CSS grid when row heights differ. The component is not a CSS grid; it is a JS layout that measures every block and places it manually, which is what makes the no-vertical-gap packing possible.  Three details that drive every `Masonry` you write:", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @mui/icons-material\nbun add @mui/lab   # optional: Lab ships Masonry in some MUI versions", pitfalls = "`Masonry` measures and places each child in JavaScript. Wrapping the container in `display: grid` interferes with the column math. Use `Masonry`'s own column/spacing props, or use `Grid` (MUI 6 layout grid) when you want CSS grid behaviour.  Without it, the server renders an empty placeholder under each column and the page jumps on hydration. Set `defaultHeight` (and `defaultColumns`, `defaultSpacing`) to match the post-hydration layout.  `Modal` is the foundation; it does not bring visuals. Reach for the composite component that matches the user intent. Use `Modal` only when the surface is custom (a centred Card with bespoke padding and transitions).  `Popper` does not close on outside click. If you want a dropdown that dismisses itself, use `Popover` (or `Menu`). `Popper` is the right pr" }
+      },
+    ]
+  },
+  {
+    id = "05-054",
+    number = 54,
+    title = "MUI Table Composition",
+    local_chapter_file = "054-mui-table-composition.md",
+    key_concepts = ["A table is a kit of native parts", "The concept: composition with a semantic boundary", "Minimal example", "Predict the render", "Common mistakes", "Why this matters"],
+    total_duration_seconds = 779,
+    videos = [
+      {
+        id = "UzU6QzU0OlYxOjA1NC1t",
+        raw_key = "S5:C54:V1",
+        title = "Using Codespaces for this course",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-codespaces-for-this-course",
+        duration_text = "04m39s",
+        duration_seconds = 279,
+        description = "In-depth walkthrough of MUI Table Composition, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Prerequisites:** MUI Supported Components, Material UI component catalog, Material UI Color System, Popper, MUI Timeline component, Material UI Grid v2 migration  This chapter is a reference-heavy lesson. Its main subject is composing MUI's table parts into a usable data surface. The later sections collect related MUI API and migration patterns that often appear beside a table in a real application.", mental_model = "You meet this composition pattern in invoices, audit logs, product lists, and admin screens. It prevents three different bug classes: invalid table markup that confuses assistive technology, unstable row identity that makes reconciliation reuse the wrong DOM, and controls whose labels change while the displayed data stays unchanged.  Use a plain composed `Table` when you need a table-shaped view and you want control over markup. Move to MUI `DataGrid` when the feature set grows into a large data-management surface with virtualization, column menus, richer filtering, editing, or server-side models. `DataGrid` is a separate product with a different API. It is not a drop-in replacement for the composition tree above.", code_example = "import Table from \"@mui/material/Table\";\nimport TableBody from \"@mui/material/TableBody\";\nimport TableCell from \"@mui/material/TableCell\";\nimport TableHead from \"@mui/material/TableHead\";\nimport TableRow from \"@mui/material/TableRow\";\n\nexport function SmallTable() {\n  return (\n    <Table aria-label=\"two products\">\n      <TableHead>\n        <TableRow>\n          <TableCell component=\"th\" scope=\"col\">\n            Product\n          </TableCell>\n          <TableCell component=\"th\" scope=\"col\" align=\"right\">\n            Stock\n          </TableCell>\n        </TableRow>\n      </TableHead>\n      <TableBody>\n        <TableRow key=\"pen\">\n          <TableCell component=\"th\" scope=\"row\">\n            Pen\n          </TableCell>\n          <TableCell align=\"right\">18</TableCell>\n        </TableRow>\n       ", pitfalls = "This compiles, but sorting causes React to reuse the wrong row instance when a row contains local state or an input. React may log:  That warning appears when there is no key. Using `key={index}` silences it but still gives rows identities tied to their current positions. Use `key={row.id}` with an ID that does not change when the order changes.  This broken TypeScript is intentional:  With MUI's `TableCellProps`, TypeScript reports:" }
+      },
+      {
+        id = "UzU6QzU0OlYyOjA1NC1t",
+        raw_key = "S5:C54:V2",
+        title = "Building common responsive layouts",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/building-common-responsive-layouts",
+        duration_text = "08m20s",
+        duration_seconds = 500,
+        description = "In-depth walkthrough of MUI Table Composition, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Prerequisites:** MUI Supported Components, Material UI component catalog, Material UI Color System, Popper, MUI Timeline component, Material UI Grid v2 migration  This chapter is a reference-heavy lesson. Its main subject is composing MUI's table parts into a usable data surface. The later sections collect related MUI API and migration patterns that often appear beside a table in a real application.", mental_model = "You meet this composition pattern in invoices, audit logs, product lists, and admin screens. It prevents three different bug classes: invalid table markup that confuses assistive technology, unstable row identity that makes reconciliation reuse the wrong DOM, and controls whose labels change while the displayed data stays unchanged.  Use a plain composed `Table` when you need a table-shaped view and you want control over markup. Move to MUI `DataGrid` when the feature set grows into a large data-management surface with virtualization, column menus, richer filtering, editing, or server-side models. `DataGrid` is a separate product with a different API. It is not a drop-in replacement for the composition tree above.", code_example = "import Table from \"@mui/material/Table\";\nimport TableBody from \"@mui/material/TableBody\";\nimport TableCell from \"@mui/material/TableCell\";\nimport TableHead from \"@mui/material/TableHead\";\nimport TableRow from \"@mui/material/TableRow\";\n\nexport function SmallTable() {\n  return (\n    <Table aria-label=\"two products\">\n      <TableHead>\n        <TableRow>\n          <TableCell component=\"th\" scope=\"col\">\n            Product\n          </TableCell>\n          <TableCell component=\"th\" scope=\"col\" align=\"right\">\n            Stock\n          </TableCell>\n        </TableRow>\n      </TableHead>\n      <TableBody>\n        <TableRow key=\"pen\">\n          <TableCell component=\"th\" scope=\"row\">\n            Pen\n          </TableCell>\n          <TableCell align=\"right\">18</TableCell>\n        </TableRow>\n       ", pitfalls = "This compiles, but sorting causes React to reuse the wrong row instance when a row contains local state or an input. React may log:  That warning appears when there is no key. Using `key={index}` silences it but still gives rows identities tied to their current positions. Use `key={row.id}` with an ID that does not change when the order changes.  This broken TypeScript is intentional:  With MUI's `TableCellProps`, TypeScript reports:" }
+      },
+    ]
+  },
+  {
+    id = "05-055",
+    number = 55,
+    title = "Merging branded and application themes",
+    local_chapter_file = "055-merging-branded-and-application-themes.md",
+    key_concepts = ["Hook: two paint boxes", "The concept", "Predict the render", "Component reference roundup", "Common mistakes", "Why this matters"],
+    total_duration_seconds = 516,
+    videos = [
+      {
+        id = "UzU6QzU1OlYxOjA1NS1t",
+        raw_key = "S5:C55:V1",
+        title = "Using Codespaces for this course",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/using-codespaces-for-this-course",
+        duration_text = "04m39s",
+        duration_seconds = 279,
+        description = "In-depth walkthrough of Merging branded and application themes, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 3 · **Prerequisites:** MUI Table Composition, Component Libraries: Material UI, useActionState + React 19 Form Actions, MUI Masonry, Material UI theme provider", mental_model = "A shared brand package can serve several products while each product chooses its palette, navigation, and component behavior. Explicit merging makes that boundary visible in code. Ordered style arrays prevent a release from silently removing focus, hover, or disabled-state rules. Avoiding an eager deep merge also keeps theme construction out of the render path and removes avoidable startup work.  The component roundup gives the merged theme real consumers: a `Drawer` or `Menu` for navigation, a `Dialog` or `Backdrop` for attention, and controlled input components for preferences. Each consumer reads the final theme from `ThemeProvider`, so a change to brand tokens reaches the whole tree without prop drilling.", code_example = "import { createTheme } from '@mui/material/styles';\nimport type { ThemeOptions } from '@mui/material/styles';\n\nconst brand: ThemeOptions = {\n  palette: { primary: { main: '#111827' } },\n  shape: { borderRadius: 6 },\n};\n\nconst appTheme = createTheme({\n  ...brand,\n  palette: {\n    ...brand.palette,\n    primary: { ...brand.palette?.primary, main: '#2563eb' },\n  },\n});", pitfalls = "The code compiles, but the brand's `minWidth` and pseudo-class rules vanish. Spread the branded `MuiButton` entry and put the two roots in an array.  Spread `brand.palette.primary` before changing `main`, and repeat that pattern for nested groups you customize.  If you render `<Switch checked={enabled} />` without an `onChange` that updates `enabled`, the control looks stuck. React does not change the prop for you. Keep the source of truth in state.  `ToggleButtonGroup` calls its handler with `null` after the selected button is clicked again. Passing that value into a state typed as `View` produces `Type 'null' is not assignable to type 'View'`. Check `next !== null` before updating." }
+      },
+      {
+        id = "UzU6QzU1OlYyOjA1NS1t",
+        raw_key = "S5:C55:V2",
+        title = "Understanding the utility-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-utility-first-approach",
+        duration_text = "03m57s",
+        duration_seconds = 237,
+        description = "In-depth walkthrough of Merging branded and application themes, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 3 · **Prerequisites:** MUI Table Composition, Component Libraries: Material UI, useActionState + React 19 Form Actions, MUI Masonry, Material UI theme provider", mental_model = "A shared brand package can serve several products while each product chooses its palette, navigation, and component behavior. Explicit merging makes that boundary visible in code. Ordered style arrays prevent a release from silently removing focus, hover, or disabled-state rules. Avoiding an eager deep merge also keeps theme construction out of the render path and removes avoidable startup work.  The component roundup gives the merged theme real consumers: a `Drawer` or `Menu` for navigation, a `Dialog` or `Backdrop` for attention, and controlled input components for preferences. Each consumer reads the final theme from `ThemeProvider`, so a change to brand tokens reaches the whole tree without prop drilling.", code_example = "import { createTheme } from '@mui/material/styles';\nimport type { ThemeOptions } from '@mui/material/styles';\n\nconst brand: ThemeOptions = {\n  palette: { primary: { main: '#111827' } },\n  shape: { borderRadius: 6 },\n};\n\nconst appTheme = createTheme({\n  ...brand,\n  palette: {\n    ...brand.palette,\n    primary: { ...brand.palette?.primary, main: '#2563eb' },\n  },\n});", pitfalls = "The code compiles, but the brand's `minWidth` and pseudo-class rules vanish. Spread the branded `MuiButton` entry and put the two roots in an array.  Spread `brand.palette.primary` before changing `main`, and repeat that pattern for nested groups you customize.  If you render `<Switch checked={enabled} />` without an `onChange` that updates `enabled`, the control looks stuck. React does not change the prop for you. Keep the source of truth in state.  `ToggleButtonGroup` calls its handler with `null` after the selected button is clicked again. Passing that value into a state typed as `View` produces `Type 'null' is not assignable to type 'View'`. Check `next !== null` before updating." }
+      },
+    ]
+  },
+  {
+    id = "05-056",
+    number = 56,
+    title = "MUI Tabs and Tab components",
+    local_chapter_file = "056-mui-tabs-and-tab-components.md",
+    key_concepts = ["A settings binder", "The concept: a coordinated selection value", "Minimal example", "Predict the render", "Form-control reference", "Theme and migration reference"],
+    total_duration_seconds = 424,
+    videos = [
+      {
+        id = "UzU6QzU2OlYxOjA1Ni1t",
+        raw_key = "S5:C56:V1",
+        title = "Understanding the utility-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-utility-first-approach",
+        duration_text = "03m57s",
+        duration_seconds = 237,
+        description = "In-depth walkthrough of MUI Tabs and Tab components, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Prerequisites:** useActionState + React 19 Form Actions, useContext, Forms with React Hook Form, Component Libraries: Material UI, Material UI component catalog, MUI Table Composition, MUI Timeline component, Material UI MCP documentation server, Chip  This is a reference-heavy chapter. It starts with tabs, then collects MUI form controls and styling APIs that use the same two ideas: controlled values and context shared by a parent component.", mental_model = "You meet these components in settings screens, onboarding flows, search filters, review forms, and admin tools. A shared controlled-value model makes their behavior predictable, while the MUI parent handles focus and keyboard details that are easy to omit in hand-built widgets.  The context hooks and slot APIs also create supported customization boundaries. They prevent code from reaching into private markup or copying internal state. Migration work then becomes a change of package, styling engine, or extraction model without rewriting the form's domain state.", code_example = "import { useState } from \"react\";\nimport type { SyntheticEvent } from \"react\";\nimport Tab from \"@mui/material/Tab\";\nimport Tabs from \"@mui/material/Tabs\";\n\nexport function AccountTabs() {\n  const [active, setActive] = useState<\"profile\" | \"security\">(\"profile\");\n\n  const selectTab = (_event: SyntheticEvent, next: string): void => {\n    if (next === \"profile\" || next === \"security\") {\n      setActive(next);\n    }\n  };\n\n  return (\n    <section>\n      <Tabs value={active} onChange={selectTab} aria-label=\"Account sections\">\n        <Tab\n          value=\"profile\"\n          label=\"Profile\"\n          id=\"account-tab-profile\"\n          aria-controls=\"account-panel-profile\"\n        />\n        <Tab\n          value=\"security\"\n          label=\"Security\"\n          id=\"account-tab-security\"\n          ar", pitfalls = "A `Tab` with `aria-controls=\"security-panel\"` and a panel with `id=\"profile-panel\"` compiles and does not log a runtime error. The accessibility tree loses the relationship. Derive both IDs from the same tab value, or use the Lab components to wire the relationship.  This deliberately broken TypeScript drops the clear state:  Use `useState<number | null>(3)` or reject `null` deliberately when the product requires a rating.  An `Autocomplete` value loaded from one request may have the same fields as an option loaded from another request, but it is a different object reference. The component cannot match it by identity and may log:" }
+      },
+      {
+        id = "UzU6QzU2OlYyOjA1Ni1t",
+        raw_key = "S5:C56:V2",
+        title = "Understanding preflight",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-preflight",
+        duration_text = "03m07s",
+        duration_seconds = 187,
+        description = "In-depth walkthrough of MUI Tabs and Tab components, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Prerequisites:** useActionState + React 19 Form Actions, useContext, Forms with React Hook Form, Component Libraries: Material UI, Material UI component catalog, MUI Table Composition, MUI Timeline component, Material UI MCP documentation server, Chip  This is a reference-heavy chapter. It starts with tabs, then collects MUI form controls and styling APIs that use the same two ideas: controlled values and context shared by a parent component.", mental_model = "You meet these components in settings screens, onboarding flows, search filters, review forms, and admin tools. A shared controlled-value model makes their behavior predictable, while the MUI parent handles focus and keyboard details that are easy to omit in hand-built widgets.  The context hooks and slot APIs also create supported customization boundaries. They prevent code from reaching into private markup or copying internal state. Migration work then becomes a change of package, styling engine, or extraction model without rewriting the form's domain state.", code_example = "import { useState } from \"react\";\nimport type { SyntheticEvent } from \"react\";\nimport Tab from \"@mui/material/Tab\";\nimport Tabs from \"@mui/material/Tabs\";\n\nexport function AccountTabs() {\n  const [active, setActive] = useState<\"profile\" | \"security\">(\"profile\");\n\n  const selectTab = (_event: SyntheticEvent, next: string): void => {\n    if (next === \"profile\" || next === \"security\") {\n      setActive(next);\n    }\n  };\n\n  return (\n    <section>\n      <Tabs value={active} onChange={selectTab} aria-label=\"Account sections\">\n        <Tab\n          value=\"profile\"\n          label=\"Profile\"\n          id=\"account-tab-profile\"\n          aria-controls=\"account-panel-profile\"\n        />\n        <Tab\n          value=\"security\"\n          label=\"Security\"\n          id=\"account-tab-security\"\n          ar", pitfalls = "A `Tab` with `aria-controls=\"security-panel\"` and a panel with `id=\"profile-panel\"` compiles and does not log a runtime error. The accessibility tree loses the relationship. Derive both IDs from the same tab value, or use the Lab components to wire the relationship.  This deliberately broken TypeScript drops the clear state:  Use `useState<number | null>(3)` or reject `null` deliberately when the product requires a rating.  An `Autocomplete` value loaded from one request may have the same fields as an option loaded from another request, but it is a different object reference. The component cannot match it by identity and may log:" }
+      },
+    ]
+  },
+  {
+    id = "05-057",
+    number = 57,
+    title = "Pigment CSS (zero-runtime CSS-in-JS) (and a roundup: the `css` / `globalCss` / `keyframes` / `styled` APIs, `variants` vs runtime callbacks, `withPigment` plugins for Vite and Next.js, `extendTheme` and `vars`, the `sx` prop, polymorphic MUI wrappers, MUI v7 and v9 upgrade steps, `prettier-plugin-tailwindcss` sorting and collapse, `@tailwindui/react` `<Transition>`, shadcn UI's copy-paste model, CSS Modules, component extraction, the component tree, `createRoot`, and one-way data flow)",
+    local_chapter_file = "057-pigment-css-zero-runtime-css-in-js.md",
+    key_concepts = ["Mental model", "Install and configure Pigment CSS", "The `css` API", "The `globalCss` API", "The `keyframes` API", "The `styled` API"],
+    total_duration_seconds = 423,
+    videos = [
+      {
+        id = "UzU6QzU3OlYxOjA1Ny1w",
+        raw_key = "S5:C57:V1",
+        title = "Understanding the utility-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-utility-first-approach",
+        duration_text = "03m57s",
+        duration_seconds = 237,
+        description = "In-depth walkthrough of Pigment CSS (zero-runtime CSS-in-JS) (and a roundup: the `css` / `globalCss` / `keyframes` / `styled` APIs, `variants` vs runtime callbacks, `withPigment` plugins for Vite and Next.js, `extendTheme` and `vars`, the `sx` prop, polymorphic MUI wrappers, MUI v7 and v9 upgrade steps, `prettier-plugin-tailwindcss` sorting and collapse, `@tailwindui/react` `<Transition>`, shadcn UI's copy-paste model, CSS Modules, component extraction, the component tree, `createRoot`, and one-way data flow), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-4 · **Prerequisites:** Chip, Material UI Color System, MUI Table Composition, Components and Props, Domain-first data model planning, React Canary Release Channel  This chapter opens with **Pigment CSS**, MUI's zero-runtime CSS-in-JS engine: it pre-compiles styles at build time, emits real CSS, and is the path forward if you want a `styled`-like authoring experience while staying React Server Components compatible. Around that headline sits the rest of the styling vocabulary that the longer Styling section has been pulling together. The Pigment CSS APIs (`css`, `globalCss`, `keyframes`, `styled`, `variants`, runtime callbacks) are covered in depth, the Vite and Next.js plugins are explained as the entry points, the `extendTheme` / `vars` pattern is shown as the bridge between the build-time theme and runtime CSS variables, and the `sx` prop is described as the inline-style escape hatch that compiles down to `className` + `style` at build time. The roundup that follows covers the older Material UI `TypographyProps`-based polymorphic wrapper pattern, the v7 and v9 upgrade steps (package exports, slot standardisation, CSS layers, Grid renaming, accessibility improvements), the two halves of `prettier-plugin-tailwindcss` (fixed-order sorting and the v1.7+ collapse pass for whitespace and duplicates), the early `@tailwindui/react` `<Transition>` primitive, the shadcn UI copy-paste model that re-shapes how a team owns its component library, CSS Modules as a third styling option next to Pigment and Tailwind, the Wieruch component-tree / `createRoot` / one-way data flow foundations, and the extraction heuristic that keeps a component understandable.", mental_model = "A \"CSS-in-JS\" library writes a stylesheet that ships JavaScript to the browser, then inserts rules into the DOM on render. Emotion (the engine behind `@mui/material`) does this. The runtime cost is real: every render has to diff the styles, and the styles themselves have to live in the bundle. Pigment CSS inverts the relationship. The `css` and `styled` calls are still TypeScript, but a build plugin (Vite or Next.js) reads the source, emits a real CSS file, and rewrites the call sites so the runtime only does `className` lookup. The browser sees a `<link rel=\"stylesheet\">` and a class string, nothing more.  The build-time flavour has three consequences worth naming up front:", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @pigment-css/react\nbun add --save-dev @pigment-css/vite-plugin", pitfalls = "**1. Forgetting the stylesheet import.** The Pigment CSS build plugin writes the CSS file, but the bundler does not know to serve it. The browser shows a flash of unstyled content followed by the layout, because the CSS is loaded but its `<link>` is in the wrong place. Fix:  createRoot(document.getElementById(\"root\")!).render(<App />); ```  **2. Using `useTheme` from `@mui/material/styles` instead of `@mui/material-pigment-css`.** The first is the Emotion runtime hook and returns the resolved theme object; the second is the Pigment CSS hook and returns the `theme.vars` proxy. The types are similar but the values differ. The Emotion hook works in Pigment projects only because the Emotion engine is still installed; the values are the resolved objects, not the CSS variables. The Pigment hook " }
+      },
+      {
+        id = "UzU6QzU3OlYyOjA1Ny1w",
+        raw_key = "S5:C57:V2",
+        title = "Understanding the mobile-first approach",
+        url = "https://www.linkedin.com/learning/tailwind-css-4-essential-training/understanding-the-mobile-first-approach",
+        duration_text = "03m06s",
+        duration_seconds = 186,
+        description = "In-depth walkthrough of Pigment CSS (zero-runtime CSS-in-JS) (and a roundup: the `css` / `globalCss` / `keyframes` / `styled` APIs, `variants` vs runtime callbacks, `withPigment` plugins for Vite and Next.js, `extendTheme` and `vars`, the `sx` prop, polymorphic MUI wrappers, MUI v7 and v9 upgrade steps, `prettier-plugin-tailwindcss` sorting and collapse, `@tailwindui/react` `<Transition>`, shadcn UI's copy-paste model, CSS Modules, component extraction, the component tree, `createRoot`, and one-way data flow), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Tailwind CSS 4 Essential Training",
+        references = [
+          { label = "Material UI Official Guide: Getting Started", url = "https://mui.com/material-ui/getting-started/", description = "Production-ready component library implementing Material Design." },
+          { label = "Material UI: Customization & Theming", url = "https://mui.com/material-ui/customization/theming/", description = "Palette, typography, and createTheme configuration." },
+        ],
+        notes = { definition = "**Difficulty:** 1-4 · **Prerequisites:** Chip, Material UI Color System, MUI Table Composition, Components and Props, Domain-first data model planning, React Canary Release Channel  This chapter opens with **Pigment CSS**, MUI's zero-runtime CSS-in-JS engine: it pre-compiles styles at build time, emits real CSS, and is the path forward if you want a `styled`-like authoring experience while staying React Server Components compatible. Around that headline sits the rest of the styling vocabulary that the longer Styling section has been pulling together. The Pigment CSS APIs (`css`, `globalCss`, `keyframes`, `styled`, `variants`, runtime callbacks) are covered in depth, the Vite and Next.js plugins are explained as the entry points, the `extendTheme` / `vars` pattern is shown as the bridge between the build-time theme and runtime CSS variables, and the `sx` prop is described as the inline-style escape hatch that compiles down to `className` + `style` at build time. The roundup that follows covers the older Material UI `TypographyProps`-based polymorphic wrapper pattern, the v7 and v9 upgrade steps (package exports, slot standardisation, CSS layers, Grid renaming, accessibility improvements), the two halves of `prettier-plugin-tailwindcss` (fixed-order sorting and the v1.7+ collapse pass for whitespace and duplicates), the early `@tailwindui/react` `<Transition>` primitive, the shadcn UI copy-paste model that re-shapes how a team owns its component library, CSS Modules as a third styling option next to Pigment and Tailwind, the Wieruch component-tree / `createRoot` / one-way data flow foundations, and the extraction heuristic that keeps a component understandable.", mental_model = "A \"CSS-in-JS\" library writes a stylesheet that ships JavaScript to the browser, then inserts rules into the DOM on render. Emotion (the engine behind `@mui/material`) does this. The runtime cost is real: every render has to diff the styles, and the styles themselves have to live in the bundle. Pigment CSS inverts the relationship. The `css` and `styled` calls are still TypeScript, but a build plugin (Vite or Next.js) reads the source, emits a real CSS file, and rewrites the call sites so the runtime only does `className` lookup. The browser sees a `<link rel=\"stylesheet\">` and a class string, nothing more.  The build-time flavour has three consequences worth naming up front:", code_example = "bun add @mui/material @emotion/react @emotion/styled\nbun add @pigment-css/react\nbun add --save-dev @pigment-css/vite-plugin", pitfalls = "**1. Forgetting the stylesheet import.** The Pigment CSS build plugin writes the CSS file, but the bundler does not know to serve it. The browser shows a flash of unstyled content followed by the layout, because the CSS is loaded but its `<link>` is in the wrong place. Fix:  createRoot(document.getElementById(\"root\")!).render(<App />); ```  **2. Using `useTheme` from `@mui/material/styles` instead of `@mui/material-pigment-css`.** The first is the Emotion runtime hook and returns the resolved theme object; the second is the Pigment CSS hook and returns the `theme.vars` proxy. The types are similar but the values differ. The Emotion hook works in Pigment projects only because the Emotion engine is still installed; the values are the resolved objects, not the CSS variables. The Pigment hook " }
+      },
+    ]
+  },
+  {
+    id = "05-058",
+    number = 58,
+    title = "Shadcn UI + Base UI + Tailwind component library (and a roundup: `class-variance-authority` + `tailwind-merge`, Base UI as the headless primitive layer, the Spotlight personal site template, stable keys for list identity, styled-components as a tagged-template CSS-in-JS option, `.attrs()` for non-class props, extending styled components, `babel-plugin-styled-components`, the Pocket template's Framer Motion animations, Thinking-in-React decomposition, Vite CSS Modules, `@tailwindplus/elements` custom elements, and the Wieruch component-tree / `createRoot` / one-way data flow foundations)",
+    local_chapter_file = "058-shadcn-ui-base-ui-tailwind-component-library.md",
+    key_concepts = ["Mental model", "The cva + tailwind-merge + cn() trio", "Minimal example: a Shadcn-style `Card`", "Predict-the-render", "Common mistakes", "Why this matters"],
+    total_duration_seconds = 431,
+    videos = [
+      {
+        id = "UzU6QzU4OlYxOjA1OC1z",
+        raw_key = "S5:C58:V1",
+        title = "Creating the NewTodoForm component",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/creating-the-newtodoform-component",
+        duration_text = "04m20s",
+        duration_seconds = 260,
+        description = "In-depth walkthrough of Shadcn UI + Base UI + Tailwind component library (and a roundup: `class-variance-authority` + `tailwind-merge`, Base UI as the headless primitive layer, the Spotlight personal site template, stable keys for list identity, styled-components as a tagged-template CSS-in-JS option, `.attrs()` for non-class props, extending styled components, `babel-plugin-styled-components`, the Pocket template's Framer Motion animations, Thinking-in-React decomposition, Vite CSS Modules, `@tailwindplus/elements` custom elements, and the Wieruch component-tree / `createRoot` / one-way data flow foundations), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** JSX and Rendering, Components and Props, preconnect, Chip, React Major Version Policy, Vite modern web constraints, React Canary Release Channel  This chapter opens with the **Shadcn UI + Base UI + Tailwind component library** model: you don't `npm install` a styled component library anymore, you run an init command, the CLI copies the source for each primitive into `src/components/ui/`, and you own the result. Around that headline sits the rest of the styling vocabulary the Styling section has been collecting: `class-variance-authority` (`cva`) for typed variant strings, `tailwind-merge` to dedupe conflicting utilities, Base UI as the headless accessibility layer underneath, the Tailwind UI Spotlight personal-site template as the canonical \"put it all together\" example, stable keys for list identity in the project list, the styled-components library as the alternative CSS-in-JS authoring style (tagged-template literals, `.attrs()` for non-class props, extending via `styled(BaseComponent)`), the `babel-plugin-styled-components` companion that makes DevTools class names readable, the Pocket template's Framer Motion entrance animations, the Thinking-in-React decomposition heuristic, Vite CSS Modules as the third styling option (alongside Tailwind and CSS-in-JS), the framework-agnostic `@tailwindplus/elements` custom-element library, and the Wieruch component-tree / `createRoot` / one-way data flow foundations that hold the whole stack together.", mental_model = "A traditional component library ships as a black-box npm package. You import `Button` from `@mui/material`, you call `<Button>`, and the source for `Button` lives somewhere in `node_modules`. Customising it means either (a) wrapping it in your own component that overrides `sx` or `className` props, or (b) forking the package and shipping a private build.  The Shadcn UI model inverts the relationship. Instead of a black box, you get a folder of small files you wrote (or the CLI wrote for you), styled with `cva` variants, layered on top of unstyled accessibility primitives from Base UI, and rendered with Tailwind utility classes. The \"library\" lives in your repo. The dependency on `@base-ui-components/react` is the only third-party surface; everything else is your own source.", code_example = "// src/components/ui/card.tsx\nimport { forwardRef, type HTMLAttributes } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(\n  ({ className, ...props }, ref) => (\n    <div\n      ref={ref}\n      className={cn(\n        \"rounded-lg border bg-card text-card-foreground shadow-sm\",\n        className,\n      )}\n      {...props}\n    />\n  ),\n);\nCard.displayName = \"Card\";", pitfalls = "If a caller passes `className=\"bg-red-500\"`, the rendered class is `\"... bg-primary ... bg-red-500\"`. The browser applies the **last** declaration in the stylesheet, not the last class in the string. With Tailwind, all utility classes live in the same generated layer at the same specificity, so the order in the class string *does* matter, but only when Tailwind's ordering rules are followed. For un-common pairs, you get the wrong winner, or you get both utilities emitted and the visual is whichever class the JIT put later in the sheet. `twMerge` removes the ambiguity by parsing the utilities and dropping the conflicting earlier one.  `cva` returns a *function* from a config. If the config object is recreated on every render, the returned function is a new identity on every render. Any cons" }
+      },
+      {
+        id = "UzU6QzU4OlYyOjA1OC1z",
+        raw_key = "S5:C58:V2",
+        title = "Passing props to styled-components",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/passing-props-to-styled-components",
+        duration_text = "02m51s",
+        duration_seconds = 171,
+        description = "In-depth walkthrough of Shadcn UI + Base UI + Tailwind component library (and a roundup: `class-variance-authority` + `tailwind-merge`, Base UI as the headless primitive layer, the Spotlight personal site template, stable keys for list identity, styled-components as a tagged-template CSS-in-JS option, `.attrs()` for non-class props, extending styled components, `babel-plugin-styled-components`, the Pocket template's Framer Motion animations, Thinking-in-React decomposition, Vite CSS Modules, `@tailwindplus/elements` custom elements, and the Wieruch component-tree / `createRoot` / one-way data flow foundations), examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "**Difficulty:** 2-3 · **Prerequisites:** JSX and Rendering, Components and Props, preconnect, Chip, React Major Version Policy, Vite modern web constraints, React Canary Release Channel  This chapter opens with the **Shadcn UI + Base UI + Tailwind component library** model: you don't `npm install` a styled component library anymore, you run an init command, the CLI copies the source for each primitive into `src/components/ui/`, and you own the result. Around that headline sits the rest of the styling vocabulary the Styling section has been collecting: `class-variance-authority` (`cva`) for typed variant strings, `tailwind-merge` to dedupe conflicting utilities, Base UI as the headless accessibility layer underneath, the Tailwind UI Spotlight personal-site template as the canonical \"put it all together\" example, stable keys for list identity in the project list, the styled-components library as the alternative CSS-in-JS authoring style (tagged-template literals, `.attrs()` for non-class props, extending via `styled(BaseComponent)`), the `babel-plugin-styled-components` companion that makes DevTools class names readable, the Pocket template's Framer Motion entrance animations, the Thinking-in-React decomposition heuristic, Vite CSS Modules as the third styling option (alongside Tailwind and CSS-in-JS), the framework-agnostic `@tailwindplus/elements` custom-element library, and the Wieruch component-tree / `createRoot` / one-way data flow foundations that hold the whole stack together.", mental_model = "A traditional component library ships as a black-box npm package. You import `Button` from `@mui/material`, you call `<Button>`, and the source for `Button` lives somewhere in `node_modules`. Customising it means either (a) wrapping it in your own component that overrides `sx` or `className` props, or (b) forking the package and shipping a private build.  The Shadcn UI model inverts the relationship. Instead of a black box, you get a folder of small files you wrote (or the CLI wrote for you), styled with `cva` variants, layered on top of unstyled accessibility primitives from Base UI, and rendered with Tailwind utility classes. The \"library\" lives in your repo. The dependency on `@base-ui-components/react` is the only third-party surface; everything else is your own source.", code_example = "// src/components/ui/card.tsx\nimport { forwardRef, type HTMLAttributes } from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(\n  ({ className, ...props }, ref) => (\n    <div\n      ref={ref}\n      className={cn(\n        \"rounded-lg border bg-card text-card-foreground shadow-sm\",\n        className,\n      )}\n      {...props}\n    />\n  ),\n);\nCard.displayName = \"Card\";", pitfalls = "If a caller passes `className=\"bg-red-500\"`, the rendered class is `\"... bg-primary ... bg-red-500\"`. The browser applies the **last** declaration in the stylesheet, not the last class in the string. With Tailwind, all utility classes live in the same generated layer at the same specificity, so the order in the class string *does* matter, but only when Tailwind's ordering rules are followed. For un-common pairs, you get the wrong winner, or you get both utilities emitted and the visual is whichever class the JIT put later in the sheet. `twMerge` removes the ambiguity by parsing the utilities and dropping the conflicting earlier one.  `cva` returns a *function* from a config. If the config object is recreated on every render, the returned function is a new identity on every render. Any cons" }
+      },
+    ]
+  },
+  {
+    id = "05-059",
+    number = 59,
+    title = "Themed styled-components with TypeScript",
+    local_chapter_file = "059-themed-styled-components-with-typescript.md",
+    key_concepts = ["The tagged template, briefly", "Typing the theme", "`ThemeProvider` injects the value through context", "`createGlobalStyle` reuses the same theme", "Transient `$` props keep style-only data off the DOM", "Linting the CSS inside the templates"],
+    total_duration_seconds = 263,
+    videos = [
+      {
+        id = "UzU6QzU5OlYxOjA1OS10",
+        raw_key = "S5:C59:V1",
+        title = "Passing props to styled-components",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/passing-props-to-styled-components",
+        duration_text = "02m51s",
+        duration_seconds = 171,
+        description = "In-depth walkthrough of Themed styled-components with TypeScript, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A styled-component is a React component whose styles live in a tagged template literal right next to the component. You write CSS in the template, and the library returns a real component you render like any other:  const Button = styled.button`   padding: 8px 16px;   border-radius: 6px;   border: none;   background: #0a84ff;   color: white; `;", mental_model = "A themed component library is two systems working together. The theme plus typed templates give you styles that read from one design source and cannot silently misspell a token. The state architecture (minimal state, a clear owner, lifting, and the controlled-versus- uncontrolled choice) decides what those styles react to and keeps the values that drive them in exactly one place. Get the theme typed and the ownership right, and a tab strip, a paginator, a stepper, and a form all end up with the same predictable shape: value down, change up, styles derived from the theme.", code_example = "import styled from \"styled-components\";\n\nconst Button = styled.button`\n  padding: 8px 16px;\n  border-radius: 6px;\n  border: none;\n  background: #0a84ff;\n  color: white;\n`;\n\n// <Button>Save</Button>  ->  a <button> with those styles attached", pitfalls = "Without `ThemeProps<AppTheme>` (or a `DefaultTheme` augmentation), `props.theme` widens to `any` and `colours` (British misspelling) sails through the compiler. Type the theme once and the typo becomes an error at the call site.  Rename it `$filled`. The transient prefix keeps the prop out of the rendered attributes while still feeding the interpolation.  Keeping a `filteredList` in `useState` and updating it in an effect gives you two sources of truth that drift. Compute the filtered list from the source list and the query during render. State holds only the inputs; the output is derived.  If two siblings each keep their own copy of the \"same\" value, they will disagree the moment one updates without the other. Lift the value into their common parent and pass it down. One owner, one value." }
+      },
+      {
+        id = "UzU6QzU5OlYyOjA1OS10",
+        raw_key = "S5:C59:V2",
+        title = "Why do we need styled-components?",
+        url = "https://www.linkedin.com/learning/building-modern-projects-with-react-24955170/why-do-we-need-styled-components",
+        duration_text = "01m32s",
+        duration_seconds = 92,
+        description = "In-depth walkthrough of Themed styled-components with TypeScript, examining real-world production implementations, rendering performance, and TypeScript contracts.",
+        category_tag = "Building Modern Projects with React",
+        references = [
+          { label = "Tailwind CSS Official Documentation", url = "https://tailwindcss.com/docs/utility-first", description = "Utility-first CSS framework for rapid UI development." },
+          { label = "Tailwind CSS: Responsive Design", url = "https://tailwindcss.com/docs/responsive-design", description = "Mobile-first breakpoint modifiers (sm, md, lg, xl, 2xl)." },
+        ],
+        notes = { definition = "A styled-component is a React component whose styles live in a tagged template literal right next to the component. You write CSS in the template, and the library returns a real component you render like any other:  const Button = styled.button`   padding: 8px 16px;   border-radius: 6px;   border: none;   background: #0a84ff;   color: white; `;", mental_model = "A themed component library is two systems working together. The theme plus typed templates give you styles that read from one design source and cannot silently misspell a token. The state architecture (minimal state, a clear owner, lifting, and the controlled-versus- uncontrolled choice) decides what those styles react to and keeps the values that drive them in exactly one place. Get the theme typed and the ownership right, and a tab strip, a paginator, a stepper, and a form all end up with the same predictable shape: value down, change up, styles derived from the theme.", code_example = "import styled from \"styled-components\";\n\nconst Button = styled.button`\n  padding: 8px 16px;\n  border-radius: 6px;\n  border: none;\n  background: #0a84ff;\n  color: white;\n`;\n\n// <Button>Save</Button>  ->  a <button> with those styles attached", pitfalls = "Without `ThemeProps<AppTheme>` (or a `DefaultTheme` augmentation), `props.theme` widens to `any` and `colours` (British misspelling) sails through the compiler. Type the theme once and the typo becomes an error at the call site.  Rename it `$filled`. The transient prefix keeps the prop out of the rendered attributes while still feeding the interpolation.  Keeping a `filteredList` in `useState` and updating it in an effect gives you two sources of truth that drift. Compute the filtered list from the source list and the query during render. State holds only the inputs; the output is derived.  If two siblings each keep their own copy of the \"same\" value, they will disagree the moment one updates without the other. Lift the value into their common parent and pass it down. One owner, one value." }
+      },
+    ]
+  },
+]
++++
+
+This section covers **Modern Styling: Tailwind CSS & Material UI** (Part 3: UI Systems & Server Communication), featuring **118 curated LinkedIn Learning video lessons**, comprehensive pop-up chapter study notes with **Ask AI**, and official React documentation references across all 59 core chapters.

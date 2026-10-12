@@ -1,0 +1,3190 @@
+{
+  "totalDecks": 398,
+  "totalCards": 1564,
+  "decks": [
+    {
+      "deckId": "ch-00-001",
+      "title": "§00-001: Environment Setup: Vite, TypeScript, and Tooling",
+      "chapterId": "00-001",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-001.json"
+    },
+    {
+      "deckId": "ch-00-002",
+      "title": "§00-002: Warm-up: Vite Command Reference and Import Resolver",
+      "chapterId": "00-002",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-002.json"
+    },
+    {
+      "deckId": "ch-00-003",
+      "title": "§00-003: Prediction: One Missing Prefix, Three Different Failures",
+      "chapterId": "00-003",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-003.json"
+    },
+    {
+      "deckId": "ch-00-004",
+      "title": "§00-004: Static Asset URL Import",
+      "chapterId": "00-004",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-004.json"
+    },
+    {
+      "deckId": "ch-00-005",
+      "title": "§00-005: Prediction: Six Questions About One Small Vite Project",
+      "chapterId": "00-005",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-005.json"
+    },
+    {
+      "deckId": "ch-00-006",
+      "title": "§00-006: Implement From Scratch: An Admin Dashboard's `vite.config.ts`",
+      "chapterId": "00-006",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-006.json"
+    },
+    {
+      "deckId": "ch-00-007",
+      "title": "§00-007: Compile-Time Global Constants",
+      "chapterId": "00-007",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-007.json"
+    },
+    {
+      "deckId": "ch-00-008",
+      "title": "§00-008: Implement From Scratch: A Self-Assembling Widget Dashboard",
+      "chapterId": "00-008",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-008.json"
+    },
+    {
+      "deckId": "ch-00-009",
+      "title": "§00-009: Real World: A Teammate-Friendly Docs Preview Server",
+      "chapterId": "00-009",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-009.json"
+    },
+    {
+      "deckId": "ch-00-010",
+      "title": "§00-010: Vite Env Variables and Modes (`import.meta.env`)",
+      "chapterId": "00-010",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-010.json"
+    },
+    {
+      "deckId": "ch-00-011",
+      "title": "§00-011: Real World: An Environment-Aware Status Banner",
+      "chapterId": "00-011",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-011.json"
+    },
+    {
+      "deckId": "ch-00-012",
+      "title": "§00-012: Now With TypeScript: Typed Dev-Server Performance Tuning",
+      "chapterId": "00-012",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-012.json"
+    },
+    {
+      "deckId": "ch-00-013",
+      "title": "§00-013: Vite Modern Web Constraints",
+      "chapterId": "00-013",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-013.json"
+    },
+    {
+      "deckId": "ch-00-014",
+      "title": "§00-014: Now With TypeScript: A Build Target for a Cohort Nobody Noticed",
+      "chapterId": "00-014",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-014.json"
+    },
+    {
+      "deckId": "ch-00-015",
+      "title": "§00-015: Warm-up: Vite CLI, Build Layout, and Compile-Time Facts",
+      "chapterId": "00-015",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-015.json"
+    },
+    {
+      "deckId": "ch-00-016",
+      "title": "§00-016: Vite Root, Base, Mode, and Input Options",
+      "chapterId": "00-016",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-016.json"
+    },
+    {
+      "deckId": "ch-00-017",
+      "title": "§00-017: Stretch: A Campaign Microsite That Works Everywhere Except Where It Ships",
+      "chapterId": "00-017",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-017.json"
+    },
+    {
+      "deckId": "ch-00-018",
+      "title": "§00-018: Now With TypeScript: A CI Smoke Test That Actually Boots Vite",
+      "chapterId": "00-018",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-018.json"
+    },
+    {
+      "deckId": "ch-00-019",
+      "title": "§00-019: Library Mode (`build.lib`)",
+      "chapterId": "00-019",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-019.json"
+    },
+    {
+      "deckId": "ch-00-020",
+      "title": "§00-020: Now With TypeScript: One Config, Three Outputs",
+      "chapterId": "00-020",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-020.json"
+    },
+    {
+      "deckId": "ch-00-021",
+      "title": "§00-021: Warm-up: Seven Small Rules Behind Vite's Tooling Surface",
+      "chapterId": "00-021",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-021.json"
+    },
+    {
+      "deckId": "ch-00-022",
+      "title": "§00-022: HMR Fallback to Full Reload",
+      "chapterId": "00-022",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-022.json"
+    },
+    {
+      "deckId": "ch-00-023",
+      "title": "§00-023: Warm-up: The HMR Decision Surface, Without a Running Vite",
+      "chapterId": "00-023",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-023.json"
+    },
+    {
+      "deckId": "ch-00-024",
+      "title": "§00-024: Fix It: Acme's Glossary Plugin",
+      "chapterId": "00-024",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-024.json"
+    },
+    {
+      "deckId": "ch-00-025",
+      "title": "§00-025: Virtual Modules (`virtual:` convention)",
+      "chapterId": "00-025",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-025.json"
+    },
+    {
+      "deckId": "ch-00-026",
+      "title": "§00-026: Refactor: One Plugin Factory, Not Three",
+      "chapterId": "00-026",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-026.json"
+    },
+    {
+      "deckId": "ch-00-027",
+      "title": "§00-027: Real World: An SSR Preview Server for Acme's Docs Site",
+      "chapterId": "00-027",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-027.json"
+    },
+    {
+      "deckId": "ch-00-028",
+      "title": "§00-028: Vite Middleware Mode",
+      "chapterId": "00-028",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-028.json"
+    },
+    {
+      "deckId": "ch-00-029",
+      "title": "§00-029: Real World: Two Broken Debug Endpoints on Acme's Preview Server",
+      "chapterId": "00-029",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-029.json"
+    },
+    {
+      "deckId": "ch-00-030",
+      "title": "§00-030: Stretch: Give Acme's Preview Server a Third Circuit",
+      "chapterId": "00-030",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-030.json"
+    },
+    {
+      "deckId": "ch-00-031",
+      "title": "§00-031: Vite ModuleRunner",
+      "chapterId": "00-031",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-031.json"
+    },
+    {
+      "deckId": "ch-00-032",
+      "title": "§00-032: Refactor: Acme's Edge Preview Simulator",
+      "chapterId": "00-032",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-032.json"
+    },
+    {
+      "deckId": "ch-00-033",
+      "title": "§00-033: Real World: Shipping Acme's SSR Preview Server's First Production Build",
+      "chapterId": "00-033",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-033.json"
+    },
+    {
+      "deckId": "ch-00-034",
+      "title": "§00-034: tsconfig.json",
+      "chapterId": "00-034",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-034.json"
+    },
+    {
+      "deckId": "ch-00-035",
+      "title": "§00-035: Real World: Fix Acme's Type-Check, Layering, and CI",
+      "chapterId": "00-035",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-035.json"
+    },
+    {
+      "deckId": "ch-00-036",
+      "title": "§00-036: Stretch: A Typed, Reusable Icon Wrapper",
+      "chapterId": "00-036",
+      "sectionId": "section-00",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-00-036.json"
+    },
+    {
+      "deckId": "ch-01-001",
+      "title": "§01-001: Components and Props",
+      "chapterId": "01-001",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-001.json"
+    },
+    {
+      "deckId": "ch-01-002",
+      "title": "§01-002: Implement From Scratch: `StatusBadge`",
+      "chapterId": "01-002",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-002.json"
+    },
+    {
+      "deckId": "ch-01-003",
+      "title": "§01-003: Real World: Refactor `ProfilePage` Into a Proper Component Tree",
+      "chapterId": "01-003",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-003.json"
+    },
+    {
+      "deckId": "ch-01-004",
+      "title": "§01-004: JSX and Rendering",
+      "chapterId": "01-004",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-004.json"
+    },
+    {
+      "deckId": "ch-01-005",
+      "title": "§01-005: Real World: Book Review Spotlight Card",
+      "chapterId": "01-005",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-005.json"
+    },
+    {
+      "deckId": "ch-01-006",
+      "title": "§01-006: Now With TypeScript: Reusable `ReadToggle`",
+      "chapterId": "01-006",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-006.json"
+    },
+    {
+      "deckId": "ch-01-007",
+      "title": "§01-007: Pagination Query Parameters",
+      "chapterId": "01-007",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-007.json"
+    },
+    {
+      "deckId": "ch-01-008",
+      "title": "§01-008: Now With TypeScript: Typing `buildPaginationMeta` and `PaginatedList`",
+      "chapterId": "01-008",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-008.json"
+    },
+    {
+      "deckId": "ch-01-009",
+      "title": "§01-009: Warm-Up: Two Small Components, Four Quick Facts",
+      "chapterId": "01-009",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-009.json"
+    },
+    {
+      "deckId": "ch-01-010",
+      "title": "§01-010: React Major Version Policy",
+      "chapterId": "01-010",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-010.json"
+    },
+    {
+      "deckId": "ch-01-011",
+      "title": "§01-011: Warm-Up: Version Facts, State Facts, One Small Component",
+      "chapterId": "01-011",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-011.json"
+    },
+    {
+      "deckId": "ch-01-012",
+      "title": "§01-012: Prediction: A Root Component That Does Everything",
+      "chapterId": "01-012",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-012.json"
+    },
+    {
+      "deckId": "ch-01-013",
+      "title": "§01-013: React Event Handlers",
+      "chapterId": "01-013",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-013.json"
+    },
+    {
+      "deckId": "ch-01-014",
+      "title": "§01-014: Problem 005.1: Predict Event Timing",
+      "chapterId": "01-014",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-014.json"
+    },
+    {
+      "deckId": "ch-01-015",
+      "title": "§01-015: Problem 005.2: Build an Intent-Based Action Panel",
+      "chapterId": "01-015",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-015.json"
+    },
+    {
+      "deckId": "ch-01-016",
+      "title": "§01-016: Domain-first data model planning",
+      "chapterId": "01-016",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-016.json"
+    },
+    {
+      "deckId": "ch-01-017",
+      "title": "§01-017: Implement From Scratch: model the ideas board, then render it",
+      "chapterId": "01-017",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-017.json"
+    },
+    {
+      "deckId": "ch-01-018",
+      "title": "§01-018: Real-World: plan a feature slice around the model",
+      "chapterId": "01-018",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-018.json"
+    },
+    {
+      "deckId": "ch-01-019",
+      "title": "§01-019: Headless UI: behavior without a forced visual design",
+      "chapterId": "01-019",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-019.json"
+    },
+    {
+      "deckId": "ch-01-020",
+      "title": "§01-020: Problem 007.1: Build a headless-style product action menu",
+      "chapterId": "01-020",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-020.json"
+    },
+    {
+      "deckId": "ch-01-021",
+      "title": "§01-021: Problem 007.2: A strictly typed headless transcript disclosure",
+      "chapterId": "01-021",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-021.json"
+    },
+    {
+      "deckId": "ch-01-022",
+      "title": "§01-022: React Canary Release Channel",
+      "chapterId": "01-022",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-022.json"
+    },
+    {
+      "deckId": "ch-01-023",
+      "title": "§01-023: Now With TypeScript: A Release-Channel Field Guide, Strictly Typed",
+      "chapterId": "01-023",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-023.json"
+    },
+    {
+      "deckId": "ch-01-024",
+      "title": "§01-024: Warm-Up: Lists, Lookups, Clean Props, and Well-Formed Components",
+      "chapterId": "01-024",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-024.json"
+    },
+    {
+      "deckId": "ch-01-025",
+      "title": "§01-025: The Plan for React 18",
+      "chapterId": "01-025",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-025.json"
+    },
+    {
+      "deckId": "ch-01-026",
+      "title": "§01-026: Now With TypeScript: Encoding the React 18 Plan, Strictly Typed",
+      "chapterId": "01-026",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-026.json"
+    },
+    {
+      "deckId": "ch-01-027",
+      "title": "§01-027: Warm-Up: A Portal-Mounted Flash With a Discriminated Action",
+      "chapterId": "01-027",
+      "sectionId": "section-01",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-01-027.json"
+    },
+    {
+      "deckId": "ch-02-001",
+      "title": "§02-001: 001. Built-in React APIs",
+      "chapterId": "02-001",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-001.json"
+    },
+    {
+      "deckId": "ch-02-002",
+      "title": "§02-002: Problem 001.1. Predict the built-in API behaviour",
+      "chapterId": "02-002",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-002.json"
+    },
+    {
+      "deckId": "ch-02-003",
+      "title": "§02-003: Problem 001.2. Implement a small app using the built-in APIs",
+      "chapterId": "02-003",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-003.json"
+    },
+    {
+      "deckId": "ch-02-004",
+      "title": "§02-004: Conditional Rendering and Lists",
+      "chapterId": "02-004",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-004.json"
+    },
+    {
+      "deckId": "ch-02-005",
+      "title": "§02-005: Implement a filterable task list",
+      "chapterId": "02-005",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-005.json"
+    },
+    {
+      "deckId": "ch-02-006",
+      "title": "§02-006: Real-world problem: an asynchronous notifications list",
+      "chapterId": "02-006",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-006.json"
+    },
+    {
+      "deckId": "ch-02-007",
+      "title": "§02-007: preconnect and the resource-hint APIs",
+      "chapterId": "02-007",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-007.json"
+    },
+    {
+      "deckId": "ch-02-008",
+      "title": "§02-008: Real-world problem: a CDN-backed image carousel",
+      "chapterId": "02-008",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-008.json"
+    },
+    {
+      "deckId": "ch-02-009",
+      "title": "§02-009: Now with TypeScript: a strictly-typed resource loader",
+      "chapterId": "02-009",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-009.json"
+    },
+    {
+      "deckId": "ch-02-010",
+      "title": "§02-010: 004. State with useState",
+      "chapterId": "02-010",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-010.json"
+    },
+    {
+      "deckId": "ch-02-011",
+      "title": "§02-011: 004.1 Now with TypeScript: a tabbed panel with strict types",
+      "chapterId": "02-011",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-011.json"
+    },
+    {
+      "deckId": "ch-02-012",
+      "title": "§02-012: 004.2 Warm-up: a checkbox with a strict prop contract",
+      "chapterId": "02-012",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-012.json"
+    },
+    {
+      "deckId": "ch-02-013",
+      "title": "§02-013: 005. useMemo Hook",
+      "chapterId": "02-013",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-013.json"
+    },
+    {
+      "deckId": "ch-02-014",
+      "title": "§02-014: Build a search-and-sort product list with useMemo",
+      "chapterId": "02-014",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-014.json"
+    },
+    {
+      "deckId": "ch-02-015",
+      "title": "§02-015: Modernize a legacy form widget",
+      "chapterId": "02-015",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-015.json"
+    },
+    {
+      "deckId": "ch-02-016",
+      "title": "§02-016: 006. memo and shallow prop comparison",
+      "chapterId": "02-016",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-016.json"
+    },
+    {
+      "deckId": "ch-02-017",
+      "title": "§02-017: Stretch: build a React 19 performance lab",
+      "chapterId": "02-017",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-017.json"
+    },
+    {
+      "deckId": "ch-02-018",
+      "title": "§02-018: Now with TypeScript: strict notification feed",
+      "chapterId": "02-018",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-018.json"
+    },
+    {
+      "deckId": "ch-02-019",
+      "title": "§02-019: useActionState and React 19 form actions",
+      "chapterId": "02-019",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-019.json"
+    },
+    {
+      "deckId": "ch-02-020",
+      "title": "§02-020: Now-with-TypeScript problem: a strict-typed signup form",
+      "chapterId": "02-020",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-020.json"
+    },
+    {
+      "deckId": "ch-02-021",
+      "title": "§02-021: Warm-up problem: a controlled username input with portal-rendered tooltip",
+      "chapterId": "02-021",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-021.json"
+    },
+    {
+      "deckId": "ch-02-022",
+      "title": "§02-022: Currying event-handler factories and custom hooks",
+      "chapterId": "02-022",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-022.json"
+    },
+    {
+      "deckId": "ch-02-023",
+      "title": "§02-023: Real-world problem: a tag picker with a curried handler factory, a custom hook, and Headless UI",
+      "chapterId": "02-023",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-023.json"
+    },
+    {
+      "deckId": "ch-02-024",
+      "title": "§02-024: Now-with-TypeScript problem: a user-invite dialog with Headless UI primitives",
+      "chapterId": "02-024",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-024.json"
+    },
+    {
+      "deckId": "ch-02-025",
+      "title": "§02-025: 009. Intro to re-renders and state-driven cascade",
+      "chapterId": "02-025",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-025.json"
+    },
+    {
+      "deckId": "ch-02-026",
+      "title": "§02-026: 009.1 Now with TypeScript: a typed comment thread",
+      "chapterId": "02-026",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-026.json"
+    },
+    {
+      "deckId": "ch-02-027",
+      "title": "§02-027: 009.2 Warm-up: trace a re-render chain",
+      "chapterId": "02-027",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-027.json"
+    },
+    {
+      "deckId": "ch-02-028",
+      "title": "§02-028: 010. Elements vs components, and children as props",
+      "chapterId": "02-028",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-028.json"
+    },
+    {
+      "deckId": "ch-02-029",
+      "title": "§02-029: 010.1 Warm-up: a wrapper that owns the scroll, a body that owns the children",
+      "chapterId": "02-029",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-029.json"
+    },
+    {
+      "deckId": "ch-02-030",
+      "title": "§02-030: 010.2 Prediction: snapshot, batching, and the sort-direction toggle",
+      "chapterId": "02-030",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-030.json"
+    },
+    {
+      "deckId": "ch-02-031",
+      "title": "§02-031: 011. `useContext`",
+      "chapterId": "02-031",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-031.json"
+    },
+    {
+      "deckId": "ch-02-032",
+      "title": "§02-032: 011.1 Refactor: one provider, fewer prop tunnels",
+      "chapterId": "02-032",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-032.json"
+    },
+    {
+      "deckId": "ch-02-033",
+      "title": "§02-033: 011.2 Real-world slice: a persistent reading queue",
+      "chapterId": "02-033",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-033.json"
+    },
+    {
+      "deckId": "ch-02-034",
+      "title": "§02-034: 012. useDebouncedCallback (from use-debounce)",
+      "chapterId": "02-034",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-034.json"
+    },
+    {
+      "deckId": "ch-02-035",
+      "title": "§02-035: Refactor: replace a hand-rolled debounce with useDebouncedCallback",
+      "chapterId": "02-035",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-035.json"
+    },
+    {
+      "deckId": "ch-02-036",
+      "title": "§02-036: Real-world: build a debounced command palette with transitions",
+      "chapterId": "02-036",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-036.json"
+    },
+    {
+      "deckId": "ch-02-037",
+      "title": "§02-037: useCallback and useRef for stable callbacks",
+      "chapterId": "02-037",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-037.json"
+    },
+    {
+      "deckId": "ch-02-038",
+      "title": "§02-038: Real-world exercise: a stable command palette",
+      "chapterId": "02-038",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-038.json"
+    },
+    {
+      "deckId": "ch-02-039",
+      "title": "§02-039: Stretch exercise: measured external status panel",
+      "chapterId": "02-039",
+      "sectionId": "section-02",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-02-039.json"
+    },
+    {
+      "deckId": "ch-03-001",
+      "title": "§03-001: 001. Global State with Zustand",
+      "chapterId": "03-001",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-001.json"
+    },
+    {
+      "deckId": "ch-03-002",
+      "title": "§03-002: Now With TypeScript: A Fully-Typed Todo Store",
+      "chapterId": "03-002",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-002.json"
+    },
+    {
+      "deckId": "ch-03-003",
+      "title": "§03-003: Warm-Up: The Auxiliary Utilities",
+      "chapterId": "03-003",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-003.json"
+    },
+    {
+      "deckId": "ch-03-004",
+      "title": "§03-004: 002. Shallow equality function",
+      "chapterId": "03-004",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-004.json"
+    },
+    {
+      "deckId": "ch-03-005",
+      "title": "§03-005: Warm-up: shallow in isolation, then inside a selector",
+      "chapterId": "03-005",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-005.json"
+    },
+    {
+      "deckId": "ch-03-006",
+      "title": "§03-006: Fix-broken: stop the infinite re-render",
+      "chapterId": "03-006",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-006.json"
+    },
+    {
+      "deckId": "ch-03-007",
+      "title": "§03-007: 003. `createWithEqualityFn` API reference",
+      "chapterId": "03-007",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-007.json"
+    },
+    {
+      "deckId": "ch-03-008",
+      "title": "§03-008: Fix-broken: a dashboard store that half-works",
+      "chapterId": "03-008",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-008.json"
+    },
+    {
+      "deckId": "ch-03-009",
+      "title": "§03-009: Implement from scratch: a per-route session store with devtools",
+      "chapterId": "03-009",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-009.json"
+    },
+    {
+      "deckId": "ch-03-010",
+      "title": "§03-010: 004. Tic-tac-toe walkthrough with Zustand",
+      "chapterId": "03-010",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-010.json"
+    },
+    {
+      "deckId": "ch-03-011",
+      "title": "§03-011: Implement from scratch: a shareable, persistent tic-tac-toe",
+      "chapterId": "03-011",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-011.json"
+    },
+    {
+      "deckId": "ch-03-012",
+      "title": "§03-012: Refactor: from one store to a composed architecture",
+      "chapterId": "03-012",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-012.json"
+    },
+    {
+      "deckId": "ch-03-013",
+      "title": "§03-013: 005. `useStoreWithEqualityFn` hook API reference",
+      "chapterId": "03-013",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-013.json"
+    },
+    {
+      "deckId": "ch-03-014",
+      "title": "§03-014: 005.1 Refactor a scoped Zustand dashboard",
+      "chapterId": "03-014",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-014.json"
+    },
+    {
+      "deckId": "ch-03-015",
+      "title": "§03-015: 005.2 Build a request-safe task workspace",
+      "chapterId": "03-015",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-015.json"
+    },
+    {
+      "deckId": "ch-03-016",
+      "title": "§03-016: 006. Higher-kinded mutators for typed middleware",
+      "chapterId": "03-016",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-016.json"
+    },
+    {
+      "deckId": "ch-03-017",
+      "title": "§03-017: 006.1 Type a per-request store with custom middleware",
+      "chapterId": "03-017",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-017.json"
+    },
+    {
+      "deckId": "ch-03-018",
+      "title": "§03-018: 006.2 Reducer-driven Zustand vs prop drilling",
+      "chapterId": "03-018",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-018.json"
+    },
+    {
+      "deckId": "ch-03-019",
+      "title": "§03-019: 007. useReducer with Discriminated Unions",
+      "chapterId": "03-019",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-019.json"
+    },
+    {
+      "deckId": "ch-03-020",
+      "title": "§03-020: 007.1 Build a typed Redux-style store with Provider and middleware",
+      "chapterId": "03-020",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-020.json"
+    },
+    {
+      "deckId": "ch-03-021",
+      "title": "§03-021: 007.2 Typed `useReducer` + Context with lazy initialisation",
+      "chapterId": "03-021",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-021.json"
+    },
+    {
+      "deckId": "ch-03-022",
+      "title": "§03-022: 007.3 `useImmerReducer` form with discriminated actions",
+      "chapterId": "03-022",
+      "sectionId": "section-03",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-03-022.json"
+    },
+    {
+      "deckId": "ch-04-001",
+      "title": "§04-001: Forms with React Hook Form",
+      "chapterId": "04-001",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-001.json"
+    },
+    {
+      "deckId": "ch-04-002",
+      "title": "§04-002: Now with TypeScript: a profile form with RHF",
+      "chapterId": "04-002",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-002.json"
+    },
+    {
+      "deckId": "ch-04-003",
+      "title": "§04-003: Warm-up: discover RHF's field APIs",
+      "chapterId": "04-003",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-003.json"
+    },
+    {
+      "deckId": "ch-04-004",
+      "title": "§04-004: Validation with Zod",
+      "chapterId": "04-004",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-004.json"
+    },
+    {
+      "deckId": "ch-04-005",
+      "title": "§04-005: 002.1: Build a contact form with Zod, RHF, and `useFieldArray`",
+      "chapterId": "04-005",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-005.json"
+    },
+    {
+      "deckId": "ch-04-006",
+      "title": "§04-006: 002.2: Diagnose and repair a Zod validation pipeline",
+      "chapterId": "04-006",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-006.json"
+    },
+    {
+      "deckId": "ch-04-007",
+      "title": "§04-007: Zod Schema Types",
+      "chapterId": "04-007",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-007.json"
+    },
+    {
+      "deckId": "ch-04-008",
+      "title": "§04-008: 003.1: Build a Settings schema for a multi-locale form",
+      "chapterId": "04-008",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-008.json"
+    },
+    {
+      "deckId": "ch-04-009",
+      "title": "§04-009: 003.2: Tighten the audit pipeline with discriminated unions and a typed error tree",
+      "chapterId": "04-009",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-009.json"
+    },
+    {
+      "deckId": "ch-04-010",
+      "title": "§04-010: Zod `reportInput: true` (Including Input Data in `ZodIssue`s)",
+      "chapterId": "04-010",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-010.json"
+    },
+    {
+      "deckId": "ch-04-011",
+      "title": "§04-011: 004.1: Build a strictly-typed debug helper with `reportInput: true`",
+      "chapterId": "04-011",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-011.json"
+    },
+    {
+      "deckId": "ch-04-012",
+      "title": "§04-012: 004.2: A Zod Mini contact-card schema with locale, transformations, and a registry",
+      "chapterId": "04-012",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-012.json"
+    },
+    {
+      "deckId": "ch-04-013",
+      "title": "§04-013: Zod to JSON Schema conversion",
+      "chapterId": "04-013",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-013.json"
+    },
+    {
+      "deckId": "ch-04-014",
+      "title": "§04-014: Refactor a Zod contract exporter",
+      "chapterId": "04-014",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-014.json"
+    },
+    {
+      "deckId": "ch-04-015",
+      "title": "§04-015: Build a structured-output contract inspector",
+      "chapterId": "04-015",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-015.json"
+    },
+    {
+      "deckId": "ch-04-016",
+      "title": "§04-016: Zod checks and `.check()`",
+      "chapterId": "04-016",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-016.json"
+    },
+    {
+      "deckId": "ch-04-017",
+      "title": "§04-017: 006.1: Build a registration form with a Zod Mini alternative and a unified `error` map",
+      "chapterId": "04-017",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-017.json"
+    },
+    {
+      "deckId": "ch-04-018",
+      "title": "§04-018: 006.2: Build a tree-shakable validation library on top of Zod Core",
+      "chapterId": "04-018",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-018.json"
+    },
+    {
+      "deckId": "ch-04-019",
+      "title": "§04-019: Zod Mini check API",
+      "chapterId": "04-019",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-019.json"
+    },
+    {
+      "deckId": "ch-04-020",
+      "title": "§04-020: Problem 007.1: Build a Zod Mini signup form with refinements, async checks, and error customization",
+      "chapterId": "04-020",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-020.json"
+    },
+    {
+      "deckId": "ch-04-021",
+      "title": "§04-021: Problem 007.2: A codec-driven date field with a generic schema-aware helper (strict TypeScript redo)",
+      "chapterId": "04-021",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-021.json"
+    },
+    {
+      "deckId": "ch-04-022",
+      "title": "§04-022: Recursive and mutually recursive schemas",
+      "chapterId": "04-022",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-022.json"
+    },
+    {
+      "deckId": "ch-04-023",
+      "title": "§04-023: Problem 008.1: Build a typed comment-thread schema with recursion, codecs, branding, and JSON Schema export",
+      "chapterId": "04-023",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-023.json"
+    },
+    {
+      "deckId": "ch-04-024",
+      "title": "§04-024: Problem 008.2: Build a typed settings form with env validation, RHF, and JSON Schema export",
+      "chapterId": "04-024",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-024.json"
+    },
+    {
+      "deckId": "ch-04-025",
+      "title": "§04-025: Reusable component API design",
+      "chapterId": "04-025",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-025.json"
+    },
+    {
+      "deckId": "ch-04-026",
+      "title": "§04-026: 009.1: Build a reusable `FormField` with a Zod-validated env",
+      "chapterId": "04-026",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-026.json"
+    },
+    {
+      "deckId": "ch-04-027",
+      "title": "§04-027: 009.2: Diagnose and repair a reusable form component",
+      "chapterId": "04-027",
+      "sectionId": "section-04",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-04-027.json"
+    },
+    {
+      "deckId": "ch-05-001",
+      "title": "§05-001: 'What's new in Tailwind CSS?' on YouTube",
+      "chapterId": "05-001",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-001.json"
+    },
+    {
+      "deckId": "ch-05-002",
+      "title": "§05-002: 001.1: Hero banner + article roundup (backdrop filters, backface, prose, block-size, backgrounds)",
+      "chapterId": "05-002",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-002.json"
+    },
+    {
+      "deckId": "ch-05-003",
+      "title": "§05-003: 001.2: Toolbar + responsive card row roundup (text colour, flex container & item utilities)",
+      "chapterId": "05-003",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-003.json"
+    },
+    {
+      "deckId": "ch-05-004",
+      "title": "§05-004: float",
+      "chapterId": "05-004",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-004.json"
+    },
+    {
+      "deckId": "ch-05-005",
+      "title": "§05-005: 002.1: Article layout roundup (float, typography, gap, grid tracks, grid-column)",
+      "chapterId": "05-005",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-005.json"
+    },
+    {
+      "deckId": "ch-05-006",
+      "title": "§05-006: 002.2: Dashboard grid and cross-framework install guide",
+      "chapterId": "05-006",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-006.json"
+    },
+    {
+      "deckId": "ch-05-007",
+      "title": "§05-007: Install Tailwind CSS in Meteor (PostCSS plugin)",
+      "chapterId": "05-007",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-007.json"
+    },
+    {
+      "deckId": "ch-05-008",
+      "title": "§05-008: 003.1: Install + utility roundup (line-clamp, max-w-*, min-h-*, min-w-*, object-fit)",
+      "chapterId": "05-008",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-008.json"
+    },
+    {
+      "deckId": "ch-05-009",
+      "title": "§05-009: 003.2: Comment composer (opacity, outline-*, overflow, padding, position, resize)",
+      "chapterId": "05-009",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-009.json"
+    },
+    {
+      "deckId": "ch-05-010",
+      "title": "§05-010: scale utilities",
+      "chapterId": "05-010",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-010.json"
+    },
+    {
+      "deckId": "ch-05-011",
+      "title": "§05-011: 004.1: Hover-pop CTA strip with smooth-anchor docs page (scale, scroll-behavior, skew, stroke)",
+      "chapterId": "05-011",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-011.json"
+    },
+    {
+      "deckId": "ch-05-012",
+      "title": "§05-012: 004.2: Strict-typed feature gallery (IntelliSense + linting + v2/v3 features + v1.9 extended scales)",
+      "chapterId": "05-012",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-012.json"
+    },
+    {
+      "deckId": "ch-05-013",
+      "title": "§05-013: Tailwind height (h-*) and size-* utilities",
+      "chapterId": "05-013",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-013.json"
+    },
+    {
+      "deckId": "ch-05-014",
+      "title": "§05-014: 005.1: Strict-typed sizing + line-height + list + mask gallery",
+      "chapterId": "05-014",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-014.json"
+    },
+    {
+      "deckId": "ch-05-015",
+      "title": "§05-015: 005.2: Mask origin + Tailwind tooling roundup",
+      "chapterId": "05-015",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-015.json"
+    },
+    {
+      "deckId": "ch-05-016",
+      "title": "§05-016: Tailwind UI Ecommerce Kit, and the Utility-First Model Behind It",
+      "chapterId": "05-016",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-016.json"
+    },
+    {
+      "deckId": "ch-05-017",
+      "title": "§05-017: 006.1 — Warm-up: build a product card from utilities",
+      "chapterId": "05-017",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-017.json"
+    },
+    {
+      "deckId": "ch-05-018",
+      "title": "§05-018: 006.2 — Prediction: read the typography and interactivity utilities",
+      "chapterId": "05-018",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-018.json"
+    },
+    {
+      "deckId": "ch-05-019",
+      "title": "§05-019: Tailwind CSS: Utility-First Styling",
+      "chapterId": "05-019",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-019.json"
+    },
+    {
+      "deckId": "ch-05-020",
+      "title": "§05-020: 007.1: Prediction - read a styled card built from the utility-first families",
+      "chapterId": "05-020",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-020.json"
+    },
+    {
+      "deckId": "ch-05-021",
+      "title": "§05-021: 007.2: Implement from scratch - build a styled product detail panel",
+      "chapterId": "05-021",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-021.json"
+    },
+    {
+      "deckId": "ch-05-022",
+      "title": "§05-022: Tailwind color palette",
+      "chapterId": "05-022",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-022.json"
+    },
+    {
+      "deckId": "ch-05-023",
+      "title": "§05-023: 008.1: Build a color-palette explorer and a themed notification card",
+      "chapterId": "05-023",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-023.json"
+    },
+    {
+      "deckId": "ch-05-024",
+      "title": "§05-024: 008.2: A responsive storefront grid with layout-stable badges and accessible focus",
+      "chapterId": "05-024",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-024.json"
+    },
+    {
+      "deckId": "ch-05-025",
+      "title": "§05-025: Width and height utilities",
+      "chapterId": "05-025",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-025.json"
+    },
+    {
+      "deckId": "ch-05-026",
+      "title": "§05-026: 009.1: Editorial layout with sizing, drains, breaks, and a gradient header",
+      "chapterId": "05-026",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-026.json"
+    },
+    {
+      "deckId": "ch-05-027",
+      "title": "§05-027: 009.2: Strict-typed typography grid with font features, font stretch, and grid auto flow",
+      "chapterId": "05-027",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-027.json"
+    },
+    {
+      "deckId": "ch-05-028",
+      "title": "§05-028: Install Tailwind with Qwik",
+      "chapterId": "05-028",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-028.json"
+    },
+    {
+      "deckId": "ch-05-029",
+      "title": "§05-029: 010.1: Model the Tailwind install matrix with strict types",
+      "chapterId": "05-029",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-029.json"
+    },
+    {
+      "deckId": "ch-05-030",
+      "title": "§05-030: 010.2: Angular + Astro install cards and a logical-sizing utility gallery",
+      "chapterId": "05-030",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-030.json"
+    },
+    {
+      "deckId": "ch-05-031",
+      "title": "§05-031: Overscroll-behavior utilities",
+      "chapterId": "05-031",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-031.json"
+    },
+    {
+      "deckId": "ch-05-032",
+      "title": "§05-032: 011.1: A scroll-locked docs layout with a prose article",
+      "chapterId": "05-032",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-032.json"
+    },
+    {
+      "deckId": "ch-05-033",
+      "title": "§05-033: 011.2: Prediction: read the snap carousel and rotated buttons",
+      "chapterId": "05-033",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-033.json"
+    },
+    {
+      "deckId": "ch-05-034",
+      "title": "§05-034: Scrollbar-color utilities",
+      "chapterId": "05-034",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-034.json"
+    },
+    {
+      "deckId": "ch-05-035",
+      "title": "§05-035: 012.1: Prediction - read a custom-scrollbar panel",
+      "chapterId": "05-035",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-035.json"
+    },
+    {
+      "deckId": "ch-05-036",
+      "title": "§05-036: 012.2: Implement from scratch - a bordered, filtered scroll card",
+      "chapterId": "05-036",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-036.json"
+    },
+    {
+      "deckId": "ch-05-037",
+      "title": "§05-037: Tailwind CSS Just-In-Time engine",
+      "chapterId": "05-037",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-037.json"
+    },
+    {
+      "deckId": "ch-05-038",
+      "title": "§05-038: 013.1: Implement from scratch - build a snap-paged photo gallery",
+      "chapterId": "05-038",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-038.json"
+    },
+    {
+      "deckId": "ch-05-039",
+      "title": "§05-039: 013.2: Real-world - themable product card with v3.2 through v4.3 features",
+      "chapterId": "05-039",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-039.json"
+    },
+    {
+      "deckId": "ch-05-040",
+      "title": "§05-040: Tailwind focus indicator and outline utilities",
+      "chapterId": "05-040",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-040.json"
+    },
+    {
+      "deckId": "ch-05-041",
+      "title": "§05-041: 014.1: Real-world - an accessible, keyboard-first metrics dashboard card",
+      "chapterId": "05-041",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-041.json"
+    },
+    {
+      "deckId": "ch-05-042",
+      "title": "§05-042: 014.2: Now with TypeScript - a strict-typed toast stack with logical positioning",
+      "chapterId": "05-042",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-042.json"
+    },
+    {
+      "deckId": "ch-05-043",
+      "title": "§05-043: Tailwind theme variables",
+      "chapterId": "05-043",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-043.json"
+    },
+    {
+      "deckId": "ch-05-044",
+      "title": "§05-044: 015.1: Strict-typed theme-driven carousel",
+      "chapterId": "05-044",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-044.json"
+    },
+    {
+      "deckId": "ch-05-045",
+      "title": "§05-045: 015.2: Warm-up: `@theme` brand colours, `touch-pan-x`, `will-change-transform`",
+      "chapterId": "05-045",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-045.json"
+    },
+    {
+      "deckId": "ch-05-046",
+      "title": "§05-046: Custom color tokens",
+      "chapterId": "05-046",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-046.json"
+    },
+    {
+      "deckId": "ch-05-047",
+      "title": "§05-047: 016.1: Warm-up: brand-themed product card with `--color-*` tokens",
+      "chapterId": "05-047",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-047.json"
+    },
+    {
+      "deckId": "ch-05-048",
+      "title": "§05-048: 016.2: Prediction: rendered output of a card with slash-opacity conflicts and a missing token",
+      "chapterId": "05-048",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-048.json"
+    },
+    {
+      "deckId": "ch-05-049",
+      "title": "§05-049: Outline styles",
+      "chapterId": "05-049",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-049.json"
+    },
+    {
+      "deckId": "ch-05-050",
+      "title": "§05-050: 017.1: Prediction - an icon-and-label list with a custom focus ring",
+      "chapterId": "05-050",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-050.json"
+    },
+    {
+      "deckId": "ch-05-051",
+      "title": "§05-051: 017.2: Implement from scratch - a permissions matrix with hideable roles",
+      "chapterId": "05-051",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-051.json"
+    },
+    {
+      "deckId": "ch-05-052",
+      "title": "§05-052: stroke",
+      "chapterId": "05-052",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-052.json"
+    },
+    {
+      "deckId": "ch-05-053",
+      "title": "§05-053: 018.1: Build an interactive SVG icon button with stroke-current, state utilities, and a hover transform",
+      "chapterId": "05-053",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-053.json"
+    },
+    {
+      "deckId": "ch-05-054",
+      "title": "§05-054: 018.2: A feature-list with arbitrary markers, transforms, dark mode, and pseudo-elements",
+      "chapterId": "05-054",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-054.json"
+    },
+    {
+      "deckId": "ch-05-055",
+      "title": "§05-055: Generated content from attributes",
+      "chapterId": "05-055",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-055.json"
+    },
+    {
+      "deckId": "ch-05-056",
+      "title": "§05-056: 019.1: Real-world - a feature pricing card with attribute-driven badges",
+      "chapterId": "05-056",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-056.json"
+    },
+    {
+      "deckId": "ch-05-057",
+      "title": "§05-057: 019.2: Now with TypeScript - a typed data grid with attribute-driven row counts",
+      "chapterId": "05-057",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-057.json"
+    },
+    {
+      "deckId": "ch-05-058",
+      "title": "§05-058: Combined width and height sizing",
+      "chapterId": "05-058",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-058.json"
+    },
+    {
+      "deckId": "ch-05-059",
+      "title": "§05-059: 020.1: Strict-typed sizing primitives with `size-*`, `min-*`, and `max-*`",
+      "chapterId": "05-059",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-059.json"
+    },
+    {
+      "deckId": "ch-05-060",
+      "title": "§05-060: 020.2: Media reference card with aspect-ratio, object-fit, overflow, and truncate",
+      "chapterId": "05-060",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-060.json"
+    },
+    {
+      "deckId": "ch-05-061",
+      "title": "§05-061: Background color, image, size, and position utilities",
+      "chapterId": "05-061",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-061.json"
+    },
+    {
+      "deckId": "ch-05-062",
+      "title": "§05-062: 021.1: Warm-up: a hero band with gradient overlay, background image, gradient text, and a sized form",
+      "chapterId": "05-062",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-062.json"
+    },
+    {
+      "deckId": "ch-05-063",
+      "title": "§05-063: 021.2: Fix-broken: the marquee that scrolls poorly on iOS and the heading that overflows on narrow viewports",
+      "chapterId": "05-063",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-063.json"
+    },
+    {
+      "deckId": "ch-05-064",
+      "title": "§05-064: CSS transition utilities",
+      "chapterId": "05-064",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-064.json"
+    },
+    {
+      "deckId": "ch-05-065",
+      "title": "§05-065: 022.1: Diagnose and repair a transition / transform / 3D-flip component",
+      "chapterId": "05-065",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-065.json"
+    },
+    {
+      "deckId": "ch-05-066",
+      "title": "§05-066: 022.2: Build a perspective hero card with rotate-y flip, animation utility, and forced-colors fallback",
+      "chapterId": "05-066",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-066.json"
+    },
+    {
+      "deckId": "ch-05-067",
+      "title": "§05-067: Z-axis translation",
+      "chapterId": "05-067",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-067.json"
+    },
+    {
+      "deckId": "ch-05-068",
+      "title": "§05-068: 023.1: Build a Z-lifted feature carousel with container queries and a blended hero",
+      "chapterId": "05-068",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-068.json"
+    },
+    {
+      "deckId": "ch-05-069",
+      "title": "§05-069: 023.2: Refactor an inline-styled grid into a Tailwind v4 utility-driven layout",
+      "chapterId": "05-069",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-069.json"
+    },
+    {
+      "deckId": "ch-05-070",
+      "title": "§05-070: Tailwind justify-items utilities",
+      "chapterId": "05-070",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-070.json"
+    },
+    {
+      "deckId": "ch-05-071",
+      "title": "§05-071: 024.1: Profile dashboard with grid alignment, ordered cards, and item overrides",
+      "chapterId": "05-071",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-071.json"
+    },
+    {
+      "deckId": "ch-05-072",
+      "title": "§05-072: 024.2: Strict-typed news layout with grid tracks, columns, and break-after",
+      "chapterId": "05-072",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-072.json"
+    },
+    {
+      "deckId": "ch-05-073",
+      "title": "§05-073: Break before an element",
+      "chapterId": "05-073",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-073.json"
+    },
+    {
+      "deckId": "ch-05-074",
+      "title": "§05-074: 025.1: Magazine-style article with column flow and stat grid",
+      "chapterId": "05-074",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-074.json"
+    },
+    {
+      "deckId": "ch-05-075",
+      "title": "§05-075: 025.2: Accessible settings panel with five state-variant families",
+      "chapterId": "05-075",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-075.json"
+    },
+    {
+      "deckId": "ch-05-076",
+      "title": "§05-076: Outline width",
+      "chapterId": "05-076",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-076.json"
+    },
+    {
+      "deckId": "ch-05-077",
+      "title": "§05-077: 026.1: Warm-up: the outline, ring, scale, and text-decoration knobs",
+      "chapterId": "05-077",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-077.json"
+    },
+    {
+      "deckId": "ch-05-078",
+      "title": "§05-078: 026.2: Prediction: read the animated transition chain",
+      "chapterId": "05-078",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-078.json"
+    },
+    {
+      "deckId": "ch-05-079",
+      "title": "§05-079: Transition property utilities",
+      "chapterId": "05-079",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-079.json"
+    },
+    {
+      "deckId": "ch-05-080",
+      "title": "§05-080: 027.1: Now with TypeScript: a fully accessible interactive card with custom easing, dark mode, focus-visible affordance, motion variants, and forced-colors fallback",
+      "chapterId": "05-080",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-080.json"
+    },
+    {
+      "deckId": "ch-05-081",
+      "title": "§05-081: 027.2: Warm-up: a motion-aware icon row that uses `select-none`, `-scale-x-100`, `before:content-[...]`, `motion-reduce:`, and `touch-manipulation`",
+      "chapterId": "05-081",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-081.json"
+    },
+    {
+      "deckId": "ch-05-082",
+      "title": "§05-082: perspective-origin",
+      "chapterId": "05-082",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-082.json"
+    },
+    {
+      "deckId": "ch-05-083",
+      "title": "§05-083: Problem 028.1: Build a typed perspective gallery",
+      "chapterId": "05-083",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-083.json"
+    },
+    {
+      "deckId": "ch-05-084",
+      "title": "§05-084: Problem 028.2: Repair the theme and carousel boundary",
+      "chapterId": "05-084",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-084.json"
+    },
+    {
+      "deckId": "ch-05-085",
+      "title": "§05-085: Shadows, opacity, blending, and isolation",
+      "chapterId": "05-085",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-085.json"
+    },
+    {
+      "deckId": "ch-05-086",
+      "title": "§05-086: 029.1: Diagnose and repair a card with broken shadows, opacity, blend, and mask",
+      "chapterId": "05-086",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-086.json"
+    },
+    {
+      "deckId": "ch-05-087",
+      "title": "§05-087: 029.2: Build an editorial card with prose, colored text shadow, blend, filter, and blur",
+      "chapterId": "05-087",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-087.json"
+    },
+    {
+      "deckId": "ch-05-088",
+      "title": "§05-088: Tailwind contrast filter",
+      "chapterId": "05-088",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-088.json"
+    },
+    {
+      "deckId": "ch-05-089",
+      "title": "§05-089: 030.1: Strict-typed filter card gallery",
+      "chapterId": "05-089",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-089.json"
+    },
+    {
+      "deckId": "ch-05-090",
+      "title": "§05-090: 030.2: Backdrop filter overlay palette + drop-shadow card",
+      "chapterId": "05-090",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-090.json"
+    },
+    {
+      "deckId": "ch-05-091",
+      "title": "§05-091: Global important mode and utility conflicts",
+      "chapterId": "05-091",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-091.json"
+    },
+    {
+      "deckId": "ch-05-092",
+      "title": "§05-092: 031.1: Refactoring an `!important` cascade into `@layer` and `@apply`",
+      "chapterId": "05-092",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-092.json"
+    },
+    {
+      "deckId": "ch-05-093",
+      "title": "§05-093: 031.2: Real-world cascade: dynamic viewport sizing, peer label, container queries, and `--alpha()`",
+      "chapterId": "05-093",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-093.json"
+    },
+    {
+      "deckId": "ch-05-094",
+      "title": "§05-094: Tailwind v4 default style changes",
+      "chapterId": "05-094",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-094.json"
+    },
+    {
+      "deckId": "ch-05-095",
+      "title": "§05-095: 032.1: v3-to-v4 migration audit for a marketing CTA card",
+      "chapterId": "05-095",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-095.json"
+    },
+    {
+      "deckId": "ch-05-096",
+      "title": "§05-096: 032.2: Design-system package with CSS-first config, `@utility`, runtime values",
+      "chapterId": "05-096",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-096.json"
+    },
+    {
+      "deckId": "ch-05-097",
+      "title": "§05-097: Component Libraries: Material UI",
+      "chapterId": "05-097",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-097.json"
+    },
+    {
+      "deckId": "ch-05-098",
+      "title": "§05-098: 033.1 Build a two-system settings card",
+      "chapterId": "05-098",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-098.json"
+    },
+    {
+      "deckId": "ch-05-099",
+      "title": "§05-099: 033.2 Type a MUI preferences panel",
+      "chapterId": "05-099",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-099.json"
+    },
+    {
+      "deckId": "ch-05-100",
+      "title": "§05-100: Chip (and friends: List, ImageList, ButtonGroup, Alert, Avatar, Backdrop, Badge, Button, Card, Checkbox, Container)",
+      "chapterId": "05-100",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-100.json"
+    },
+    {
+      "deckId": "ch-05-101",
+      "title": "§05-101: 034.1: Notifications panel roundup (Chip, List, Avatar, Alert, Checkbox, ButtonGroup)",
+      "chapterId": "05-101",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-101.json"
+    },
+    {
+      "deckId": "ch-05-102",
+      "title": "§05-102: 034.2: Profile card roundup (Backdrop, Badge, Button, Card, Checkbox, Chip, Container), strict TypeScript",
+      "chapterId": "05-102",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-102.json"
+    },
+    {
+      "deckId": "ch-05-103",
+      "title": "§05-103: Material UI deep imports for bundle size",
+      "chapterId": "05-103",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-103.json"
+    },
+    {
+      "deckId": "ch-05-104",
+      "title": "§05-104: 035.1: Product release hub roundup (deep imports, Divider, Fab, Link, Paper, Icons)",
+      "chapterId": "05-104",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-104.json"
+    },
+    {
+      "deckId": "ch-05-105",
+      "title": "§05-105: 035.2: Tag picker roundup (Progress, RadioGroup, Skeleton, ThemeProvider, Autocomplete renderValue), warm-up",
+      "chapterId": "05-105",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-105.json"
+    },
+    {
+      "deckId": "ch-05-106",
+      "title": "§05-106: MUI Avatar (and friends: Backdrop, Badge, BottomNavigation, Box, ButtonGroup, Fab, plus a density aside)",
+      "chapterId": "05-106",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-106.json"
+    },
+    {
+      "deckId": "ch-05-107",
+      "title": "§05-107: 036.1: Profile preview panel (Avatar, AvatarGroup, Backdrop, Badge, BottomNavigation, Box)",
+      "chapterId": "05-107",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-107.json"
+    },
+    {
+      "deckId": "ch-05-108",
+      "title": "§05-108: 036.2: Prediction: read the theme-density toolbar (Fab, ButtonGroup)",
+      "chapterId": "05-108",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-108.json"
+    },
+    {
+      "deckId": "ch-05-109",
+      "title": "§05-109: MUI Free Templates (and friends: Learning Resources, Color System, Progress, Skeleton, Vision, React Templates, Related Projects, Roadmap, Showcase, Sponsorship, Support)",
+      "chapterId": "05-109",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-109.json"
+    },
+    {
+      "deckId": "ch-05-110",
+      "title": "§05-110: 037.1: Predict the rendered output of a Skeleton + Progress loading panel",
+      "chapterId": "05-110",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-110.json"
+    },
+    {
+      "deckId": "ch-05-111",
+      "title": "§05-111: 037.2: Build a template-style report card with Skeleton, CircularProgress, and a custom theme",
+      "chapterId": "05-111",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-111.json"
+    },
+    {
+      "deckId": "ch-05-112",
+      "title": "§05-112: MUI Supported Components (and friends: Supported Platforms, System Props to sx, TextareaAutosize, Timeline, Versioning, Changelog Policy, Long-Term Support, Paper, Card, Alert, Progress, Radio)",
+      "chapterId": "05-112",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-112.json"
+    },
+    {
+      "deckId": "ch-05-113",
+      "title": "§05-113: 038.1: Build a \"release notes\" editor with TextareaAutosize and a Timeline",
+      "chapterId": "05-113",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-113.json"
+    },
+    {
+      "deckId": "ch-05-114",
+      "title": "§05-114: 038.2: Build a \"subscription survey\" card with Paper, Card parts, Alert, RadioGroup, and LinearProgress",
+      "chapterId": "05-114",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-114.json"
+    },
+    {
+      "deckId": "ch-05-115",
+      "title": "§05-115: Material UI component catalog",
+      "chapterId": "05-115",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-115.json"
+    },
+    {
+      "deckId": "ch-05-116",
+      "title": "§05-116: Problem 039.1: Build a release settings panel",
+      "chapterId": "05-116",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-116.json"
+    },
+    {
+      "deckId": "ch-05-117",
+      "title": "§05-117: Problem 039.2: Type a team access template",
+      "chapterId": "05-117",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-117.json"
+    },
+    {
+      "deckId": "ch-05-118",
+      "title": "§05-118: Material UI Color System",
+      "chapterId": "05-118",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-118.json"
+    },
+    {
+      "deckId": "ch-05-119",
+      "title": "§05-119: 040.1: ThemeShowcase, strictly typed (createTheme, palette, CssBaseline, Paper, Skeleton, locale, theme.spacing)",
+      "chapterId": "05-119",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-119.json"
+    },
+    {
+      "deckId": "ch-05-120",
+      "title": "§05-120: 040.2: UserCard conventions (boolean/enum props, slots, theme.zIndex, tree-shaking)",
+      "chapterId": "05-120",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-120.json"
+    },
+    {
+      "deckId": "ch-05-121",
+      "title": "§05-121: Keyboard navigation and focus (and friends: Accordion, AppBar, BottomNavigation, Breakpoints, ClickAwayListener, CSS Theme Variables, Customization strategy ladder, Figma design kit, Grid v2, Icon APIs, ImageList, MUI Lab, List, Masonry)",
+      "chapterId": "05-121",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-121.json"
+    },
+    {
+      "deckId": "ch-05-122",
+      "title": "§05-122: 041.1: Responsive product page (Accordion, AppBar, BottomNavigation, Breakpoints, ClickAwayListener, CSS Theme Variables, Customization strategy ladder)",
+      "chapterId": "05-122",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-122.json"
+    },
+    {
+      "deckId": "ch-05-123",
+      "title": "§05-123: 041.2: Prediction: read the mixed-source component (Figma kit names, Grid v2, Icon APIs, ImageList, MUI Lab, List, Masonry)",
+      "chapterId": "05-123",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-123.json"
+    },
+    {
+      "deckId": "ch-05-124",
+      "title": "§05-124: Material UI MCP documentation server (and friends: native color, Pagination, Portal, Rating, Select, Shape tokens, Slider, Snackbar, slots and slotProps, StyledEngineProvider, style interoperability, Figma Sync, theme palette)",
+      "chapterId": "05-124",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-124.json"
+    },
+    {
+      "deckId": "ch-05-125",
+      "title": "§05-125: 042.1: Prediction: read the settings panel (native color theme, Select, Slider, Rating, Pagination, Portal, shape tokens)",
+      "chapterId": "05-125",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-125.json"
+    },
+    {
+      "deckId": "ch-05-126",
+      "title": "§05-126: 042.2: Build a themed notification surface with Snackbar, slots/slotProps, a StyledEngineProvider boundary, and a custom palette",
+      "chapterId": "05-126",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-126.json"
+    },
+    {
+      "deckId": "ch-05-127",
+      "title": "§05-127: Material UI theme provider",
+      "chapterId": "05-127",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-127.json"
+    },
+    {
+      "deckId": "ch-05-128",
+      "title": "§05-128: 043.1: ThemedDialog, built from a spec (ThemeProvider, createTheme, THEME_ID, components, transitions, motion)",
+      "chapterId": "05-128",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-128.json"
+    },
+    {
+      "deckId": "ch-05-129",
+      "title": "§05-129: 043.2: Migrating an MUI v4 confirmation modal to v6 (breaking changes, v5 style rewrite, v7 layer, Modal as primitive, bundle)",
+      "chapterId": "05-129",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-129.json"
+    },
+    {
+      "deckId": "ch-05-130",
+      "title": "§05-130: Dialog",
+      "chapterId": "05-130",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-130.json"
+    },
+    {
+      "deckId": "ch-05-131",
+      "title": "§05-131: 044.1: Settings shell with Popover menu, Dialog, Drawer nav, Accordion body, Alert confirmation (Dialog, Drawer, Popover, modal scroll lock, Accordion, Alert)",
+      "chapterId": "05-131",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-131.json"
+    },
+    {
+      "deckId": "ch-05-132",
+      "title": "§05-132: 044.2: Typed responsive dashboard with MUI's API design rules (AppBar, breakpoints, useMediaQuery, Grid, Typography, slots/slotProps, theme)",
+      "chapterId": "05-132",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-132.json"
+    },
+    {
+      "deckId": "ch-05-133",
+      "title": "§05-133: MUI Bundle Size Optimization",
+      "chapterId": "05-133",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-133.json"
+    },
+    {
+      "deckId": "ch-05-134",
+      "title": "§05-134: 045.1: Project dashboard roundup (ButtonGroup, Card, CircularProgress, ClickAwayListener, theme.containerQueries, CssBaseline), strict TypeScript",
+      "chapterId": "05-134",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-134.json"
+    },
+    {
+      "deckId": "ch-05-135",
+      "title": "§05-135: 045.2: Quick action dock roundup (CssBaseline, Fab, Icon, SvgIcon, createSvgIcon, Dialog, Snackbar), reference roundup",
+      "chapterId": "05-135",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-135.json"
+    },
+    {
+      "deckId": "ch-05-136",
+      "title": "§05-136: MUI Material Icons Package (and a roundup: ImageList, layout primitives, LinearProgress, List, Rating, SpeedDial, NumberField, localization, RTL, the `classes` and `slots` APIs, and the MCP server)",
+      "chapterId": "05-136",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-136.json"
+    },
+    {
+      "deckId": "ch-05-137",
+      "title": "§05-137: 046.1: Media dashboard (icons, ImageList, Box/Stack/Grid, LinearProgress, List, localized theme)",
+      "chapterId": "05-137",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-137.json"
+    },
+    {
+      "deckId": "ch-05-138",
+      "title": "§05-138: 046.2: Prediction: read the RTL review panel (Rating, SpeedDial, NumberField, classes, slots)",
+      "chapterId": "05-138",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-138.json"
+    },
+    {
+      "deckId": "ch-05-139",
+      "title": "§05-139: MUI Stepper (and a roundup: SvgIcon and `@mui/icons-material`, `sx` and style overrides, the `Table` family, `Tabs`, `TextField` and `NumberField`, `ToggleButton`, nested themes, and the polymorphic `component` prop)",
+      "chapterId": "05-139",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-139.json"
+    },
+    {
+      "deckId": "ch-05-140",
+      "title": "§05-140: 047.1: Sign-up wizard with horizontal Stepper, custom CheckIcon StepIcon slot, error state, review Table, and peer Tabs (Stepper, StepLabel, StepIcon, SvgIcon, @mui/icons-material, sx, Table, Tabs)",
+      "chapterId": "05-140",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-140.json"
+    },
+    {
+      "deckId": "ch-05-141",
+      "title": "§05-141: 047.2: Typed checkout wizard with Stepper, TextField + ToggleButton body, nested theme, polymorphic router link, and MobileStepper fallback (TextField, NumberField, ToggleButton, nested ThemeProvider, polymorphic component prop)",
+      "chapterId": "05-141",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-141.json"
+    },
+    {
+      "deckId": "ch-05-142",
+      "title": "§05-142: Popper (and friends: Menu, Autocomplete, Tabs, Box, Stack, Paper, Icons, RTL, prop forwarding, styled engine)",
+      "chapterId": "05-142",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-142.json"
+    },
+    {
+      "deckId": "ch-05-143",
+      "title": "§05-143: 048.1: Movie search combo-box (Popper, Autocomplete, Menu, Tabs, RTL, prop forwarding, styled engine)",
+      "chapterId": "05-143",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-143.json"
+    },
+    {
+      "deckId": "ch-05-144",
+      "title": "§05-144: 048.2: Profile dashboard (Box, Paper, Stack, icons, sx), real-world",
+      "chapterId": "05-144",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-144.json"
+    },
+    {
+      "deckId": "ch-05-145",
+      "title": "§05-145: MUI Timeline component (and a roundup: theme breakpoints, `Container`, `Grid`, theme component defaults / overrides / variants, density, `defaultProps` merging, routing integration, palette tokens, `theme.spacing()`, `Stack`)",
+      "chapterId": "05-145",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-145.json"
+    },
+    {
+      "deckId": "ch-05-146",
+      "title": "§05-146: 049.1: Build a responsive audit log timeline with alternating layout, palette-coloured dots, breakpoints, and a theme override",
+      "chapterId": "05-146",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-146.json"
+    },
+    {
+      "deckId": "ch-05-147",
+      "title": "§05-147: 049.2: Strict-typed timeline with palette tokens, `theme.spacing()` row gap, polymorphic routing adapter, `mergeClassNameAndStyle`, `Stack` with `useFlexGap`, and a `Grid` panel",
+      "chapterId": "05-147",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-147.json"
+    },
+    {
+      "deckId": "ch-05-148",
+      "title": "§05-148: Material UI Grid v2 migration (and a roundup: `theme.typography` and the `Typography`/`Link` components, `theme.transitions`, reduced motion, `ImageList`, `Tooltip`, the `ClassNameGenerator` build-time hook)",
+      "chapterId": "05-148",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-148.json"
+    },
+    {
+      "deckId": "ch-05-149",
+      "title": "§05-149: 050.1: Fix-broken: the portfolio page that ships on v5 Grid syntax, skips Roboto weights, and ignores reduced motion",
+      "chapterId": "05-149",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-149.json"
+    },
+    {
+      "deckId": "ch-05-150",
+      "title": "§05-150: 050.2: Build a settings panel with Typography, Link, Tooltip, and the build-time `ClassNameGenerator`",
+      "chapterId": "05-150",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-150.json"
+    },
+    {
+      "deckId": "ch-05-151",
+      "title": "§05-151: Composing dependent theme options (and a roundup: container queries, themable components, forced-colors, `Autocomplete`, CSS cascade layers, pickers migration, RTL, Tailwind v4 integration, v4-to-v9 upgrade path)",
+      "chapterId": "05-151",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-151.json"
+    },
+    {
+      "deckId": "ch-05-152",
+      "title": "§05-152: 051.1: Stretch: build a theme composition toolkit, themable `Stat` component, container-query dashboard tile, `Autocomplete` city picker, `enhanceHighContrast`-wrapped theme, CSS-layer-ordered MUI + Tailwind entry, and a `DesktopDatePicker` shell",
+      "chapterId": "05-152",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-152.json"
+    },
+    {
+      "deckId": "ch-05-153",
+      "title": "§05-153: 051.2: Now with TypeScript: codemod-ready upgrade plan, strict-typed RTL configuration, Tailwind v4 CSS-layer bridge, and `bun pm ls` migration diagnostics for a v4 to v9 ladder",
+      "chapterId": "05-153",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-153.json"
+    },
+    {
+      "deckId": "ch-05-154",
+      "title": "§05-154: Material UI with Tailwind CSS v4 (CSS layers) (and a roundup: `Menubar` from Base UI, `NumberField` from Base UI, JSS to Emotion migration, MUI API design, `Autocomplete`, v9 upgrade highlights, `ClassNameGenerator`, MUI composition, composition with `component` and `slots`, themed custom components, MUI CSS cascade layers, MUI CSS theme variables, MUI `Drawer` variants, MUI extensible themes)",
+      "chapterId": "05-154",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-154.json"
+    },
+    {
+      "deckId": "ch-05-155",
+      "title": "§05-155: 052.1: Refactor a v4 JSS `Menubar`-ish app to MUI v5 + Tailwind v4 with CSS layers, Base UI `NumberField` and `Menubar` recipes, an `Autocomplete` rewrite, the v9 `nativeButton` prop, and a `ClassNameGenerator` brand prefix",
+      "chapterId": "05-155",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-155.json"
+    },
+    {
+      "deckId": "ch-05-156",
+      "title": "§05-156: 052.2: Build a layered, themed, composition-rich MUI + Tailwind app with `Drawer` variants, CSS theme variables, and an extensible branded theme",
+      "chapterId": "05-156",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-156.json"
+    },
+    {
+      "deckId": "ch-05-157",
+      "title": "§05-157: Masonry (and friends: Modal, Drawer, Popover, Menu, Popper, Menubar, Native Color, Pigment CSS, Styled Engine)",
+      "chapterId": "05-157",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-157.json"
+    },
+    {
+      "deckId": "ch-05-158",
+      "title": "§05-158: 053.1: Masonry feature gallery with a settings Drawer",
+      "chapterId": "05-158",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-158.json"
+    },
+    {
+      "deckId": "ch-05-159",
+      "title": "§05-159: 053.2: Custom anchored notification palette (stretch)",
+      "chapterId": "05-159",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-159.json"
+    },
+    {
+      "deckId": "ch-05-160",
+      "title": "§05-160: MUI Table Composition",
+      "chapterId": "05-160",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-160.json"
+    },
+    {
+      "deckId": "ch-05-161",
+      "title": "§05-161: 054.1: Repair the operations table workspace",
+      "chapterId": "05-161",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-161.json"
+    },
+    {
+      "deckId": "ch-05-162",
+      "title": "§05-162: 054.2: Type the operations theme end to end",
+      "chapterId": "05-162",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-162.json"
+    },
+    {
+      "deckId": "ch-05-163",
+      "title": "§05-163: Merging branded and application themes",
+      "chapterId": "05-163",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-163.json"
+    },
+    {
+      "deckId": "ch-05-164",
+      "title": "§05-164: 055.1: Now-with-TypeScript: build a branded theme, a navigation shell, a confirmation dialog, a click-away menu, and a backdrop-driven loading state",
+      "chapterId": "05-164",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-164.json"
+    },
+    {
+      "deckId": "ch-05-165",
+      "title": "§05-165: 055.2: Warm-up: a settings drawer, a pagination row, a select menu, a slider preview, a snackbar confirmation, and a checkout stepper",
+      "chapterId": "05-165",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-165.json"
+    },
+    {
+      "deckId": "ch-05-166",
+      "title": "§05-166: MUI Tabs and Tab components",
+      "chapterId": "05-166",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-166.json"
+    },
+    {
+      "deckId": "ch-05-167",
+      "title": "§05-167: 056.1: Build an accessible feedback workspace",
+      "chapterId": "05-167",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-167.json"
+    },
+    {
+      "deckId": "ch-05-168",
+      "title": "§05-168: 056.2: Repair a migration-era review setup",
+      "chapterId": "05-168",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-168.json"
+    },
+    {
+      "deckId": "ch-05-169",
+      "title": "§05-169: Pigment CSS (zero-runtime CSS-in-JS) (and a roundup: the `css` / `globalCss` / `keyframes` / `styled` APIs, `variants` vs runtime callbacks, `withPigment` plugins for Vite and Next.js, `extendTheme` and `vars`, the `sx` prop, polymorphic MUI wrappers, MUI v7 and v9 upgrade steps, `prettier-plugin-tailwindcss` sorting and collapse, `@tailwindui/react` `<Transition>`, shadcn UI's copy-paste model, CSS Modules, component extraction, the component tree, `createRoot`, and one-way data flow)",
+      "chapterId": "05-169",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-169.json"
+    },
+    {
+      "deckId": "ch-05-170",
+      "title": "§05-170: 057.1: Fix-broken: a Pigment CSS portfolio that ships without the stylesheet, uses the runtime theme hook, applies an enumerable variant through a callback, and skips the upgrade's `package exports` field",
+      "chapterId": "05-170",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-170.json"
+    },
+    {
+      "deckId": "ch-05-171",
+      "title": "§05-171: 057.2: Implement-from-scratch: a single-page \"Notification toaster\" with shadcn-style components, CSS Modules, a `<Transition>`-style enter/leave primitive, and a single `createRoot` mount",
+      "chapterId": "05-171",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-171.json"
+    },
+    {
+      "deckId": "ch-05-172",
+      "title": "§05-172: Shadcn UI + Base UI + Tailwind component library (and a roundup: `class-variance-authority` + `tailwind-merge`, Base UI as the headless primitive layer, the Spotlight personal site template, stable keys for list identity, styled-components as a tagged-template CSS-in-JS option, `.attrs()` for non-class props, extending styled components, `babel-plugin-styled-components`, the Pocket template's Framer Motion animations, Thinking-in-React decomposition, Vite CSS Modules, `@tailwindplus/elements` custom elements, and the Wieruch component-tree / `createRoot` / one-way data flow foundations)",
+      "chapterId": "05-172",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-172.json"
+    },
+    {
+      "deckId": "ch-05-173",
+      "title": "§05-173: 058.1: Implement-from-scratch: a Spotlight-style personal site with a Shadcn-style component library, stable keys, a styled-components decorative avatar with `.attrs()` translate, and a Framer Motion fade-in wrapper",
+      "chapterId": "05-173",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-173.json"
+    },
+    {
+      "deckId": "ch-05-174",
+      "title": "§05-174: 058.2: Refactor: collapse a duplicated `PrimaryButton`, migrate hardcoded Tailwind colour classes to `cva` variants, replace `key={index}` with stable identifiers, move an inline-styled block to a CSS Module, and enable `babel-plugin-styled-components` so the class names are readable in DevTools",
+      "chapterId": "05-174",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-174.json"
+    },
+    {
+      "deckId": "ch-05-175",
+      "title": "§05-175: Themed styled-components with TypeScript",
+      "chapterId": "05-175",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-175.json"
+    },
+    {
+      "deckId": "ch-05-176",
+      "title": "§05-176: 059.1: Refactor a swatch picker to a typed theme and one owned source of truth",
+      "chapterId": "05-176",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-176.json"
+    },
+    {
+      "deckId": "ch-05-177",
+      "title": "§05-177: 059.2: An account-setup wizard with a stepper, tabs, a form, and animated panels",
+      "chapterId": "05-177",
+      "sectionId": "section-05",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-05-177.json"
+    },
+    {
+      "deckId": "ch-06-001",
+      "title": "§06-001: Axios cross-runtime features",
+      "chapterId": "06-001",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-001.json"
+    },
+    {
+      "deckId": "ch-06-002",
+      "title": "§06-002: Now with TypeScript: a typed API client module",
+      "chapterId": "06-002",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-002.json"
+    },
+    {
+      "deckId": "ch-06-003",
+      "title": "§06-003: Warm-up: a search box that cancels its own stale requests",
+      "chapterId": "06-003",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-003.json"
+    },
+    {
+      "deckId": "ch-06-004",
+      "title": "§06-004: HTTP with Axios",
+      "chapterId": "06-004",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-004.json"
+    },
+    {
+      "deckId": "ch-06-005",
+      "title": "§06-005: Stretch: a fully-typed axios client wrapper",
+      "chapterId": "06-005",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-005.json"
+    },
+    {
+      "deckId": "ch-06-006",
+      "title": "§06-006: Now with TypeScript: a typed axios `useFetch` hook",
+      "chapterId": "06-006",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-006.json"
+    },
+    {
+      "deckId": "ch-06-007",
+      "title": "§06-007: Capture upload and download progress",
+      "chapterId": "06-007",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-007.json"
+    },
+    {
+      "deckId": "ch-06-008",
+      "title": "§06-008: Predict the progress: what does the bar actually show?",
+      "chapterId": "06-008",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-008.json"
+    },
+    {
+      "deckId": "ch-06-009",
+      "title": "§06-009: Implement from scratch: an upload client with a real progress bar",
+      "chapterId": "06-009",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-009.json"
+    },
+    {
+      "deckId": "ch-06-010",
+      "title": "§06-010: Axios with TypeScript",
+      "chapterId": "06-010",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-010.json"
+    },
+    {
+      "deckId": "ch-06-011",
+      "title": "§06-011: Warm-up: a typed client for a session-cookie API",
+      "chapterId": "06-011",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-011.json"
+    },
+    {
+      "deckId": "ch-06-012",
+      "title": "§06-012: Fix the broken upload client",
+      "chapterId": "06-012",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-012.json"
+    },
+    {
+      "deckId": "ch-06-013",
+      "title": "§06-013: Axios adapters and interceptors",
+      "chapterId": "06-013",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-013.json"
+    },
+    {
+      "deckId": "ch-06-014",
+      "title": "§06-014: Fix the broken API client",
+      "chapterId": "06-014",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-014.json"
+    },
+    {
+      "deckId": "ch-06-015",
+      "title": "§06-015: Implement from scratch: an adapter-aware upload client",
+      "chapterId": "06-015",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-015.json"
+    },
+    {
+      "deckId": "ch-06-016",
+      "title": "§06-016: Configure Axios XSRF headers",
+      "chapterId": "06-016",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-016.json"
+    },
+    {
+      "deckId": "ch-06-017",
+      "title": "§06-017: Implement from scratch: a configured axios instance with CSRF, multipart, retry, and error redaction",
+      "chapterId": "06-017",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-017.json"
+    },
+    {
+      "deckId": "ch-06-018",
+      "title": "§06-018: Refactor: a queue-based refresh interceptor, retry-with-backoff, and a TanStack Query entry point",
+      "chapterId": "06-018",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-018.json"
+    },
+    {
+      "deckId": "ch-06-019",
+      "title": "§06-019: Queries and query result states",
+      "chapterId": "06-019",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-019.json"
+    },
+    {
+      "deckId": "ch-06-020",
+      "title": "§06-020: Refactor a manual fetcher to TanStack Query",
+      "chapterId": "06-020",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-020.json"
+    },
+    {
+      "deckId": "ch-06-021",
+      "title": "§06-021: Build a Posts screen with TanStack Query",
+      "chapterId": "06-021",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-021.json"
+    },
+    {
+      "deckId": "ch-06-022",
+      "title": "§06-022: Generic fetch wrapper module",
+      "chapterId": "06-022",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-022.json"
+    },
+    {
+      "deckId": "ch-06-023",
+      "title": "§06-023: Predict: what does the typed wrapper + TanStack Query render?",
+      "chapterId": "06-023",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-023.json"
+    },
+    {
+      "deckId": "ch-06-024",
+      "title": "§06-024: Implement from scratch: a typed fetch wrapper powering TanStack Query end to end",
+      "chapterId": "06-024",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-024.json"
+    },
+    {
+      "deckId": "ch-06-025",
+      "title": "§06-025: Invalidating queries after mutations",
+      "chapterId": "06-025",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-025.json"
+    },
+    {
+      "deckId": "ch-06-026",
+      "title": "§06-026: Implement a typed invalidation flow",
+      "chapterId": "06-026",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-026.json"
+    },
+    {
+      "deckId": "ch-06-027",
+      "title": "§06-027: Redo the typed invalidation flow with strict module-augmented types",
+      "chapterId": "06-027",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-027.json"
+    },
+    {
+      "deckId": "ch-06-028",
+      "title": "§06-028: Server State with TanStack Query",
+      "chapterId": "06-028",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-028.json"
+    },
+    {
+      "deckId": "ch-06-029",
+      "title": "§06-029: Build a typed TanStack Query blog (list, detail, delete)",
+      "chapterId": "06-029",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-029.json"
+    },
+    {
+      "deckId": "ch-06-030",
+      "title": "§06-030: Tighten the blog with typed retries, global mutation hooks, and cross-tab sync",
+      "chapterId": "06-030",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-030.json"
+    },
+    {
+      "deckId": "ch-06-031",
+      "title": "§06-031: `mutate` (`void`) vs `mutateAsync` (`Promise`) function signatures",
+      "chapterId": "06-031",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-031.json"
+    },
+    {
+      "deckId": "ch-06-032",
+      "title": "§06-032: Problem 011.1: Type a shared activity-save mutation",
+      "chapterId": "06-032",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-032.json"
+    },
+    {
+      "deckId": "ch-06-033",
+      "title": "§06-033: Problem 011.2: Warm up with a connected project overview",
+      "chapterId": "06-033",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-033.json"
+    },
+    {
+      "deckId": "ch-06-034",
+      "title": "§06-034: Placeholder query data",
+      "chapterId": "06-034",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-034.json"
+    },
+    {
+      "deckId": "ch-06-035",
+      "title": "§06-035: Build a paginated post list with `placeholderData: keepPreviousData`",
+      "chapterId": "06-035",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-035.json"
+    },
+    {
+      "deckId": "ch-06-036",
+      "title": "§06-036: Predict the render flow: detail screen with placeholder preview",
+      "chapterId": "06-036",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-036.json"
+    },
+    {
+      "deckId": "ch-06-037",
+      "title": "§06-037: `queryOptions`",
+      "chapterId": "06-037",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-037.json"
+    },
+    {
+      "deckId": "ch-06-038",
+      "title": "§06-038: Predict: shared `queryOptions` across `useQuery` and `prefetchQuery`",
+      "chapterId": "06-038",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-038.json"
+    },
+    {
+      "deckId": "ch-06-039",
+      "title": "§06-039: Build a `queries/posts.ts` with `queryOptions`, freshness, retry, and typed invalidation",
+      "chapterId": "06-039",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-039.json"
+    },
+    {
+      "deckId": "ch-06-040",
+      "title": "§06-040: `useIsFetching` and the rest of TanStack Query's advanced surface",
+      "chapterId": "06-040",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-040.json"
+    },
+    {
+      "deckId": "ch-06-041",
+      "title": "§06-041: Refactor: replace the hand-rolled fetch counter with `useIsFetching`, and collapse the per-tile N parallel queries with `useQueries`",
+      "chapterId": "06-041",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-041.json"
+    },
+    {
+      "deckId": "ch-06-042",
+      "title": "§06-042: Real-world: build an infinite feed with hydration, dependent queries, and `useIsFetching` on the load-more button",
+      "chapterId": "06-042",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-042.json"
+    },
+    {
+      "deckId": "ch-06-043",
+      "title": "§06-043: Network mode and the rest of TanStack Query's advanced surface",
+      "chapterId": "06-043",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-043.json"
+    },
+    {
+      "deckId": "ch-06-044",
+      "title": "§06-044: Real-world: a connectivity-aware dashboard with `networkMode`, `useQueries` for parallel tiles, `prefetchQuery` on hover, and `AbortSignal`-forwarding fetchers",
+      "chapterId": "06-044",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-044.json"
+    },
+    {
+      "deckId": "ch-06-045",
+      "title": "§06-045: Stretch: an infinite-scroll feed driven by `useInfiniteQuery`, polled price tiles via `refetchInterval`, scoped `QueryClient` isolation, and `select`-driven render optimisation",
+      "chapterId": "06-045",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-045.json"
+    },
+    {
+      "deckId": "ch-06-046",
+      "title": "§06-046: `skipToken`, SSR hydration, persistence, streamed queries, and the Svelte adapter",
+      "chapterId": "06-046",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-046.json"
+    },
+    {
+      "deckId": "ch-06-047",
+      "title": "§06-047: Stretch: a `skipToken`-driven detail panel, an SSR `prefetchQuery` + `dehydrate` + `<HydrationBoundary />` handoff, and a `persistQueryClient` cache that survives a reload",
+      "chapterId": "06-047",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-047.json"
+    },
+    {
+      "deckId": "ch-06-048",
+      "title": "§06-048: Now with TypeScript: strict types for `streamedQuery`, `useSuspenseQuery`, and a Svelte-shaped `createQuery` factory",
+      "chapterId": "06-048",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-048.json"
+    },
+    {
+      "deckId": "ch-06-049",
+      "title": "§06-049: Synchronous storage persister",
+      "chapterId": "06-049",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-049.json"
+    },
+    {
+      "deckId": "ch-06-050",
+      "title": "§06-050: Problem 017.1: Persist an issue board with strict TypeScript",
+      "chapterId": "06-050",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-050.json"
+    },
+    {
+      "deckId": "ch-06-051",
+      "title": "§06-051: Problem 017.2: Coordinate an optimistic project board",
+      "chapterId": "06-051",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-051.json"
+    },
+    {
+      "deckId": "ch-06-052",
+      "title": "§06-052: Per-query persistence and advanced TanStack Query patterns",
+      "chapterId": "06-052",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-052.json"
+    },
+    {
+      "deckId": "ch-06-053",
+      "title": "§06-053: Problem 018.1: Choose the cache path",
+      "chapterId": "06-053",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-053.json"
+    },
+    {
+      "deckId": "ch-06-054",
+      "title": "§06-054: Problem 018.2: Repair the owner dashboard",
+      "chapterId": "06-054",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-054.json"
+    },
+    {
+      "deckId": "ch-06-055",
+      "title": "§06-055: Type-safe query disabling with `skipToken`",
+      "chapterId": "06-055",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-055.json"
+    },
+    {
+      "deckId": "ch-06-056",
+      "title": "§06-056: Fix-broken: a `skipToken` detail panel that lies, an `infiniteQueryOptions` factory in the wrong order, and a `Tag` mutation that invalidates too broadly",
+      "chapterId": "06-056",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-056.json"
+    },
+    {
+      "deckId": "ch-06-057",
+      "title": "§06-057: Implement from scratch: a dependent-query member panel with `skipToken`, a paginated `infiniteQueryOptions` factory, and a narrow mutation invalidation",
+      "chapterId": "06-057",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-057.json"
+    },
+    {
+      "deckId": "ch-06-058",
+      "title": "§06-058: createAsyncThunk for side effects (and the rest of the data-fetching surface)",
+      "chapterId": "06-058",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-058.json"
+    },
+    {
+      "deckId": "ch-06-059",
+      "title": "§06-059: Build a Redux Toolkit slice + a TanStack Query infinite list",
+      "chapterId": "06-059",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-059.json"
+    },
+    {
+      "deckId": "ch-06-060",
+      "title": "§06-060: Refactor a GraphQL client into a typed, normalized surface",
+      "chapterId": "06-060",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-060.json"
+    },
+    {
+      "deckId": "ch-06-061",
+      "title": "§06-061: TanStack Query SSR dehydration and hydration",
+      "chapterId": "06-061",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-061.json"
+    },
+    {
+      "deckId": "ch-06-062",
+      "title": "§06-062: Real-world: an SSR-prefetched dashboard, a flattened waterfall, and an imperative lookup",
+      "chapterId": "06-062",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-062.json"
+    },
+    {
+      "deckId": "ch-06-063",
+      "title": "§06-063: Stretch: migrate a v4 SSR + persistence layer to v5, and decide where the data comes from",
+      "chapterId": "06-063",
+      "sectionId": "section-06",
+      "totalCards": 4,
+      "url": "/data/flashcards/ch-06-063.json"
+    },
+    {
+      "deckId": "section-00",
+      "title": "Module §0: Environment, Vite & Modern Web Tooling",
+      "chapterId": "all",
+      "sectionId": "section-00",
+      "totalCards": 144,
+      "url": "/data/flashcards/section-00.json"
+    },
+    {
+      "deckId": "section-01",
+      "title": "Module §1: Components, Props & JSX Architecture",
+      "chapterId": "all",
+      "sectionId": "section-01",
+      "totalCards": 108,
+      "url": "/data/flashcards/section-01.json"
+    },
+    {
+      "deckId": "section-02",
+      "title": "Module §2: Core & Advanced React Hooks",
+      "chapterId": "all",
+      "sectionId": "section-02",
+      "totalCards": 156,
+      "url": "/data/flashcards/section-02.json"
+    },
+    {
+      "deckId": "section-03",
+      "title": "Module §3: Global State & Zustand Architecture",
+      "chapterId": "all",
+      "sectionId": "section-03",
+      "totalCards": 88,
+      "url": "/data/flashcards/section-03.json"
+    },
+    {
+      "deckId": "section-04",
+      "title": "Module §4: Forms & Schema Validation",
+      "chapterId": "all",
+      "sectionId": "section-04",
+      "totalCards": 108,
+      "url": "/data/flashcards/section-04.json"
+    },
+    {
+      "deckId": "section-05",
+      "title": "Module §5: Modern Styling: Tailwind CSS & Material UI",
+      "chapterId": "all",
+      "sectionId": "section-05",
+      "totalCards": 708,
+      "url": "/data/flashcards/section-05.json"
+    },
+    {
+      "deckId": "section-06",
+      "title": "Module §6: Data Fetching, Axios & TanStack Query",
+      "chapterId": "all",
+      "sectionId": "section-06",
+      "totalCards": 252,
+      "url": "/data/flashcards/section-06.json"
+    }
+  ]
+}
