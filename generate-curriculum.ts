@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { getDiagramForChapter, getDiagramForVideo } from "./scripts/diagram_matcher";
 
 const DOCS_DIR = "C:\\Users\\admin\\Downloads\\reaact-docs\\docs";
 const OUTPUT_DIR = "C:\\Users\\admin\\Downloads\\reaact-docs\\zola-reactjs";
@@ -15,6 +16,9 @@ interface VideoNotes {
   mental_model: string;
   code_example: string;
   pitfalls: string;
+  diagram_url?: string;
+  diagram_caption?: string;
+  diagram_source?: string;
 }
 
 interface VideoItem {
@@ -42,6 +46,9 @@ interface ChapterData {
     mental_model: string;
     code_example: string;
     pitfalls: string;
+    diagram_url?: string;
+    diagram_caption?: string;
+    diagram_source?: string;
   };
   videos: VideoItem[];
 }
@@ -653,6 +660,8 @@ for (const sec of SECTIONS) {
     }
     if (pitfalls.length > 2000) pitfalls = pitfalls.slice(0, 2000);
 
+    const chapDiagram = getDiagramForChapter(sec.slug, title, key_concepts);
+
     // Map videos
     const videos: VideoItem[] = [];
     const videoCount = 2; // 2 curated video lessons per chapter
@@ -667,6 +676,7 @@ for (const sec of SECTIONS) {
       const durationText = vidInfo.durationText;
       const vDurSec = vidInfo.durationSeconds;
       const references = getActualOfficialReferences(title, sec.slug);
+      const vidDiagram = getDiagramForVideo(sec.slug, title, videoTitle, vIdx, categoryTag);
 
       videos.push({
         id: vId,
@@ -682,7 +692,10 @@ for (const sec of SECTIONS) {
           definition,
           mental_model: mentalModel,
           code_example: codeExample,
-          pitfalls
+          pitfalls,
+          diagram_url: vidDiagram.diagram_url,
+          diagram_caption: vidDiagram.diagram_caption,
+          diagram_source: vidDiagram.diagram_source
         }
       });
     }
@@ -702,7 +715,10 @@ for (const sec of SECTIONS) {
         definition,
         mental_model: mentalModel,
         code_example: codeExample,
-        pitfalls
+        pitfalls,
+        diagram_url: chapDiagram.diagram_url,
+        diagram_caption: chapDiagram.diagram_caption,
+        diagram_source: chapDiagram.diagram_source
       },
       videos
     });
@@ -737,6 +753,7 @@ for (const sec of SECTIONS) {
     mdContent += `    local_chapter_file = "${ch.local_chapter_file}",\n`;
     mdContent += `    key_concepts = [${ch.key_concepts.map(k => `"${sanitizeString(k)}"`).join(", ")}],\n`;
     mdContent += `    total_duration_seconds = ${ch.total_duration_seconds},\n`;
+    mdContent += `    summary_notes = { definition = "${sanitizeString(ch.summary_notes.definition)}", mental_model = "${sanitizeString(ch.summary_notes.mental_model)}", code_example = "${sanitizeString(ch.summary_notes.code_example)}", pitfalls = "${sanitizeString(ch.summary_notes.pitfalls)}", diagram_url = "${sanitizeString(ch.summary_notes.diagram_url || "")}", diagram_caption = "${sanitizeString(ch.summary_notes.diagram_caption || "")}", diagram_source = "${sanitizeString(ch.summary_notes.diagram_source || "")}" },\n`;
     mdContent += `    videos = [\n`;
     for (const v of ch.videos) {
       mdContent += `      {\n`;
@@ -753,7 +770,7 @@ for (const sec of SECTIONS) {
         mdContent += `          { label = "${sanitizeString(ref.label)}", url = "${ref.url}", description = "${sanitizeString(ref.description)}" },\n`;
       }
       mdContent += `        ],\n`;
-      mdContent += `        notes = { definition = "${sanitizeString(v.notes.definition)}", mental_model = "${sanitizeString(v.notes.mental_model)}", code_example = "${sanitizeString(v.notes.code_example)}", pitfalls = "${sanitizeString(v.notes.pitfalls)}" }\n`;
+      mdContent += `        notes = { definition = "${sanitizeString(v.notes.definition)}", mental_model = "${sanitizeString(v.notes.mental_model)}", code_example = "${sanitizeString(v.notes.code_example)}", pitfalls = "${sanitizeString(v.notes.pitfalls)}", diagram_url = "${sanitizeString(v.notes.diagram_url || "")}", diagram_caption = "${sanitizeString(v.notes.diagram_caption || "")}", diagram_source = "${sanitizeString(v.notes.diagram_source || "")}" }\n`;
       mdContent += `      },\n`;
     }
     mdContent += `    ]\n`;

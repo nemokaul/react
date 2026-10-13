@@ -119,6 +119,20 @@
     // 5. Italic *text*
     html = html.replace(/\*([^*]+)\*/g, '<em class="italic">$1</em>');
 
+    // 5.5 Images ![alt](url)
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
+      let resolvedSrc = src.trim();
+      if (!resolvedSrc.startsWith('http://') && !resolvedSrc.startsWith('https://') && !resolvedSrc.startsWith('data:')) {
+        const baseMeta = document.querySelector('meta[name="base-url"]');
+        const b = baseMeta ? baseMeta.getAttribute('content') : '/';
+        resolvedSrc = b.replace(/\/+$/, '') + '/' + resolvedSrc.replace(/^\/+/, '');
+      }
+      return `<figure class="my-3 flex flex-col items-center rounded-lg border border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa] dark:bg-[#0d1117] p-2.5 overflow-hidden">
+        <img src="${resolvedSrc}" alt="${alt}" class="max-h-80 w-auto rounded object-contain bg-white dark:bg-[#161b22] border border-[#d0d7de]/50 dark:border-[#30363d]/50 cursor-zoom-in hover:opacity-95 transition-opacity" loading="lazy" onclick="window.open(this.src, '_blank')" />
+        ${alt ? `<figcaption class="mt-2 text-center text-[11px] text-[#656d76] dark:text-[#8b949e] italic">${alt}</figcaption>` : ''}
+      </figure>`;
+    });
+
     // 6. Links [label](url)
     html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-[#0969da] dark:text-[#58a6ff] hover:underline font-semibold">$1</a>');
 
@@ -1088,6 +1102,27 @@
           </div>
         </div>
 
+        <!-- Architectural Blueprint from Canonical Book Literature -->
+        ${notes.diagram_url ? `
+          <div class="rounded-xl border border-[#d0d7de] dark:border-[#30363d] overflow-hidden bg-[#f6f8fa]/60 dark:bg-[#0d1117]/60">
+            <div class="px-3.5 py-2 border-b border-[#d0d7de]/60 dark:border-[#30363d]/60 bg-white dark:bg-[#161b22] flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-[#656d76] dark:text-[#8b949e]">
+              <span class="flex items-center gap-1.5 text-[#0969da] dark:text-[#58a6ff]">
+                <span>📐</span>
+                <span>Architectural Blueprint (${escapeHtml(notes.diagram_source || "Canonical Literature")})</span>
+              </span>
+              <span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">Book Diagram</span>
+            </div>
+            <div class="p-3 sm:p-4 flex flex-col items-center">
+              <img src="${escapeHtml((document.querySelector('meta[name="base-url"]')?.getAttribute('content') || '/').replace(/\/+$/, '') + '/' + notes.diagram_url.replace(/^\/+/, ''))}" alt="${escapeHtml(notes.diagram_caption || '')}" class="modal-diagram-img max-h-80 w-auto object-contain rounded-lg border border-[#d0d7de]/40 dark:border-[#30363d]/40 bg-white dark:bg-[#0d1117] cursor-zoom-in hover:opacity-95 transition-opacity shadow-2xs" style="max-height: 340px;" loading="lazy" onclick="window.open(this.src, '_blank')" />
+              ${notes.diagram_caption ? `
+                <p class="mt-2.5 text-xs text-[#656d76] dark:text-[#8b949e] text-center italic">
+                  ${escapeHtml(notes.diagram_caption)}
+                </p>
+              ` : ""}
+            </div>
+          </div>
+        ` : ""}
+
         <!-- 3. Key Code / CLI Implementation -->
         ${notes.code_example ? `
           <div class="space-y-1.5">
@@ -1354,6 +1389,12 @@ Please act as a Principal Frontend Architect. Walk me through:
   // Event Delegation & Setup
   // ---------------------------------------------------------------------------
   document.addEventListener("DOMContentLoaded", () => {
+    try {
+      if (localStorage.getItem("sidebar-collapsed") === "true") {
+        document.body.classList.add("sidebar-collapsed");
+      }
+    } catch (err) {}
+
     syncUI();
     initFlashcardSystem();
 
@@ -1527,6 +1568,17 @@ Please act as a Principal Frontend Architect. Walk me through:
         closeSearch();
         e.target.classList.add("hidden");
         document.body.classList.remove("overflow-hidden");
+        return;
+      }
+
+      // 14b. Desktop Collapsible Sidebar Toggle Pill
+      const sidebarToggleBtn = e.target.closest("#sidebar-toggle-btn");
+      if (sidebarToggleBtn) {
+        e.preventDefault();
+        const isCollapsed = document.body.classList.toggle("sidebar-collapsed");
+        try {
+          localStorage.setItem("sidebar-collapsed", isCollapsed ? "true" : "false");
+        } catch (err) {}
         return;
       }
 

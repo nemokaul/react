@@ -35,7 +35,7 @@
 
   <!-- Sticky Top Header -->
   <header id="main-header" class="sticky top-0 z-30 w-full border-b border-[#d0d7de] dark:border-[#30363d] bg-white/95 dark:bg-[#0d1117]/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-[#0d1117]/80 transition-all duration-200">
-    <div class="max-w-[1600px] mx-auto px-3 sm:px-6 h-14 flex items-center justify-between gap-2 sm:gap-4">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-2 sm:gap-4">
       
       <!-- Left: Mobile Toggle & Brand -->
       <div class="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
@@ -130,7 +130,7 @@
     <button id="sidebar-backdrop" type="button" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 lg:hidden hidden cursor-pointer border-0" aria-label="Close sidebar"></button>
 
     <!-- Curriculum Sidebar (Left) -->
-    <aside id="course-sidebar" class="fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] h-full shrink-0 border-r border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa] dark:bg-[#0d1117] flex flex-col transition-transform duration-200 -translate-x-full lg:translate-x-0 lg:static lg:sticky lg:top-14 lg:h-[calc(100vh-3.5rem)] lg:z-10 select-none">
+    <aside id="course-sidebar" class="fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] h-full shrink-0 border-r border-[#d0d7de] dark:border-[#30363d] bg-[#f6f8fa] dark:bg-[#0d1117] flex flex-col transition-transform duration-200 -translate-x-full lg:translate-x-0 lg:sticky lg:top-14 lg:h-[calc(100vh-3.5rem)] lg:z-10 select-none">
       
       <!-- Mobile Sidebar Header & Progress (Shown only on < lg) -->
       <div class="lg:hidden p-3 border-b border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] space-y-2.5 shrink-0">
@@ -169,14 +169,14 @@
       </div>
 
       <!-- Curriculum Control Bar -->
-      <div class="px-3.5 py-2.5 border-b border-[#d0d7de] dark:border-[#30363d] flex items-center justify-between text-xs shrink-0 bg-[#f6f8fa] dark:bg-[#0d1117]">
-        <span class="font-bold uppercase tracking-wider text-[#656d76] dark:text-[#8b949e] text-[11px] flex items-center gap-1.5">
+      <div class="px-3 py-2 border-b border-[#d0d7de] dark:border-[#30363d] flex items-center justify-between text-xs shrink-0 bg-[#f6f8fa] dark:bg-[#0d1117]">
+        <span class="font-bold uppercase tracking-wider text-[#656d76] dark:text-[#8b949e] text-[10px] sm:text-[11px] flex items-center gap-1.5 shrink-0">
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
           </svg>
-          <span>7 Modules • 130 Chapters</span>
+          <span>7 Modules • 130 Ch</span>
         </span>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 shrink-0">
           <button id="toggle-all-sections-btn" type="button" class="text-[11px] text-[#0969da] dark:text-[#58a6ff] hover:underline cursor-pointer flex items-center gap-1 font-medium">
             <span class="toggle-text">Collapse all</span>
           </button>
@@ -472,8 +472,31 @@
       </div>
     </aside>
 
+    <!-- Desktop Sidebar Sticky Toggle Pill (Collapsible like Astro site) -->
+    <button
+      id="sidebar-toggle-btn"
+      type="button"
+      class="sidebar-pill-btn hidden lg:flex"
+      aria-label="Toggle curriculum sidebar"
+      title="Toggle curriculum sidebar"
+    >
+      <span class="sidebar-icon-open flex items-center gap-1">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </span>
+      <span class="sidebar-icon-closed hidden items-center gap-1">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg class="w-3 h-3 text-[#0969da] dark:text-[#58a6ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+        </svg>
+      </span>
+    </button>
+
     <!-- Main Content Area (Right) -->
-    <main class="flex-1 min-w-0 p-4 sm:p-8 lg:p-10 overflow-x-clip">
+    <main class="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 xl:p-10 overflow-x-clip">
       {% block content %}
       {% endblock content %}
     </main>

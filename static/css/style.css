@@ -1458,3 +1458,32 @@ button * {
 .h-7 { height: 1.75rem !important; }
 .w-8 { width: 2rem !important; }
 .h-8 { height: 2rem !important; }
+
+/* Book Architectural Diagrams Styling */
+.book-diagram-img {
+  max-height: 280px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  cursor: zoom-in;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  transition: opacity 0.15s ease;
+}
+.book-diagram-img:hover {
+  opacity: 0.95;
+}
+.modal-diagram-img {
+  max-height: 340px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  cursor: zoom-in;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  transition: opacity 0.15s ease;
+}
+.modal-diagram-img:hover {
+  opacity: 0.95;
+}
+

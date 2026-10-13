@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="max-w-4xl mx-auto space-y-8">
+<div class="w-full max-w-5xl mx-auto space-y-8">
 
   <!-- Breadcrumbs -->
-  <nav class="flex items-center gap-1.5 text-xs text-[#656d76] dark:text-[#8b949e]">
+  <nav class="flex items-center gap-1.5 text-xs text-[#656d76] dark:text-[#8b949e] flex-wrap">
     <a href="{{ config.base_url }}/" class="hover:text-[#0969da] dark:hover:text-[#58a6ff]">Home</a>
     <span>/</span>
     <span>{{ page.extra.part_title }}</span>
@@ -87,21 +87,21 @@
   <!-- Overarching Recommended Courses (Collapsed by default) -->
   {% if page.extra.recommended_courses %}
   <details class="group rounded-xl border border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#161b22] overflow-hidden transition-all shadow-xs">
-    <summary class="flex items-center justify-between p-4 cursor-pointer hover:bg-[#f6f8fa] dark:hover:bg-[#1c2128] transition-colors select-none">
-      <div class="flex items-center gap-2.5">
-        <span class="text-base">🎓</span>
-        <div class="flex items-center gap-2">
+    <summary class="flex items-center justify-between p-3.5 sm:p-4 cursor-pointer hover:bg-[#f6f8fa] dark:hover:bg-[#1c2128] transition-colors select-none">
+      <div class="flex items-center gap-2 sm:gap-2.5 min-w-0">
+        <span class="text-base shrink-0">🎓</span>
+        <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap min-w-0">
           <span class="text-xs font-bold uppercase tracking-wider text-[#1f2328] dark:text-[#f0f6fc]">
-            Overarching Recommended LinkedIn Learning Courses
+            Recommended Courses
           </span>
-          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#f6f8fa] dark:bg-[#0d1117] border border-[#d0d7de] dark:border-[#30363d] text-[#656d76] dark:text-[#8b949e]">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#f6f8fa] dark:bg-[#0d1117] border border-[#d0d7de] dark:border-[#30363d] text-[#656d76] dark:text-[#8b949e] shrink-0">
             {{ page.extra.recommended_courses | length }} Courses
           </span>
         </div>
       </div>
-      <div class="flex items-center gap-1.5 text-xs text-[#656d76] dark:text-[#8b949e]">
-        <span class="text-[11px] group-open:hidden">Show courses</span>
-        <span class="text-[11px] hidden group-open:inline">Hide courses</span>
+      <div class="flex items-center gap-1 text-xs text-[#656d76] dark:text-[#8b949e] shrink-0 ml-2">
+        <span class="text-[11px] hidden sm:inline group-open:hidden">Show</span>
+        <span class="text-[11px] hidden sm:inline hidden group-open:inline">Hide</span>
         <svg class="w-4 h-4 transition-transform duration-200 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
         </svg>
@@ -234,7 +234,7 @@
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div class="flex items-center gap-2 flex-wrap min-w-0">
                         {% if v.category_tag %}
-                          <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300">
+                          <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 max-w-[240px] sm:max-w-sm truncate" title="{{ v.category_tag }}">
                             {{ v.category_tag }}
                           </span>
                         {% endif %}
@@ -291,14 +291,14 @@
                     {% if v.notes %}
                     <details class="video-notes-details group/notes mt-3 rounded-lg border border-[#d0d7de]/70 dark:border-[#30363d]/70 bg-[#f6f8fa]/50 dark:bg-[#0d1117]/50 overflow-hidden text-xs">
                       <summary class="flex items-center justify-between px-3 py-2 cursor-pointer hover:bg-[#eaeef2] dark:hover:bg-[#161b22] select-none transition-colors">
-                        <div class="flex items-center gap-2">
-                          <span class="text-sm">📝</span>
-                          <span class="font-bold text-[#1f2328] dark:text-[#f0f6fc]">Comprehensive Study Notes & Mental Model</span>
-                          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white dark:bg-[#161b22] border border-[#d0d7de] dark:border-[#30363d] text-[#656d76] dark:text-[#8b949e]">Quick Review</span>
+                        <div class="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                          <span class="text-sm shrink-0">📝</span>
+                          <span class="font-bold text-[#1f2328] dark:text-[#f0f6fc] truncate sm:whitespace-normal">Study Notes & Mental Model</span>
+                          <span class="hidden sm:inline-block text-[10px] font-mono px-1.5 py-0.5 rounded bg-white dark:bg-[#161b22] border border-[#d0d7de] dark:border-[#30363d] text-[#656d76] dark:text-[#8b949e] shrink-0">Quick Review</span>
                         </div>
-                        <div class="flex items-center gap-1 text-[11px] text-[#656d76] dark:text-[#8b949e]">
-                          <span class="group-open/notes:hidden">Expand Notes</span>
-                          <span class="hidden group-open/notes:inline">Collapse</span>
+                        <div class="flex items-center gap-1 text-[11px] text-[#656d76] dark:text-[#8b949e] shrink-0 ml-2">
+                          <span class="hidden sm:inline group-open/notes:hidden">Expand Notes</span>
+                          <span class="hidden sm:hidden group-open/notes:inline">Collapse</span>
                           <svg class="w-3.5 h-3.5 transition-transform duration-200 group-open/notes:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                           </svg>
@@ -331,6 +331,27 @@
                           <p class="text-xs text-[#656d76] dark:text-[#8b949e] leading-relaxed">
                             {{ v.notes.mental_model }}
                           </p>
+                        </div>
+                        {% endif %}
+
+                        <!-- Architectural Blueprint from Canonical Literature -->
+                        {% if v.notes.diagram_url %}
+                        <div class="rounded-lg border border-[#d0d7de] dark:border-[#30363d] overflow-hidden bg-[#f6f8fa]/60 dark:bg-[#0d1117]/60">
+                          <div class="px-3 py-1.5 border-b border-[#d0d7de]/60 dark:border-[#30363d]/60 bg-white dark:bg-[#161b22] flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#656d76] dark:text-[#8b949e]">
+                            <span class="flex items-center gap-1.5 text-[#0969da] dark:text-[#58a6ff]">
+                              <span>📐</span>
+                              <span>Architectural Diagram{% if v.notes.diagram_source %} ({{ v.notes.diagram_source }}){% endif %}</span>
+                            </span>
+                            <span class="font-mono text-[9px] px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">Canonical Literature</span>
+                          </div>
+                          <div class="p-2.5 sm:p-3 flex flex-col items-center">
+                            <img src="{{ get_url(path=v.notes.diagram_url) }}" alt="{{ v.notes.diagram_caption }}" class="book-diagram-img max-h-72 w-auto object-contain rounded border border-[#d0d7de]/40 dark:border-[#30363d]/40 bg-white dark:bg-[#0d1117] cursor-zoom-in hover:opacity-95 transition-opacity" style="max-height: 280px;" loading="lazy" onclick="window.open(this.src, '_blank')" />
+                            {% if v.notes.diagram_caption %}
+                              <p class="mt-2 text-[11px] text-[#656d76] dark:text-[#8b949e] text-center italic">
+                                {{ v.notes.diagram_caption }}
+                              </p>
+                            {% endif %}
+                          </div>
                         </div>
                         {% endif %}
 
@@ -375,8 +396,8 @@
                     {% endif %}
 
                     <!-- Card Footer Actions -->
-                    <div class="pt-2 flex items-center justify-between gap-3 text-xs">
-                      <div class="flex items-center gap-2">
+                    <div class="pt-2 flex flex-wrap items-center justify-between gap-2.5 text-xs">
+                      <div class="flex items-center gap-2 flex-wrap">
                         <button type="button" class="btn-mark-complete inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-neutral-100 hover:bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 transition-colors cursor-pointer">
                           <svg class="w-3.5 h-3.5 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
